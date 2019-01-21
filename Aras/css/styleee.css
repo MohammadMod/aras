@@ -1,0 +1,189 @@
+#body_LR{
+    padding: 0;
+    margin: 0;
+    background-color: rgb(235, 231, 231);
+    height: 100vh;
+    width: 100%;
+}
+.styleK{
+    font-family: 'DroidArabicNaskhRegular' !important;
+    font-weight: 600 !important;
+}
+.invois_multK{
+    padding-top:0;
+    padding-bottom:0;
+}
+.User_header_style {
+    display: inline-block;
+}
+#body_newcus {
+    padding: 0;
+    margin: 0;
+    background-color: white;
+    height: 100vh;
+    width: 100%;
+}
+.text-white-70{
+    color: whitesmoke;
+}
+.main .home_icon {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    color: whitesmoke;
+}
+
+.btn-save-style{
+    font-weight:700;
+}
+
+#header_text h4 {
+    color: black;
+    font-size:20px;
+}
+/* Container style */
+.containerd {
+    padding-right: 5px;
+    padding-left: 5px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media (min-width: 768px) {
+    .containerd {
+        width: 750px;
+    }
+}
+
+@media (min-width: 992px) {
+    .containerd {
+        width: 970px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .containerd {
+        width: 1170px;
+    }
+}
+
+.text-center{
+    text-align: center;
+}
+.case-wrapper{
+    position: relative;
+    margin: 0px;
+    float: left;
+    width: 138px;
+    height: 140px;
+}
+.app-icon{    
+    padding: 20px;
+    display: inline-block;
+    margin: auto;
+    text-align: center;
+    border-radius: 16px;
+    cursor: pointer;
+    
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.15);
+}
+.app-icon-ogrange{
+    background-color: #f39c12;
+}
+.app-icon-green{
+    background-color: #589494;
+}
+.app-icon-yellow{
+    background-color: #FFF5A7;
+}
+.app-icon-red{
+    background-color: #C0392B;
+}
+.app-icon-grelight{
+    background-color: #7F8C8D;
+}
+
+.app-icon-purple{
+    background-color: #8E44AD;
+}
+.app-icon-bluelight{
+    background-color: #4AA3DF;
+}
+
+.app-icon-purplelisht{
+    background-color: #7574FF;
+}
+
+
+.app-icon i{
+
+    text-decoration:none;
+    text-decoration-color:none;
+    
+}
+
+.ellipsis{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    vertical-align: middle;
+}
+.case-label{
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 0.4px;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    margin-top: 10px;
+    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5), 0px 1px 5px rgba(0, 0, 0, 0.5);
+}
+.fas{
+    color: black;
+}
+
+.fa-plus{
+    font-size: 40px;
+    padding: 10px 10px;
+}
+.fa-home{
+    padding: 10px 10px;            
+    font-size: 40px;
+}
+.fa-user{
+    font-size: 40px;
+    padding: 10px 12px; 
+}
+.fa-user-plus{
+    font-size: 40px;
+    padding: 10px 5px;
+}
+.fa-utensils{
+    font-size: 40px;
+    padding: 10px 14px;
+
+}
+.fa-dollar-sign{
+    font-size: 40px;
+    padding: 10px 16px;
+}
+
+.fa-fish{
+    font-size: 40px;
+    padding: 10px 7px;
+    color:silver;
+}
+.fa-cart-plus{
+    font-size: 40px;
+    padding: 10px 8px;
+    
+}
+
+.imgpayment img{
+    width: 50px;
+    height: 50px;
+}
+.app-img{
+    width: 98px;
+    height: 98px;
+}
