@@ -18,7 +18,7 @@
     <link href="css/styleee.css" rel="stylesheet" />
     <link href="css/themify-icons.css" rel="stylesheet" />
     <link href="css/typography.css" rel="stylesheet" />
-
+    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body>
     <form id="form1" runat="server">
