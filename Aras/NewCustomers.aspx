@@ -31,7 +31,7 @@
             <asp:CheckBox ID="DisablesCheckBox" runat="server" Text="Disabled ?" />
             <br />
             <br />
-            <asp:Button ID="CreateCustomerButton" runat="server" Text="Submit" />
+            <asp:Button ID="CreateCustomerButton" runat="server" OnClick="CreateCustomerButton_Click" Text="Submit" />
         </div>
     </form>
 </body>

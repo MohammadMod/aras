@@ -16,7 +16,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Button ID="DeleteButton" runat="server" Text="Delete" />
 &nbsp;&nbsp;
-            <asp:Button ID="CreateButton" runat="server" Text="Create" />
+            <asp:Button ID="CreateButton" runat="server" Text="Create" OnClick="CreateButton_Click" />
             <br />
             <br />
         </div>
