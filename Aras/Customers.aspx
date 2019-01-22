@@ -23,9 +23,7 @@
         <asp:GridView ID="CustomersGridView" runat="server">
         </asp:GridView>
     </form>
-    <form id="form1" runat="server">
         <div>
         </div>
-    </form>
 </body>
 </html>

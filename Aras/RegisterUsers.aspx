@@ -64,7 +64,7 @@
         <asp:CheckBox ID="AdminCheckBox" runat="server" Text="Admin !" />
         <br />
         <br />
-        <asp:Button ID="RegisterButton" runat="server" Text="Register" />
+        <asp:Button ID="RegisterButton" runat="server" Text="Register" OnClick="RegisterButton_Click" />
         
    
 
