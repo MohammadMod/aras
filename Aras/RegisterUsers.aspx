@@ -5,6 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>he</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/font-awesome.min.css" rel="stylesheet" />
     <link href="css/metisMenu.css" rel="stylesheet" />
@@ -18,14 +19,19 @@
     <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
     <link href="css/styleee.css" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" />
+
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
-<body>
-    <form id="form1" runat="server">
+<body id="body_LR">
         <div class="login-area" runat="server">
-        <div class="container">
+
+        <div class="containerd">
             <div class="login-box ptb--100">
-                </div>
+                <form id="form1" runat="server">
+                
+                    <div class="regis-form-head">
+                            <h4>تۆمارکردن </h4>
+                    </div>
                     <div class="login-form-body">
                         <div class="form-gp">
                             <label for="InputName">ناو</label>
@@ -60,25 +66,28 @@
                         <div class="form-gp">
                             <label for="InputPassword">ژمارەی نهێنی</label>
                             <asp:TextBox ID="InputPassword" type="password" runat="server" ></asp:TextBox>
-                            <i class="ti-lock">
-                            
+                            <i class="ti-lock">    
                             </i>
                         </div>
-
-                        <br />
-                            <br />
-                            Admin:
+                        <div class="form-gps">
+                            <label for="CheckBox1">ئەدمین</label>
                             <asp:CheckBox ID="CheckBox1" runat="server" />
+                            <%--<i class="ti-lock">    
+                            </i>--%>
+                        </div>
+                            
 
                         <div class="submit-btn-area">
-                            <%--<asp:Button ID="Button1" CssClass="btnn" type="submit" Text="تۆمارکردن" runat="server" OnClick="Button1_Click" />--%>
+                            <asp:Button ID="Button1" CssClass="btnn" type="submit" Text="تۆمارکردن" runat="server"/>
                         </div>
 
                     </div>
                 
-            </div>
-    </div>
     </form>
+    </div>
+            </div>
+            </div>
+
     <script src="js/app.js"></script>
     <script src="js/bar-chart.js"></script>
     <script src="js/bootstrap.min.js"></script>
