@@ -159,7 +159,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="About.aspx" />
     <Content Include="Account\AddPhoneNumber.aspx" />
     <Content Include="Account\Confirm.aspx" />
     <Content Include="Account\Forgot.aspx" />
@@ -177,7 +176,6 @@
     <Content Include="Account\VerifyPhoneNumber.aspx" />
     <Content Include="AdminWareHouse.aspx" />
     <Content Include="Bank.aspx" />
-    <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -233,6 +231,7 @@
     <Content Include="js\vendor\jquery-2.2.4.min.js" />
     <Content Include="js\vendor\modernizr-2.8.3.min.js" />
     <Content Include="Login.aspx" />
+    <Content Include="NewCustomers.aspx" />
     <Content Include="RegisterUsers.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -382,13 +381,6 @@
       <DependentUpon>AdminWareHouse.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="About.aspx.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="About.aspx.designer.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-    </Compile>
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
@@ -398,13 +390,6 @@
     </Compile>
     <Compile Include="Bank.aspx.designer.cs">
       <DependentUpon>Bank.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Contact.aspx.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Contact.aspx.designer.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
     <Compile Include="Customers.aspx.cs">
       <DependentUpon>Customers.aspx</DependentUpon>
@@ -431,6 +416,13 @@
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="NewCustomers.aspx.cs">
+      <DependentUpon>NewCustomers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewCustomers.aspx.designer.cs">
+      <DependentUpon>NewCustomers.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegisterUsers.aspx.cs">
       <DependentUpon>RegisterUsers.aspx</DependentUpon>

@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>he</title>
+    <title>Register</title>
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/font-awesome.min.css" rel="stylesheet" />
     <link href="css/metisMenu.css" rel="stylesheet" />
@@ -22,63 +22,10 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="login-area" runat="server">
-        <div class="container">
-            <div class="login-box ptb--100">
-                </div>
-                    <div class="login-form-body">
-                        <div class="form-gp">
-                            <label for="InputName">ناو</label>
-                            <asp:TextBox ID="InputName" runat="server"></asp:TextBox>
-                            <i class="ti-user"></i>
-                        </div>
+        
+   
 
-                        <div class="form-gp">
-                            <label for="InputLast">ناوی باوکی</label>                            
-                            <asp:TextBox ID="InputLast" runat="server" ></asp:TextBox>
-                            <i class="ti-user"></i>
-                        </div>
-                        
-                        <div class="form-gp">
-                            <label for="InputPhone">ژمارەی موبایل</label>                            
-                            <asp:TextBox ID="InputPhone" runat="server" ></asp:TextBox>
-                            <i class="fa fa-mobile-phone"></i>
-                        </div>
-                        
-                        <div class="form-gp">
-                            <label for="InputLoca">شوێنی نشتەجێبوون</label>
-                            <asp:TextBox ID="InputLoca" runat="server" ></asp:TextBox>
-                            <i class="ti-location-pin"></i>
-                        </div>
 
-                        <div class="form-gp">
-                            <label for="exampleInputFullN">ناوی تەواوی</label>
-                            <asp:TextBox ID="TextBox1" runat="server" ></asp:TextBox>
-                            <i class="ti-user"></i>
-                        </div>
-
-                        <div class="form-gp">
-                            <label for="InputPassword">ژمارەی نهێنی</label>
-                            <asp:TextBox ID="InputPassword" type="password" runat="server" ></asp:TextBox>
-                            <i class="ti-lock">
-                            
-                            </i>
-                        </div>
-
-                        <br />
-                            <br />
-                            Admin:
-                            <asp:CheckBox ID="CheckBox1" runat="server" />
-
-                        <div class="submit-btn-area">
-                            <%--<asp:Button ID="Button1" CssClass="btnn" type="submit" Text="تۆمارکردن" runat="server" OnClick="Button1_Click" />--%>
-                        </div>
-
-                    </div>
-                
-            </div>
-    </div>
-    </form>
     <script src="js/app.js"></script>
     <script src="js/bar-chart.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -93,5 +40,35 @@
     <script src="js/plugins.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/scripts.js"></script>
-</body>
+        Full Name:
+        <asp:TextBox ID="FullNameTextBox" runat="server"></asp:TextBox>
+        <br />
+        <br />
+        UserName:&nbsp;&nbsp;&nbsp; <asp:TextBox ID="UserNameTextBox" runat="server"></asp:TextBox>
+        <br />
+        <br />
+        Password:
+        <asp:TextBox ID="PasswordTextBox" runat="server"></asp:TextBox>
+        <br />
+        <br />
+        Phone Number:
+        <asp:TextBox ID="PhoneTextBox" runat="server"></asp:TextBox>
+        <br />
+        <br />
+        Location:
+        <asp:TextBox ID="LocationTextBox" runat="server"></asp:TextBox>
+        <br />
+        <br />
+        <br />
+        <br />
+        <asp:CheckBox ID="AdminCheckBox" runat="server" Text="Admin !" />
+        <br />
+        <br />
+        <asp:Button ID="RegisterButton" runat="server" Text="Register" />
+        
+   
+
+
+    </form>
+    </body>
 </html>

@@ -10,7 +10,7 @@
 namespace Aras {
     
     
-    public partial class RegisterUsers {
+    public partial class NewCustomers {
         
         /// <summary>
         /// form1 control.
@@ -22,40 +22,22 @@ namespace Aras {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// FullNameTextBox control.
+        /// CostumerNameTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox FullNameTextBox;
+        protected global::System.Web.UI.WebControls.TextBox CostumerNameTextBox;
         
         /// <summary>
-        /// UserNameTextBox control.
+        /// ResturantNameTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox UserNameTextBox;
-        
-        /// <summary>
-        /// PasswordTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox PasswordTextBox;
-        
-        /// <summary>
-        /// PhoneTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox PhoneTextBox;
+        protected global::System.Web.UI.WebControls.TextBox ResturantNameTextBox;
         
         /// <summary>
         /// LocationTextBox control.
@@ -67,21 +49,39 @@ namespace Aras {
         protected global::System.Web.UI.WebControls.TextBox LocationTextBox;
         
         /// <summary>
-        /// AdminCheckBox control.
+        /// PhoneNumberTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox AdminCheckBox;
+        protected global::System.Web.UI.WebControls.TextBox PhoneNumberTextBox;
         
         /// <summary>
-        /// RegisterButton control.
+        /// MoneyInDeptTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button RegisterButton;
+        protected global::System.Web.UI.WebControls.TextBox MoneyInDeptTextBox;
+        
+        /// <summary>
+        /// DisablesCheckBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox DisablesCheckBox;
+        
+        /// <summary>
+        /// CreateCustomerButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button CreateCustomerButton;
     }
 }
