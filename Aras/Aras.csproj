@@ -217,6 +217,7 @@
     <Content Include="js\app.js" />
     <Content Include="js\bar-chart.js" />
     <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\HamaScripts.js" />
     <Content Include="js\jquery.slicknav.min.js" />
     <Content Include="js\jquery.slimscroll.min.js" />
     <Content Include="js\line-chart.js" />
@@ -231,6 +232,7 @@
     <Content Include="js\vendor\jquery-2.2.4.min.js" />
     <Content Include="js\vendor\modernizr-2.8.3.min.js" />
     <Content Include="Login.aspx" />
+    <Content Include="New Invoice.aspx" />
     <Content Include="NewCustomers.aspx" />
     <Content Include="NewSupplier.aspx" />
     <Content Include="RegisterUsers.aspx" />
@@ -262,6 +264,7 @@
     <Content Include="Scripts\WebForms\WebForms.js" />
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="ShowSalesInvoice.aspx" />
     <Content Include="Site.Master" />
     <Content Include="Suppliers.aspx" />
     <Content Include="Users.aspx" />
@@ -419,6 +422,13 @@
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="New Invoice.aspx.cs">
+      <DependentUpon>New Invoice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="New Invoice.aspx.designer.cs">
+      <DependentUpon>New Invoice.aspx</DependentUpon>
+    </Compile>
     <Compile Include="NewCustomers.aspx.cs">
       <DependentUpon>NewCustomers.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -440,6 +450,13 @@
     </Compile>
     <Compile Include="RegisterUsers.aspx.designer.cs">
       <DependentUpon>RegisterUsers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ShowSalesInvoice.aspx.cs">
+      <DependentUpon>ShowSalesInvoice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShowSalesInvoice.aspx.designer.cs">
+      <DependentUpon>ShowSalesInvoice.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
