@@ -19,19 +19,19 @@
             </asp:DropDownList>
             <br />
             <br />
-            Kilo:<asp:TextBox ID="KiloTextBox" runat="server" onkeyup="getValues()"></asp:TextBox>
+            Kilo:<asp:TextBox ID="KiloTextBox" runat="server" onkeyup="getValues()" required="true"></asp:TextBox>
             <br />
             <br />
-            Cost of Kilo:<asp:TextBox ID="CostOfKiloTextBox" onkeyup="getValues()" runat="server"></asp:TextBox>
+            Cost of Kilo:<asp:TextBox ID="CostOfKiloTextBox" onkeyup="getValues()" runat="server" required ="true"></asp:TextBox>
             <br />
             <br />
-            Total:<asp:TextBox ID="TotallTextBox" runat="server"></asp:TextBox>
+            Total:<asp:TextBox ID="TotallTextBox" runat="server" Enabled="False"></asp:TextBox>
             <br />
             <br />
-            Disscount:<asp:TextBox ID="DiscountTextBox" onkeyup="getValues()" runat="server"></asp:TextBox>
+            Disscount:<asp:TextBox ID="DiscountTextBox" onkeyup="getValues()" runat="server" required="true"></asp:TextBox>
             <br />
             <br />
-            Totall all:<asp:TextBox ID="TotallAllTextBox" runat="server"></asp:TextBox>
+            Totall all:<asp:TextBox ID="TotallAllTextBox" runat="server" Enabled="False"></asp:TextBox>
             <br />
             <br />
             <asp:Button ID="SubmitNewInvoiceButton" runat="server" Text="Submit" />

@@ -10,7 +10,7 @@
 namespace Aras {
     
     
-    public partial class NewSupplier {
+    public partial class Purchase {
         
         /// <summary>
         /// form1 control.
@@ -22,57 +22,57 @@ namespace Aras {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// SupplierFullNameTextBox control.
+        /// DropDownList1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SupplierFullNameTextBox;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
         
         /// <summary>
-        /// NewSupplierDepitMoneyTextBox control.
+        /// KiloTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox NewSupplierDepitMoneyTextBox;
+        protected global::System.Web.UI.WebControls.TextBox KiloTextBox;
         
         /// <summary>
-        /// SupplierLocationTextBox control.
+        /// CostTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SupplierLocationTextBox;
+        protected global::System.Web.UI.WebControls.TextBox CostTextBox;
         
         /// <summary>
-        /// SupplierPhoneNumberTextBox control.
+        /// TotallAllTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SupplierPhoneNumberTextBox;
+        protected global::System.Web.UI.WebControls.TextBox TotallAllTextBox;
         
         /// <summary>
-        /// DisableCheckBox control.
+        /// dateTimeTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox DisableCheckBox;
+        protected global::System.Web.UI.WebControls.TextBox dateTimeTextBox;
         
         /// <summary>
-        /// CreateNewSupplierButton control.
+        /// PurchaseButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button CreateNewSupplierButton;
+        protected global::System.Web.UI.WebControls.Button PurchaseButton;
     }
 }
