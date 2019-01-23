@@ -22,21 +22,62 @@
     <link href="css/style.css" rel="stylesheet" />
     <link href="css/styleee.css" rel="stylesheet" />
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    <style>
+        .submit-btn-area .btnn {
+        width: 100%;
+        height: 50px;
+        border: none;
+        background: #fff;
+        color: #585b5f;
+        border-radius: 40px;
+        text-transform: uppercase;
+        letter-spacing: 0;
+        font-weight: 600;
+        font-size: 12px;
+        box-shadow: 0 0 22px rgba(0, 0, 0, 0.07);
+        -webkit-transition: all 0.3s ease 0s;
+        transition: all 0.3s ease 0s;
+    }
+
+        .submit-btn-area .btnn:hover {
+            background: #2c71da;
+            color: #ffffff;
+        }
+    </style>
 </head>
-<body>
-    <form id="form1" runat="server">
-        User Name:
-        <asp:TextBox ID="UserNameTextBox" runat="server"></asp:TextBox>
-        <br />
-        Passowrd:
-        <asp:TextBox ID="PasswordTextBox" runat="server"></asp:TextBox>
-        <br />
-        <br />
-&nbsp;<asp:CheckBox ID="CheckBox1" runat="server" Text="Remember Me!" />
-        <br />
-        <br />
-        <br />
-        <asp:Button ID="LoginButton" runat="server" Text="Login" />
-    </form>
+
+<body id="body_LR"> 
+    <div class="login-area" >
+        <div class="container">
+            <div class="login-box ptb--100">
+                <form id="form1" runat="server">
+                    <div class="login-form-head">
+                        <h4>داخیل بوون</h4>
+                    </div>
+
+                    <div class="login-form-body">
+                        <div class="form-gp">
+                            <label for="UserNameTextBox">ناوی بەکارهێنەر</label>
+                            <i class="ti-user"></i>
+                           <asp:TextBox ID="UserNameTextBox" runat="server"></asp:TextBox>
+
+                        </div>
+
+                        <div class="form-gp">
+                            <label for="PasswordTextBox">ژمارەی نهێنی</label>
+                            <i class="ti-lock"></i>
+                            <asp:TextBox ID="PasswordTextBox" TextMode="Password" runat="server"></asp:TextBox>
+                        </div>
+                        &nbsp;<asp:CheckBox ID="CheckBox1" runat="server" Text="Remember Me!" />
+                        <br />
+                   
+                        <div class="submit-btn-area">    
+                             <asp:Button ID="LoginButton" runat="server" CssClass="btnn" type="submit"  Text="داخیل بوون" />
+                        </div>
+                     </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
