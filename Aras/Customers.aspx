@@ -24,7 +24,7 @@
             <Columns>
                 <asp:TemplateField HeaderText="Select to delete">
                     <ItemTemplate>
-                        <asp:CheckBox ID="CheckBox1" runat="server" style="text-align: center" />
+                        <asp:CheckBox ID="CheckBox1" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" style="text-align: center" />
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
