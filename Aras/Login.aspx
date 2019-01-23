@@ -50,7 +50,7 @@
     <div class="login-area" >
         <div class="container">
             <div class="login-box ptb--100">
-                <form id="form1" runat="server">
+                <form  runat="server">
                     <div class="login-form-head">
                         <h4>داخیل بوون</h4>
                     </div>
