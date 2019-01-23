@@ -14,13 +14,20 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Button ID="SearchButton" runat="server" Text="Search" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="DeleteButton" runat="server" Text="Delete" />
+            <asp:Button ID="DeleteButton" runat="server" Text="Delete" OnClick="DeleteButton_Click" />
 &nbsp;&nbsp;
             <asp:Button ID="CreateButton" runat="server" Text="Create" OnClick="CreateButton_Click" />
             <br />
             <br />
         </div>
-        <asp:GridView ID="CustomersGridView" runat="server">
+        <asp:GridView ID="CustomersGridView" runat="server" AllowPaging="True" AllowSorting="True">
+            <Columns>
+                <asp:TemplateField HeaderText="Select to delete">
+                    <ItemTemplate>
+                        <asp:CheckBox ID="CheckBox1" runat="server" style="text-align: center" />
+                    </ItemTemplate>
+                </asp:TemplateField>
+            </Columns>
         </asp:GridView>
     </form>
         <div>

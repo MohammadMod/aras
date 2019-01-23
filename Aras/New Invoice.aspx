@@ -11,11 +11,14 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            Select Customer Name:<asp:DropDownList ID="SelectCustomerDropDownList" runat="server">
+            Select Customer Name:<asp:DropDownList ID="SelectCustomerDropDownList" runat="server" OnSelectedIndexChanged="SelectCustomerDropDownList_SelectedIndexChanged">
             </asp:DropDownList>
+            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
             <br />
             <br />
             Series:<asp:DropDownList ID="SeriesDropDownList" runat="server">
+                <asp:ListItem>Name Of Series</asp:ListItem>
+                <asp:ListItem>Name of series return</asp:ListItem>
             </asp:DropDownList>
             <br />
             <br />
@@ -34,7 +37,7 @@
             Totall all:<asp:TextBox ID="TotallAllTextBox" runat="server" Enabled="False"></asp:TextBox>
             <br />
             <br />
-            <asp:Button ID="SubmitNewInvoiceButton" runat="server" Text="Submit" />
+            <asp:Button ID="SubmitNewInvoiceButton" runat="server" Text="Submit" OnClick="SubmitNewInvoiceButton_Click" />
         </div>
     </form>
 

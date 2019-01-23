@@ -19,7 +19,7 @@
         <br />
         <br />
         <br />
-        <asp:Button ID="LoginButton" runat="server" Text="Login" />
+        <asp:Button ID="LoginButton" runat="server" Text="Login" OnClick="LoginButton_Click" style="height: 29px" />
     </form>
 </body>
 </html>

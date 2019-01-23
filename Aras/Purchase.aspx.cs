@@ -14,8 +14,12 @@ namespace Aras
             #region Hama Region
             TotallAllTextBox.Enabled = false;
             dateTimeTextBox.Enabled = false;
-
             dateTimeTextBox.Text = DateTime.Now.ToString();
+
+
+            string Name = Application["Name"].ToString();
+            Response.Write("Welcome: " + Name);
+
             #endregion
 
 
