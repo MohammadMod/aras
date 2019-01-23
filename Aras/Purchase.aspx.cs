@@ -11,9 +11,14 @@ namespace Aras
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            #region Hama Region
+            TotallAllTextBox.Enabled = false;
             dateTimeTextBox.Enabled = false;
 
             dateTimeTextBox.Text = DateTime.Now.ToString();
+            #endregion
+
+
         }
     }
 }

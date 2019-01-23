@@ -10,7 +10,6 @@ function getValues() {
 }
 
 //This function is for calculating the kilo and the cost in purchase form
-
 function calculate() {
     var myBox1 = document.getElementById('KiloTextBox').value;
     var myBox2 = document.getElementById('CostTextBox').value;
@@ -18,3 +17,4 @@ function calculate() {
     var myResult = myBox1 * myBox2;
     document.getElementById('TotallAllTextBox').value = myResult;
 }
+
