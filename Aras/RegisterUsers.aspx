@@ -6,6 +6,7 @@
 <head runat="server">
     <title>he</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Register</title>
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/font-awesome.min.css" rel="stylesheet" />
     <link href="css/metisMenu.css" rel="stylesheet" />
@@ -22,6 +23,7 @@
 
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
+<<<<<<< HEAD
 <body id="body_LR">
         <div class="login-area" runat="server">
 
@@ -38,25 +40,15 @@
                             <asp:TextBox ID="InputName" runat="server"></asp:TextBox>
                             <i class="ti-user"></i>
                         </div>
+=======
+<body>
+    <form id="form1" runat="server">
+        
+   
+>>>>>>> 704fe5abccdaecf7ed67cc44b36928a981f7ceab
 
-                        <div class="form-gp">
-                            <label for="InputLast">ناوی باوکی</label>                            
-                            <asp:TextBox ID="InputLast" runat="server" ></asp:TextBox>
-                            <i class="ti-user"></i>
-                        </div>
-                        
-                        <div class="form-gp">
-                            <label for="InputPhone">ژمارەی موبایل</label>                            
-                            <asp:TextBox ID="InputPhone" runat="server" ></asp:TextBox>
-                            <i class="fa fa-mobile-phone"></i>
-                        </div>
-                        
-                        <div class="form-gp">
-                            <label for="InputLoca">شوێنی نشتەجێبوون</label>
-                            <asp:TextBox ID="InputLoca" runat="server" ></asp:TextBox>
-                            <i class="ti-location-pin"></i>
-                        </div>
 
+<<<<<<< HEAD
                         <div class="form-gp">
                             <label for="exampleInputFullN">ناوی تەواوی</label>
                             <asp:TextBox ID="TextBox1" runat="server" ></asp:TextBox>
@@ -88,6 +80,8 @@
             </div>
             </div>
 
+=======
+>>>>>>> 704fe5abccdaecf7ed67cc44b36928a981f7ceab
     <script src="js/app.js"></script>
     <script src="js/bar-chart.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -102,5 +96,35 @@
     <script src="js/plugins.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/scripts.js"></script>
-</body>
+        Full Name:
+        <asp:TextBox ID="FullNameTextBox" runat="server"></asp:TextBox>
+        <br />
+        <br />
+        UserName:&nbsp;&nbsp;&nbsp; <asp:TextBox ID="UserNameTextBox" runat="server"></asp:TextBox>
+        <br />
+        <br />
+        Password:
+        <asp:TextBox ID="PasswordTextBox" runat="server"></asp:TextBox>
+        <br />
+        <br />
+        Phone Number:
+        <asp:TextBox ID="PhoneTextBox" runat="server"></asp:TextBox>
+        <br />
+        <br />
+        Location:
+        <asp:TextBox ID="LocationTextBox" runat="server"></asp:TextBox>
+        <br />
+        <br />
+        <br />
+        <br />
+        <asp:CheckBox ID="AdminCheckBox" runat="server" Text="Admin !" />
+        <br />
+        <br />
+        <asp:Button ID="RegisterButton" runat="server" Text="Register" OnClick="RegisterButton_Click" />
+        
+   
+
+
+    </form>
+    </body>
 </html>

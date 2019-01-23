@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminWareHouse.aspx.cs" Inherits="Aras.AdminWareHouse" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Users.aspx.cs" Inherits="Aras.Users" %>
 
 <!DOCTYPE html>
 
@@ -9,18 +9,20 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            Search:
             <asp:TextBox ID="SearchTextBox" runat="server"></asp:TextBox>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Button ID="SearchButton" runat="server" Text="Search" />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
             <asp:Button ID="DeleteButton" runat="server" Text="Delete" />
-&nbsp;&nbsp;
-            <asp:Button ID="CreateButton" runat="server" Text="Create" />
+&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="CreateButton" runat="server" OnClick="CreateButton_Click" Text="Create" />
             <br />
             <br />
         </div>
-        <asp:GridView ID="AdminWareHouseGridView" runat="server" Width="371px">
+        <asp:GridView ID="ViewUsersGridView" runat="server">
+            <Columns>
+                <asp:CheckBoxField />
+            </Columns>
         </asp:GridView>
     </form>
 </body>

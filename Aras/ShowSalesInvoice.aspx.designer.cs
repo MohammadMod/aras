@@ -10,16 +10,16 @@
 namespace Aras {
     
     
-    public partial class Customers {
+    public partial class ShowSalesInvoice {
         
         /// <summary>
-        /// form2 control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form2;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
         /// SearchTextBox control.
@@ -31,39 +31,21 @@ namespace Aras {
         protected global::System.Web.UI.WebControls.TextBox SearchTextBox;
         
         /// <summary>
-        /// SearchButton control.
+        /// NewInvoiceButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button SearchButton;
+        protected global::System.Web.UI.WebControls.Button NewInvoiceButton;
         
         /// <summary>
-        /// DeleteButton control.
+        /// ShowSalesInvoicesGridView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button DeleteButton;
-        
-        /// <summary>
-        /// CreateButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button CreateButton;
-        
-        /// <summary>
-        /// CustomersGridView control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView CustomersGridView;
+        protected global::System.Web.UI.WebControls.GridView ShowSalesInvoicesGridView;
     }
 }

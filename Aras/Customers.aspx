@@ -16,16 +16,14 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Button ID="DeleteButton" runat="server" Text="Delete" />
 &nbsp;&nbsp;
-            <asp:Button ID="CreateButton" runat="server" Text="Create" />
+            <asp:Button ID="CreateButton" runat="server" Text="Create" OnClick="CreateButton_Click" />
             <br />
             <br />
         </div>
         <asp:GridView ID="CustomersGridView" runat="server">
         </asp:GridView>
     </form>
-    <form id="form1" runat="server">
         <div>
         </div>
-    </form>
 </body>
 </html>

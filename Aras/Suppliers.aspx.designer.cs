@@ -10,16 +10,16 @@
 namespace Aras {
     
     
-    public partial class Customers {
+    public partial class Suppliers {
         
         /// <summary>
-        /// form2 control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form2;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
         /// SearchTextBox control.
@@ -58,12 +58,12 @@ namespace Aras {
         protected global::System.Web.UI.WebControls.Button CreateButton;
         
         /// <summary>
-        /// CustomersGridView control.
+        /// ViewSuppliersGridView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView CustomersGridView;
+        protected global::System.Web.UI.WebControls.GridView ViewSuppliersGridView;
     }
 }
