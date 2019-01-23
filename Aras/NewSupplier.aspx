@@ -9,16 +9,21 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            Full Name:<br />
+            Full Name:<asp:TextBox ID="SupplierFullNameTextBox" runat="server"></asp:TextBox>
             <br />
-            Depit Money:<br />
             <br />
-            Location:<br />
+            Depit Money:<asp:TextBox ID="NewSupplierDepitMoneyTextBox" runat="server"></asp:TextBox>
+            <br />
+            <br />
+            Location:<asp:TextBox ID="SupplierLocationTextBox" runat="server"></asp:TextBox>
+            <br />
             <br />
             Phone Number:
+            <asp:TextBox ID="SupplierPhoneNumberTextBox" runat="server"></asp:TextBox>
             <br />
             <br />
             <asp:CheckBox ID="DisableCheckBox" runat="server" Text="Disables !" />
+            <br />
             <br />
         </div>
         <asp:Button ID="CreateNewSupplierButton" runat="server" OnClick="CreateNewSupplierButton_Click" Text="Submit" />

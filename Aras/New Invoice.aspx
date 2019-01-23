@@ -11,30 +11,33 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            Select Customer Name:<asp:DropDownList ID="SelectCustomerDropDownList" runat="server">
+            Select Customer Name:<asp:DropDownList ID="SelectCustomerDropDownList" runat="server" OnSelectedIndexChanged="SelectCustomerDropDownList_SelectedIndexChanged">
             </asp:DropDownList>
+            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
             <br />
             <br />
             Series:<asp:DropDownList ID="SeriesDropDownList" runat="server">
+                <asp:ListItem>Name Of Series</asp:ListItem>
+                <asp:ListItem>Name of series return</asp:ListItem>
             </asp:DropDownList>
             <br />
             <br />
-            Kilo:<asp:TextBox ID="KiloTextBox" runat="server" onkeyup="getValues()"></asp:TextBox>
+            Kilo:<asp:TextBox ID="KiloTextBox" runat="server" onkeyup="getValues()" required="true"></asp:TextBox>
             <br />
             <br />
-            Cost of Kilo:<asp:TextBox ID="CostOfKiloTextBox" onkeyup="getValues()" runat="server"></asp:TextBox>
+            Cost of Kilo:<asp:TextBox ID="CostOfKiloTextBox" onkeyup="getValues()" runat="server" required ="true"></asp:TextBox>
             <br />
             <br />
-            Total:<asp:TextBox ID="TotallTextBox" runat="server"></asp:TextBox>
+            Total:<asp:TextBox ID="TotallTextBox" runat="server" Enabled="False"></asp:TextBox>
             <br />
             <br />
-            Disscount:<asp:TextBox ID="DiscountTextBox" onkeyup="getValues()" runat="server"></asp:TextBox>
+            Disscount:<asp:TextBox ID="DiscountTextBox" onkeyup="getValues()" runat="server" required="true"></asp:TextBox>
             <br />
             <br />
-            Totall all:<asp:TextBox ID="TotallAllTextBox" runat="server"></asp:TextBox>
+            Totall all:<asp:TextBox ID="TotallAllTextBox" runat="server" Enabled="False"></asp:TextBox>
             <br />
             <br />
-            <asp:Button ID="SubmitNewInvoiceButton" runat="server" Text="Submit" />
+            <asp:Button ID="SubmitNewInvoiceButton" runat="server" Text="Submit" OnClick="SubmitNewInvoiceButton_Click" />
         </div>
     </form>
 

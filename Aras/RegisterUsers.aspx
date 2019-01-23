@@ -97,22 +97,22 @@
     <script src="js/popper.min.js"></script>
     <script src="js/scripts.js"></script>
         Full Name:
-        <asp:TextBox ID="FullNameTextBox" runat="server"></asp:TextBox>
+        <asp:TextBox ID="FullNameTextBox" runat="server" required="true"></asp:TextBox>
         <br />
         <br />
-        UserName:&nbsp;&nbsp;&nbsp; <asp:TextBox ID="UserNameTextBox" runat="server"></asp:TextBox>
+        UserName:&nbsp;&nbsp;&nbsp; <asp:TextBox ID="UserNameTextBox" runat="server" required="true" ></asp:TextBox>
         <br />
         <br />
         Password:
-        <asp:TextBox ID="PasswordTextBox" runat="server"></asp:TextBox>
+        <asp:TextBox ID="PasswordTextBox" runat="server" required="true"></asp:TextBox>
         <br />
         <br />
         Phone Number:
-        <asp:TextBox ID="PhoneTextBox" runat="server"></asp:TextBox>
+        <asp:TextBox ID="PhoneTextBox" runat="server" required="true"></asp:TextBox>
         <br />
         <br />
         Location:
-        <asp:TextBox ID="LocationTextBox" runat="server"></asp:TextBox>
+        <asp:TextBox ID="LocationTextBox" runat="server" required="true"></asp:TextBox>
         <br />
         <br />
         <br />
