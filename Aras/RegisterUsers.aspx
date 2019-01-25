@@ -23,64 +23,74 @@
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 
+
+
+
+
 <body id="body_LR">
         <div class="login-area" runat="server">
 
-        <div class="containerd">
-            <div class="login-box ptb--100">
-                <form id="form1" runat="server">
+            <div class="containerd">
+                <div class="login-box ptb--100">
+                    <form id="form2" runat="server">
                 
-                    <div class="regis-form-head">
-                            <h4>تۆمارکردن </h4>
-                    </div>
-                    <div class="login-form-body">
-                        <div class="form-gp">
-                            <label for="InputName">ناو</label>
-                            <asp:TextBox ID="InputName" runat="server"></asp:TextBox>
-                            <i class="ti-user"></i>
-                        </div>
-=======
-<body>
-    <form id="form1" runat="server">
-        
-   
->>>>>>> 704fe5abccdaecf7ed67cc44b36928a981f7ceab
-
-
-<<<<<<< HEAD
-                        <div class="form-gp">
-                            <label for="exampleInputFullN">ناوی تەواوی</label>
-                            <asp:TextBox ID="TextBox1" runat="server" ></asp:TextBox>
-                            <i class="ti-user"></i>
+                        <div class="regis-form-head">
+                                <h4>تۆمارکردن </h4>
                         </div>
 
-                        <div class="form-gp">
-                            <label for="InputPassword">ژمارەی نهێنی</label>
-                            <asp:TextBox ID="InputPassword" type="password" runat="server" ></asp:TextBox>
-                            <i class="ti-lock">    
-                            </i>
-                        </div>
-                        <div class="form-gps">
-                            <label for="CheckBox1">ئەدمین</label>
-                            <asp:CheckBox ID="CheckBox1" runat="server" />
-                            <%--<i class="ti-lock">    
-                            </i>--%>
-                        </div>
+                        <div class="login-form-body">
+                            <div class="form-gp">
+                                <label for="FullNameTextBox">ناو</label>
+                                 <asp:TextBox ID="FullNameTextBox" runat="server" required="true"></asp:TextBox>
+                                <i class="ti-user"></i>
+                            </div>
+
+                            <div class="form-gp">
+                                <label for="UserNameTextBox">ناوی تەواوی</label>
+                                <asp:TextBox ID="UserNameTextBox" runat="server" required="true" ></asp:TextBox>
+                                <i class="ti-user"></i>
+                            </div>
+
+                            <div class="form-gp">
+                                <label for="PasswordTextBox">ژمارەی نهێنی</label>
+                                <asp:TextBox ID="PasswordTextBox" type="password" runat="server" required="true"></asp:TextBox>
+                                <i class="ti-lock">    
+                                </i>
+                            </div>
+
+                        
+                            <div class="form-gp">
+                                <label for="PhoneTextBox">ژمارەی موبایل</label>    
+                                <asp:TextBox ID="PhoneTextBox" runat="server" required="true"></asp:TextBox>
+                                <i class="ti-mobile"></i>
+                            </div>
+
+                             <div class="form-gp">
+                                <label for="LocationTextBox">شوێنی نشتەجێبوون</label>
+                                <asp:TextBox ID="LocationTextBox" runat="server" required="true"></asp:TextBox>
+                                <i class="ti-location-pin"></i>
+                            </div>
+
+                            <div class="form-gps">
+                                <label for="AdminCheckBox">ئەدمین</label>
+                                <asp:CheckBox ID="AdminCheckBox" runat="server"  />
+                                <%--<i class="ti-lock">    
+                                </i>--%>
+                            </div>
                             
 
-                        <div class="submit-btn-area">
-                            <asp:Button ID="Button1" CssClass="btnn" type="submit" Text="تۆمارکردن" runat="server"/>
+                            <div class="submit-btn-area">
+                                 <asp:Button ID="Button2" runat="server" CssClass="btnn" type="submit" Text="تۆمارکردن"  OnClick="RegisterButton_Click" />
+                            </div>
+
                         </div>
-
-                    </div>
-                
-    </form>
-    </div>
+                    </form>
+                </div>
             </div>
-            </div>
+      </div>
+   
 
-=======
->>>>>>> 704fe5abccdaecf7ed67cc44b36928a981f7ceab
+   
     <script src="js/app.js"></script>
     <script src="js/bar-chart.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -95,35 +105,5 @@
     <script src="js/plugins.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/scripts.js"></script>
-        Full Name:
-        <asp:TextBox ID="FullNameTextBox" runat="server" required="true"></asp:TextBox>
-        <br />
-        <br />
-        UserName:&nbsp;&nbsp;&nbsp; <asp:TextBox ID="UserNameTextBox" runat="server" required="true" ></asp:TextBox>
-        <br />
-        <br />
-        Password:
-        <asp:TextBox ID="PasswordTextBox" runat="server" required="true"></asp:TextBox>
-        <br />
-        <br />
-        Phone Number:
-        <asp:TextBox ID="PhoneTextBox" runat="server" required="true"></asp:TextBox>
-        <br />
-        <br />
-        Location:
-        <asp:TextBox ID="LocationTextBox" runat="server" required="true"></asp:TextBox>
-        <br />
-        <br />
-        <br />
-        <br />
-        <asp:CheckBox ID="AdminCheckBox" runat="server" Text="Admin !" />
-        <br />
-        <br />
-        <asp:Button ID="RegisterButton" runat="server" Text="Register" OnClick="RegisterButton_Click" />
-        
-   
-
-
-    </form>
     </body>
 </html>
