@@ -398,6 +398,7 @@
     <Compile Include="Bank.aspx.designer.cs">
       <DependentUpon>Bank.aspx</DependentUpon>
     </Compile>
+    <Compile Include="BindingData.cs" />
     <Compile Include="Customers.aspx.cs">
       <DependentUpon>Customers.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
