@@ -15,17 +15,28 @@ namespace Aras
         string checkBox = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
-            SqlDataAdapter da = new SqlDataAdapter("select * from Customer", con);
-           
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            CustomersGridView.DataSource = ds;
-            CustomersGridView.DataBind();
+            #region Hama reading customer names from db to gridview
+            try
+            {
+                SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
+                SqlDataAdapter da = new SqlDataAdapter("select * from Customer", con);
 
-            CustomersGridView.AllowCustomPaging = true;
-            CustomersGridView.AllowSorting = true;
-            
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                CustomersGridView.DataSource = ds;
+                CustomersGridView.DataBind();
+
+                CustomersGridView.AllowCustomPaging = true;
+                CustomersGridView.AllowSorting = true;
+                #endregion
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+          
+
         }
 
         protected void CreateButton_Click(object sender, EventArgs e)
@@ -37,16 +48,11 @@ namespace Aras
 
         protected void DeleteButton_Click(object sender, EventArgs e)
         {
-            foreach (GridViewRow row in CustomersGridView.Rows)
-            {
-                CheckBox cb = (CheckBox)row.FindControl("CheckBox1");
-                if (cb != null && cb.Checked)
-                {
 
-                    DeleteButton.Visible = false;                    
-                  
-                }
-            }
+            #region Mr. Milad
+            //when the user clicks the check box then click the delete button a message should pop up for confirmation
+
+            #endregion
         }
 
         protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
