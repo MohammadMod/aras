@@ -58,7 +58,9 @@ namespace Aras
         #region Hama Bind Data from db to users gridview in users form
         public void UsersGridView(GridView ViewUsersGridView)
         {
-          
+
+            try
+            {
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("Select * from regester_table", conn);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -83,6 +85,13 @@ namespace Aras
                 }
                 ViewUsersGridView.AllowPaging = true;
                 ViewUsersGridView.AllowSorting = true;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+               
          
            
         }

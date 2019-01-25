@@ -16,16 +16,20 @@ namespace Aras
         protected void Page_Load(object sender, EventArgs e)
         {
             #region Hama reding registerd users info to gridview
-            try
+            if (!IsPostBack)
             {
-                bd.UsersGridView(ViewUsersGridView);
-               
-            }
-            catch (Exception)
-            {
+                try
+                {
+                    bd.UsersGridView(ViewUsersGridView);
 
-                throw;
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
             }
+           
 
             #endregion
 
@@ -57,24 +61,32 @@ namespace Aras
         protected void ViewUsersGridView_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
             #region Hama below codes are for updating values of the users
-             
-             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
+            try
+            {
+                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
 
-            GridViewRow row = (GridViewRow)ViewUsersGridView.Rows[e.RowIndex];
-            TextBox textName = (TextBox)row.Cells[1].Controls[0];
-            TextBox companyName = (TextBox)row.Cells[2].Controls[0];
-            TextBox debitMoney = (TextBox)row.Cells[3].Controls[0];
-            TextBox Location = (TextBox)row.Cells[4].Controls[0];
-            TextBox disable = (TextBox)row.Cells[5].Controls[0];
-            TextBox PhoneNumber = (TextBox)row.Cells[6].Controls[0];
-            TextBox userID = (TextBox)row.Cells[7].Controls[0];
+                GridViewRow row = (GridViewRow)ViewUsersGridView.Rows[e.RowIndex];
+                TextBox fName = (TextBox)row.Cells[1].Controls[0];
+                TextBox lName = (TextBox)row.Cells[2].Controls[0];
+                TextBox phoneNumber = (TextBox)row.Cells[3].Controls[0];
+                TextBox Location = (TextBox)row.Cells[4].Controls[0];
+                TextBox completeName = (TextBox)row.Cells[5].Controls[0];
+                TextBox Password = (TextBox)row.Cells[6].Controls[0];
+                TextBox userID = (TextBox)row.Cells[7].Controls[0];
 
-            ViewUsersGridView.EditIndex = -1;
-            conn.Open();
-            SqlCommand cmd = new SqlCommand("update regester_table set name='" + textName.Text + "',last_name='" + companyName.Text + "',phone_number='" + debitMoney.Text + "',location='" + Location.Text + "',complite_name='" + disable.Text + "',pin_cod='" + PhoneNumber.Text + "'where id='" + int.Parse(userID.Text.ToString()) + "'", conn);
-            cmd.ExecuteNonQuery();
-            conn.Close();
-            bd.UsersGridView(ViewUsersGridView);
+                ViewUsersGridView.EditIndex = -1;
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("update regester_table set name='" + fName.Text + "',last_name='" + lName.Text + "',phone_number='" + phoneNumber.Text + "',location='" + Location.Text + "',complite_name='" + completeName.Text + "',pin_cod='" + Password.Text + "'where id='" + int.Parse(userID.Text.ToString()) + "'", conn);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                bd.UsersGridView(ViewUsersGridView);
+            }
+            catch (Exception)
+            {
+
+                Response.Write("invalid data intered");
+            }
+          
 
 
             #endregion
