@@ -37,6 +37,9 @@
             Totall all:<asp:TextBox ID="TotallAllTextBox" runat="server" Enabled="False"></asp:TextBox>
             <br />
             <br />
+            Date:<asp:TextBox ID="DateTimeTextBox" runat="server" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
+            <br />
+            <br />
             <asp:Button ID="SubmitNewInvoiceButton" runat="server" Text="Submit" OnClick="SubmitNewInvoiceButton_Click" />
         </div>
     </form>

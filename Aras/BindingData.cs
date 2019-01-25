@@ -99,5 +99,68 @@ namespace Aras
 
 
 
+        #region Bind Data to show sales invoice 
+
+        public void showSalesInvoice(GridView showSalesInvoice)
+        {
+            try
+            {
+
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("showInvoices", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                conn.Close();
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    showSalesInvoice.DataSource = ds;
+                    showSalesInvoice.DataBind();
+                }
+                else
+                {
+                    ds.Tables[0].Rows.Add(ds.Tables[0].NewRow());
+                    showSalesInvoice.DataSource = ds;
+                    showSalesInvoice.DataBind();
+                    int columncount = showSalesInvoice.Rows[0].Cells.Count;
+                    showSalesInvoice.Rows[0].Cells.Clear();
+                    showSalesInvoice.Rows[0].Cells.Add(new TableCell());
+                    showSalesInvoice.Rows[0].Cells[0].ColumnSpan = columncount;
+                    showSalesInvoice.Rows[0].Cells[0].Text = "No Records Found";
+                }
+                showSalesInvoice.AllowPaging = true;
+                showSalesInvoice.AllowSorting = true;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+
+
+        #endregion
+
+
+        #region Bind Data to dropDown list in new invoice
+        public void CustomerDropDown(DropDownList SelectCustomerDropDownList)
+        {
+            DataTable subjects = new DataTable();
+
+            SqlDataAdapter adapter = new SqlDataAdapter("SELECT [name] FROM [Customer]", conn);
+            adapter.Fill(subjects);
+
+            conn.Open();
+            SelectCustomerDropDownList.DataSource = subjects;
+            SelectCustomerDropDownList.DataTextField = "name";
+            SelectCustomerDropDownList.DataValueField = "name";
+            SelectCustomerDropDownList.DataBind();
+            SelectCustomerDropDownList.Items.Insert(0, new ListItem("Select", "NA"));
+
+            conn.Close();
+        }
+        #endregion
     }
 }

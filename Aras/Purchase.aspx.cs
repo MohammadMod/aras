@@ -17,8 +17,8 @@ namespace Aras
             dateTimeTextBox.Text = DateTime.Now.ToString();
 
 
-            string Name = Application["Name"].ToString();
-            Response.Write("Welcome: " + Name);
+            //string Name = Application["Name"].ToString();
+            //Response.Write("Welcome: " + Name);
 
             #endregion
 
