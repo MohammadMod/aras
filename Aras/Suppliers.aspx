@@ -73,27 +73,46 @@
       <hr>
        </section>
 
-
-    <form id="form1" runat="server">
-        <p>
-            <asp:TextBox ID="SearchTextBox" runat="server"></asp:TextBox>
-&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="SearchButton" runat="server" Text="Search" />
-&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="EditButton" runat="server" Text="Edit" />
-&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="CreateButton" runat="server" OnClick="CreateButton_Click" Text="Create" />
-        </p>
-        <div>
-        </div>
-        <asp:GridView ID="ViewSuppliersGridView" runat="server" OnRowEditing="ViewSuppliersGridView_RowEditing" OnRowUpdating="ViewSuppliersGridView_RowUpdating" OnPageIndexChanging="ViewSuppliersGridView_PageIndexChanging" OnRowCancelingEdit="ViewSuppliersGridView_RowCancelingEdit" AllowPaging="true" PageSize="10" AllowSorting="true" OnSorting="ViewSuppliersGridView_Sorting">
-            <Columns>
-                <asp:CommandField ShowEditButton="True" />
-            </Columns>
+    <div class="container">      
+        <form id="form1" runat="server">
             
-        </asp:GridView>
-    </form>
+            <div class="form-row ">
 
+                <div class="col-6 col-sm-6 col-md-6 col-lg-6 my-1">
+
+                    <div class="input-group">
+                        <asp:TextBox ID="SearchTextBox" CssClass="form-control form-control-lg styleK" placeholder="..گەران" runat="server"></asp:TextBox>
+                        <div class="input-group-prepend">
+                            <asp:Button ID="SearchButton" CssClass="input-group-text" runat="server" Text="Search" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-sm-6 col-md-6 col-lg-6 my-1 text-right">
+                    
+                    <div class="form-inline">
+                        <asp:Button ID="EditButton" CssClass="btn btn-warning btn-sm mx-4" runat="server" Text="Edit" />
+                        <asp:Button ID="CreateButton" CssClass="btn btn-danger btn-sm mx-4" runat="server" OnClick="CreateButton_Click" Text="Create" />
+                    </div>
+                </div>
+
+              </div>
+
+
+            
+            <div class="border p-3">
+                <asp:GridView ID="ViewSuppliersGridView" runat="server"
+                    OnRowEditing="ViewSuppliersGridView_RowEditing" OnRowUpdating="ViewSuppliersGridView_RowUpdating" 
+                    OnPageIndexChanging="ViewSuppliersGridView_PageIndexChanging" OnRowCancelingEdit="ViewSuppliersGridView_RowCancelingEdit"
+                    AllowPaging="true" PageSize="5" AllowSorting="true" OnSorting="ViewSuppliersGridView_Sorting" 
+                    CssClass="table table-stripet table-bordered table-hover table-responsive-md text-center ">
+                    <Columns>
+                        <asp:CommandField ShowEditButton="True" />
+                    </Columns>
+                </asp:GridView>
+            </div>
+        </form>
+    </div>
     
      <script src="js/app.js"></script>
     
