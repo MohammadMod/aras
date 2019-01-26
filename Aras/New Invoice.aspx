@@ -7,7 +7,7 @@
 
     <title>New Invoice</title>
      <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/bootstrap.css" rel="stylesheet" />
     <link href="css/font-awesome.min.css" rel="stylesheet" />
     <link href="css/metisMenu.css" rel="stylesheet" />
     <link href="css/owl.carousel.min.css" rel="stylesheet" />
@@ -41,7 +41,6 @@
             <div class="container">
                 <div class=" d-sm-inline-block text-white-70">
                     <a href="/"><i class="fa fa-home home_icon"></i></a>
-                 
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="navbar-nav ml-auto">
