@@ -71,9 +71,8 @@
       <div class="container">
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6 col-6">
-                Time 
+                time
 
-            
           </div>
           <div class="col-lg-6 col-md-6 col-sm-6 col-6 text-right">
             <h4 class="styleK">وەسڵ</h4>
@@ -86,10 +85,9 @@
     
     <section class="pt-0 pb-2">
       <div class="container">
-        <div class="alert alert-warning" role="alert">
 
-            <asp:Label ID="Label1" runat="server" CssClass="" Text="Label"></asp:Label>
-        </div>
+            <asp:Label ID="Label1" runat="server" CssClass="alert alert-sm alert-warning alert-dismissible fade show flash" Text="Label"></asp:Label>
+
         
           
         <div class="border">
