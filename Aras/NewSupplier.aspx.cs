@@ -19,12 +19,16 @@ namespace Aras
         }
 
         protected void CreateNewSupplierButton_Click(object sender, EventArgs e)
+
+
+
         {
             #region Hama Creating new Supplier
             try
             {
                 inD.newSupplier(SupplierFullNameTextBox.Text, NewSupplierDepitMoneyTextBox.Text, SupplierLocationTextBox.Text, DisableCheckBox, SupplierPhoneNumberTextBox.Text);
-                Response.Redirect("Suppliers.aspx");
+                Response.Redirect("Supp" +
+                    "liers.aspx");
 
             }
             catch (Exception)
