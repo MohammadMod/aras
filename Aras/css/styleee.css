@@ -5,7 +5,15 @@
     height: 100vh;
     width: 100%;
 }
-.styleK{
+
+@media (max-width: 376px) 
+{
+    .btn-sm{
+        padding : 8px 5px !important;
+        border-radius:4px;
+    }
+}
+.styleK {
     font-family: 'DroidArabicNaskhRegular' !important;
     font-weight: 600 !important;
 }

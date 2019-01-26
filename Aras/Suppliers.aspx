@@ -83,19 +83,16 @@
                     <div class="input-group">
                         <asp:TextBox ID="SearchTextBox" CssClass="form-control form-control-lg styleK" placeholder="..گەران" runat="server"></asp:TextBox>
                         <div class="input-group-prepend">
-                            <asp:Button ID="SearchButton" CssClass="input-group-text" runat="server" Text="Search" />
+                            <asp:Button ID="SearchButton" CssClass="input-group-text styleK" runat="server" Text="گەران" />
                         </div>
                     </div>
                 </div>
 
-                <div class="col-6 col-sm-6 col-md-6 col-lg-6 my-1 text-right">
-                    
-                    <div class="form-inline">
-                        <asp:Button ID="EditButton" CssClass="btn btn-warning btn-sm mx-4" runat="server" Text="Edit" />
-                        <asp:Button ID="CreateButton" CssClass="btn btn-danger btn-sm mx-4" runat="server" OnClick="CreateButton_Click" Text="Create" />
-                    </div>
-                </div>
 
+                <div class="col-6 col-sm-6 col-md-6 col-lg-6 my-1 text-right">                    
+                        <asp:Button ID="EditButton" CssClass="btn btn-warning btn-sm styleK" runat="server" Text="دەستکاری کردن" />
+                        <asp:Button ID="CreateButton" CssClass="btn btn-danger btn-sm styleK" runat="server" OnClick="CreateButton_Click" Text="دروستکردن" />
+                </div>
               </div>
 
 
