@@ -83,8 +83,7 @@ namespace Aras
                     ViewUsersGridView.Rows[0].Cells[0].ColumnSpan = columncount;
                     ViewUsersGridView.Rows[0].Cells[0].Text = "No Records Found";
                 }
-                ViewUsersGridView.AllowPaging = true;
-                ViewUsersGridView.AllowSorting = true;
+                ViewUsersGridView.DataBind();
             }
             catch (Exception)
             {
@@ -158,6 +157,27 @@ namespace Aras
             SelectCustomerDropDownList.DataValueField = "name";
             SelectCustomerDropDownList.DataBind();
             SelectCustomerDropDownList.Items.Insert(0, new ListItem("Select", "NA"));
+
+            conn.Close();
+        }
+        #endregion
+
+
+        #region Binding Supplier data to purchase form drop down list
+
+        public void SupplierName(DropDownList SelectSupplier)
+        {
+            DataTable subjects = new DataTable();
+
+            SqlDataAdapter adapter = new SqlDataAdapter("SELECT [name] FROM [supplier]", conn);
+            adapter.Fill(subjects);
+
+            conn.Open();
+            SelectSupplier.DataSource = subjects;
+            SelectSupplier.DataTextField = "name";
+            SelectSupplier.DataValueField = "name";
+            SelectSupplier.DataBind();
+            SelectSupplier.Items.Insert(0, new ListItem("Select", "NA"));
 
             conn.Close();
         }

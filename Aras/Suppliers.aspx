@@ -86,9 +86,13 @@
         </p>
         <div>
         </div>
-        <asp:GridView ID="ViewSuppliersGridView" runat="server" OnRowEditing="ViewSuppliersGridView_RowEditing" OnRowUpdating="ViewSuppliersGridView_RowUpdating" OnPageIndexChanging="ViewSuppliersGridView_PageIndexChanging" OnRowCancelingEdit="ViewSuppliersGridView_RowCancelingEdit" AllowPaging="true" PageSize="10" AllowSorting="true" OnSorting="ViewSuppliersGridView_Sorting">
+        <asp:GridView ID="ViewSuppliersGridView" runat="server" OnRowEditing="ViewSuppliersGridView_RowEditing" OnRowUpdating="ViewSuppliersGridView_RowUpdating" OnPageIndexChanging="ViewSuppliersGridView_PageIndexChanging" OnRowCancelingEdit="ViewSuppliersGridView_RowCancelingEdit" AllowPaging="True" AllowSorting="True" OnSorting="ViewSuppliersGridView_Sorting" >
             <Columns>
                 <asp:CommandField ShowEditButton="True" />
+                <asp:BoundField DataField="name" HeaderText="name" SortExpression="name" />
+                <asp:BoundField DataField="debit" HeaderText="debit" SortExpression="debit" />
+                <asp:BoundField DataField="phone_number" HeaderText="phone_number" SortExpression="phone_number" />
+                <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
             </Columns>
             
         </asp:GridView>

@@ -34,7 +34,7 @@
             <br />
             <br />
             Supplier:
-            <asp:DropDownList ID="DropDownList1" runat="server">
+            <asp:DropDownList ID="ViewSupplierDropDownList" runat="server">
             </asp:DropDownList>
             <br />
             <br />
@@ -50,7 +50,7 @@
             <br />
             <br />
             <br />
-            <asp:Button ID="PurchaseButton" runat="server" Text="Submit" />
+            <asp:Button ID="PurchaseButton" runat="server" Text="Submit" OnClick="PurchaseButton_Click" />
         </div>
     </form>
 

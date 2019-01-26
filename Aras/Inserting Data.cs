@@ -50,9 +50,10 @@ namespace Aras
 
         }
 
-        public void registerUsers(string userName,string FullName,int phoneNumber,string location,string Password)
+        public void registerUsers(string userName,string FullName,int phoneNumber,string location,string Password,char Admin)
         {
 
+         
 
             //checking for avilability of the username 
             try
@@ -87,6 +88,9 @@ namespace Aras
                         cmd.Parameters.AddWithValue("location", location);
                         cmd.Parameters.AddWithValue("complite_name", userName);
                         cmd.Parameters.AddWithValue("pin_cod", Password);
+                        cmd.Parameters.AddWithValue("Admin", Admin);
+
+                       
 
                         cmd.CommandType = System.Data.CommandType.StoredProcedure;
                         cmd.ExecuteNonQuery();
@@ -145,6 +149,37 @@ namespace Aras
                 throw;
             }
         }
+
+        public void InsertPurchase(DropDownList selectSupplier, string dateTime, float rate, float amount)
+
+
+        {
+            try
+            {
+
+                SqlCommand cmd = new SqlCommand("INSERT_purchase_Invoce", con);
+                con.Open();
+                cmd.Parameters.AddWithValue("series", "");
+                cmd.Parameters.AddWithValue("Supplier_ID", selectSupplier.SelectedIndex);
+                cmd.Parameters.AddWithValue("Posting_date", Convert.ToDateTime(dateTime));
+                cmd.Parameters.AddWithValue("rate", rate);
+                cmd.Parameters.AddWithValue("amount", amount);
+                cmd.Parameters.AddWithValue("totall_amount", rate * amount);
+
+
+
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+          
+        }
+
 
 
     }

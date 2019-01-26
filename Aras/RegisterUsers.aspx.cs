@@ -23,15 +23,25 @@ namespace Aras
             #region Hama RegisterUsers
             try
             {
-                inD.registerUsers(UserNameTextBox.Text, FullNameTextBox.Text, int.Parse(PhoneTextBox.Text), LocationTextBox.Text, PasswordTextBox.Text);
+                char isAdmin;
+                if (AdminCheckBox.Checked == true)
+                {
+                    isAdmin = '1';
+                }
+                else
+                {
+                    isAdmin = '0';
+                }
+                inD.registerUsers(UserNameTextBox.Text, FullNameTextBox.Text, int.Parse(PhoneTextBox.Text), LocationTextBox.Text, PasswordTextBox.Text, isAdmin);
                 Response.Redirect("Users.aspx");
-
             }
             catch (Exception)
             {
-
-                throw;
+                Response.Write("invalid data entered please check the form again");
             }
+                
+
+        
           
 
             #endregion
