@@ -51,7 +51,7 @@ namespace Aras
 
                 throw;
             }
-           
+
 
         }
 
@@ -92,7 +92,7 @@ namespace Aras
 
             //    Response.Write("Invalid data intered Please check the enterd data again");
             //}
-           
+
             #endregion
 
         }
@@ -101,15 +101,15 @@ namespace Aras
         {
             try
             {
-                //ViewSuppliersGridView.PageIndex = e.NewPageIndex;
-                //bd.SupplierGridView(ViewSuppliersGridView);
+                ViewSuppliersGridView.PageIndex = e.NewPageIndex;
+                bd.SupplierGridView(ViewSuppliersGridView);
             }
             catch (Exception)
             {
 
                 throw;
             }
-           
+
         }
 
         protected void ViewSuppliersGridView_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
@@ -124,12 +124,13 @@ namespace Aras
 
                 throw;
             }
-           
+
         }
 
         protected void ViewSuppliersGridView_Sorting(object sender, GridViewSortEventArgs e)
         {
-            //bd.SupplierGridView(ViewSuppliersGridView);
+            bd.SupplierGridView(ViewSuppliersGridView);
+
         }
     }
 }

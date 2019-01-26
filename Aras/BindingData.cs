@@ -167,20 +167,35 @@ namespace Aras
 
         public void SupplierName(DropDownList SelectSupplier)
         {
-            DataTable subjects = new DataTable();
+            try
+            {
+                DataTable subjects = new DataTable();
 
-            SqlDataAdapter adapter = new SqlDataAdapter("SELECT [name] FROM [supplier]", conn);
-            adapter.Fill(subjects);
+                SqlDataAdapter adapter = new SqlDataAdapter("SELECT [name] FROM [supplier]", conn);
+                adapter.Fill(subjects);
 
-            conn.Open();
-            SelectSupplier.DataSource = subjects;
-            SelectSupplier.DataTextField = "name";
-            SelectSupplier.DataValueField = "name";
-            SelectSupplier.DataBind();
-            SelectSupplier.Items.Insert(0, new ListItem("Select", "NA"));
+                conn.Open();
+                SelectSupplier.DataSource = subjects;
+                SelectSupplier.DataTextField = "name";
+                SelectSupplier.DataValueField = "name";
+                SelectSupplier.DataBind();
+                SelectSupplier.Items.Insert(0, new ListItem("Select", "NA"));
 
-            conn.Close();
+                conn.Close();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+           
         }
+
+
+
         #endregion
+
+
+
     }
 }

@@ -20,13 +20,17 @@
     <link href="css/app.css" rel="stylesheet" />
 
     <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+    
 
     <link href="css/styleee.css" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" />
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 
+    <script src="js/HamaScripts.js"></script>
+
+
 </head>
-<body id="body_newcus">
+<body id="body_newcus" onload="startTime()">
     <div class="main">
         <nav class="navbar navbar-expand navbar-light bg-dark">
             <div class="container">
@@ -62,7 +66,7 @@
       <div class="container">
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6 col-6">
-                time
+                <div id="txt"></div>
 
           </div>
           <div class="col-lg-6 col-md-6 col-sm-6 col-6 text-right">
@@ -102,7 +106,7 @@
                     OnRowEditing="ViewSuppliersGridView_RowEditing" OnRowUpdating="ViewSuppliersGridView_RowUpdating" 
                     OnPageIndexChanging="ViewSuppliersGridView_PageIndexChanging" OnRowCancelingEdit="ViewSuppliersGridView_RowCancelingEdit"
                     AllowPaging="true" PageSize="5" AllowSorting="true" OnSorting="ViewSuppliersGridView_Sorting" 
-                    CssClass="table table-stripet table-bordered table-hover table-responsive-md text-center ">
+                    CssClass="table table-stripet table-bordered table-hover table-responsive-md text-center " ShowHeaderWhenEmpty="True">
                     <Columns>
                         <asp:CommandField ShowEditButton="True" />
                     </Columns>
