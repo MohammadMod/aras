@@ -133,7 +133,7 @@
                     <div class="col-lg-3 col-md-6 col-sm-6  mt-0">
                         <div class="form-group">
                             
-                             <asp:Button ID="CreateCustomerButton" CssClass="btn btn-outline-success btn-block btn-save-style styleK" 
+                             <asp:Button ID="CreateCustomerButton" CssClass="btn btn-success btn-block btn-save-style styleK" 
                              runat="server" OnClick="CreateCustomerButton_Click" Text="زیاد کردن"/>
                         </div>
                     </div> 

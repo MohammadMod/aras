@@ -123,7 +123,7 @@
 
                     <div class="col-lg-3 col-md-6 col-sm-6  mt-0">
                         <div class="form-group">
-                            <asp:Button ID="CreateNewSupplierButton" class="btn btn-outline-success btn-block styleK" 
+                            <asp:Button ID="CreateNewSupplierButton" class="btn btn-success btn-block styleK" 
                             runat="server" OnClick="CreateNewSupplierButton_Click" Text="خەزن کردن" />
                         </div>
                     </div>  
