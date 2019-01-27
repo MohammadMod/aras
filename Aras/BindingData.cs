@@ -14,13 +14,14 @@ namespace Aras
         SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
         #region Hama Bind Data to ViewSupplierGridView
         //this method is for binding data from db to ViewSupplierGridView
-        public void SupplierGridView(GridView ViewSuppliersGridView)
+        public virtual void SupplierGridView(GridView ViewSuppliersGridView, string condition = "")
         {
             try
             {
 
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("Select * from supplier", conn);
+                string conditionalSQL = (condition.Length>0)?$"Select * from supplier where {condition};" : "Select * from supplier ";
+                SqlCommand cmd = new SqlCommand(conditionalSQL, conn);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 da.Fill(ds);

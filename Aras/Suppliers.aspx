@@ -85,7 +85,7 @@
                 <div class="col-6 col-sm-6 col-md-6 col-lg-6 my-1">
 
                     <div class="input-group">
-                        <asp:TextBox ID="SearchTextBox" CssClass="form-control form-control-lg styleK" placeholder="..گەران" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="SearchTextBox" CssClass="form-control form-control-lg styleK" placeholder="..گەران" runat="server" OnKeyUp ="SearchTextBox_TextChanged"   AutoPostBack="true"></asp:TextBox>
                         <div class="input-group-prepend">
                             <asp:Button ID="SearchButton" CssClass="input-group-text styleK" runat="server" Text="گەران" />
                         </div>

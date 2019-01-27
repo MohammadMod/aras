@@ -57,6 +57,8 @@ namespace Aras
 
         }
 
+      
+
         protected void ViewSuppliersGridView_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
             #region Hama below codes are for updating values of the suppliers
@@ -134,5 +136,22 @@ namespace Aras
             bd.SupplierGridView(ViewSuppliersGridView);
 
         }
+
+        protected void SearchTextBox_TextChanged(object sender, EventArgs e)
+        {
+            string txt = SearchTextBox.Text;
+            string condition =
+                $"name LIKE '{txt}%' " +
+                $"OR company_name LIKE '{txt}%' " +
+                $"OR debit LIKE '{txt}%' " +
+                $"OR location LIKE '{txt}%' " +
+                $"OR phone_number LIKE '{txt}%' " +
+                $"OR ID LIKE '{txt}%'";
+
+
+            bd.SupplierGridView(ViewSuppliersGridView, condition);
+        }
+
+       
     }
 }
