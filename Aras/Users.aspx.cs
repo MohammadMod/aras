@@ -20,7 +20,7 @@ namespace Aras
             {
                 try
                 {
-                    bd.UsersGridView(ViewUsersGridView);
+                    bd.UsersGridView(ViewUsersGridView1);
 
                 }
                 catch (Exception)
@@ -47,8 +47,8 @@ namespace Aras
         {
             try
             {
-                ViewUsersGridView.EditIndex = e.NewEditIndex;
-                bd.UsersGridView(ViewUsersGridView);
+                ViewUsersGridView1.EditIndex = e.NewEditIndex;
+                bd.UsersGridView(ViewUsersGridView1);
             }
             catch (Exception)
             {
@@ -65,7 +65,7 @@ namespace Aras
             {
                 SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
 
-                GridViewRow row = (GridViewRow)ViewUsersGridView.Rows[e.RowIndex];
+                GridViewRow row = (GridViewRow)ViewUsersGridView1.Rows[e.RowIndex];
                 TextBox fName = (TextBox)row.Cells[1].Controls[0];
                 TextBox lName = (TextBox)row.Cells[2].Controls[0];
                 TextBox phoneNumber = (TextBox)row.Cells[3].Controls[0];
@@ -74,12 +74,12 @@ namespace Aras
                 TextBox Password = (TextBox)row.Cells[6].Controls[0];
                 TextBox userID = (TextBox)row.Cells[7].Controls[0];
 
-                ViewUsersGridView.EditIndex = -1;
+                ViewUsersGridView1.EditIndex = -1;
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("update regester_table set name='" + fName.Text + "',last_name='" + lName.Text + "',phone_number='" + phoneNumber.Text + "',location='" + Location.Text + "',complite_name='" + completeName.Text + "',pin_cod='" + Password.Text + "'where id='" + int.Parse(userID.Text.ToString()) + "'", conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
-                bd.UsersGridView(ViewUsersGridView);
+                bd.UsersGridView(ViewUsersGridView1);
             }
             catch (Exception)
             {
@@ -96,8 +96,8 @@ namespace Aras
         {
             try
             {
-                ViewUsersGridView.EditIndex = -1;
-                bd.UsersGridView(ViewUsersGridView);
+                ViewUsersGridView1.EditIndex = -1;
+                bd.UsersGridView(ViewUsersGridView1);
             }
             catch (Exception)
             {
@@ -110,8 +110,9 @@ namespace Aras
         {
             try
             {
-                ViewUsersGridView.PageIndex = e.NewPageIndex;
-                bd.UsersGridView(ViewUsersGridView);
+                ViewUsersGridView1.PageIndex = e.NewPageIndex;
+                bd.UsersGridView(ViewUsersGridView1);
+                
             }
             catch (Exception)
             {
@@ -123,6 +124,11 @@ namespace Aras
         protected void ViewUsersGridView_Sorted(object sender, EventArgs e)
         {
 
+        }
+
+        protected void ViewUsersGridView_Sorting(object sender, GridViewSortEventArgs e)
+        {
+            bd.UsersGridView(ViewUsersGridView1);
         }
     }
 }
