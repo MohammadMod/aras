@@ -68,11 +68,11 @@
                             <i class="ti-lock"></i>
                             <asp:TextBox ID="PasswordTextBox" TextMode="Password" runat="server"></asp:TextBox>
                         </div>
-                        &nbsp;<asp:CheckBox ID="CheckBox1" runat="server" Text="Remember Me!" />
+                        &nbsp;<asp:CheckBox ID="ReminderCheck" runat="server" Text="Remember Me!" />
                         <br />
                    
                         <div class="submit-btn-area">    
-                             <asp:Button ID="LoginButton" runat="server" CssClass="btnn" type="submit"  Text="داخیل بوون" />
+                             <asp:Button ID="LoginButton" runat="server" CssClass="btnn" type="submit"  Text="داخیل بوون"  OnClick="LoginButton_Click" />
                         </div>
                      </div>
                 </form>

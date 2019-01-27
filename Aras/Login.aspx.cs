@@ -13,9 +13,37 @@ namespace Aras
 {
     public partial class Login : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            try
+            {
 
+
+                HttpCookie myCookie = Request.Cookies["savedCookie"];
+                if (myCookie == null)
+                    return;
+                else
+                    ReminderCheck.Checked = true;
+
+                //ok - cookie is found.
+                //Gracefully check if the cookie has the key-value as expected.
+                if (!string.IsNullOrEmpty(myCookie.Values["userid"]))
+                {
+                    UserNameTextBox.Text = myCookie.Values["userid"].ToString();
+
+                }
+
+                if (!string.IsNullOrEmpty(myCookie.Values["userpass"]))
+                {
+                    PasswordTextBox.Text = myCookie.Values["userpass"].ToString();
+
+                }
+            }
+            catch
+            {
+
+            }
         }
 
         protected void LoginButton_Click(object sender, EventArgs e)
@@ -25,6 +53,9 @@ namespace Aras
 
             try
             {
+               
+                
+
                 SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
 
                 SqlCommand cmd = new SqlCommand("login_search", con);
@@ -33,6 +64,12 @@ namespace Aras
                 cmd.CommandType = CommandType.StoredProcedure;
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
+
+                bool remmeberMeChecked = ReminderCheck.Checked;
+
+                if (remmeberMeChecked)
+                    SaveCookie();
+
                 da.Fill(dt);
                 if (dt.Rows.Count > 0)
                 {
@@ -58,6 +95,32 @@ namespace Aras
            
             #endregion 
 
+        }
+
+        private void SaveCookie()
+        {
+            try
+            {
+                //create a cookie
+                HttpCookie myCookie = new HttpCookie("savedCookie");
+
+                //Add key-values in the cookie
+                if (UserNameTextBox.Text!="")
+                    myCookie.Values.Add("userid", UserNameTextBox.Text);
+
+                if (UserNameTextBox.Text != "")
+                    myCookie.Values.Add("userid", UserNameTextBox.Text);
+
+                if (PasswordTextBox.Text != "")
+                    myCookie.Values.Add("userpass", PasswordTextBox.Text);
+
+                //Most important, write the cookie to client.
+                Response.Cookies.Add(myCookie);
+            }
+            catch (Exception ex)
+            {
+                string message = ex.Message;
+            }
         }
     }
 }
