@@ -41,13 +41,13 @@
                         <div class="login-form-body">
                             <div class="form-gp">
                                 <label for="FullNameTextBox">ناو</label>
-                                 <asp:TextBox ID="FullNameTextBox" runat="server" required="true"></asp:TextBox>
+                                 <asp:TextBox ID="UserNameTextBox" runat="server" required="true"></asp:TextBox>
                                 <i class="ti-user"></i>
                             </div>
 
                             <div class="form-gp">
                                 <label for="UserNameTextBox">ناوی تەواوی</label>
-                                <asp:TextBox ID="UserNameTextBox" runat="server" required="true" ></asp:TextBox>
+                                <asp:TextBox ID="FullNameTextBox" runat="server" required="true" ></asp:TextBox>
                                 <i class="ti-user"></i>
                             </div>
 
