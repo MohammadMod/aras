@@ -20,7 +20,7 @@
             <br />
             <br />
         </div>
-        <asp:GridView ID="AdminWareHouseGridView" runat="server" Width="371px">
+        <asp:GridView ID="AdminWareHouseGridView" runat="server" Width="585px" Height="297px">
         </asp:GridView>
     </form>
 </body>

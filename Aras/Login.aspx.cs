@@ -22,42 +22,48 @@ namespace Aras
         {
             #region Hama login
             //login done just the cookies remained
+            char admin = '1';
 
-            try
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
+
+            SqlCommand cmd = new SqlCommand("login_search", con);
+            cmd.Parameters.AddWithValue("complite_name", UserNameTextBox.Text);
+            cmd.Parameters.AddWithValue("password", PasswordTextBox.Text);
+            //cmd.Parameters.AddWithValue("Admin", admin);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+            if (dt.Rows.Count > 0)
             {
-                SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
-
-                SqlCommand cmd = new SqlCommand("login_search", con);
-                cmd.Parameters.AddWithValue("complite_name", UserNameTextBox.Text);
-                cmd.Parameters.AddWithValue("password", PasswordTextBox.Text);
-                cmd.CommandType = CommandType.StoredProcedure;
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                if (dt.Rows.Count > 0)
+                if (dt.Rows[3].ToString() == "1")
                 {
-                    FormsAuthentication.RedirectFromLoginPage(PasswordTextBox.Text, false);
-                    Application["Name"] = UserNameTextBox.Text;
-                    Response.Redirect("Purchase.aspx");
+                    Application["Admin"] = "Admin";
+                    Response.Write(Application["Admin"].ToString());
+                    //FormsAuthentication.RedirectFromLoginPage(UserNameTextBox.Text, false);
+
 
                 }
+
                 else
                 {
-                    ClientScript.RegisterStartupScript(Page.GetType(), "validation", "<script language='javascript'>alert('Invalid Username and Password')</script>");
-
-                    UserNameTextBox.Text = "";
-                    PasswordTextBox.Text = "";
+                    Application["Admin"] = "User";
+                    Response.Write(Application["Admin"].ToString());
                 }
-
             }
-            catch (Exception)
+            else
             {
+                ClientScript.RegisterStartupScript(Page.GetType(), "validation", "<script language='javascript'>alert('Invalid Username and Password')</script>");
 
-                throw;
+                UserNameTextBox.Text = "";
+                PasswordTextBox.Text = "";
             }
-           
-            #endregion 
 
         }
+
+
+        #endregion
+
     }
 }

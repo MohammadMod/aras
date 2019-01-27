@@ -43,6 +43,8 @@ namespace Aras
         {
             try
             {
+                //Application["status"] = "Update";
+                //Response.Redirect("NewSupplier.aspx");
                 ViewSuppliersGridView.EditIndex = e.NewEditIndex;
                 bd.SupplierGridView(ViewSuppliersGridView);
             }
