@@ -17,14 +17,9 @@
             <br />
             <br />
         </div>
-        <asp:GridView ID="ShowSalesInvoicesGridView" runat="server" OnRowEditing="ShowSalesInvoicesGridView_RowEditing" OnRowUpdating="ShowSalesInvoicesGridView_RowUpdating" Width="384px" OnRowCancelingEdit="ShowSalesInvoicesGridView_RowCancelingEdit">
+        <asp:GridView ID="ShowSalesInvoicesGridView" runat="server" OnRowEditing="ShowSalesInvoicesGridView_RowEditing" OnRowUpdating="ShowSalesInvoicesGridView_RowUpdating" Width="384px" OnRowCancelingEdit="ShowSalesInvoicesGridView_RowCancelingEdit" AllowPaging="True" PageSize="2" AllowSorting="True" OnSorting="ShowSalesInvoicesGridView_Sorting" OnPageIndexChanging="ShowSalesInvoicesGridView_PageIndexChanging">
             <Columns>
                 <asp:CommandField ShowEditButton="True" />
-                <asp:TemplateField HeaderText="Pay">
-                    <ItemTemplate>
-                        <asp:CheckBox ID="CheckBox1" runat="server" Text="Pay !" />
-                    </ItemTemplate>
-                </asp:TemplateField>
             </Columns>
            
         </asp:GridView>

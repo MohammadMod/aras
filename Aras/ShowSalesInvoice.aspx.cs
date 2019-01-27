@@ -106,6 +106,23 @@ namespace Aras
             }
         }
 
+        protected void ShowSalesInvoicesGridView_Sorting(object sender, GridViewSortEventArgs e)
+        {
+            bd.showSalesInvoice(ShowSalesInvoicesGridView);
+        }
 
+        protected void ShowSalesInvoicesGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            try
+            {
+                ShowSalesInvoicesGridView.PageIndex = e.NewPageIndex;
+                bd.showSalesInvoice(ShowSalesInvoicesGridView);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

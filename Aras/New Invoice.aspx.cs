@@ -12,6 +12,7 @@ namespace Aras
 {
     public partial class New_Invoice : System.Web.UI.Page
     {
+        Inserting_Data inD = new Inserting_Data();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -56,30 +57,8 @@ namespace Aras
             try
             {
                 #region Hama this region is for inserting to the database
-                SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
-                SqlCommand cmd = new SqlCommand("INSERT_sales_Invoce", con);
-
-                con.Open();
-
-                cmd.Parameters.AddWithValue("series", SeriesDropDownList.SelectedItem.Text);
-                cmd.Parameters.AddWithValue("Customer", SelectCustomerDropDownList.SelectedIndex);
-
-                cmd.Parameters.AddWithValue("rate", float.Parse(KiloTextBox.Text));
-                cmd.Parameters.AddWithValue("amount", float.Parse(CostOfKiloTextBox.Text));
-
-                cmd.Parameters.AddWithValue("posting_date", DateTime.Now);
-                cmd.Parameters.AddWithValue("discount", float.Parse(DiscountTextBox.Text));
-                cmd.Parameters.AddWithValue("sales_invoice_advance_payment_ID", DBNull.Value);
-
-                cmd.Parameters.AddWithValue("satute", "unpaid");
-
-                cmd.Parameters.AddWithValue("Totall", float.Parse(KiloTextBox.Text) * float.Parse(CostOfKiloTextBox.Text));
-                cmd.Parameters.AddWithValue("Totall_All", float.Parse(KiloTextBox.Text) * float.Parse(CostOfKiloTextBox.Text) - float.Parse(DiscountTextBox.Text));
-
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmd.ExecuteNonQuery();
-                con.Close();
-
+                inD.InsertToNewInvoice(SeriesDropDownList, SelectCustomerDropDownList, float.Parse(KiloTextBox.Text), float.Parse(CostOfKiloTextBox.Text), DateTime.Now, float.Parse(DiscountTextBox.Text));
+                Response.Redirect("ShowSalesInvoice.aspx");
                 #endregion
 
                 #region Hama this region is for printing the incoice
@@ -104,9 +83,6 @@ namespace Aras
                 TotallAllTextBox.Text = "";
                 #endregion
             }
-
-
-
 
         }
 
