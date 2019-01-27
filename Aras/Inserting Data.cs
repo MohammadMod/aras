@@ -50,10 +50,8 @@ namespace Aras
 
         }
 
-        public void registerUsers(string userName,string FullName,int phoneNumber,string location,string Password,char Admin)
+        public void registerUsers(string userName,string FullName,Int64 phoneNumber,string location,string Password,char Admin)
         {
-
-         
 
             //checking for avilability of the username 
             try

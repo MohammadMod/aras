@@ -39,7 +39,7 @@ namespace Aras
                     throw new Exception(validator.ToString());
 
 
-                inD.registerUsers(UserNameTextBox.Text, FullNameTextBox.Text, int.Parse(PhoneTextBox.Text), LocationTextBox.Text, PasswordTextBox.Text, isAdmin);
+                inD.registerUsers(UserNameTextBox.Text, FullNameTextBox.Text,Int64.Parse(PhoneTextBox.Text), LocationTextBox.Text, PasswordTextBox.Text, isAdmin);
                 Response.Redirect("Users.aspx");
             }
             catch (Exception ex)

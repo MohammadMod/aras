@@ -11,7 +11,7 @@
         <div>
         </div>
         <asp:TextBox ID="ChildTextBox" runat="server"></asp:TextBox>
-        <asp:TreeView ID="TreeView1" runat="server" OnTreeNodeCheckChanged="TreeView1_TreeNodeCheckChanged">
+        <asp:TreeView ID="TreeView1" runat="server" OnTreeNodeCheckChanged="TreeView1_TreeNodeCheckChanged" ShowLines="True">
         </asp:TreeView>
     </form>
 </body>
