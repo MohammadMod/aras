@@ -1,5 +1,4 @@
-﻿
-//This function is for calculating the values of new invoice form
+﻿//This function is for calculating the values of new invoice form
 function getValues() {
     var numVal1 = parseInt(document.getElementById("KiloTextBox").value);
     var numVal2 = parseInt(document.getElementById("CostOfKiloTextBox").value);
@@ -31,7 +30,7 @@ function startTime() {
     var t = setTimeout(startTime, 500);
 }
 function checkTime(i) {
-    if (i < 10) { i = "0" + i };  // add zero in front of numbers < 10
+    if (i < 10) { i = "0" + i };  
     return i;
 }
 

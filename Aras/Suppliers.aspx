@@ -28,6 +28,27 @@
 
     <script src="js/HamaScripts.js"></script>
 
+    <script>
+        //search inside gridview
+function Search_Gridview(strKey, strGV) {
+    var strData = strKey.value.toLowerCase().split(" ");
+    var tblData = document.getElementById(strGV);
+    var rowData;
+    for (var i = 1; i < tblData.rows.length; i++) {
+        rowData = tblData.rows[i].innerHTML;
+        var styleDisplay = 'none';
+        for (var j = 0; j < strData.length; j++) {
+            if (rowData.toLowerCase().indexOf(strData[j]) >= 0)
+                styleDisplay = '';
+            else {
+                styleDisplay = 'none';
+                break;
+            }
+        }
+        tblData.rows[i].style.display = styleDisplay;
+    }
+}
+    </script>
 
 </head>
 <body id="body_newcus" onload="startTime()">
@@ -85,7 +106,7 @@
                 <div class="col-6 col-sm-6 col-md-6 col-lg-6 my-1">
 
                     <div class="input-group">
-                        <asp:TextBox ID="SearchTextBox" CssClass="form-control form-control-lg styleK" placeholder="..گەران" runat="server" OnKeyUp ="SearchTextBox_TextChanged"   AutoPostBack="true"></asp:TextBox>
+                        <asp:TextBox ID="SearchTextBox" CssClass="form-control form-control-lg styleK" placeholder="..گەران" runat="server" onkeyup="Search_Gridview(this, 'ViewSuppliersGridView')"></asp:TextBox>
                         <div class="input-group-prepend">
                             <asp:Button ID="SearchButton" CssClass="input-group-text styleK" runat="server" Text="گەران" />
                         </div>
