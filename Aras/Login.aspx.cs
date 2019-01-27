@@ -108,8 +108,6 @@ namespace Aras
                 if (UserNameTextBox.Text!="")
                     myCookie.Values.Add("userid", UserNameTextBox.Text);
 
-                if (UserNameTextBox.Text != "")
-                    myCookie.Values.Add("userid", UserNameTextBox.Text);
 
                 if (PasswordTextBox.Text != "")
                     myCookie.Values.Add("userpass", PasswordTextBox.Text);

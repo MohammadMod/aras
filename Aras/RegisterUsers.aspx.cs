@@ -44,7 +44,7 @@ namespace Aras
             }
             catch (Exception ex)
             {
-                Response.Write(ex.Message);
+                ClientScript.RegisterStartupScript (Page.GetType(), "validation", $"<script language='javascript'>alert('{ex.Message}');</script>");
             }
 
    
