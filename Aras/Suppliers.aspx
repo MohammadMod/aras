@@ -50,6 +50,7 @@ function Search_Gridview(strKey, strGV) {
 }
     </script>
 
+
 </head>
 <body id="body_newcus" onload="startTime()">
     <div class="main">
@@ -95,7 +96,7 @@ function Search_Gridview(strKey, strGV) {
           </div>
         </div>
       </div>
-      <hr>
+      <hr/>
        </section>
 
     <div class="container">      
