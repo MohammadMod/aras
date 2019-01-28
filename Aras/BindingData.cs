@@ -12,6 +12,7 @@ namespace Aras
     public class BindingData
     {
         SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
+
         #region Hama Bind Data to ViewSupplierGridView
         //this method is for binding data from db to ViewSupplierGridView
         public virtual void SupplierGridView(GridView ViewSuppliersGridView, string condition = "")
@@ -54,8 +55,6 @@ namespace Aras
         }
         #endregion
 
-
-
         #region Hama Bind Data from db to users gridview in users form
         public void UsersGridView(GridView ViewUsersGridView)
         {
@@ -96,8 +95,6 @@ namespace Aras
            
         }
         #endregion
-
-
 
         #region Bind Data to show sales invoice 
 
@@ -143,7 +140,6 @@ namespace Aras
 
         #endregion
 
-
         #region Bind Data to dropDown list in new invoice
         public void CustomerDropDown(DropDownList SelectCustomerDropDownList)
         {
@@ -162,7 +158,6 @@ namespace Aras
             conn.Close();
         }
         #endregion
-
 
         #region Binding Supplier data to purchase form drop down list
 
@@ -247,6 +242,7 @@ namespace Aras
            
         }
         #endregion
+
 
     }
 }

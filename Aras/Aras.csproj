@@ -181,6 +181,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="CreateWareHouse.aspx" />
     <Content Include="css\app.css" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\bootstrap.min.css" />
@@ -402,6 +403,13 @@
       <DependentUpon>Bank.aspx</DependentUpon>
     </Compile>
     <Compile Include="BindingData.cs" />
+    <Compile Include="CreateWareHouse.aspx.cs">
+      <DependentUpon>CreateWareHouse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateWareHouse.aspx.designer.cs">
+      <DependentUpon>CreateWareHouse.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Customers.aspx.cs">
       <DependentUpon>Customers.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

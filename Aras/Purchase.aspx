@@ -38,6 +38,12 @@
             </asp:DropDownList>
             <br />
             <br />
+            select warehouse:
+            <asp:DropDownList ID="WareHouseSelectDropDownList" runat="server" DataSourceID="WareHouseName" DataTextField="warehouse_name" DataValueField="warehouse_name">
+            </asp:DropDownList>
+            <asp:SqlDataSource ID="WareHouseName" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="SELECT [ID], [warehouse_name] FROM [warehouse]"></asp:SqlDataSource>
+            <br />
+            <br />
             Kilo: <asp:TextBox ID="KiloTextBox" runat="server" oninput="calculate()"></asp:TextBox>
             <br />
             <br />

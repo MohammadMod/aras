@@ -10,7 +10,7 @@
 namespace Aras {
     
     
-    public partial class Purchase {
+    public partial class CreateWareHouse {
         
         /// <summary>
         /// form1 control.
@@ -22,75 +22,66 @@ namespace Aras {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// ViewSupplierDropDownList control.
+        /// WareHouseNameTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ViewSupplierDropDownList;
+        protected global::System.Web.UI.WebControls.TextBox WareHouseNameTextBox;
         
         /// <summary>
-        /// WareHouseSelectDropDownList control.
+        /// WareHousePhoneTextBox0 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList WareHouseSelectDropDownList;
+        protected global::System.Web.UI.WebControls.TextBox WareHousePhoneTextBox0;
         
         /// <summary>
-        /// WareHouseName control.
+        /// WareHouseAddressTextBox1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource WareHouseName;
+        protected global::System.Web.UI.WebControls.TextBox WareHouseAddressTextBox1;
         
         /// <summary>
-        /// KiloTextBox control.
+        /// WareHouseIDTextBox2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox KiloTextBox;
+        protected global::System.Web.UI.WebControls.TextBox WareHouseIDTextBox2;
         
         /// <summary>
-        /// CostTextBox control.
+        /// isGroupCheckBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox CostTextBox;
+        protected global::System.Web.UI.WebControls.CheckBox isGroupCheckBox;
         
         /// <summary>
-        /// TotallAllTextBox control.
+        /// disabledCheckBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TotallAllTextBox;
+        protected global::System.Web.UI.WebControls.CheckBox disabledCheckBox;
         
         /// <summary>
-        /// dateTimeTextBox control.
+        /// SubmitButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox dateTimeTextBox;
-        
-        /// <summary>
-        /// PurchaseButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button PurchaseButton;
+        protected global::System.Web.UI.WebControls.Button SubmitButton;
     }
 }

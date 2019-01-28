@@ -12,7 +12,7 @@ namespace Aras
     {
         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
         public string alertIsAvilable { set; get; }
-        public void InsertToNewInvoice(DropDownList series, DropDownList customer, float rate, float amount, DateTime date, float discount)
+        public void InsertToNewInvoice(DropDownList series, DropDownList customer, float rate, float amount, DateTime date, float discount,DropDownList wareHouseId)
         {
             #region for new invoice form inserting data to db
             try
@@ -35,6 +35,8 @@ namespace Aras
 
                 cmd.Parameters.AddWithValue("Totall", rate * amount);
                 cmd.Parameters.AddWithValue("Totall_All", rate * amount - discount);
+
+                cmd.Parameters.AddWithValue("warehouse_ID", wareHouseId.SelectedIndex + 1);
 
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 cmd.ExecuteNonQuery();
@@ -148,7 +150,7 @@ namespace Aras
             }
         }
 
-        public void InsertPurchase(DropDownList selectSupplier, string dateTime, float rate, float amount)
+        public void InsertPurchase(DropDownList selectSupplier, string dateTime, float rate, float amount,DropDownList wareHouseId)
 
 
         {
@@ -163,6 +165,7 @@ namespace Aras
                 cmd.Parameters.AddWithValue("rate", rate);
                 cmd.Parameters.AddWithValue("amount", amount);
                 cmd.Parameters.AddWithValue("totall_amount", rate * amount);
+                cmd.Parameters.AddWithValue("warehouse_ID", wareHouseId.SelectedIndex + 1);
 
 
 

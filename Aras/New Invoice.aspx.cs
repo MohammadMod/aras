@@ -52,12 +52,11 @@ namespace Aras
 
         protected void SubmitNewInvoiceButton_Click(object sender, EventArgs e)
         {
-
           
             try
             {
                 #region Hama this region is for inserting to the database
-                inD.InsertToNewInvoice(SeriesDropDownList, SelectCustomerDropDownList, float.Parse(KiloTextBox.Text), float.Parse(CostOfKiloTextBox.Text), DateTime.Now, float.Parse(DiscountTextBox.Text));
+                inD.InsertToNewInvoice(SeriesDropDownList, SelectCustomerDropDownList, float.Parse(KiloTextBox.Text), float.Parse(CostOfKiloTextBox.Text), DateTime.Now, float.Parse(DiscountTextBox.Text), ChoseWareHouseDropDownList);
                 Response.Redirect("ShowSalesInvoice.aspx");
                 #endregion
 
@@ -89,6 +88,10 @@ namespace Aras
         protected void SelectCustomerDropDownList_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        protected void ChoseWareHouseDropDownList_SelectedIndexChanged(object sender, EventArgs e)
+        {
         }
     }
 }

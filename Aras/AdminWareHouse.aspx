@@ -20,8 +20,18 @@
             <br />
             <br />
         </div>
-        <asp:GridView ID="AdminWareHouseGridView" runat="server" Width="585px" Height="297px">
+        <asp:GridView ID="AdminWareHouseGridView" runat="server" Width="585px" Height="297px" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="ID" DataSourceID="viewWareHouses">
+            <Columns>
+                <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
+                <asp:BoundField DataField="warehouse_name" HeaderText="warehouse_name" SortExpression="warehouse_name" />
+                <asp:CheckBoxField DataField="disabled" HeaderText="disabled" SortExpression="disabled" />
+                <asp:BoundField DataField="phone_no" HeaderText="phone_no" SortExpression="phone_no" />
+                <asp:BoundField DataField="address_line_1" HeaderText="address_line_1" SortExpression="address_line_1" />
+                <asp:BoundField DataField="parent_warehouse_ID" HeaderText="parent_warehouse_ID" SortExpression="parent_warehouse_ID" />
+                <asp:CheckBoxField DataField="is_group" HeaderText="is_group" SortExpression="is_group" />
+            </Columns>
         </asp:GridView>
+        <asp:SqlDataSource ID="viewWareHouses" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="SELECT * FROM [warehouse]"></asp:SqlDataSource>
     </form>
 </body>
 </html>
