@@ -179,5 +179,33 @@ namespace Aras
         }
 
 
+        public void InsertNewCustomer(string customerName,string resturantName,string location,string phoneNumber,float moneyInDept,CheckBox DisablesCheckBox)
+        {
+            SqlCommand cmd = new SqlCommand("INSERT_CUSTOMER", con);
+            con.Open();
+
+            cmd.Parameters.AddWithValue("name", customerName);
+            cmd.Parameters.AddWithValue("resturant_name", resturantName);
+            cmd.Parameters.AddWithValue("location", location);
+            cmd.Parameters.AddWithValue("phone_namber", phoneNumber);
+            cmd.Parameters.AddWithValue("credit", moneyInDept);
+
+            if (DisablesCheckBox.Checked == true)
+            {
+                cmd.Parameters.AddWithValue("disable", "1");
+            }
+
+            else
+            {
+                cmd.Parameters.AddWithValue("disable", "0");
+            }
+
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.ExecuteNonQuery();
+            con.Close();
+
+        }
+
+
     }
 }

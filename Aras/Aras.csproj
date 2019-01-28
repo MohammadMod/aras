@@ -267,6 +267,7 @@
     <Content Include="Scripts\WebForms\WebForms.js" />
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="ShowDeletedInvoices.aspx" />
     <Content Include="ShowSalesInvoice.aspx" />
     <Content Include="Site.Master" />
     <Content Include="Suppliers.aspx" />
@@ -462,6 +463,13 @@
     </Compile>
     <Compile Include="RegisterUsers.aspx.designer.cs">
       <DependentUpon>RegisterUsers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ShowDeletedInvoices.aspx.cs">
+      <DependentUpon>ShowDeletedInvoices.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShowDeletedInvoices.aspx.designer.cs">
+      <DependentUpon>ShowDeletedInvoices.aspx</DependentUpon>
     </Compile>
     <Compile Include="ShowSalesInvoice.aspx.cs">
       <DependentUpon>ShowSalesInvoice.aspx</DependentUpon>

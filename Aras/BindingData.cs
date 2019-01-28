@@ -196,7 +196,57 @@ namespace Aras
 
         #endregion
 
+        #region viewCustomers
+        public void viewCustomers(GridView viewCustomers)
+        {
+            SqlDataAdapter da = new SqlDataAdapter("select * from Customer", conn);
 
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            viewCustomers.DataSource = ds;
+            viewCustomers.DataBind();
+
+            viewCustomers.AllowCustomPaging = true;
+            viewCustomers.AllowSorting = true;
+        }
+        #endregion
+
+        #region showDeletedInvoices
+        public void showDeletedInvoices(GridView ViewDeletedInvoicesGridView)
+        {
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("select * from deketed_invoice", conn);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                conn.Close();
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    ViewDeletedInvoicesGridView.DataSource = ds;
+                    ViewDeletedInvoicesGridView.DataBind();
+                }
+                else
+                {
+                    ds.Tables[0].Rows.Add(ds.Tables[0].NewRow());
+                    ViewDeletedInvoicesGridView.DataSource = ds;
+                    ViewDeletedInvoicesGridView.DataBind();
+                    int columncount = ViewDeletedInvoicesGridView.Rows[0].Cells.Count;
+                    ViewDeletedInvoicesGridView.Rows[0].Cells.Clear();
+                    ViewDeletedInvoicesGridView.Rows[0].Cells.Add(new TableCell());
+                    ViewDeletedInvoicesGridView.Rows[0].Cells[0].ColumnSpan = columncount;
+                    ViewDeletedInvoicesGridView.Rows[0].Cells[0].Text = "No Records Found";
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+           
+        }
+        #endregion
 
     }
 }

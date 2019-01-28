@@ -11,42 +11,20 @@ namespace Aras
 {
     public partial class NewCustomers : System.Web.UI.Page
     {
+        Inserting_Data inD = new Inserting_Data();
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
 
         protected void CreateCustomerButton_Click(object sender, EventArgs e)
         {
-
             #region Hama Creating new customer
             try
             {
-                SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
-                SqlCommand cmd = new SqlCommand("INSERT_CUSTOMER", con);
-                con.Open();
+                inD.InsertNewCustomer(CostumerNameTextBox.Text, ResturantNameTextBox.Text, LocationTextBox.Text, PhoneNumberTextBox.Text, float.Parse(MoneyInDeptTextBox.Text), DisablesCheckBox);
+                Response.Redirect("Customers.aspx");
 
-                cmd.Parameters.AddWithValue("name", CostumerNameTextBox.Text);
-                cmd.Parameters.AddWithValue("resturant_name", ResturantNameTextBox.Text);
-                cmd.Parameters.AddWithValue("location", LocationTextBox.Text);
-                cmd.Parameters.AddWithValue("phone_namber", PhoneNumberTextBox.Text);
-                cmd.Parameters.AddWithValue("credit", float.Parse(MoneyInDeptTextBox.Text));
-
-                if (DisablesCheckBox.Checked == true)
-                {
-                    cmd.Parameters.AddWithValue("disable", "1");
-                }
-
-                else
-                {
-                    cmd.Parameters.AddWithValue("disable", "0");
-                }
-
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmd.ExecuteNonQuery();
-                con.Close();
-
-                Response.Write("Succece");
             }
             catch (Exception)
             {

@@ -13,29 +13,21 @@ namespace Aras
     public partial class Customers : System.Web.UI.Page
     {
         string checkBox = "";
+        BindingData bd = new BindingData();
         protected void Page_Load(object sender, EventArgs e)
         {
             #region Hama reading customer names from db to gridview
             try
             {
-                SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
-                SqlDataAdapter da = new SqlDataAdapter("select * from Customer", con);
-
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-                CustomersGridView.DataSource = ds;
-                CustomersGridView.DataBind();
-
-                CustomersGridView.AllowCustomPaging = true;
-                CustomersGridView.AllowSorting = true;
-                #endregion
+                bd.viewCustomers(CustomersGridView);
             }
             catch (Exception)
             {
 
                 throw;
             }
-          
+            #endregion
+
 
         }
 
