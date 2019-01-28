@@ -27,10 +27,11 @@
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     
     <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/droid-arabic-naskh" type="text/css"/>
+    <script src="js/HamaScripts.js"></script>
 
 
 </head>
-<body id="body_newcus">
+<body id="body_newcus" onload="startTime()">
      
     <div class="main">
         <nav class="navbar navbar-expand navbar-light bg-dark">
@@ -68,7 +69,7 @@
       <div class="container">
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6 col-6">
-                time
+                <div id="txt"></div>
 
           </div>
           <div class="col-lg-6 col-md-6 col-sm-6 col-6 text-right">
