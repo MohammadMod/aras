@@ -52,6 +52,7 @@ function Search_Gridview(strKey, strGV) {
 
 
 </head>
+
 <body id="body_newcus" onload="startTime()">
     <div class="main">
         <nav class="navbar navbar-expand navbar-light bg-dark">
