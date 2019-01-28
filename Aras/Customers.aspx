@@ -94,14 +94,13 @@
 
                 <div class="col-6 col-sm-6 col-md-6 col-lg-6 my-1 text-right">       
                     
-                       
-                        <asp:Button ID="DeleteButton" runat="server" Text="Delete" OnClick="DeleteButton_Click" />
+                    <asp:Button ID="DeleteButton" runat="server" Text="Delete" OnClick="DeleteButton_Click" />
 
-                        <asp:Button ID="CreateButton" runat="server"  CssClass="btn btn-danger btn-sm styleK" Text="دروستکردن"  OnClick="CreateButton_Click" />
+                    <asp:Button ID="CreateButton" runat="server"  CssClass="btn btn-danger btn-sm styleK" Text="دروستکردن"  OnClick="CreateButton_Click" />
 
 
-                        <asp:Button ID="EditButton" CssClass="btn btn-warning btn-sm styleK" runat="server" Text="دەستکاری کردن" />
-                    </div>
+                    <asp:Button ID="EditButton" CssClass="btn btn-warning btn-sm styleK" runat="server" Text="دەستکاری کردن" />
+                </div>
             </div>
 
 
