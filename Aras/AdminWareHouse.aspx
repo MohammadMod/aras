@@ -22,6 +22,7 @@
         </div>
         <asp:GridView ID="AdminWareHouseGridView" runat="server" Width="585px" Height="297px" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="ID" DataSourceID="viewWareHouses">
             <Columns>
+                <asp:CommandField ShowSelectButton="True" />
                 <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
                 <asp:BoundField DataField="warehouse_name" HeaderText="warehouse_name" SortExpression="warehouse_name" />
                 <asp:CheckBoxField DataField="disabled" HeaderText="disabled" SortExpression="disabled" />
