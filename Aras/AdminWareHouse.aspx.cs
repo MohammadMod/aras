@@ -11,7 +11,9 @@ namespace Aras
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+            // a simple way to not let all users see some pages.
+           if (! Permit.isAllowed(Permessions.OnlyAdmin))
+                Response.Redirect("Login.aspx");
         }
     }
 }

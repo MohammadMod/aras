@@ -435,6 +435,7 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="MiladGridView.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="New Invoice.aspx.cs">
       <DependentUpon>New Invoice.aspx</DependentUpon>
@@ -457,6 +458,7 @@
     <Compile Include="NewSupplier.aspx.designer.cs">
       <DependentUpon>NewSupplier.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Permession.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Purchase.aspx.cs">
       <DependentUpon>Purchase.aspx</DependentUpon>
