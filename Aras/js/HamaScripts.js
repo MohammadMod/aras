@@ -35,3 +35,21 @@ function checkTime(i) {
 }
 
 
+//calculation in SupplierPayment
+function calculateSupplier() {
+    var myBox1 = document.getElementById('MoneyInAccountTextBox').value;
+    var myBox2 = document.getElementById('PayToSupplierTextBox').value;
+    var result = document.getElementById('PayPlusInAccountTextBox');
+    var myResult = -myBox2 - myBox1;
+    document.getElementById('PayPlusInAccountTextBox').value = -myResult;
+}
+
+//calculation in CustomerPayment
+function calculateCustomer() {
+    var myBox1 = document.getElementById('MoneyInAccountTextBox').value;
+    var myBox2 = document.getElementById('ReciveFromSupplierTextBox').value;
+    var result = document.getElementById('RecivePlusInAccountTextBox');
+    var myResult = -myBox2 - myBox1;
+    document.getElementById('RecivePlusInAccountTextBox').value = -myResult;
+}
+
