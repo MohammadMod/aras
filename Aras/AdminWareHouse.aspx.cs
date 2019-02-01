@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
+using System.Configuration;
+using System.Data.SqlClient;
 
 namespace Aras
 {
@@ -15,5 +18,12 @@ namespace Aras
             if (!Permit.isAllowed(Permessions.OnlyAdmin))
                 Response.Redirect("Login.aspx");
         }
+
+        protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+
+        }
+
     }
+
 }
