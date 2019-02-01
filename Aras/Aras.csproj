@@ -195,6 +195,7 @@
     <Content Include="css\styleee.css" />
     <Content Include="css\themify-icons.css" />
     <Content Include="css\typography.css" />
+    <Content Include="CustomerPayment.aspx" />
     <Content Include="Customers.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
@@ -271,7 +272,9 @@
     <Content Include="ShowDeletedInvoices.aspx" />
     <Content Include="ShowSalesInvoice.aspx" />
     <Content Include="Site.Master" />
+    <Content Include="SupplierPaymentaspx.aspx" />
     <Content Include="Suppliers.aspx" />
+    <Content Include="Transfer.aspx" />
     <Content Include="Users.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
@@ -410,6 +413,13 @@
     <Compile Include="CreateWareHouse.aspx.designer.cs">
       <DependentUpon>CreateWareHouse.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CustomerPayment.aspx.cs">
+      <DependentUpon>CustomerPayment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerPayment.aspx.designer.cs">
+      <DependentUpon>CustomerPayment.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Customers.aspx.cs">
       <DependentUpon>Customers.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -501,12 +511,26 @@
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="SupplierPaymentaspx.aspx.cs">
+      <DependentUpon>SupplierPaymentaspx.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SupplierPaymentaspx.aspx.designer.cs">
+      <DependentUpon>SupplierPaymentaspx.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Suppliers.aspx.cs">
       <DependentUpon>Suppliers.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Suppliers.aspx.designer.cs">
       <DependentUpon>Suppliers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Transfer.aspx.cs">
+      <DependentUpon>Transfer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Transfer.aspx.designer.cs">
+      <DependentUpon>Transfer.aspx</DependentUpon>
     </Compile>
     <Compile Include="Users.aspx.cs">
       <DependentUpon>Users.aspx</DependentUpon>
