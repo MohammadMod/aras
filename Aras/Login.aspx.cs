@@ -73,8 +73,17 @@ namespace Aras
                 da.Fill(dt);
                 if (dt.Rows.Count > 0)
                 {
-                    FormsAuthentication.RedirectFromLoginPage(PasswordTextBox.Text, false);
+                    FormsAuthentication.RedirectFromLoginPage(PasswordTextBox.Text,true);
                     Application["Name"] = UserNameTextBox.Text;
+
+                    bool isAdmin = (bool)dt.Rows[0]["Admin"];
+
+                    if (isAdmin)
+                        Permit.currentPermission = Permessions.OnlyAdmin;
+                    else
+                        Permit.currentPermission = Permessions.AllUsers;
+
+                    //Application.Add()
                     Response.Redirect("Purchase.aspx");
 
                 }
