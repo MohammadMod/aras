@@ -237,6 +237,7 @@
     <Content Include="js\vendor\jquery-2.2.4.min.js" />
     <Content Include="js\vendor\modernizr-2.8.3.min.js" />
     <Content Include="Login.aspx" />
+    <Content Include="logout.aspx" />
     <Content Include="New Invoice.aspx" />
     <Content Include="NewCustomers.aspx" />
     <Content Include="NewSupplier.aspx" />
@@ -445,6 +446,13 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="logout.aspx.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="logout.aspx.designer.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
     </Compile>
     <Compile Include="MiladGridView.cs" />
     <Compile Include="Models\IdentityModels.cs" />
