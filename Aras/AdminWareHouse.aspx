@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <script type="text/javascript" src="DeleteRows.js">
+    <script type="text/javascript" src="js/DeleteRows.js">
 
     </script>
     <title></title>
@@ -19,7 +19,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Button ID="DeleteButton" runat="server" Text="Delete"  />
 &nbsp;&nbsp;
-            <asp:Button ID="CreateButton" runat="server" Text="Create"  OnClick ="DeleteRowsServer()"/>
+            <asp:Button ID="CreateButton" runat="server" Text="Create" />
             <br />
             <br />
         </div>
@@ -49,7 +49,7 @@
         var deleteBTM = document.getElementById(deletebtmName);
         appendColumn(tablename);
         deleteBTM.addEventListener('click', function () {
-            deleteRows(tablename, "any");
+           deleteRows(tablename, "any");
         });
         
 
