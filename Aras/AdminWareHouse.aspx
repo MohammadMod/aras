@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <script type="text/javascript" src="DeleteRows.js">
+    <script type="text/javascript" src="js/DeleteRows.js">
 
     </script>
     <title></title>
@@ -17,7 +17,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Button ID="SearchButton" runat="server" Text="Search" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="DeleteButton" runat="server" Text="Delete" onClientClick ="DeleteRowsServer()" />
+            <asp:Button ID="DeleteButton" runat="server" Text="Delete"  />
 &nbsp;&nbsp;
             <asp:Button ID="CreateButton" runat="server" Text="Create"  />
             <br />
@@ -40,8 +40,6 @@
         <asp:SqlDataSource ID="viewWareHouses" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="SELECT * FROM [warehouse]"></asp:SqlDataSource>
     </form>
     <script type="text/javascript">
-        function DeleteRowsServer() {
-
 
             var tablename = "AdminWareHouseGridView";
             var deletebtmName = "DeleteButton";
@@ -53,7 +51,6 @@
             deleteBTM.addEventListener('click', function () {
                 deleteRows(tablename, "any");
             });
-        }
 
     </script>
 </body>
