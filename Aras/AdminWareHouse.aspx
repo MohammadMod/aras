@@ -4,20 +4,22 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <script type="text/javascript" src="js/DeleteRows.js">
+  
 
-    </script>
     <title></title>
 </head>
 <body>
     <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true">
+</asp:ScriptManager>
         <div>
             Search:
+            
             <asp:TextBox ID="SearchTextBox" runat="server"></asp:TextBox>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Button ID="SearchButton" runat="server" Text="Search" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="DeleteButton" runat="server" Text="Delete"  />
+            <asp:Button ID="DeleteButton" runat="server" Text="Delete" />
 &nbsp;&nbsp;
             <asp:Button ID="CreateButton" runat="server" Text="Create"  />
             <br />
@@ -38,18 +40,35 @@
 
         </asp:GridView>
         <asp:SqlDataSource ID="viewWareHouses" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="SELECT * FROM [warehouse]"></asp:SqlDataSource>
+         
+
     </form>
-    <script type="text/javascript">
+
+      <script type="text/javascript" src="js/DeleteRows.js"></script> 
+     <script type="text/javascript">
 
             var tablename = "AdminWareHouseGridView";
             var deletebtmName = "DeleteButton";
-
+           
 
             var selected = [];
             var deleteBTM = document.getElementById(deletebtmName);
             appendColumn(tablename);
             deleteBTM.addEventListener('click', function () {
-                deleteRows(tablename, "any");
+                var rows = selected.length;
+                var confrimMessage = "Are you sure to delete " + rows + " rows ?";
+                var errorMessage = "You have not selected any rows.";
+
+                if (rows > 0) {
+                    var result = confirm(confrimMessage);
+                    if (result) 
+                        PageMethods.DeleteRowsServer();
+
+         
+                    }   
+                    
+                    else
+                        alert(errorMessage);
             });
 
     </script>

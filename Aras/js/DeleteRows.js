@@ -1,23 +1,4 @@
-﻿// delete table rows 
-function deleteRows(mytable, aspfunction)
-{
-    var rows = selected.length;
-
-    var confrimMessage = "Are you sure to delete " + rows + " rows ?";
-    var errorMessage = "You have not selected any rows.";
-
-    if (rows > 0) {
-        var result = confirm(confrimMessage);
-        if (result) {
-
-         
-        }
-    }
-    else
-        alert(errorMessage);
-
-    
-}
+﻿
 
 
 // create DIV element and append to the table cell

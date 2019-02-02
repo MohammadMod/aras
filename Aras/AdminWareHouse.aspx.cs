@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Web.Services;
 
 namespace Aras
 {
@@ -21,7 +22,14 @@ namespace Aras
 
         protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
+            
+        }
 
+        [System.Web.Services.WebMethod()]
+        [System.Web.Script.Services.ScriptMethod()]
+        public static void DeleteRowsServer()
+        {
+      
         }
 
     }
