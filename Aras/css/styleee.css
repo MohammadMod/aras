@@ -6,6 +6,11 @@
     width: 100%;
 }
 
+.bod{
+    width:100vh;
+    height:100vh
+}
+
 @media (max-width: 376px) 
 {
     .btn-sm{
@@ -86,13 +91,23 @@
     height: 140px;
 }
 .app-icon{    
-    padding: 20px;
+    padding: 30px;
     display: inline-block;
     margin: auto;
     text-align: center;
     border-radius: 16px;
     cursor: pointer;
     
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.app-icon_dolar {
+    padding: 21px 35px;
+    display: inline-block;
+    margin: auto;
+    text-align: center;
+    border-radius: 16px;
+    cursor: pointer;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.15);
 }
 .app-icon-ogrange{
@@ -147,45 +162,100 @@
     text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5), 0px 1px 5px rgba(0, 0, 0, 0.5);
 }
 .fas{
-    color: black;
+    color: red !important;
 }
 
-.fa-plus{
+.fa-plus {
     font-size: 40px;
-    padding: 10px 10px;
+    color: white;
+    transition: all .3s;
+    animation: moveInLeft 1s ease-out;
 }
-.fa-home{
-    padding: 10px 10px;            
-    font-size: 40px;
-}
-.fa-user{
-    font-size: 40px;
-    padding: 10px 12px; 
-}
-.fa-user-plus{
-    font-size: 40px;
-    padding: 10px 5px;
-}
-.fa-utensils{
-    font-size: 40px;
-    padding: 10px 14px;
-
-}
-.fa-dollar-sign{
-    font-size: 40px;
-    padding: 10px 16px;
+.fa-plus:hover {
+    color: rgb(73, 73, 78);
+    transform: scale(1.2);
 }
 
-.fa-fish{
+.fa-utensils {
     font-size: 40px;
-    padding: 10px 7px;
-    color:silver;
+    color: white;
+    transition: all .3s;
+    animation: moveInLeft 1s ease-out;
 }
-.fa-cart-plus{
+    .fa-utensils:hover {
+        color: rgb(73, 73, 78);
+        transform: scale(1.2);
+    }
+
+.fa-user {
     font-size: 40px;
-    padding: 10px 8px;
-    
+    color: rgb(153, 161, 161);
+    transition: all .3s;
+    animation: moveInLeft 1s ease-out;
 }
+.fa-user:hover {
+    color: rgb(73, 73, 78);
+    transform: scale(1.2);
+}
+
+.fa-home {
+    font-size: 32px;
+    color: white;
+    transition: all .3s;
+    animation: moveInLeft 1s ease-out;
+}
+.fa-home:hover {
+    color: rgb(73, 73, 78);
+    transform: scale(1.2);
+}
+
+
+.fa-user-plus {
+    font-size: 32px;
+    color: white;
+    transition: all .3s;
+    animation: moveInLeft 1s ease-out;
+}
+.fa-user-plus:hover {
+    color: rgb(73, 73, 78);
+    transform: scale(1.2);
+}
+
+.fa-dollar-sign {
+    font-size: 3.6rem;
+    color: white;
+    transition: all .3s;
+    animation: moveInLeft 1s ease-out;
+}
+.fa-dollar-sign:hover {
+    color: rgb(73, 73, 78);
+    transform: scale(1.2);
+}
+
+
+.fa-fish {
+    font-size: 40px;
+    color: white;
+    transition: all .3s;
+    animation: moveInLeft 1s ease-out;
+}
+.fa-fish:hover {
+    color: rgb(73, 73, 78);
+    transform: scale(1.2);
+}
+
+.fa-cart-plus {
+    font-size: 32px;
+    color: white;
+    transition: all .3s;
+    animation: moveInLeft 1s ease-out;
+}
+
+.fa-cart-plus:hover {
+    color: rgb(73, 73, 78);
+    transform: scale(1.2);
+}
+
 
 .imgpayment img{
     width: 50px;
@@ -194,4 +264,20 @@
 .app-img{
     width: 98px;
     height: 98px;
+}
+
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-2rem);
+    }
+
+    80% {
+        transform: translateX(1rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
 }
