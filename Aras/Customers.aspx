@@ -107,17 +107,26 @@
             <div class="border p-3">
                 <asp:GridView ID="CustomersGridView" CssClass="table table-stripet table-bordered table-hover table-responsive-md text-center"
                     runat="server" AllowPaging="True" AllowSorting="True">
-                    <Columns>
-                        <asp:TemplateField HeaderText="Select to delete">
-                            <ItemTemplate>
-                                <asp:CheckBox ID="CheckBox1" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" style="text-align: center" />
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                    </Columns>
                 </asp:GridView>
             </div>
         </form>
     </div>
+
+    <script type="text/javascript" src="js/DeleteRows.js"></script> 
+     <script type="text/javascript">
+
+         var tablename = "CustomersGridView";
+            var deletebtmName = "DeleteButton";
+
+
+            var selected = [];
+            var deleteBTM = document.getElementById(deletebtmName);
+            appendColumn(tablename);
+            deleteBTM.addEventListener('click', function () {
+                deleteRows(tablename, "any");
+            });
+
+    </script>
 
     <script src="js/app.js"></script>
     <script src="js/vendor/jquery-2.2.4.min.js"></script>

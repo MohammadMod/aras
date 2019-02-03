@@ -67,6 +67,15 @@ namespace Aras {
         protected global::System.Web.UI.WebControls.GridView AdminWareHouseGridView;
         
         /// <summary>
+        /// lblMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMessage;
+        
+        /// <summary>
         /// viewWareHouses control.
         /// </summary>
         /// <remarks>
