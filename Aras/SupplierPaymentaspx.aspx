@@ -6,6 +6,7 @@
 <head runat="server">
     <title></title>
     <script src="js/HamaScripts.js"></script>
+    <script src="SearchInGrids.js"></script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -25,6 +26,8 @@
             Parai wasl - para la hisab:<asp:TextBox ID="PayPlusInAccountTextBox" runat="server" Enabled="False"></asp:TextBox>
             <br />
             <br />
+            Search:
+            <asp:TextBox ID="searchTextBox" runat="server" onkeyup="Search_Gridview(this, 'GridView1')"></asp:TextBox>
             <br />
             <br />
             <br />

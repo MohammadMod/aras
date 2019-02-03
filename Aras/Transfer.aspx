@@ -10,10 +10,10 @@
     <form id="form1" runat="server">
         <div>
             From WareHouse:&nbsp;
-            <asp:DropDownList ID="FromWareHouseDropDownList" runat="server">
+            <asp:DropDownList ID="FromWareHouseDropDownList" runat="server" AutoPostBack="True" Height="40px" OnSelectedIndexChanged="FromWareHouseDropDownList_SelectedIndexChanged" Width="122px">
             </asp:DropDownList>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; To:&nbsp;&nbsp;
-            <asp:DropDownList ID="ToWareHouseDropDownList" runat="server">
+            <asp:DropDownList ID="ToWareHouseDropDownList" runat="server" AutoPostBack="True" Height="23px" OnSelectedIndexChanged="ToWareHouseDropDownList_SelectedIndexChanged" Width="127px">
             </asp:DropDownList>
             <br />
             <br />

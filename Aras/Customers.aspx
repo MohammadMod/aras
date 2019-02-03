@@ -26,6 +26,7 @@
     <link href="css/style.css" rel="stylesheet" />
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     <script src="js/HamaScripts.js"></script>
+    <script src="SearchInGrids.js"></script>
 </head>
 <body id="body_newcus" onload="startTime()">
     <div class="main">
@@ -82,7 +83,7 @@
 
                 <div class="col-6 col-sm-6 col-md-6 col-lg-6 my-1">
                         <div class="input-group">
-                            <asp:TextBox ID="SearchTextBox" placeholder="..گەران" CssClass="form-control form-control-lg styleK" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="SearchTextBox" placeholder="..گەران" CssClass="form-control form-control-lg styleK" runat="server" onkeyup="Search_Gridview(this, 'CustomersGridView')"></asp:TextBox>
                             <div class="input-group-prepend">
                             
                                 <asp:Button ID="SearchButton" CssClass="input-group-text styleK" Text="گەران"  runat="server"/>
