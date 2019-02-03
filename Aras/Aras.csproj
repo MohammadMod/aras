@@ -198,7 +198,6 @@
     <Content Include="CustomerPayment.aspx" />
     <Content Include="Customers.aspx" />
     <Content Include="Default.aspx" />
-    <Content Include="js\DeleteRows.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\About.aspx" />
     <Content Include="fonts\fontawesome-webfont.svg" />

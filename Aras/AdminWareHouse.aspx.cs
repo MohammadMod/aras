@@ -13,11 +13,15 @@ namespace Aras
 {
     public partial class AdminWareHouse : System.Web.UI.Page
     {
+
+    #region UNDER CONSTRUCTION BY MILAD
         protected void Page_Load(object sender, EventArgs e)
         {
             // a simple way to not let all users see some pages.
             // if (!Permit.isAllowed(Permessions.OnlyAdmin))
             //   Response.Redirect("Login.aspx");
+
+            DeleteButton.OnClientClick = "return alert('no row has been selected')";
         }
 
         protected void cbDeleteHeader_CheckedChanged(object sender, EventArgs e)
@@ -26,12 +30,15 @@ namespace Aras
             {
                 ((CheckBox)Row.FindControl("cbDelete")).Checked = ((CheckBox)sender).Checked;
             }
+            if (((CheckBox)sender).Checked)
+                DeleteButton.OnClientClick = "return confirm('are you sure to delete all ?');";
+            else
+                DeleteButton.OnClientClick = "return alert('no row has been selected')";
         }
 
         protected void cbDelete_CheckedChanged(object sender, EventArgs e)
         {
-            CheckBox headerCheckBox =
-          (CheckBox)AdminWareHouseGridView.HeaderRow.FindControl("cbDeleteHeader");
+            CheckBox headerCheckBox = (CheckBox)AdminWareHouseGridView.HeaderRow.FindControl("cbDeleteHeader");
             if (headerCheckBox.Checked)
             {
                 headerCheckBox.Checked = ((CheckBox)sender).Checked;
@@ -49,6 +56,20 @@ namespace Aras
                 }
                 headerCheckBox.Checked = allCheckBoxesChecked;
             }
+
+            int counter = 0;
+            foreach (GridViewRow gridViewRow in AdminWareHouseGridView.Rows)
+            {
+                if (((CheckBox)gridViewRow.FindControl("cbDelete")).Checked)
+                {
+                    counter++;
+                }
+            }
+
+            if (counter==0)
+                DeleteButton.OnClientClick = "return alert('no row has been selected')";
+            else
+                DeleteButton.OnClientClick = $"return confirm('are you sure to delete {counter} rows ?');";
         }
 
         public void DeleteEmployees(List<string> IDList)
@@ -104,5 +125,8 @@ namespace Aras
                 lblMessage.Text = "No rows selected to delete";
             }
         }
+
+        #endregion
     }
+
 }

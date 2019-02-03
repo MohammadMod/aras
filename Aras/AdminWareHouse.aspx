@@ -18,7 +18,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Button ID="SearchButton" runat="server" Text="Search" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="DeleteButton" runat="server" Text="Delete" OnClientClick="return confirm('are you sure ?');" OnClick="DeleteButton_Click" />
+            <asp:Button ID="DeleteButton" runat="server" Text="Delete"  OnClick="DeleteButton_Click" />
 &nbsp;&nbsp;
             <asp:Button ID="CreateButton" runat="server" Text="Create"  />
             <br />
@@ -53,33 +53,6 @@
 
     </form>
 
-      <script type="text/javascript" src="js/DeleteRows.js"></script> 
-     <script type="text/javascript">
-
-            var tablename = "AdminWareHouseGridView2";
-            var deletebtmName = "DeleteButton";
-           
-
-            var selected = [];
-            var deleteBTM = document.getElementById(deletebtmName);
-            appendColumn(tablename);
-            deleteBTM.addEventListener('click', function () {
-                var rows = selected.length;
-                var confrimMessage = "Are you sure to delete " + rows + " rows ?";
-                var errorMessage = "You have not selected any rows.";
-
-                if (rows > 0) {
-                    var result = confirm(confrimMessage);
-                    if (result) 
-                        PageMethods.DeleteRowsServer();
-
-         
-                    }   
-                    
-                    else
-                        alert(errorMessage);
-            });
-
-    </script>
+     
 </body>
 </html>
