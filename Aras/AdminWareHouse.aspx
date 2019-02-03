@@ -10,8 +10,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true">
-</asp:ScriptManager>
+
         <div>
             Search:
             
@@ -19,7 +18,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Button ID="SearchButton" runat="server" Text="Search" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="DeleteButton" runat="server" Text="Delete" />
+            <asp:Button ID="DeleteButton" runat="server" Text="Delete" OnClientClick="return confirm('are you sure ?');" OnClick="DeleteButton_Click" />
 &nbsp;&nbsp;
             <asp:Button ID="CreateButton" runat="server" Text="Create"  />
             <br />
@@ -27,6 +26,15 @@
         </div>
         <asp:GridView ID="AdminWareHouseGridView" runat="server" Width="585px" Height="297px" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="ID" DataSourceID="viewWareHouses" >
             <Columns>
+                
+                <asp:TemplateField>
+                    <HeaderTemplate>
+                        <asp:CheckBox ID="cbDeleteHeader" runat="server" AutoPostBack="True" OnCheckedChanged="cbDeleteHeader_CheckedChanged" />
+                    </HeaderTemplate>
+                    <ItemTemplate>
+                        <asp:CheckBox ID="cbDelete" runat="server" AutoPostBack="True" OnCheckedChanged="cbDelete_CheckedChanged" />
+                    </ItemTemplate>
+                </asp:TemplateField>
                 
                 <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
                 <asp:BoundField DataField="warehouse_name" HeaderText="warehouse_name" SortExpression="warehouse_name" />
@@ -39,6 +47,7 @@
 
 
         </asp:GridView>
+        <asp:Label ID="lblMessage" runat="server" Font-Bold="true" ></asp:Label>
         <asp:SqlDataSource ID="viewWareHouses" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="SELECT * FROM [warehouse]"></asp:SqlDataSource>
          
 
@@ -47,7 +56,7 @@
       <script type="text/javascript" src="js/DeleteRows.js"></script> 
      <script type="text/javascript">
 
-            var tablename = "AdminWareHouseGridView";
+            var tablename = "AdminWareHouseGridView2";
             var deletebtmName = "DeleteButton";
            
 
