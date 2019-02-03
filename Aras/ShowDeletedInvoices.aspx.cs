@@ -15,15 +15,15 @@ namespace Aras
         BindingData bd = new BindingData();
         protected void Page_Load(object sender, EventArgs e)
         {
-            try
-            {
-                bd.showDeletedInvoices(ViewDeletedInvoicesGridView);
-            }
-            catch (Exception)
-            {
+            //try
+            //{
+            //    bd.showDeletedInvoices(ViewDeletedInvoicesGridView);
+            //}
+            //catch (Exception)
+            //{
 
-                throw;
-            }
+            //    throw;
+            //}
                      
         }
     }

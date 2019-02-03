@@ -237,12 +237,42 @@ namespace Aras
             catch (Exception)
             {
 
-                throw;
+                //HttpResponse httpResponse = new HttpResponse(System.IO.TextWriter.Null);
+                //httpResponse.Write("No records");
             }
            
         }
         #endregion
 
-      
+
+        #region nameOfWareHouse
+        public void wareHouseName(DropDownList wareHouseNames)
+        {
+            try
+            {
+                DataTable subjects = new DataTable();
+
+                SqlDataAdapter adapter = new SqlDataAdapter("SELECT [warehouse_name] FROM [warehouse]", conn);
+                adapter.Fill(subjects);
+
+                conn.Open();
+                wareHouseNames.DataSource = subjects;
+                wareHouseNames.DataTextField = "warehouse_name";
+                wareHouseNames.DataValueField = "warehouse_name";
+                wareHouseNames.DataBind();
+                wareHouseNames.Items.Insert(0, new ListItem("Select", "NA"));
+
+                conn.Close();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+        #endregion
+
+
     }
 }

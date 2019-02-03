@@ -131,5 +131,10 @@ namespace Aras
         {
             bd.UsersGridView(ViewUsersGridView);
         }
+
+        protected void ViewUsersGridView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

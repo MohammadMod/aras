@@ -27,6 +27,26 @@
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     <script src="js/HamaScripts.js"></script>
 
+    <script>
+        function Search_Gridview(strKey, strGV) {
+            var strData = strKey.value.toLowerCase().split(" ");
+            var tblData = document.getElementById(strGV);
+            var rowData;
+            for (var i = 1; i < tblData.rows.length; i++) {
+                rowData = tblData.rows[i].innerHTML;
+                var styleDisplay = 'none';
+                for (var j = 0; j < strData.length; j++) {
+                    if (rowData.toLowerCase().indexOf(strData[j]) >= 0)
+                        styleDisplay = '';
+                    else {
+                        styleDisplay = 'none';
+                        break;
+                    }
+                }
+                tblData.rows[i].style.display = styleDisplay;
+            }
+        }
+    </script>
 </head>
 
 <body id="body_newcus" onload="startTime()">
@@ -87,7 +107,7 @@
                     <div class="input-group">
                         <asp:TextBox ID="SearchTextBox" placeholder="..گەران" CssClass="form-control form-control-lg styleK" runat="server"></asp:TextBox>
                         <div class="input-group-prepend">
-                            <asp:Button ID="SearchButton" CssClass="input-group-text styleK" Text="گەران" runat="server" />
+                            <asp:Button ID="SearchButton" onKeyUp="Search_Gridview(strKey, ViewUsersGridView)" CssClass="input-group-text styleK" Text="گەران" runat="server" />
 
                         </div>
                     </div>
@@ -110,7 +130,7 @@
                     OnRowEditing="ViewUsersGridView_RowEditing" OnRowUpdating="ViewUsersGridView_RowUpdating" AllowPaging="True"
                     AllowSorting="True" OnPageIndexChanging="ViewUsersGridView_PageIndexChanging" OnSorted="ViewUsersGridView_Sorted"
                     OnSorting="ViewUsersGridView_Sorting" PageSize="5"
-                    CssClass="table table-stripet table-bordered table-hover table-responsive-md text-center ">
+                    CssClass="table table-stripet table-bordered table-hover table-responsive-md text-center " OnSelectedIndexChanged="ViewUsersGridView_SelectedIndexChanged">
                     <Columns>
                         <asp:TemplateField ShowHeader="False">
                             <EditItemTemplate>

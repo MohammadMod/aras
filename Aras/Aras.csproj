@@ -219,6 +219,7 @@
     <Content Include="fonts\themify.woff" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Inserting Data.html" />
+    <Content Include="SearchInGrids.js" />
     <Content Include="js\app.js" />
     <Content Include="js\bar-chart.js" />
     <Content Include="js\bootstrap.min.js" />
