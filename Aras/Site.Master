@@ -41,38 +41,45 @@
             <div class="row py-5">
 
                 <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3">
-                    <div class="case-wrapper" data-name="Item" data-link="List/Item" title="Item">
-                        <a href="invoice.aspx">
-
-                            <div class="app-icon app-icon-green" title="Item">
-                                <i class="fas fa-plus" title="Item"></i>
+                    <div class="case-wrapper" data-name="Item" data-link="List/Item" >
+                        <a href="New Invoice.aspx">
+                            <div class="app-icon app-icon-green" title="فرۆشتن">
+                                <i class="fas fa-plus" title="فرۆشتن"></i>
                             </div>
-
                         </a>
                         <div class="case-label ellipsis">
                             <span class="case-label-text">فرۆشتن</span>
                         </div>
                     </div>
-                </div>
+                </div> <%-- Invoise --%>
 
-            
-            
-                <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3" id="usersShow" runat="server">
-                    <div class="case-wrapper" data-name="Item" data-link="List/Item" title="Item">
-                        <a href="Users.aspx">
-                            <div class="app-icon app-icon-yellow" title="Item">
-                                <span class="fas fa-user" title="Item"></span>
+                
+                <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3">
+                    <div class="case-wrapper" data-name="Item" data-link="List/Item">
+                        <a href="Customers.aspx">
+                            <div class="app-icon app-icon-grelight" title="چێشتخانە">
+                                <i class="fas fa-utensils" title="چێشتخانە"></i>
                             </div>
                         </a>
                         <div class="case-label ellipsis">
-                            <span class="case-label-text">شوفێرەکان </span>
+                            <span class="case-label-text">چێشتخانە</span>
                         </div>
                     </div>
-                </div>
-
+                </div> <%-- customer --%>
+    
+                <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3">
+                    <div class="case-wrapper" data-name="Item" data-link="List/Item" >
+                        <a href="NewCustomers.aspx">
+                        <div class="app-icon app-icon-purplelisht" title="زیاد کردنی چێشتخانە">
+                            <i class="fas fa-cart-plus" title="زیاد کردنی چێشتخانە"></i>
+                        </div>
+                            </a>
+                        <div class="case-label ellipsis">
+                            <span class="case-label-text">زیاد کردنی چێشتخانە</span>
+                        </div>
+                    </div>
+                </div> <%-- add customer --%>
                 
-
-
 
                 <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3">
                     <div class="case-wrapper" data-name="Item" data-link="List/Item" title="Item">
@@ -90,51 +97,51 @@
             
                 <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3" id="purchaseShow" runat="server">
                     <div class="case-wrapper" data-name="Item" data-link="List/Item" title="Item">
-                        <a href="purchese.aspx">
-                            <div class="app-icon app-icon-purple" title="Item">
-                                <i class="fas fa-fish" title="Item"></i>
+                        <a href="Purchase.aspx">
+                            <div class="app-icon app-icon-purple" title="كرینی ماسی">
+                                <i class="fas fa-fish" title="كرینی ماسی"></i>
                             </div>
                         </a>
                         <div class="case-label ellipsis">
                             <span class="case-label-text">كرینی ماسی</span>
                         </div>
                     </div>
-                </div>
-
+                </div> <%-- purchese --%>
                 
-                <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3">
-                    <div class="case-wrapper" data-name="Item" data-link="List/Item" title="Item">
-                        <a href="customer.aspx">
-                            <div class="app-icon app-icon-grelight" title="Item">
-                                <i class="fas fa-utensils" title="Item"></i>
+                
+                <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3" id="usersShow" runat="server">
+                    <div class="case-wrapper" data-name="Item" data-link="List/Item">
+                        <a href="Users.aspx">
+                            <div class="app-icon app-icon-yellow" title="شوفێرەکان">
+                                <span class="fas fa-user" title="شوفێرەکان"></span>
                             </div>
                         </a>
                         <div class="case-label ellipsis">
-                            <span class="case-label-text">Customers</span>
+                            <span class="case-label-text">شوفێرەکان </span>
                         </div>
                     </div>
-                </div>
-    
+                </div> <%-- Users show --%>
 
                   
                 <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3" id="registerUser" runat="server">
-                    <div class="case-wrapper" data-name="Item" data-link="List/Item" title="Item">
-                        <a href="register.aspx">
-                        <div class="app-icon app-icon-red" title="Item">
-                            <i class="fas fa-user-plus" title="Item"></i>
-                        </div>
-                            </a>
+                    <div class="case-wrapper" data-name="Item" data-link="List/Item" >
+                        <a href="RegisterUsers.aspx">
+                            <div class="app-icon app-icon-red"  title="زیاد کردنی شوفێر">
+                                <i class="fas fa-user-plus" title="زیاد کردنی شوفێر"></i>
+                            </div>
+                        </a>
                         <div class="case-label ellipsis">
-                            <span class="case-label-text">User Add</span>
+                            <span class="case-label-text">زیاد کردنی شوفێر</span>
                         </div>
                     </div>
-                </div>
+                </div> <%-- add user --%>
+
             
                 <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3">
                     <div class="case-wrapper" data-name="Item" data-link="List/Item" title="Item">
                         <a href="#">
                             <div class="app-icon app-icon-ogrange" title="Item">
-                                <i class="fas fa-home" title="Item"></i>
+                                <i class="fas fa-home ani" title="Item"></i>
                             </div>
                         </a>
                         <div class="case-label ellipsis">
@@ -143,31 +150,19 @@
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3">
-                    <div class="case-wrapper" data-name="Item" data-link="List/Item" title="Item">
-                        <a href="newcustomer.aspx">
-                        <div class="app-icon app-icon-purplelisht" title="Item">
-                            <i class="fas fa-cart-plus" title="Item"></i>
-                        </div>
-                            </a>
-                        <div class="case-label ellipsis">
-                            <span class="case-label-text">Add Costumer</span>
-                        </div>
-                    </div>
-                </div>
 
-                <%--<div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3">
-                    <div class="case-wrapper" data-name="Item" data-link="List/Item" title="Item">
-                        <a href="#" class="imgpayment">
-                            <div class="app-icon app-img app-icon-yellow" title="Item">
-                                <img src="Images/payment.png" title="Item">
+                <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3">
+                    <div class="case-wrapper" data-name="Item" data-link="List/Item">
+                        <a href="SupplierPaymentaspx.aspx" class="imgpayment">
+                            <div class="app-icon_img app-img app-icon-yellow" title="پارەدانی فرۆشیار">
+                                <img src="Image/payment.png" title="پارەدانی فرۆشیار">
                             </div>
                         </a>
                         <div class="case-label ellipsis">
-                            <span class="case-label-text">Pay to supplier</span>
+                            <span class="case-label-text">پارەدانی فرۆشیار</span>
                         </div>
                     </div>
-                </div>--%>
+                </div> <%-- payment supplier --%>
 
             </div>
         </div>

@@ -33,7 +33,7 @@
     <script src="js/HamaScripts.js"></script>
 
 </head>
-<body id="bod">
+<body id="body_newcus">
 
      
     <div class="main">

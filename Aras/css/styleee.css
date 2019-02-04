@@ -6,10 +6,6 @@
     width: 100%;
 }
 
-.bod{
-    width:100vh;
-    height:100vh
-}
 
 @media (max-width: 376px) 
 {
@@ -101,6 +97,16 @@
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.15);
 }
 
+.app-icon_img {
+    padding: 16px 0px;
+    display: inline-block;
+    margin: auto;
+    text-align: center;
+    border-radius: 16px;
+    cursor: pointer;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.15);
+}
+
 .app-icon_dolar {
     padding: 21px 35px;
     display: inline-block;
@@ -169,7 +175,7 @@
     font-size: 40px;
     color: white;
     transition: all .3s;
-    animation: moveInLeft 1s ease-out;
+    animation: moveInLeft-icon 1s ease-out;
 }
 .fa-plus:hover {
     color: rgb(73, 73, 78);
@@ -180,7 +186,7 @@
     font-size: 40px;
     color: white;
     transition: all .3s;
-    animation: moveInLeft 1s ease-out;
+    animation: moveInLeft-icon 1s ease-out;
 }
     .fa-utensils:hover {
         color: rgb(73, 73, 78);
@@ -191,7 +197,7 @@
     font-size: 40px;
     color: rgb(153, 161, 161);
     transition: all .3s;
-    animation: moveInLeft 1s ease-out;
+    animation: moveInLeft-icon 1s ease-out;
 }
 .fa-user:hover {
     color: rgb(73, 73, 78);
@@ -201,10 +207,13 @@
 .fa-home {
     font-size: 32px;
     color: white;
-    transition: all .3s;
-    animation: moveInLeft 1s ease-out;
+    
 }
-.fa-home:hover {
+.ani{
+    transition: all .3s;
+    animation: moveInLeft-icon 1s ease-out;
+}
+.ani:hover {
     color: rgb(73, 73, 78);
     transform: scale(1.2);
 }
@@ -214,7 +223,7 @@
     font-size: 32px;
     color: white;
     transition: all .3s;
-    animation: moveInLeft 1s ease-out;
+    animation: moveInLeft-icon 1s ease-out;
 }
 .fa-user-plus:hover {
     color: rgb(73, 73, 78);
@@ -225,7 +234,7 @@
     font-size: 3.6rem;
     color: white;
     transition: all .3s;
-    animation: moveInLeft 1s ease-out;
+    animation: moveInLeft-icon 1s ease-out;
 }
 .fa-dollar-sign:hover {
     color: rgb(73, 73, 78);
@@ -237,7 +246,7 @@
     font-size: 40px;
     color: white;
     transition: all .3s;
-    animation: moveInLeft 1s ease-out;
+    animation: moveInLeft-icon 1s ease-out;
 }
 .fa-fish:hover {
     color: rgb(73, 73, 78);
@@ -248,7 +257,7 @@
     font-size: 32px;
     color: white;
     transition: all .3s;
-    animation: moveInLeft 1s ease-out;
+    animation: moveInLeft-icon 1s ease-out;
 }
 
 .fa-cart-plus:hover {
@@ -257,16 +266,22 @@
 }
 
 
-.imgpayment img{
+.imgpayment img {
     width: 50px;
     height: 50px;
+    transition: all .3s;
+    animation: moveInLeft-icon 1s ease-out;
 }
-.app-img{
+
+.imgpayment img:hover {
+    transform:scale(1.2);
+}
+.app-img {
     width: 98px;
     height: 98px;
 }
 
-@keyframes moveInLeft {
+@keyframes moveInLeft-icon {
     0% {
         opacity: 0;
         transform: translateX(-2rem);
