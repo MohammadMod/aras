@@ -90,7 +90,6 @@ namespace Aras
                 }
 
                 con.Open();
-                lblMessage.Text = cmd.CommandText;
                 cmd.ExecuteNonQuery();
                 con.Close();
             }
@@ -109,8 +108,8 @@ namespace Aras
             }
             if (lstEmployeeIdsToDelete.Count > 0)
             {
-                //DeleteEmployees(lstEmployeeIdsToDelete);
-                //AdminWareHouseGridView.DataBind();
+                DeleteEmployees(lstEmployeeIdsToDelete);
+                AdminWareHouseGridView.DataBind();
                 lblMessage.ForeColor = System.Drawing.Color.Navy;
                 lblMessage.Text = lstEmployeeIdsToDelete.Count.ToString() + " row(s) deleted";
                 foreach (var item in lstEmployeeIdsToDelete)
