@@ -521,6 +521,7 @@
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
+    <Compile Include="SmartDelete.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="SupplierPaymentaspx.aspx.cs">
       <DependentUpon>SupplierPaymentaspx.aspx</DependentUpon>
