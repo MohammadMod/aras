@@ -18,7 +18,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Button ID="SearchButton" runat="server" Text="Search" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="DeleteButton" runat="server" Text="Delete"  OnClick="DeleteButton_Click" />
+            <asp:Button ID="DeleteButton" runat="server" Text="Delete" />
 &nbsp;&nbsp;
             <asp:Button ID="CreateButton" runat="server" Text="Create"  />
             <br />
@@ -29,10 +29,10 @@
                 
                 <asp:TemplateField>
                     <HeaderTemplate>
-                        <asp:CheckBox ID="cbDeleteHeader" runat="server" AutoPostBack="True" OnCheckedChanged="cbDeleteHeader_CheckedChanged" />
+                        <asp:CheckBox ID="cbDeleteHeader" runat="server" AutoPostBack="true" />
                     </HeaderTemplate>
                     <ItemTemplate>
-                        <asp:CheckBox ID="cbDelete" runat="server" AutoPostBack="True" OnCheckedChanged="cbDelete_CheckedChanged" />
+                        <asp:CheckBox ID="cbDelete" runat="server" AutoPostBack="true" />
                     </ItemTemplate>
                 </asp:TemplateField>
                 
