@@ -11,7 +11,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            Select Supplier:
+            Select Customer:
             <asp:DropDownList ID="SelectCustomerDropDownList" runat="server" AutoPostBack="True" OnSelectedIndexChanged="SelectCustomerDropDownList_SelectedIndexChanged">
             </asp:DropDownList>
             <br />
@@ -20,17 +20,20 @@
             <br />
             <br />
             <br />
-            Para dan:<asp:TextBox ID="ReciveFromSupplierTextBox" runat="server"  onkeyup="calculateCustomer()"></asp:TextBox>
+            Para dan:<asp:TextBox ID="ReciveFromSupplierTextBox" runat="server"  onkeyup="calculateCustomer()" required="true"></asp:TextBox>
             <br />
             <br />
-            Parai wasl - para la hisab:<asp:TextBox ID="RecivePlusInAccountTextBox" runat="server" Enabled="False"></asp:TextBox>
+            total all la naw wasl:<asp:TextBox ID="totalAllTextBox" runat="server" Enabled="False"></asp:TextBox>
+            <br />
+            <br />
+            para dan - parai la wasl:<asp:TextBox ID="RecivePlusInAccountTextBox" runat="server"  ReadOnly="true" Width="238px"></asp:TextBox>
             <br />
             <br />
             search:<asp:TextBox ID="searchTextBox" runat="server" onkeyup="Search_Gridview(this, 'GridView1')"></asp:TextBox>
             <br />
             <br />
         </div>
-        <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="ID" DataSourceID="salesInvoiceHasNoPayment">
+        <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="ID" DataSourceID="salesInvoiceHasNoPayment" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
             <Columns>
                 <asp:CommandField ShowSelectButton="True" HeaderText="Pay" SelectText="Pay" />
                 <asp:BoundField DataField="series" HeaderText="series" SortExpression="series" />
@@ -50,7 +53,7 @@
             </SelectParameters>
         </asp:SqlDataSource>
         <br />
-        <asp:Button ID="SubmitButton" runat="server" Text="Submit" />
+        <asp:Button ID="SubmitButton" runat="server" Text="Submit" OnClick="SubmitButton_Click" />
     </form>
 </body>
 </html>

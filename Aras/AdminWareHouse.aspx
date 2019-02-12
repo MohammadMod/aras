@@ -24,7 +24,7 @@
             <br />
             <br />
         </div>
-        <asp:GridView ID="AdminWareHouseGridView" runat="server" Width="585px" Height="297px" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="ID" DataSourceID="viewWareHouses" >
+        <asp:GridView ID="AdminWareHouseGridView" runat="server" Width="585px" Height="297px" AllowPaging="True" PageSize="5" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="ID" DataSourceID="viewWareHouses" >
             <Columns>
                 
                 <asp:TemplateField>
@@ -56,3 +56,4 @@
      
 </body>
 </html>
+

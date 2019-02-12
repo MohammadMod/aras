@@ -19,24 +19,36 @@
             Para la hisabi:<asp:TextBox ID="MoneyInAccountTextBox" runat="server" Enabled="False"></asp:TextBox>
             <br />
             <br />
+            Para dan:<asp:TextBox ID="PayToSupplierTextBox" runat="server" required="true" OnTextChanged="PayToSupplierTextBox_TextChanged" onkeyup="calculateSupplier()"></asp:TextBox>
             <br />
-            Para dan:<asp:TextBox ID="PayToSupplierTextBox" runat="server" OnTextChanged="PayToSupplierTextBox_TextChanged" onkeyup="calculateSupplier()"></asp:TextBox>
+            <br />
+            Parai wasl - para la hisab:<asp:TextBox ID="PayPlusInAccountTextBox" runat="server" ReadOnly="true"></asp:TextBox>
             <br />
             <br />
-            Parai wasl - para la hisab:<asp:TextBox ID="PayPlusInAccountTextBox" runat="server" Enabled="False"></asp:TextBox>
+            total all la naw wasl: <asp:TextBox ID="totalAllTextBox" runat="server"></asp:TextBox>
             <br />
             <br />
             Search:
             <asp:TextBox ID="searchTextBox" runat="server" onkeyup="Search_Gridview(this, 'GridView1')"></asp:TextBox>
             <br />
             <br />
-            <br />
+            <br /> 
         </div>
-        <asp:GridView ID="GridView1" runat="server" AllowPaging="True" PageSize="10" AllowSorting="True" DataSourceID="PurchaseInvoiceHasNoPaymentEntry" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+        <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="salesInvoicehasnopaymententry" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AutoGenerateColumns="False">
             <Columns>
-                <asp:CommandField HeaderText="Pay" SelectText="Pay" ShowSelectButton="True" />
+                <asp:CommandField SelectText="Pay" ShowSelectButton="True" />
+                <asp:BoundField DataField="series" HeaderText="series" SortExpression="series" />
+                <asp:BoundField DataField="Posting_date" HeaderText="Posting_date" SortExpression="Posting_date" />
+                <asp:BoundField DataField="rate" HeaderText="rate" SortExpression="rate" />
+                <asp:BoundField DataField="totall_amount" HeaderText="totall_amount" SortExpression="totall_amount" />
+                <asp:BoundField DataField="amount" HeaderText="amount" SortExpression="amount" />
             </Columns>
         </asp:GridView>
+        <asp:SqlDataSource ID="salesInvoicehasnopaymententry" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="Purchase_invoies_have_no_payment_entry" SelectCommandType="StoredProcedure">
+            <SelectParameters>
+                <asp:ControlParameter ControlID="SelectSupplierDropDownList" Name="supplier" PropertyName="SelectedIndex" Type="Int32" />
+            </SelectParameters>
+        </asp:SqlDataSource>
         <asp:SqlDataSource ID="PurchaseInvoiceHasNoPaymentEntry" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="show_purchase_Invoices" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
         <p>
             <asp:Button ID="SubmitButton" runat="server" Text="Submit" OnClick="SubmitButton_Click" />

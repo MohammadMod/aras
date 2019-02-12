@@ -104,12 +104,13 @@
 
             <div class="border p-3">
             
-                <asp:GridView ID="ShowSalesInvoicesGridView" runat="server" 
+                <asp:GridView ID="ShowSalesInvoicesGridView" runat="server"
                     OnRowEditing="ShowSalesInvoicesGridView_RowEditing" OnRowUpdating="ShowSalesInvoicesGridView_RowUpdating" 
                      OnRowCancelingEdit="ShowSalesInvoicesGridView_RowCancelingEdit" AllowPaging="True" PageSize="2" AllowSorting="True"
                     OnSorting="ShowSalesInvoicesGridView_Sorting" OnPageIndexChanging="ShowSalesInvoicesGridView_PageIndexChanging"
-                    CssClass="table table-stripet table-bordered table-hover table-responsive-md text-center">
+                    CssClass="table table-stripet table-bordered table-hover table-responsive-md text-center" OnSelectedIndexChanged="ShowSalesInvoicesGridView_SelectedIndexChanged">
                     <Columns>
+                        <asp:CommandField ShowSelectButton="True" />
                         <asp:CommandField ShowEditButton="True" />
                     </Columns>
            

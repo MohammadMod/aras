@@ -175,6 +175,9 @@
                     </div>  
                 
                      <br />
+                                <label for="TotallAllTextBox" class="col-form-label styleK">
+                     <asp:Button ID="UpdateButton" runat="server" OnClick="UpdateButton_Click" Text="Update" />
+                     </label>
                      <br />
                      chose warehouse:  
                 

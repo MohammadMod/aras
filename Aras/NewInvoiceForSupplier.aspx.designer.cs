@@ -10,7 +10,7 @@
 namespace Aras {
     
     
-    public partial class CustomerPayment {
+    public partial class NewInvoiceForSupplier {
         
         /// <summary>
         /// form1 control.
@@ -31,75 +31,84 @@ namespace Aras {
         protected global::System.Web.UI.WebControls.DropDownList SelectCustomerDropDownList;
         
         /// <summary>
-        /// MoneyInAccountTextBox control.
+        /// ChoseWareHouseDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox MoneyInAccountTextBox;
+        protected global::System.Web.UI.WebControls.DropDownList ChoseWareHouseDropDownList;
         
         /// <summary>
-        /// ReciveFromSupplierTextBox control.
+        /// WareHouseName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ReciveFromSupplierTextBox;
+        protected global::System.Web.UI.WebControls.SqlDataSource WareHouseName;
         
         /// <summary>
-        /// totalAllTextBox control.
+        /// SeriesDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox totalAllTextBox;
+        protected global::System.Web.UI.WebControls.DropDownList SeriesDropDownList;
         
         /// <summary>
-        /// RecivePlusInAccountTextBox control.
+        /// KiloTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox RecivePlusInAccountTextBox;
+        protected global::System.Web.UI.WebControls.TextBox KiloTextBox;
         
         /// <summary>
-        /// searchTextBox control.
+        /// CostOfKiloTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox searchTextBox;
+        protected global::System.Web.UI.WebControls.TextBox CostOfKiloTextBox;
         
         /// <summary>
-        /// GridView1 control.
+        /// TotallTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.TextBox TotallTextBox;
         
         /// <summary>
-        /// salesInvoiceHasNoPayment control.
+        /// DiscountTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource salesInvoiceHasNoPayment;
+        protected global::System.Web.UI.WebControls.TextBox DiscountTextBox;
         
         /// <summary>
-        /// SubmitButton control.
+        /// TotallAllTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button SubmitButton;
+        protected global::System.Web.UI.WebControls.TextBox TotallAllTextBox;
+        
+        /// <summary>
+        /// SubmitNewInvoiceButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button SubmitNewInvoiceButton;
     }
 }

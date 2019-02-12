@@ -20,6 +20,9 @@ namespace Aras
         {
             bd.wareHouseName(FromWareHouseDropDownList);
             bd.wareHouseName(ToWareHouseDropDownList);
+            string app= Application["InvoiceName"].ToString();
+            Response.Write(app);
+            TranseferAmountTextBox.Text = app;
         }
 
         protected void ToWareHouseDropDownList_SelectedIndexChanged(object sender, EventArgs e)

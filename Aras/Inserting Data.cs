@@ -184,6 +184,7 @@ namespace Aras
 
         public void InsertNewCustomer(string customerName,string resturantName,string location,string phoneNumber,float moneyInDept,CheckBox DisablesCheckBox)
         {
+
             SqlCommand cmd = new SqlCommand("INSERT_CUSTOMER", con);
             con.Open();
 
