@@ -32,7 +32,16 @@
         </div>
         <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="ID" DataSourceID="salesInvoiceHasNoPayment">
             <Columns>
-                <asp:CommandField ShowSelectButton="True" HeaderText="Pay" SelectText="Pay" />
+
+                <asp:TemplateField>
+                    <HeaderTemplate>
+                        <asp:CheckBox ID="cbDeleteHeader" runat="server" AutoPostBack="true" />
+                    </HeaderTemplate>
+                    <ItemTemplate>
+                        <asp:CheckBox ID="cbDelete" runat="server" AutoPostBack="true" />
+                    </ItemTemplate>
+                </asp:TemplateField>
+
                 <asp:BoundField DataField="series" HeaderText="series" SortExpression="series" />
                 <asp:BoundField DataField="rate" HeaderText="rate" SortExpression="rate" />
                 <asp:BoundField DataField="amount" HeaderText="amount" SortExpression="amount" />
@@ -51,6 +60,7 @@
         </asp:SqlDataSource>
         <br />
         <asp:Button ID="SubmitButton" runat="server" Text="Submit" />
+        <asp:Button ID="DeleteButton" runat="server" Text="Button" />
     </form>
 </body>
 </html>

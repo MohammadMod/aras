@@ -13,12 +13,14 @@ namespace Aras
     public partial class CustomerPayment : System.Web.UI.Page
     {
         BindingData bd = new BindingData();
+        SmartDelete Deletor;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 bd.CustomerDropDown(SelectCustomerDropDownList); 
             }
+            Deletor = new SmartDelete(GridView1, DeleteButton, "Payment_entry");
         }
 
         public string moneyInAcc;
