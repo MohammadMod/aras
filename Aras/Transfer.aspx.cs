@@ -18,37 +18,65 @@ namespace Aras
         BindingData bd = new BindingData();
         protected void Page_Load(object sender, EventArgs e)
         {
-            bd.wareHouseName(FromWareHouseDropDownList);
-            bd.wareHouseName(ToWareHouseDropDownList);
-            string app= Application["InvoiceName"].ToString();
-            Response.Write(app);
-            TranseferAmountTextBox.Text = app;
+            if (!IsPostBack)
+            {
+                bd.wareHouseName(fromWareHouseDropDownList);
+                bd.wareHouseName(toWareHouseDropDownList);
+            }
+           
+            //test
+            //string app = Application["InvoiceName"].ToString();
+            //Response.Write(app);
+            //TranseferAmountTextBox.Text = app;
+
         }
 
-        protected void ToWareHouseDropDownList_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
+        protected void fromWareHouseDropDownList_SelectedIndexChanged1(object sender, EventArgs e)
+        {
+            try
+            {
+                SqlCommand cmdd = new SqlCommand("show_warehouse_amount", conn);
+                conn.Open();
+                cmdd.Parameters.AddWithValue("warehouse_name", fromWareHouseDropDownList.SelectedItem.Text);
+                cmdd.CommandType = System.Data.CommandType.StoredProcedure;
+                AmountInWareHouseTextBox.Text = "" + cmdd.ExecuteScalar().ToString();
+                cmdd.ExecuteNonQuery();
+                conn.Close();
+            }
+            catch (Exception)
+            {
+
+                Response.Write("no data in this warehouse found");
+            }
+          
+            
         }
 
-        protected void FromWareHouseDropDownList_SelectedIndexChanged(object sender, EventArgs e)
+        protected void submitButton_Click(object sender, EventArgs e)
         {
+            float amountInWareHouse = float.Parse(AmountInWareHouseTextBox.Text);
+            float transferAmount = float.Parse(TranseferAmountTextBox.Text);
 
-            //SqlCommand cmdd = new SqlCommand("show_warehouse_amount", conn);
-            //conn.Open();
-            //cmdd.Parameters.AddWithValue("warehouse_name", FromWareHouseDropDownList.SelectedItem.Selected.ToString());
-            //cmdd.CommandType = System.Data.CommandType.StoredProcedure;
-            //AmountInWareHouseTextBox.Text = cmdd.ExecuteScalar().ToString();
-            //cmdd.ExecuteNonQuery();
-            //conn.Close();
-            //conn.Close();
+            if (transferAmount>amountInWareHouse)
+            {
+                Response.Write("Not Enough amount");
+            }
+            else
+            {
+                SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
+                SqlCommand cmd = new SqlCommand("INSERT_Transfer", con);
+                con.Open();
+                
+                cmd.Parameters.AddWithValue("sours_warehouse_ID", fromWareHouseDropDownList.SelectedIndex);
+                cmd.Parameters.AddWithValue("Target_warehouse_ID", toWareHouseDropDownList.SelectedIndex);
+                cmd.Parameters.AddWithValue("quantityas", float.Parse(TranseferAmountTextBox.Text));
+                cmd.Parameters.AddWithValue("Date_time", DateTime.Now);
 
-            Response.Write(FromWareHouseDropDownList.SelectedItem.Text);
-            Response.Write(FromWareHouseDropDownList.SelectedItem.Value.ToString());
-            Response.Write(FromWareHouseDropDownList.SelectedItem.Selected.ToString());
-            Response.Write(FromWareHouseDropDownList.SelectedValue.ToString());
-            Response.Write(FromWareHouseDropDownList.SelectedValue.ToString());
-            Response.Write(FromWareHouseDropDownList.SelectedIndex.ToString());
-            Response.Write(FromWareHouseDropDownList.DataTextField.ToString());
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
 
         }
     }

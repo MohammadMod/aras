@@ -19,6 +19,7 @@ namespace Aras
             if (!IsPostBack)
             {
                 SubmitButton.Enabled = false;
+                ReciveFromSupplierTextBox.Enabled = false;
                 bd.CustomerDropDown(SelectCustomerDropDownList); 
             }
         }
@@ -60,7 +61,7 @@ namespace Aras
             string totalAll = gridViewRow.Cells[4].Text.ToString();
             totalAllTextBox.Text = totalAll;
             SubmitButton.Enabled = true;
-
+            ReciveFromSupplierTextBox.Enabled = true;
             updateSalesInvoiceToPay = true;
         }
 

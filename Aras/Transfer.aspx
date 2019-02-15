@@ -10,15 +10,15 @@
     <form id="form1" runat="server">
         <div>
             From WareHouse:&nbsp;
-            <asp:DropDownList ID="FromWareHouseDropDownList" runat="server" AutoPostBack="True" Height="40px" OnSelectedIndexChanged="FromWareHouseDropDownList_SelectedIndexChanged" Width="122px">
+            &nbsp;&nbsp;<asp:DropDownList ID="fromWareHouseDropDownList" runat="server" AutoPostBack="True" OnSelectedIndexChanged="fromWareHouseDropDownList_SelectedIndexChanged1">
             </asp:DropDownList>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; To:&nbsp;&nbsp;
-            <asp:DropDownList ID="ToWareHouseDropDownList" runat="server" AutoPostBack="True" Height="23px" OnSelectedIndexChanged="ToWareHouseDropDownList_SelectedIndexChanged" Width="127px">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; To:&nbsp;&nbsp;
+            <asp:DropDownList ID="toWareHouseDropDownList" runat="server">
             </asp:DropDownList>
             <br />
             <br />
             <br />
-            Amount in warehouse:<asp:TextBox ID="AmountInWareHouseTextBox" runat="server"></asp:TextBox>
+            Amount in warehouse:<asp:TextBox ID="AmountInWareHouseTextBox" runat="server" ReadOnly="true"></asp:TextBox>
             <br />
             <br />
             Transfer Amount:<asp:TextBox ID="TranseferAmountTextBox" runat="server"></asp:TextBox>
@@ -26,7 +26,7 @@
             <br />
             <br />
             <br />
-            <asp:Button ID="SubminButton" runat="server" Text="Submit" />
+            <asp:Button ID="submitButton" runat="server" OnClick="submitButton_Click" Text="Button" />
             <br />
         </div>
     </form>

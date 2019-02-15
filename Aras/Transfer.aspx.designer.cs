@@ -22,22 +22,22 @@ namespace Aras {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// FromWareHouseDropDownList control.
+        /// fromWareHouseDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList FromWareHouseDropDownList;
+        protected global::System.Web.UI.WebControls.DropDownList fromWareHouseDropDownList;
         
         /// <summary>
-        /// ToWareHouseDropDownList control.
+        /// toWareHouseDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ToWareHouseDropDownList;
+        protected global::System.Web.UI.WebControls.DropDownList toWareHouseDropDownList;
         
         /// <summary>
         /// AmountInWareHouseTextBox control.
@@ -58,12 +58,12 @@ namespace Aras {
         protected global::System.Web.UI.WebControls.TextBox TranseferAmountTextBox;
         
         /// <summary>
-        /// SubminButton control.
+        /// submitButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button SubminButton;
+        protected global::System.Web.UI.WebControls.Button submitButton;
     }
 }

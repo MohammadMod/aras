@@ -16,14 +16,46 @@ namespace Aras
         string UpdateOrNew = "New";
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if (!IsPostBack)
+            {
+
+                try
+                {
+                    UpdateOrNew = Application["status"].ToString();
+
+                }
+                catch (Exception)
+                {
+
+                  
+                }
+                if (UpdateOrNew !="" && UpdateOrNew=="Update")
+                {
+                    SupplierFullNameTextBox.Text = Application["name"].ToString();
+                    NewSupplierDepitMoneyTextBox.Text = Application["debit"].ToString();
+                    SupplierLocationTextBox.Text = Application["location"].ToString();
+                    SupplierPhoneNumberTextBox.Text = Application["phone_number"].ToString();
+                }
+               
+
+
+            }
         }
 
         protected void CreateNewSupplierButton_Click(object sender, EventArgs e)
         {
 
 
-            #region Hama Creating new Supplier
+            if (UpdateOrNew == "Update" && UpdateOrNew != "")
+            {
+                UpdateOrNew = "New";
+                Application["status"] = UpdateOrNew;
+                string id = Application["id"].ToString();
+            }
+
+            else
+            {
+                #region Hama Creating new Supplier
                 try
                 {
                     inD.newSupplier(SupplierFullNameTextBox.Text, NewSupplierDepitMoneyTextBox.Text, SupplierLocationTextBox.Text, DisableCheckBox, SupplierPhoneNumberTextBox.Text);
@@ -35,8 +67,10 @@ namespace Aras
 
                     throw;
                 }
-            
-            #endregion
+
+                #endregion
+            }
+
 
         }
     }

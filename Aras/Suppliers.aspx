@@ -107,10 +107,11 @@
                 <asp:GridView ID="ViewSuppliersGridView" runat="server"
                     OnRowEditing="ViewSuppliersGridView_RowEditing" OnRowUpdating="ViewSuppliersGridView_RowUpdating" 
                     OnPageIndexChanging="ViewSuppliersGridView_PageIndexChanging" OnRowCancelingEdit="ViewSuppliersGridView_RowCancelingEdit"
-                    AllowPaging="true" PageSize="5" AllowSorting="true" OnSorting="ViewSuppliersGridView_Sorting" 
-                    CssClass="table table-stripet table-bordered table-hover table-responsive-md text-center " ShowHeaderWhenEmpty="True">
+                    AllowPaging="True" PageSize="5" AllowSorting="True" OnSorting="ViewSuppliersGridView_Sorting" 
+                    CssClass="table table-stripet table-bordered table-hover table-responsive-md text-center " ShowHeaderWhenEmpty="True" OnSelectedIndexChanged="ViewSuppliersGridView_SelectedIndexChanged">
                     <Columns>
                         <asp:CommandField ShowEditButton="True" />
+                        <asp:CommandField HeaderText="Edit" SelectText="Edit" ShowSelectButton="True" />
                     </Columns>
                 </asp:GridView>
             </div>
