@@ -75,54 +75,97 @@
       <hr/>
        </section>
 
-        <div class="container">
+    <div class="container">
+
+        <div class="border">
+
             <form id="form1" runat="server">
-                <div>
-                    Select Supplier:
-            <asp:DropDownList ID="SelectSupplierDropDownList" runat="server" AutoPostBack="True" OnSelectedIndexChanged="SelectSupplierDropDownList_SelectedIndexChanged">
-            </asp:DropDownList>
-                    <br />
-                    <br />
-                    Para la hisabi:<asp:TextBox ID="MoneyInAccountTextBox" runat="server" Enabled="False"></asp:TextBox>
-                    <br />
-                    <br />
-                    Para dan:<asp:TextBox ID="PayToSupplierTextBox" runat="server" required="true" OnTextChanged="PayToSupplierTextBox_TextChanged" onkeyup="calculateSupplier()"></asp:TextBox>
-                    <br />
-                    <br />
-                    Parai wasl - para la hisab:<asp:TextBox ID="PayPlusInAccountTextBox" runat="server" ReadOnly="true"></asp:TextBox>
-                    <br />
-                    <br />
-                    total all la naw wasl:
-                    <asp:TextBox ID="totalAllTextBox" runat="server"></asp:TextBox>
-                    <br />
-                    <br />
-                    Search:
-            <asp:TextBox ID="searchTextBox" runat="server" onkeyup="Search_Gridview(this, 'GridView1')"></asp:TextBox>
-                    <br />
-                    <br />
-                    <br />
+
+                <div class="col-lg-10 mt-0">
+                    <div class="form-group">
+                        <label for="SelectSupplierDropDownList" class="col-form-label styleK text-right">دیاری کردنی فرۆشیار</label>
+                        <asp:DropDownList ID="SelectSupplierDropDownList" Style="padding-top: 0; padding-bottom: 0; font-size: 12px;"
+                            runat="server" CssClass="form-control invois_multK" AutoPostBack="True" OnSelectedIndexChanged="SelectSupplierDropDownList_SelectedIndexChanged">
+                        </asp:DropDownList>
+                    </div>
                 </div>
-                <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="salesInvoicehasnopaymententry" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AutoGenerateColumns="False">
-                    <Columns>
-                        <asp:CommandField SelectText="Pay" ShowSelectButton="True" />
-                        <asp:BoundField DataField="series" HeaderText="series" SortExpression="series" />
-                        <asp:BoundField DataField="Posting_date" HeaderText="Posting_date" SortExpression="Posting_date" />
-                        <asp:BoundField DataField="rate" HeaderText="rate" SortExpression="rate" />
-                        <asp:BoundField DataField="totall_amount" HeaderText="totall_amount" SortExpression="totall_amount" />
-                        <asp:BoundField DataField="amount" HeaderText="amount" SortExpression="amount" />
-                    </Columns>
-                </asp:GridView>
-                <asp:SqlDataSource ID="salesInvoicehasnopaymententry" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="Purchase_invoies_have_no_payment_entry" SelectCommandType="StoredProcedure">
-                    <SelectParameters>
-                        <asp:ControlParameter ControlID="SelectSupplierDropDownList" Name="supplier" PropertyName="SelectedIndex" Type="Int32" />
-                    </SelectParameters>
-                </asp:SqlDataSource>
-                <asp:SqlDataSource ID="PurchaseInvoiceHasNoPaymentEntry" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="show_purchase_Invoices" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
-                <p>
-                    <asp:Button ID="SubmitButton" runat="server" Text="Submit" OnClick="SubmitButton_Click" />
-                </p>
+                
+                <fieldset disabled>
+                    <div class="col-lg-6  mt-0">
+                        <div class="form-group">
+                            <label for="TotallTextBox" class="col-form-label styleK">پارە لە حیساب</label>
+                            <asp:TextBox ID="MoneyInAccountTextBox" CssClass="form-control form-control-lg"  runat="server" Enabled="False"></asp:TextBox>
+                        </div>
+                    </div>
+                </fieldset>
+
+
+                <div class="col-lg-6 mt-0">
+                    <div class="form-group">
+                        <label for="PayToSupplierTextBox" class="col-form-label styleK">پارە دان</label>
+                        <asp:TextBox ID="PayToSupplierTextBox" runat="server" CssClass="form-control form-control-lg"
+                            required="true" TextMode="Number" OnTextChanged="PayToSupplierTextBox_TextChanged" onkeyup="calculateSupplier()"></asp:TextBox>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-6 mt-0">
+                    <div class="form-group">
+                        <label for="PayPlusInAccountTextBox" class="col-form-label styleK">پارەی وەسڵ</label>
+
+                        <asp:TextBox ID="PayPlusInAccountTextBox"  CssClass="form-control form-control-lg" runat="server" ReadOnly="true"></asp:TextBox>
+
+                    </div>
+                </div>
+
+                
+                <div class="col-lg-6 mt-0">
+                    <div class="form-group">
+                        <label for="totalAllTextBox" class="col-form-label styleK">کۆی گشتی پارەی وەسڵ</label>
+                        <asp:TextBox ID="totalAllTextBox" CssClass="form-control form-control-lg"  runat="server"></asp:TextBox>
+                    </div>
+                </div>
+                <hr />
+
+                
+                    <div class="col-lg-6 mt-0">
+                        <div class="form-group">
+                            <label for="searchTextBox" class="col-form-label styleK">گەران</label>
+                            <asp:TextBox ID="searchTextBox" CssClass="form-control form-control-lg" runat="server" onkeyup="Search_Gridview(this, 'GridView1')"></asp:TextBox>
+                        </div>
+                    </div>
+             
+                <div class="container">
+                    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True"
+                        DataSourceID="salesInvoicehasnopaymententry" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AutoGenerateColumns="False"
+                            CssClass="table table-stripet table-bordered table-hover table-responsive-md text-center">
+                        <Columns>
+                            <asp:CommandField SelectText="Pay" ShowSelectButton="True" />
+                            <asp:BoundField DataField="series" HeaderText="series" SortExpression="series" />
+                            <asp:BoundField DataField="Posting_date" HeaderText="Posting_date" SortExpression="Posting_date" />
+                            <asp:BoundField DataField="rate" HeaderText="rate" SortExpression="rate" />
+                            <asp:BoundField DataField="totall_amount" HeaderText="totall_amount" SortExpression="totall_amount" />
+                            <asp:BoundField DataField="amount" HeaderText="amount" SortExpression="amount" />
+                        </Columns>
+                    </asp:GridView>
+                    <asp:SqlDataSource ID="salesInvoicehasnopaymententry" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="Purchase_invoies_have_no_payment_entry" SelectCommandType="StoredProcedure">
+                        <SelectParameters>
+                            <asp:ControlParameter ControlID="SelectSupplierDropDownList" Name="supplier" PropertyName="SelectedIndex" Type="Int32" />
+                        </SelectParameters>
+                    </asp:SqlDataSource>
+                    <asp:SqlDataSource ID="PurchaseInvoiceHasNoPaymentEntry" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="show_purchase_Invoices" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
+
+                    <div class="col-md-3 col-sm-3 col-lg-3 ">
+                        <asp:Button ID="SubmitButton" CssClass="btn btn-success btn-block styleK fs-4" runat="server" Text="پارە دان"  OnClick="SubmitButton_Click" />
+                    </div>
+                    
+                    
+                        
+                    
+                </div>
             </form>
         </div>
+    </div>
     
 
     <script src="js/app.js"></script>
