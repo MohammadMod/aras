@@ -93,97 +93,97 @@
         <div class="border">
 
             <form id="form1" runat="server">
-                
-            
-                     <div class="col-lg-10 mt-0">
-                        <div class="form-group">
-                            <label for="Name_resturant"  class="col-form-label styleK">چێشتخانە</label>
-                               
-                            <asp:DropDownList ID="SelectCustomerDropDownList" CssClass="form-control"
-                                runat="server" OnSelectedIndexChanged="SelectCustomerDropDownList_SelectedIndexChanged">
-                            </asp:DropDownList>
 
-                        </div>
+
+                <div class="col-lg-10 mt-0">
+                    <div class="form-group">
+                        <label for="Name_resturant" class="col-form-label styleK">چێشتخانە</label>
+
+                        <asp:DropDownList ID="SelectCustomerDropDownList" CssClass="form-control"
+                            runat="server" OnSelectedIndexChanged="SelectCustomerDropDownList_SelectedIndexChanged">
+                        </asp:DropDownList>
+
                     </div>
+                </div>
 
 
-                    
-                  <div class="col-lg-10 mt-0">
+
+                <div class="col-lg-10 mt-0">
                     <div class="form-group">
                         <label for="Name_resturant" class="col-form-label styleK text-right">جۆری وەسڵ</label>
-                        <asp:DropDownList ID="SeriesDropDownList" style="padding-top:0; padding-bottom:0; font-size:12px;"
+                        <asp:DropDownList ID="SeriesDropDownList" Style="padding-top: 0; padding-bottom: 0; font-size: 12px;"
                             runat="server" CssClass="form-control invois_multK">
                             <asp:ListItem>Name Of Series</asp:ListItem>
                             <asp:ListItem>Name of series return</asp:ListItem>
-                        </asp:DropDownList>   
+                        </asp:DropDownList>
                     </div>
-                  </div>
+                </div>
 
 
-                                        <div class="col-lg-6 mt-0">
+                <div class="col-lg-6 mt-0">
+                    <div class="form-group">
+                        <label for="KiloTextBox" class="col-form-label styleK">کیڵۆ</label>
+                        <asp:TextBox ID="KiloTextBox" runat="server" onkeyup="getValues()" CssClass="form-control form-control-lg" required="true"></asp:TextBox>
+                    </div>
+                </div>
+
+
+
+
+
+
+                <div class="col-lg-6 mt-0">
+                    <div class="form-group">
+                        <label for="CostOfKiloTextBox" class="col-form-label styleK">پارە </label>
+
+                        <asp:TextBox ID="CostOfKiloTextBox" onkeyup="getValues()" runat="server" CssClass="form-control form-control-lg" required="true"></asp:TextBox>
+                    </div>
+                </div>
+
+                <fieldset disabled>
+                    <div class="col-lg-6  mt-0">
                         <div class="form-group">
-                            <label for="KiloTextBox" class="col-form-label styleK">کیڵۆ</label>
-                            <asp:TextBox ID="KiloTextBox" runat="server" onkeyup="getValues()" CssClass="form-control form-control-lg" required="true"></asp:TextBox>
+                            <label for="TotallTextBox" class="col-form-label styleK">گشتی</label>
+
+                            <asp:TextBox ID="TotallTextBox" runat="server" CssClass="form-control form-control-lg" Enabled="False"></asp:TextBox>
+
                         </div>
                     </div>
+                </fieldset>
 
 
-
-
-                    
-                 
-                    <div class="col-lg-6 mt-0">
-                      <div class="form-group">
-                          <label for="CostOfKiloTextBox" class="col-form-label styleK"> پارە </label>
-                          
-                          <asp:TextBox ID="CostOfKiloTextBox" onkeyup="getValues()" runat="server" CssClass="form-control form-control-lg" required ="true"></asp:TextBox>
-                      </div>
+                <div class="col-lg-6 mt-0">
+                    <div class="form-group">
+                        <label for="DiscountTextBox" class="col-form-label styleK">داشکان </label>
+                        <asp:TextBox ID="DiscountTextBox" onkeyup="getValues()" CssClass="form-control form-control-lg" runat="server" required="true"></asp:TextBox>
                     </div>
-                   
-                    <fieldset disabled>
-                        <div class="col-lg-6  mt-0">
-                            <div class="form-group">
-                                <label for="TotallTextBox" class="col-form-label styleK">گشتی</label>
-                                
-                                <asp:TextBox ID="TotallTextBox" runat="server" CssClass="form-control form-control-lg" Enabled="False"></asp:TextBox>
+                </div>
 
-                            </div>
+                <div class="col-lg-6  mt-0">
+                    <fieldset disabled="disabled">
+                        <div class="form-group">
+                            <label for="TotallAllTextBox" class="col-form-label styleK">كۆی گشتی </label>
+                            <asp:TextBox ID="TotallAllTextBox" CssClass="form-control form-control-lg" Text="0" runat="server" Enabled="False"></asp:TextBox>
                         </div>
                     </fieldset>
-                   
+                </div>
 
-                    <div class="col-lg-6 mt-0">
-                      <div class="form-group">
-                          <label for="DiscountTextBox" class="col-form-label styleK">داشکان </label>
-                          <asp:TextBox ID="DiscountTextBox" onkeyup="getValues()" CssClass="form-control form-control-lg" runat="server" required="true"></asp:TextBox>
-                      </div>
+                <div class="col-lg-3 col-md-6 col-sm-6  mt-0 pb-3">
+                    <div class="form-group">
+                        <asp:Button ID="SubmitNewInvoiceButton" Text="درووست کردن" CssClass="btn btn-primary  btn-block styleK" runat="server" OnClick="SubmitNewInvoiceButton_Click" />
                     </div>
+                </div>
 
-                    <div class="col-lg-6  mt-0">
-                        <fieldset disabled="disabled">
-                            <div class="form-group">
-                                <label for="TotallAllTextBox" class="col-form-label styleK">كۆی گشتی </label>
-                                <asp:TextBox ID="TotallAllTextBox"  CssClass="form-control form-control-lg" Text="0" runat="server" Enabled="False"></asp:TextBox>
-                            </div>
-                        </fieldset>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 col-sm-6  mt-0 pb-3">
-                        <div class="form-group">
-                            <asp:Button ID="SubmitNewInvoiceButton" Text="درووست کردن" CssClass="btn btn-primary  btn-block styleK" runat="server" OnClick="SubmitNewInvoiceButton_Click" />
-                        </div>
-                    </div>  
-                
-                     <br />
-                                <label for="TotallAllTextBox" class="col-form-label styleK">
-                     <asp:Button ID="UpdateButton" runat="server" OnClick="UpdateButton_Click" Text="Update" />
-                     </label>
-                     <br />
-                     chose warehouse:  
+                <br />
+                <label for="TotallAllTextBox" class="col-form-label styleK">
+                    <asp:Button ID="UpdateButton" runat="server" OnClick="UpdateButton_Click" Text="Update" />
+                </label>
+                <br />
+                chose warehouse:  
                 
                 <asp:DropDownList ID="ChoseWareHouseDropDownList" runat="server" DataSourceID="IDandNameWareHouse" DataTextField="warehouse_name" DataValueField="ID" OnSelectedIndexChanged="ChoseWareHouseDropDownList_SelectedIndexChanged">
                     <asp:ListItem Selected="True" Value="select">Select</asp:ListItem>
-    </asp:DropDownList>
+                </asp:DropDownList>
             </form>
                               
 
