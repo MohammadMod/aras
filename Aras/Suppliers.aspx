@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="css/bootstrap.css" rel="stylesheet" />
     <link href="css/font-awesome.min.css" rel="stylesheet" />
@@ -79,6 +79,7 @@
       <hr/>
        </section>
 
+
     <div class="container">      
         <form id="form1" runat="server">
             
@@ -95,11 +96,11 @@
                 </div>
 
 
-                <div class="col-6 col-sm-6 col-md-6 col-lg-6 my-1 text-right">                    
-                        <asp:Button ID="EditButton" CssClass="btn btn-warning btn-sm styleK" runat="server" Text="دەستکاری کردن" />
-                        <asp:Button ID="CreateButton" CssClass="btn btn-danger btn-sm styleK" runat="server" OnClick="CreateButton_Click" Text="دروستکردن" />
+                <div class="col-6 col-sm-6 col-md-6 col-lg-6 my-1 text-right">
+                    <asp:Button ID="EditButton" CssClass="btn btn-warning btn-sm styleK" runat="server" Text="دەستکاری کردن" />
+                    <asp:Button ID="CreateButton" CssClass="btn btn-danger btn-sm styleK" runat="server" OnClick="CreateButton_Click" Text="دروستکردن" />
                 </div>
-              </div>
+            </div>
 
 
             
