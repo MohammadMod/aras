@@ -63,31 +63,38 @@ namespace Aras
 
         protected void SubmitButton_Click(object sender, EventArgs e)
         {
+            GridViewRow row = GridView1.SelectedRow;
             string data = Request.Form[PayPlusInAccountTextBox.UniqueID];
 
             SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
-            SqlCommand cmd = new SqlCommand("INSERT_payment_entry", con);
+            SqlCommand cmd = new SqlCommand("Update_purchase_invoce_for_pay", con);
             con.Open();
-
-            cmd.Parameters.AddWithValue("payment_type", "Paradan");
-            cmd.Parameters.AddWithValue("Costomer_ID", SelectSupplierDropDownList.SelectedIndex);
-            cmd.Parameters.AddWithValue("posting_date", DateTime.Now);
-            cmd.Parameters.AddWithValue("party_balance", float.Parse(MoneyInAccountTextBox.Text));
-            cmd.Parameters.AddWithValue("difference_amount", float.Parse(data));
-            cmd.Parameters.AddWithValue("unallocated_amount", 0.0);
-            cmd.Parameters.AddWithValue("Series", DBNull.Value);
-
+            cmd.Parameters.AddWithValue("purchase_invoce_ID", int.Parse(row.Cells[1].Text));
+            cmd.Parameters.AddWithValue("Supplier", SelectSupplierDropDownList.SelectedIndex);
+            cmd.Parameters.AddWithValue("para",float.Parse(PayToSupplierTextBox.Text));
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
             cmd.ExecuteNonQuery();
             con.Close();
+            GridView1.DataBind();
+
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
             GridViewRow gridViewRow = GridView1.SelectedRow;
-            string totalAmount = gridViewRow.Cells[5].Text.ToString();
+            string totalAmount = gridViewRow.Cells[4].Text.ToString();
             totalAllTextBox.Text = totalAmount;
 
+        }
+
+        protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            TextBox tb = this.Page.FindControl("MoneyInAccountTextBox") as TextBox;
+            string myData = tb.Text;
+            myData = myData.Remove(0,1);
+
+
+            PayToSupplierTextBox.Text = myData;
         }
     }
 }

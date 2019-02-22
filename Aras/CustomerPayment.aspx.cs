@@ -73,7 +73,8 @@ namespace Aras
                 //GridViewRow gridViewRow = GridView1.SelectedRow;
 
                 SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
-                //SqlCommand cmd = new SqlCommand("INSERT_payment_entry", con);
+                #region MyRegion
+                 //SqlCommand cmd = new SqlCommand("INSERT_payment_entry", con);
                 //con.Open();
 
                 //cmd.Parameters.AddWithValue("payment_type", "parawargrtn");
@@ -87,12 +88,14 @@ namespace Aras
                 //cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 //cmd.ExecuteNonQuery();
                 //con.Close();
+                #endregion
+               
 
-                 #region update sales invoice where the costumer select invoice
+                #region update sales invoice where the costumer select invoice
 
-                    //update statues in sales invice
+                //update statues in sales invice
 
-                    GridViewRow row = GridView1.SelectedRow;
+                GridViewRow row = GridView1.SelectedRow;
 
                     SqlCommand cmdd = new SqlCommand("Update_sales_invoice", con);
                     con.Open();
@@ -121,6 +124,16 @@ namespace Aras
             //delete from Sales_invoce where ID=11
             //SqlCommand cmdd = new SqlCommand("delete from Sales_invoce where ID={0}" + int.Parse(gridViewRow.Cells[0].Text), con);
             //con.Open();
+        }
+
+        protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            TextBox tb = this.Page.FindControl("MoneyInAccountTextBox") as TextBox;
+            string myData = tb.Text;
+            myData = myData.Remove(0, 1);
+
+
+            ReciveFromSupplierTextBox.Text = myData;
         }
     }
 }
