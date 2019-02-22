@@ -33,8 +33,7 @@
         <nav class="navbar navbar-expand navbar-light bg-dark">
             <div class="container">
                 <div class=" d-sm-inline-block text-white-70">
-                    <a href="/"><i class="fa fa-home home_icon"></i></a>
-                </div>
+                    &nbsp;<a href="/"><i class="fa fa-home home_icon"></i></a></div>
                 <div class="navbar-collapse collapse">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item dropdown">
