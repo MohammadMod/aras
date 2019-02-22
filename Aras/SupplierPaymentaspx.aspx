@@ -21,13 +21,13 @@
 
     <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
     
-
     <link href="css/styleee.css" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" />
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 
     <script src="js/HamaScripts.js"></script>
     <script src="SearchInGrids.js"></script>
+    
 </head>
 <body id="body_newcus" onload="startTime()">
     <div class="main">
@@ -89,12 +89,12 @@
                         </asp:DropDownList>
                     </div>
                 </div>
-                
+
                 <fieldset disabled>
                     <div class="col-lg-6  mt-0">
                         <div class="form-group">
                             <label for="TotallTextBox" class="col-form-label styleK">پارە لە حیساب</label>
-                            <asp:TextBox ID="MoneyInAccountTextBox" CssClass="form-control form-control-lg"  runat="server" Enabled="False"></asp:TextBox>
+                            <asp:TextBox ID="MoneyInAccountTextBox" CssClass="form-control form-control-lg" runat="server" Enabled="False"></asp:TextBox>
                         </div>
                     </div>
                 </fieldset>
@@ -113,32 +113,32 @@
                     <div class="form-group">
                         <label for="PayPlusInAccountTextBox" class="col-form-label styleK">پارەی وەسڵ</label>
 
-                        <asp:TextBox ID="PayPlusInAccountTextBox"  CssClass="form-control form-control-lg" runat="server" ReadOnly="true"></asp:TextBox>
+                        <asp:TextBox ID="PayPlusInAccountTextBox" CssClass="form-control form-control-lg" runat="server" ReadOnly="true"></asp:TextBox>
 
                     </div>
                 </div>
 
-                
+
                 <div class="col-lg-6 mt-0">
                     <div class="form-group">
                         <label for="totalAllTextBox" class="col-form-label styleK">کۆی گشتی پارەی وەسڵ</label>
-                        <asp:TextBox ID="totalAllTextBox" CssClass="form-control form-control-lg"  runat="server"></asp:TextBox>
+                        <asp:TextBox ID="totalAllTextBox" CssClass="form-control form-control-lg" runat="server"></asp:TextBox>
                     </div>
                 </div>
                 <hr />
 
-                
-                    <div class="col-lg-6 mt-0">
-                        <div class="form-group">
-                            <label for="searchTextBox" class="col-form-label styleK">گەران</label>
-                            <asp:TextBox ID="searchTextBox" CssClass="form-control form-control-lg" runat="server" onkeyup="Search_Gridview(this, 'GridView1')"></asp:TextBox>
-                        </div>
+
+                <div class="col-lg-6 mt-0">
+                    <div class="form-group">
+                        <label for="searchTextBox" class="col-form-label styleK">گەران</label>
+                        <asp:TextBox ID="searchTextBox" CssClass="form-control form-control-lg" runat="server" onkeyup="Search_Gridview(this, 'GridView1')"></asp:TextBox>
                     </div>
-             
+                </div>
+
                 <div class="container">
                     <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True"
                         DataSourceID="salesInvoicehasnopaymententry" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AutoGenerateColumns="False"
-                            CssClass="table table-stripet table-bordered table-hover table-responsive-md text-center">
+                        CssClass="table table-stripet table-bordered table-hover table-responsive-md text-center">
                         <Columns>
                             <asp:CommandField SelectText="Pay" ShowSelectButton="True" />
                             <asp:BoundField DataField="series" HeaderText="series" SortExpression="series" />
@@ -155,13 +155,9 @@
                     </asp:SqlDataSource>
                     <asp:SqlDataSource ID="PurchaseInvoiceHasNoPaymentEntry" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="show_purchase_Invoices" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
 
-                    <div class="col-md-3 col-sm-3 col-lg-3 ">
-                        <asp:Button ID="SubmitButton" CssClass="btn btn-success btn-block styleK fs-4" runat="server" Text="پارە دان"  OnClick="SubmitButton_Click" />
-                    </div>
-                    
-                    
-                        
-                    
+                </div>
+                <div class="col-md-3 col-sm-3 col-lg-3 ">
+                    <asp:Button ID="SubmitButton" CssClass="btn btn-success btn-block styleK mb-3 fs-4" runat="server" Text="پارە دان" OnClick="SubmitButton_Click" />
                 </div>
             </form>
         </div>
