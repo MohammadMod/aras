@@ -47,10 +47,11 @@ namespace Aras
             catch (Exception)
             {
 
-                Response.Write("no data in this warehouse found");
+                Response.Write("<script language=javascript>alert('No data in this warehouse found');</script>");
+
             }
-          
-            
+
+
         }
 
         protected void submitButton_Click(object sender, EventArgs e)
@@ -60,7 +61,7 @@ namespace Aras
 
             if (transferAmount>amountInWareHouse)
             {
-                Response.Write("Not Enough amount");
+                Response.Write("<script language=javascript>alert('Not enough quantity');</script>");
             }
             else
             {

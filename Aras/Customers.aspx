@@ -106,7 +106,10 @@
 
             <div class="border p-3">
                 <asp:GridView ID="CustomersGridView" CssClass="table table-stripet table-bordered table-hover table-responsive-md text-center"
-                    runat="server" AllowPaging="True" AllowSorting="True">
+                    runat="server" AllowPaging="True" AllowSorting="True" OnSelectedIndexChanged="CustomersGridView_SelectedIndexChanged">
+                    <Columns>
+                        <asp:CommandField SelectText="Edit" ShowSelectButton="True" />
+                    </Columns>
                 </asp:GridView>
             </div>
         </form>

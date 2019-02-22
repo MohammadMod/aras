@@ -40,7 +40,6 @@ namespace Aras
 
         protected void DeleteButton_Click(object sender, EventArgs e)
         {
-
             #region Mr. Milad
             //when the user clicks the check box then click the delete button a message should pop up for confirmation
 
@@ -50,6 +49,20 @@ namespace Aras
         protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
         {
           
+        }
+
+        protected void CustomersGridView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GridViewRow row = CustomersGridView.SelectedRow;
+
+            Application["rname"] = row.Cells[1].Text.ToString();
+            Application["resturant_name"] = row.Cells[2].Text.ToString();
+            Application["location"] = row.Cells[3].Text.ToString();
+            Application["phone_number"] = row.Cells[4].Text.ToString();
+            Application["credit"] = row.Cells[7].Text.ToString();
+            Application["id"] = row.Cells[5].Text.ToString();
+            Response.Redirect("NewCustomers.aspx");
+
         }
     }
 }

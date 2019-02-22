@@ -134,6 +134,20 @@ namespace Aras
 
         protected void ViewUsersGridView_SelectedIndexChanged(object sender, EventArgs e)
         {
+            GridViewRow row = ViewUsersGridView.SelectedRow;
+            Application["username"] = row.Cells[5].Text.ToString();
+            Application["fullname"] = row.Cells[1].Text.ToString();
+            Application["location"]= row.Cells[4].Text.ToString();
+            Application["password"]= row.Cells[6].Text.ToString();
+            Application["phone"]= row.Cells[3].Text.ToString();
+            Application["id"] = row.Cells[7].Text.ToString();
+
+
+            Response.Redirect("RegisterUsers.aspx");
+        }
+
+        protected void EditButton_Click(object sender, EventArgs e)
+        {
 
         }
     }

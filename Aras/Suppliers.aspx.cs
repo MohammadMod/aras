@@ -156,12 +156,12 @@ namespace Aras
             GridViewRow row = ViewSuppliersGridView.SelectedRow;
 
             Application["status"] = "Update";
-            Application["name"] = row.Cells[2].Text.ToString();
-            Application["debit"] = row.Cells[4].Text.ToString();
-            Application["location"] = row.Cells[5].Text.ToString();
-            Application["disable"] = row.Cells[6].Text.ToString();
-            Application["phone_number"] = row.Cells[7].Text.ToString();
-            Application["id"] = row.Cells[8].Text.ToString();
+            Application["name"] = row.Cells[1].Text.ToString();
+            Application["debit"] = row.Cells[3].Text.ToString();
+            Application["location"] = row.Cells[4].Text.ToString();
+            Application["disable"] = row.Cells[5].Text.ToString();
+            Application["phone_number"] = row.Cells[6].Text.ToString();
+            Application["id"] = row.Cells[7].Text.ToString();
             Response.Redirect("NewSupplier.aspx");
 
             //Response.Write(row.Cells[6].Text.ToString());

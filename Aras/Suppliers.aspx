@@ -111,7 +111,6 @@
                     AllowPaging="True" PageSize="5" AllowSorting="True" OnSorting="ViewSuppliersGridView_Sorting" 
                     CssClass="table table-stripet table-bordered table-hover table-responsive-md text-center " ShowHeaderWhenEmpty="True" OnSelectedIndexChanged="ViewSuppliersGridView_SelectedIndexChanged">
                     <Columns>
-                        <asp:CommandField ShowEditButton="True" />
                         <asp:CommandField HeaderText="Edit" SelectText="Edit" ShowSelectButton="True" />
                     </Columns>
                 </asp:GridView>
