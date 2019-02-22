@@ -218,6 +218,7 @@
     <Content Include="fonts\themify.woff" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Inserting Data.html" />
+    <Content Include="NewInvoiceForSupplier.aspx" />
     <Content Include="SearchInGrids.js" />
     <Content Include="js\app.js" />
     <Content Include="js\bar-chart.js" />
@@ -469,6 +470,13 @@
     </Compile>
     <Compile Include="NewCustomers.aspx.designer.cs">
       <DependentUpon>NewCustomers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewInvoiceForSupplier.aspx.cs">
+      <DependentUpon>NewInvoiceForSupplier.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewInvoiceForSupplier.aspx.designer.cs">
+      <DependentUpon>NewInvoiceForSupplier.aspx</DependentUpon>
     </Compile>
     <Compile Include="NewSupplier.aspx.cs">
       <DependentUpon>NewSupplier.aspx</DependentUpon>

@@ -125,6 +125,9 @@
                         <div class="form-group">
                             <asp:Button ID="CreateNewSupplierButton" class="btn btn-success btn-block styleK" 
                             runat="server" OnClick="CreateNewSupplierButton_Click" Text="خەزن کردن" />
+                            <br />
+                            <asp:Button ID="updateButton" class="btn btn-success btn-block styleK" 
+                            runat="server" Text="Update" OnClick="updateButton_Click" />
                         </div>
                     </div>  
                 </form>

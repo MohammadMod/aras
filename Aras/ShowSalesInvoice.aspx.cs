@@ -41,8 +41,10 @@ namespace Aras
         {
             try
             {
+                
                 ShowSalesInvoicesGridView.EditIndex = e.NewEditIndex;
                 bd.showSalesInvoice(ShowSalesInvoicesGridView);
+               
             }
             catch (Exception)
             {
@@ -113,8 +115,10 @@ namespace Aras
 
         protected void ShowSalesInvoicesGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
+            
             try
             {
+                
                 ShowSalesInvoicesGridView.PageIndex = e.NewPageIndex;
                 bd.showSalesInvoice(ShowSalesInvoicesGridView);
             }
@@ -123,6 +127,14 @@ namespace Aras
 
                 throw;
             }
+        }
+
+        protected void ShowSalesInvoicesGridView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Application["status"] = "update";
+            GridViewRow gridViewRow = ShowSalesInvoicesGridView.SelectedRow;
+            Application["InvoiceName"] = gridViewRow.Cells[2].Text;
+            Response.Redirect("Transfer.aspx");
         }
     }
 }

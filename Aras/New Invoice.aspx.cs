@@ -13,10 +13,31 @@ namespace Aras
     public partial class New_Invoice : System.Web.UI.Page
     {
         Inserting_Data inD = new Inserting_Data();
+        string myStatus;
         protected void Page_Load(object sender, EventArgs e)
         {
-
             
+            try
+            {
+                myStatus = Application["status"].ToString();
+            }
+            catch (Exception)
+            {
+
+                myStatus = "New";           }
+
+            if (myStatus=="update")
+            {
+                UpdateButton.Visible = true;
+                SubmitNewInvoiceButton.Visible = false;
+                
+            }
+            else
+            {
+                UpdateButton.Visible = false;
+                SubmitNewInvoiceButton.Visible = true;
+            }
+
             #region Hama reding the customer names form the db to the dropdown list
             try
             {
@@ -92,6 +113,11 @@ namespace Aras
 
         protected void ChoseWareHouseDropDownList_SelectedIndexChanged(object sender, EventArgs e)
         {
+        }
+
+        protected void UpdateButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

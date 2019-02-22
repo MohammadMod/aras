@@ -58,6 +58,15 @@ namespace Aras {
         protected global::System.Web.UI.WebControls.TextBox PayPlusInAccountTextBox;
         
         /// <summary>
+        /// totalAllTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox totalAllTextBox;
+        
+        /// <summary>
         /// searchTextBox control.
         /// </summary>
         /// <remarks>
@@ -74,6 +83,15 @@ namespace Aras {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GridView1;
+        
+        /// <summary>
+        /// salesInvoicehasnopaymententry control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource salesInvoicehasnopaymententry;
         
         /// <summary>
         /// PurchaseInvoiceHasNoPaymentEntry control.

@@ -41,10 +41,10 @@ namespace Aras
 
         protected void ViewSuppliersGridView_RowEditing(object sender, GridViewEditEventArgs e)
         {
+
             try
             {
-                //Application["status"] = "Update";
-                //Response.Redirect("NewSupplier.aspx");
+
                 ViewSuppliersGridView.EditIndex = e.NewEditIndex;
                 bd.SupplierGridView(ViewSuppliersGridView);
             }
@@ -57,45 +57,44 @@ namespace Aras
 
         }
 
-      
-
         protected void ViewSuppliersGridView_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
             #region Hama below codes are for updating values of the suppliers
-            //try
-            //{
-            //    int disabled;
-            //    SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
+            try
+            {
+                int disabled;
+                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
 
-            //    GridViewRow row = (GridViewRow)ViewSuppliersGridView.Rows[e.RowIndex];
-            //    TextBox textName = (TextBox)row.Cells[1].Controls[0];
-            //    TextBox companyName = (TextBox)row.Cells[2].Controls[0];
-            //    TextBox debitMoney = (TextBox)row.Cells[3].Controls[0];
-            //    TextBox Location = (TextBox)row.Cells[4].Controls[0];
-            //    CheckBox disable = (CheckBox)row.Cells[5].Controls[0];
-            //    TextBox PhoneNumber = (TextBox)row.Cells[6].Controls[0];
-            //    TextBox userID = (TextBox)row.Cells[7].Controls[0];
+                GridViewRow row = (GridViewRow)ViewSuppliersGridView.Rows[e.RowIndex];
+                TextBox textName = (TextBox)row.Cells[1].Controls[0];
+                TextBox companyName = (TextBox)row.Cells[2].Controls[0];
+                TextBox debitMoney = (TextBox)row.Cells[3].Controls[0];
+                TextBox Location = (TextBox)row.Cells[4].Controls[0];
+                CheckBox disable = (CheckBox)row.Cells[5].Controls[0];
+                TextBox PhoneNumber = (TextBox)row.Cells[6].Controls[0];
+                TextBox userID = (TextBox)row.Cells[7].Controls[0];
 
-            //    if (disable.Checked)
-            //    {
-            //        disabled = 1;
-            //    }
-            //    else
-            //    {
-            //        disabled = 0;
-            //    }
-            //    ViewSuppliersGridView.EditIndex = -1;
-            //    conn.Open();
-            //    SqlCommand cmd = new SqlCommand("update supplier set name='" + textName.Text + "',company_name='" + companyName.Text + "',	debit='" + Int64.Parse(debitMoney.Text) + "',location='" + Location.Text + "',disable='" + disabled + "',phone_number='" + PhoneNumber.Text + "'where id='" + int.Parse(userID.Text.ToString()) + "'", conn);
-            //    cmd.ExecuteNonQuery();
-            //    conn.Close();
-            //    bd.SupplierGridView(ViewSuppliersGridView);
-            //}
-            //catch (Exception)
-            //{
+                if (disable.Checked)
+                {
+                    disabled = 1;
+                }
+                else
+                {
+                    disabled = 0;
+                }
 
-            //    Response.Write("Invalid data intered Please check the enterd data again");
-            //}
+                ViewSuppliersGridView.EditIndex = -1;
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("update supplier set name='" + textName.Text + "',company_name='" + companyName.Text + "',	debit='" + Int64.Parse(debitMoney.Text) + "',location='" + Location.Text + "',disable='" + disabled + "',phone_number='" + PhoneNumber.Text + "'where id='" + int.Parse(userID.Text.ToString()) + "'", conn);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                bd.SupplierGridView(ViewSuppliersGridView);
+            }
+            catch (Exception)
+            {
+
+                Response.Write("Invalid data intered Please check the enterd data again");
+            }
 
             #endregion
 
@@ -152,6 +151,21 @@ namespace Aras
             bd.SupplierGridView(ViewSuppliersGridView, condition);
         }
 
-       
+        protected void ViewSuppliersGridView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GridViewRow row = ViewSuppliersGridView.SelectedRow;
+
+            Application["status"] = "Update";
+            Application["name"] = row.Cells[2].Text.ToString();
+            Application["debit"] = row.Cells[4].Text.ToString();
+            Application["location"] = row.Cells[5].Text.ToString();
+            Application["disable"] = row.Cells[6].Text.ToString();
+            Application["phone_number"] = row.Cells[7].Text.ToString();
+            Application["id"] = row.Cells[8].Text.ToString();
+            Response.Redirect("NewSupplier.aspx");
+
+            //Response.Write(row.Cells[6].Text.ToString());
+
+        }
     }
 }
