@@ -129,7 +129,6 @@
                     AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="ID" DataSourceID="viewWareHouses" 
                     CssClass="table table-stripet table-bordered table-hover table-responsive-md text-center " >
                     <Columns>
-
                         <asp:TemplateField>
                             <HeaderTemplate>
                                 <asp:CheckBox ID="cbDeleteHeader" runat="server" AutoPostBack="true" />
@@ -138,6 +137,7 @@
                                 <asp:CheckBox ID="cbDelete" runat="server" AutoPostBack="true" />
                             </ItemTemplate>
                         </asp:TemplateField>
+
                         <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
                         <asp:BoundField DataField="warehouse_name" HeaderText="warehouse_name" SortExpression="warehouse_name" />
                         <asp:CheckBoxField DataField="disabled" HeaderText="disabled" SortExpression="disabled" />
@@ -145,9 +145,10 @@
                         <asp:BoundField DataField="address_line_1" HeaderText="address_line_1" SortExpression="address_line_1" />
                         <asp:BoundField DataField="parent_warehouse_ID" HeaderText="parent_warehouse_ID" SortExpression="parent_warehouse_ID" />
                         <asp:CheckBoxField DataField="is_group" HeaderText="is_group" SortExpression="is_group" />
+                 
                     </Columns>
                 </asp:GridView>
-                <asp:Label ID="lblMessage" runat="server" Font-Bold="true"></asp:Label>
+                
                 <asp:SqlDataSource ID="viewWareHouses" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="SELECT * FROM [warehouse]"></asp:SqlDataSource>
             </div>
         </form>
