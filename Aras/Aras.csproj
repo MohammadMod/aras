@@ -218,6 +218,7 @@
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Inserting Data.html" />
     <Content Include="NewInvoiceForSupplier.aspx" />
+    <Content Include="Print.aspx" />
     <Content Include="SearchInGrids.js" />
     <Content Include="js\app.js" />
     <Content Include="js\bar-chart.js" />
@@ -478,6 +479,13 @@
       <DependentUpon>NewSupplier.aspx</DependentUpon>
     </Compile>
     <Compile Include="Permession.cs" />
+    <Compile Include="Print.aspx.cs">
+      <DependentUpon>Print.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Print.aspx.designer.cs">
+      <DependentUpon>Print.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Purchase.aspx.cs">
       <DependentUpon>Purchase.aspx</DependentUpon>

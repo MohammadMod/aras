@@ -78,16 +78,17 @@ namespace Aras
             {
                 #region Hama this region is for inserting to the database
                 inD.InsertToNewInvoice(SeriesDropDownList, SelectCustomerDropDownList, float.Parse(KiloTextBox.Text), float.Parse(CostOfKiloTextBox.Text), DateTime.Now, float.Parse(DiscountTextBox.Text), ChoseWareHouseDropDownList);
-                Response.Redirect("ShowSalesInvoice.aspx");
                 #endregion
 
                 #region Hama this region is for printing the incoice
+
                 Application["kilo"] = KiloTextBox.Text;
                 Application["monyOfKilo"] = CostOfKiloTextBox.Text;
                 Application["discount"] = DiscountTextBox.Text;
                 Application["total"] = TotallTextBox.Text;
                 Application["totalAll"] = TotallAllTextBox.Text;
 
+                Response.Redirect("Print.aspx");
                 // Response.Redirect("Voice Print.aspx");
                 #endregion
             }
