@@ -13,6 +13,7 @@ namespace Aras
     public partial class Suppliers : System.Web.UI.Page
     {
         BindingData bd = new BindingData();
+        SmartDelete Deletor;
         protected void Page_Load(object sender, EventArgs e)
         {
             #region Hama reding registerd users info to gridview
@@ -30,7 +31,9 @@ namespace Aras
                 }
             }
 
+            // Hama you need to edit the database for this.
 
+            Deletor = new SmartDelete(this.ViewSuppliersGridView, DeleteButton, "supplier", 9);
             #endregion
         }
 

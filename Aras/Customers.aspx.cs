@@ -12,44 +12,37 @@ namespace Aras
 {
     public partial class Customers : System.Web.UI.Page
     {
-        string checkBox = "";
+        
         BindingData bd = new BindingData();
+        SmartDelete Deletor;
         protected void Page_Load(object sender, EventArgs e)
         {
             #region Hama reading customer names from db to gridview
-            try
+            if (!IsPostBack)
             {
-                bd.viewCustomers(CustomersGridView);
-            }
-            catch (Exception)
-            {
+                try
+                {
+                    bd.viewCustomers(CustomersGridView);
+                }
+                catch (Exception)
+                {
 
-                throw;
+                    throw;
+                }
             }
             #endregion
 
 
+            // 5 is the location of ID
+            Deletor = new SmartDelete(this.CustomersGridView, DeleteButton, "Customer", 5);
         }
 
         protected void CreateButton_Click(object sender, EventArgs e)
         {
-          
+
 
             Response.Redirect("NewCustomers.aspx");
         }
 
-        protected void DeleteButton_Click(object sender, EventArgs e)
-        {
-
-            #region Mr. Milad
-            //when the user clicks the check box then click the delete button a message should pop up for confirmation
-
-            #endregion
-        }
-
-        protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
-        {
-          
-        }
     }
 }
