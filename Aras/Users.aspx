@@ -101,7 +101,7 @@
 
                         <asp:Button ID="CreateButton" CssClass="btn btn-danger btn-sm styleK" Text="دروستکردن" runat="server" OnClick="CreateButton_Click"/>
 
-                        <asp:Button ID="EditButton" CssClass="btn btn-warning btn-sm styleK" runat="server" Text="دەستکاری کردن" />
+                        <asp:Button ID="EditButton" CssClass="btn btn-warning btn-sm styleK" runat="server" Text="دەستکاری کردن" OnClick="EditButton_Click" />
                 </div>
             </div>
 
@@ -113,15 +113,7 @@
                     OnSorting="ViewUsersGridView_Sorting" PageSize="5"
                     CssClass="table table-stripet table-bordered table-hover table-responsive-md text-center " OnSelectedIndexChanged="ViewUsersGridView_SelectedIndexChanged">
                     <Columns>
-                        <asp:TemplateField ShowHeader="False">
-                            <EditItemTemplate>
-                                <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="True" CommandName="Update" Text="Update"></asp:LinkButton>
-                                &nbsp;<asp:LinkButton ID="LinkButton2" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel"></asp:LinkButton>
-                            </EditItemTemplate>
-                            <ItemTemplate>
-                                <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="False" CommandName="Edit" Text="Edit"></asp:LinkButton>
-                            </ItemTemplate>
-                        </asp:TemplateField>
+                        <asp:CommandField SelectText="Edit" ShowSelectButton="True" />
                     </Columns>
                 </asp:GridView>
 

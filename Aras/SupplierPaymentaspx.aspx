@@ -89,6 +89,8 @@
                         </asp:DropDownList>
                     </div>
                 </div>
+                <br />
+                <asp:CheckBox ID="CheckBox1" runat="server" Text="Para la hisab wasl ka?" AutoPostBack="True" OnCheckedChanged="CheckBox1_CheckedChanged" />
 
                 <fieldset disabled>
                     <div class="col-lg-6  mt-0">
@@ -122,7 +124,7 @@
                 <div class="col-lg-6 mt-0">
                     <div class="form-group">
                         <label for="totalAllTextBox" class="col-form-label styleK">کۆی گشتی پارەی وەسڵ</label>
-                        <asp:TextBox ID="totalAllTextBox" CssClass="form-control form-control-lg" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="totalAllTextBox" CssClass="form-control form-control-lg" runat="server" Enabled="False"></asp:TextBox>
                     </div>
                 </div>
                 <hr />
@@ -138,10 +140,10 @@
                 <div class="container">
                     <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True"
                         DataSourceID="salesInvoicehasnopaymententry" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AutoGenerateColumns="False"
-                        CssClass="table table-stripet table-bordered table-hover table-responsive-md text-center">
+                        CssClass="table table-stripet table-bordered table-hover table-responsive-md text-center" DataKeyNames="ID">
                         <Columns>
                             <asp:CommandField SelectText="Pay" ShowSelectButton="True" />
-                            <asp:BoundField DataField="series" HeaderText="series" SortExpression="series" />
+                            <asp:BoundField DataField="ID" HeaderText="ID" SortExpression="ID" InsertVisible="False" ReadOnly="True" />
                             <asp:BoundField DataField="Posting_date" HeaderText="Posting_date" SortExpression="Posting_date" />
                             <asp:BoundField DataField="rate" HeaderText="rate" SortExpression="rate" />
                             <asp:BoundField DataField="totall_amount" HeaderText="totall_amount" SortExpression="totall_amount" />
