@@ -35,8 +35,8 @@ namespace Aras
             #endregion
             // HAMA  please enter the name of table here, i dont have access to db
             // the 3 at the end means the ID is located on column number 3
-            string tabelname = "sales??";
-            Deletor = new SmartDelete(this.ShowSalesInvoicesGridView, DeleteButton, tabelname, 3);
+            string tabelname = "sales_invoice";
+            Deletor = new SmartDelete(this.ShowSalesInvoicesGridView, DeleteButton, tabelname, 3, this);
 
         }
 

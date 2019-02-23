@@ -15,7 +15,7 @@ namespace Aras
     public class SmartDelete
     {
         GridView inputGrid;
-
+        System.Web.UI.Page CurrentPage;
         Button DeleteButton;
         public string NoRowAlert;
         public string allDeleteAlert;
@@ -23,7 +23,7 @@ namespace Aras
         string idColumn = "ID";
         int idColum;
 
-        public SmartDelete(GridView gridview, Button deletBTM, string Table,int id =1, string ID="ID" )
+        public SmartDelete(GridView gridview, Button deletBTM, string Table,int id =1, System.Web.UI.Page CPage= null )
         {
 
             tableName = Table;
@@ -34,7 +34,7 @@ namespace Aras
             NoRowAlert = "no row has been selected";
             allDeleteAlert = "are you sure to delete all ?";
 
-
+            CurrentPage = CPage;
             ((CheckBox)inputGrid.HeaderRow.Controls[0].Controls[1]).CheckedChanged += cbDeleteHeader_CheckedChanged;
 
             foreach (GridViewRow Row in this.inputGrid.Rows)
@@ -130,7 +130,11 @@ namespace Aras
             if (ListToDelete.Count > 0)
             {
                 DeleteEmployees(ListToDelete);
-                inputGrid.DataBind();
+
+                if (CurrentPage == null)
+                    inputGrid.DataBind();
+                else
+                    CurrentPage.Page.Response.Redirect(CurrentPage.Request.Url.ToString());
 
 
 

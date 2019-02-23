@@ -34,7 +34,7 @@ namespace Aras
 
 
             // 5 is the location of ID
-            Deletor = new SmartDelete(this.CustomersGridView, DeleteButton, "Customer", 5);
+            Deletor = new SmartDelete(this.CustomersGridView, DeleteButton, "Customer", 5,this);
         }
 
         protected void CreateButton_Click(object sender, EventArgs e)
