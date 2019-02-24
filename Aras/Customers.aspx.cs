@@ -39,7 +39,7 @@ namespace Aras
 
 
             // 5 is the location of ID
-            if (!Permit.isAllowed(Permessions.OnlyAdmin))
+            if (Permit.isAllowed(Permessions.OnlyAdmin))
                 Deletor = new SmartDelete(this.CustomersGridView, DeleteButton, "Customer", 5,this);
             else
                 DeleteButton.OnClientClick = "return alert('You must be logged in as Aadmin')";

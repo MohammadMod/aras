@@ -49,6 +49,15 @@ namespace Aras {
         protected global::System.Web.UI.WebControls.DropDownList SeriesDropDownList;
         
         /// <summary>
+        /// ChoseWareHouseDropDownList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ChoseWareHouseDropDownList;
+        
+        /// <summary>
         /// KiloTextBox control.
         /// </summary>
         /// <remarks>
@@ -112,21 +121,12 @@ namespace Aras {
         protected global::System.Web.UI.WebControls.Button UpdateButton;
         
         /// <summary>
-        /// ChoseWareHouseDropDownList control.
+        /// IDandNameWareHouse control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ChoseWareHouseDropDownList;
-        
-        /// <summary>
-        /// amountTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox amountTextBox;
+        protected global::System.Web.UI.WebControls.SqlDataSource IDandNameWareHouse;
     }
 }

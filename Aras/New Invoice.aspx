@@ -113,17 +113,33 @@
                         <label for="Name_resturant" class="col-form-label styleK text-right">جۆری وەسڵ</label>
                         <asp:DropDownList ID="SeriesDropDownList" Style="padding-top: 0; padding-bottom: 0; font-size: 12px;"
                             runat="server" CssClass="form-control form-control-lg invois_multK">
-                            <asp:ListItem>Name Of Series</asp:ListItem>
+                            <asp:ListItem>Name of series </asp:ListItem>
                             <asp:ListItem>Name of series return</asp:ListItem>
                         </asp:DropDownList>
                     </div>
                 </div>
 
+                
+                <div class="col-lg-10 mt-0">
+                    <div class="form-group">
+                        <label for="Name_resturant" class="col-form-label styleK text-right">هەڵبژاردنی مەخزەن</label>
+
+                        <asp:DropDownList ID="ChoseWareHouseDropDownList" runat="server" DataSourceID="IDandNameWareHouse" Style="padding-top: 0; padding-bottom: 0; font-size: 12px;"
+                            CssClass="form-control form-control-lg invois_multK" DataTextField="warehouse_name" DataValueField="ID" OnSelectedIndexChanged="ChoseWareHouseDropDownList_SelectedIndexChanged">
+                            <asp:ListItem Selected="True" Value="select">Select</asp:ListItem>
+                        </asp:DropDownList>
+                    </div>
+                </div>
+
+                
+
+                
+                
 
                 <div class="col-lg-6 mt-0">
                     <div class="form-group">
                         <label for="KiloTextBox" class="col-form-label styleK">کیڵۆ</label>
-                        <asp:TextBox ID="KiloTextBox" runat="server" onkeyup="getValues()" CssClass="form-control form-control-lg" required="true"></asp:TextBox>
+                        <asp:TextBox ID="KiloTextBox" TextMode="Number" runat="server" onkeyup="getValues()" CssClass="form-control form-control-lg" required="true"></asp:TextBox>
                     </div>
                 </div>
 
@@ -136,7 +152,7 @@
                     <div class="form-group">
                         <label for="CostOfKiloTextBox" class="col-form-label styleK">پارە </label>
 
-                        <asp:TextBox ID="CostOfKiloTextBox" onkeyup="getValues()" runat="server" CssClass="form-control form-control-lg" required="true"></asp:TextBox>
+                        <asp:TextBox ID="CostOfKiloTextBox" TextMode="Number" onkeyup="getValues()" runat="server" CssClass="form-control form-control-lg" required="true"></asp:TextBox>
                     </div>
                 </div>
 
@@ -155,7 +171,7 @@
                 <div class="col-lg-6 mt-0">
                     <div class="form-group">
                         <label for="DiscountTextBox" class="col-form-label styleK">داشکان </label>
-                        <asp:TextBox ID="DiscountTextBox" onkeyup="getValues()" CssClass="form-control form-control-lg" runat="server" required="true"></asp:TextBox>
+                        <asp:TextBox ID="DiscountTextBox" TextMode="Number" onkeyup="getValues()" CssClass="form-control form-control-lg" runat="server" required="true"></asp:TextBox>
                     </div>
                 </div>
 
@@ -178,13 +194,8 @@
                 <label for="TotallAllTextBox" class="col-form-label styleK">
                     <asp:Button ID="UpdateButton" runat="server" OnClick="UpdateButton_Click" Text="Update" />
                 </label>
-                <br />
-                chose warehouse:  
                 
-                <asp:DropDownList ID="ChoseWareHouseDropDownList" runat="server"  AutoPostBack="True" OnSelectedIndexChanged="ChoseWareHouseDropDownList_SelectedIndexChanged1">
-                    <asp:ListItem Selected="True" Value="select">Select</asp:ListItem>
-                </asp:DropDownList>
-                <asp:TextBox ID="amountTextBox" runat="server"></asp:TextBox>
+
             </form>
                               
 
@@ -209,8 +220,7 @@
     <script src="js/scripts.js"></script>
    
     
-    <p>
-        &nbsp;</p>
+    <asp:SqlDataSource ID="IDandNameWareHouse" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="SELECT [ID], [warehouse_name] FROM [warehouse]"></asp:SqlDataSource>
    
 </body>
 
