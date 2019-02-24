@@ -299,6 +299,19 @@
     transform: scale(1.2);
 }
 
+.fa-sign-out-alt {
+    font-size: 36px;
+    color: white;
+    transition: all .3s;
+    animation: moveInLeft-icon 1s ease-out;
+}
+
+.fa-sign-out-alt:hover {
+    color: rgb(73, 73, 78);
+    transform: scale(1.2);
+}
+
+
 
 .fa-exchange-alt {
     font-size: 40px;

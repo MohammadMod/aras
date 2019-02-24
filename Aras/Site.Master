@@ -208,9 +208,18 @@
                     </div>
                 </div> <%-- Customer Payment --%>
 
-
-                
-
+                <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3">
+                    <div class="case-wrapper" data-name="Item" data-link="List/Item" title="چونەدەرەوە">
+                        <a href="/logout">
+                            <div class="app-icon app-icon-bluelight-2" title="چونەدەرەوە">
+                                <i class="fas fa-sign-out-alt ani" title="چونەدەرەوە"></i>
+                            </div>
+                        </a>
+                        <div class="case-label ellipsis">
+                            <span class="case-label-text">چونەدەرەوە</span>
+                        </div>
+                    </div>
+                </div> <%-- Logout --%>
             </div>
         </div>
     </form>

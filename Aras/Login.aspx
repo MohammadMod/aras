@@ -79,5 +79,21 @@
             </div>
         </div>
     </div>
+    
+   
+    <script src="js/app.js"></script>
+    <script src="js/bar-chart.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.slicknav.min.js"></script>
+    <script src="js/jquery.slimscroll.min.js"></script>
+    <script src="js/line-chart.js"></script>
+    <script src="js/maps.js"></script>
+    <script src="js/metisMenu.min.js"></script>
+    <script src="js/myScripts.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/pie-chart.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/scripts.js"></script>
 </body>
 </html>
