@@ -138,6 +138,14 @@
                              runat="server" OnClick="CreateCustomerButton_Click" Text="زیاد کردن"/>
                         </div>
                     </div> 
+                    <br />
+                         <div class="col-lg-3 col-md-6 col-sm-6  mt-0">
+                        <div class="form-group">
+                            
+                             <asp:Button ID="updateButton" CssClass="btn btn-success btn-block btn-save-style styleK" 
+                             runat="server" Text="Update" OnClick="updateButton_Click"/>
+                        </div>
+                    </div> 
                 </form>
             </div>
         </div>

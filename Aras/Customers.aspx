@@ -40,7 +40,7 @@
                             <a class="nav-link dropdown-toggle text-white-50" href="#" id="userDropdown" data-toggle="dropdown">
                                 <img src="image/avatar.jpeg" class="avatar img-fluid rounded-circle mr-1" alt="Chris Wood">
                                 <span class="text-white-50">
-                                      <%--<asp:Label ID="label2"  runat="server"  text=""></asp:Label>--%>
+                            <%--<asp:Label ID="label2"  runat="server"  text=""></asp:Label>--%>
                                 </span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right " aria-labelledby="userDropdown">
@@ -94,7 +94,7 @@
 
                 <div class="col-6 col-sm-6 col-md-6 col-lg-6 my-1 text-right">       
                     
-                    <asp:Button ID="DeleteButton" runat="server" Text="Delete" OnClick="DeleteButton_Click" />
+                    <asp:Button ID="DeleteButton" CssClass="btn btn-danger btn-sm styleK" runat="server" Text="رەشکردنەوە" />
 
                     <asp:Button ID="CreateButton" runat="server"  CssClass="btn btn-danger btn-sm styleK" Text="دروستکردن"  OnClick="CreateButton_Click" />
 
@@ -107,26 +107,22 @@
             <div class="border p-3">
                 <asp:GridView ID="CustomersGridView" CssClass="table table-stripet table-bordered table-hover table-responsive-md text-center"
                     runat="server" AllowPaging="True" AllowSorting="True">
+                    <Columns>
+                        <asp:TemplateField>
+                            <HeaderTemplate>
+                                <asp:CheckBox ID="cbDeleteHeader" runat="server" AutoPostBack="True" />
+                            </HeaderTemplate>
+                            <ItemTemplate>
+                                <asp:CheckBox ID="cbDelete" runat="server" AutoPostBack="True" />
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                    </Columns>
+              
                 </asp:GridView>
             </div>
         </form>
     </div>
 
-    <script type="text/javascript" src="js/DeleteRows.js"></script> 
-     <script type="text/javascript">
-
-         var tablename = "CustomersGridView";
-            var deletebtmName = "DeleteButton";
-
-
-            var selected = [];
-            var deleteBTM = document.getElementById(deletebtmName);
-            appendColumn(tablename);
-            deleteBTM.addEventListener('click', function () {
-                deleteRows(tablename, "any");
-            });
-
-    </script>
 
     <script src="js/app.js"></script>
     <script src="js/vendor/jquery-2.2.4.min.js"></script>

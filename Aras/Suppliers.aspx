@@ -46,7 +46,7 @@
                             <a class="nav-link dropdown-toggle text-white-50" href="#" id="userDropdown" data-toggle="dropdown">
                                 <img src="image/avatar.jpeg" class="avatar img-fluid rounded-circle mr-1" alt="Chris Wood">
                                 <span class="text-white-50">
-                                      <%--<asp:Label ID="label2"  runat="server"  text=""></asp:Label>--%>
+                            <%--<asp:Label ID="label2"  runat="server"  text=""></asp:Label>--%>
                                 </span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right " aria-labelledby="userDropdown">
@@ -97,6 +97,7 @@
 
 
                 <div class="col-6 col-sm-6 col-md-6 col-lg-6 my-1 text-right">
+                     <asp:Button ID="DeleteButton" CssClass="btn btn-danger btn-sm styleK" runat="server" Text="رەشکردنەوە" />
                     <asp:Button ID="EditButton" CssClass="btn btn-warning btn-sm styleK" runat="server" Text="دەستکاری کردن" />
                     <asp:Button ID="CreateButton" CssClass="btn btn-danger btn-sm styleK" runat="server" OnClick="CreateButton_Click" Text="دروستکردن" />
                 </div>
@@ -111,6 +112,14 @@
                     AllowPaging="True" PageSize="5" AllowSorting="True" OnSorting="ViewSuppliersGridView_Sorting" 
                     CssClass="table table-stripet table-bordered table-hover table-responsive-md text-center " ShowHeaderWhenEmpty="True" OnSelectedIndexChanged="ViewSuppliersGridView_SelectedIndexChanged">
                     <Columns>
+                        <asp:TemplateField>
+                            <HeaderTemplate>
+                                <asp:CheckBox ID="cbDeleteHeader" runat="server" AutoPostBack="True" />
+                            </HeaderTemplate>
+                            <ItemTemplate>
+                                <asp:CheckBox ID="cbDelete" runat="server" AutoPostBack="True" />
+                            </ItemTemplate>
+                        </asp:TemplateField>
                         <asp:CommandField ShowEditButton="True" />
                         <asp:CommandField HeaderText="Edit" SelectText="Edit" ShowSelectButton="True" />
                     </Columns>

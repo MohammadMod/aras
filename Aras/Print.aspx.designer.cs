@@ -10,87 +10,78 @@
 namespace Aras {
     
     
-    public partial class RegisterUsers {
+    public partial class Print {
         
         /// <summary>
-        /// form2 control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form2;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// UserNameTextBox control.
+        /// customerNameLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox UserNameTextBox;
+        protected global::System.Web.UI.WebControls.Label customerNameLbl;
         
         /// <summary>
-        /// FullNameTextBox control.
+        /// DateLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox FullNameTextBox;
+        protected global::System.Web.UI.WebControls.Label DateLbl;
         
         /// <summary>
-        /// PasswordTextBox control.
+        /// KiloLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox PasswordTextBox;
+        protected global::System.Web.UI.WebControls.Label KiloLbl;
         
         /// <summary>
-        /// PhoneTextBox control.
+        /// AmountLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox PhoneTextBox;
+        protected global::System.Web.UI.WebControls.Label AmountLbl;
         
         /// <summary>
-        /// LocationTextBox control.
+        /// TotalLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox LocationTextBox;
+        protected global::System.Web.UI.WebControls.Label TotalLbl;
         
         /// <summary>
-        /// AdminCheckBox control.
+        /// DiscountLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox AdminCheckBox;
+        protected global::System.Web.UI.WebControls.Label DiscountLbl;
         
         /// <summary>
-        /// Button2 control.
+        /// TotalAllLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
-        
-        /// <summary>
-        /// updateButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button updateButton;
+        protected global::System.Web.UI.WebControls.Label TotalAllLbl;
     }
 }

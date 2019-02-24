@@ -91,6 +91,8 @@
                             </asp:DropDownList>
                         </div>
                     </div>
+                    <br />
+                    <asp:CheckBox ID="CheckBox1" runat="server" Text="Pay from account?" AutoPostBack="True" OnCheckedChanged="CheckBox1_CheckedChanged" />
 
         
 

@@ -15,29 +15,31 @@ namespace Aras
     public class SmartDelete
     {
         GridView inputGrid;
-
+        System.Web.UI.Page CurrentPage;
         Button DeleteButton;
         public string NoRowAlert;
         public string allDeleteAlert;
         string tableName;
         string idColumn = "ID";
+        int idColum;
 
-        public SmartDelete(GridView gridview, Button deletBTM, string Table, string ID="ID" )
+        public SmartDelete(GridView gridview, Button deletBTM, string Table,int id =1, System.Web.UI.Page CPage= null )
         {
 
             tableName = Table;
             idColumn = "ID";
+            idColum = id;
             inputGrid = gridview;
             DeleteButton = deletBTM;
             NoRowAlert = "no row has been selected";
             allDeleteAlert = "are you sure to delete all ?";
 
-
-            ((CheckBox)inputGrid.HeaderRow.FindControl("cbDeleteHeader")).CheckedChanged += cbDeleteHeader_CheckedChanged;
+            CurrentPage = CPage;
+            ((CheckBox)inputGrid.HeaderRow.Controls[0].Controls[1]).CheckedChanged += cbDeleteHeader_CheckedChanged;
 
             foreach (GridViewRow Row in this.inputGrid.Rows)
             {
-                ((CheckBox)Row.FindControl("cbDelete")).CheckedChanged += cbDelete_CheckedChanged;
+                ((CheckBox)Row.Controls[0].Controls[1]).CheckedChanged += cbDelete_CheckedChanged;
             }
 
 
@@ -116,19 +118,23 @@ namespace Aras
         }
         protected void DeleteButton_Click(object sender, EventArgs e)
         {
-            List<string> lstEmployeeIdsToDelete = new List<string>();
+            List<string> ListToDelete = new List<string>();
             foreach (GridViewRow gridViewRow in inputGrid.Rows)
             {
                 if (((CheckBox)gridViewRow.FindControl("cbDelete")).Checked)
                 {
-                    string employeeId = (gridViewRow.Cells[1]).Text;
-                    lstEmployeeIdsToDelete.Add(employeeId);
+                    string ID = (gridViewRow.Cells[idColum]).Text;
+                    ListToDelete.Add(ID);
                 }
             }
-            if (lstEmployeeIdsToDelete.Count > 0)
+            if (ListToDelete.Count > 0)
             {
-                DeleteEmployees(lstEmployeeIdsToDelete);
-                inputGrid.DataBind();
+                DeleteEmployees(ListToDelete);
+
+                if (CurrentPage == null)
+                    inputGrid.DataBind();
+                else
+                    CurrentPage.Page.Response.Redirect(CurrentPage.Request.Url.ToString());
 
 
 
