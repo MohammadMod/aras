@@ -37,19 +37,19 @@ namespace Aras
         protected void CreateCustomerButton_Click(object sender, EventArgs e)
         {
 
-            string myId = "";
-            try
-            {
-                myId = Application["id"].ToString();
-            }
-            catch (Exception)
-            {
+            //string myId = "";
+            //try
+            //{
+            //    myId = Application["id"].ToString();
+            //}
+            //catch (Exception)
+            //{
 
 
-            }
+            //}
 
-            if (myId == "")
-            {
+            //if (myId == "")
+            //{
                 #region Hama Creating new customer
                 try
                 {
@@ -61,11 +61,11 @@ namespace Aras
                 {
                     Response.Write("<script language=javascript>alert('An Error occurred or may invalid data entered, please try again ');</script>");
                 }
-            }
-            else
-            {
-                Response.Write("<script language=javascript>alert('You are not in creating mode ');</script>");
-            }
+            //}
+            //else
+            //{
+            //    Response.Write("<script language=javascript>alert('You are not in creating mode ');</script>");
+            //}
 
             #endregion
         }

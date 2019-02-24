@@ -36,11 +36,11 @@ namespace Aras
         {
             try
             {
-                SqlCommand cmdd = new SqlCommand("show_warehouse_amount", conn);
+                SqlCommand cmdd = new SqlCommand("show_warehouse_quantity", conn);
                 conn.Open();
                 cmdd.Parameters.AddWithValue("warehouse_name", fromWareHouseDropDownList.SelectedItem.Text);
                 cmdd.CommandType = System.Data.CommandType.StoredProcedure;
-                AmountInWareHouseTextBox.Text = "" + cmdd.ExecuteScalar().ToString();
+                AmountInWareHouseTextBox.Text = cmdd.ExecuteScalar().ToString();
                 cmdd.ExecuteNonQuery();
                 conn.Close();
             }
@@ -78,7 +78,7 @@ namespace Aras
                 cmd.ExecuteNonQuery();
                 con.Close();
             }
-
+            Response.Redirect("Transfer.aspx");
         }
     }
 }

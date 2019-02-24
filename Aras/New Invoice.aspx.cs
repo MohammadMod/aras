@@ -13,10 +13,15 @@ namespace Aras
     public partial class New_Invoice : System.Web.UI.Page
     {
         Inserting_Data inD = new Inserting_Data();
+        BindingData bd = new BindingData();
         string myStatus;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+
             
+            bd.wareHouseName(ChoseWareHouseDropDownList);
             try
             {
                 myStatus = Application["status"].ToString();
@@ -66,8 +71,8 @@ namespace Aras
 
                 throw;
             }
-        
 
+            }
             #endregion
         }
 
@@ -80,6 +85,11 @@ namespace Aras
 
                 inD.InsertToNewInvoice(SeriesDropDownList, SelectCustomerDropDownList, float.Parse(KiloTextBox.Text), float.Parse(CostOfKiloTextBox.Text), DateTime.Now, float.Parse(DiscountTextBox.Text), ChoseWareHouseDropDownList);
                 #endregion
+                Response.Redirect("/CustomerPayment.aspx");
+
+
+
+
 
                 #region Hama this region is for printing the incoice
 
@@ -111,7 +121,7 @@ namespace Aras
 
         protected void SelectCustomerDropDownList_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+          
         }
 
         protected void ChoseWareHouseDropDownList_SelectedIndexChanged(object sender, EventArgs e)
@@ -121,6 +131,29 @@ namespace Aras
         protected void UpdateButton_Click(object sender, EventArgs e)
         {
 
+        }
+
+        protected void ChoseWareHouseDropDownList_SelectedIndexChanged1(object sender, EventArgs e)
+        {
+            //show QTY
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
+
+            try
+            {
+                SqlCommand cmdd = new SqlCommand("show_warehouse_quantity", conn);
+                conn.Open();
+                cmdd.Parameters.AddWithValue("warehouse_name", ChoseWareHouseDropDownList.SelectedItem.Text);
+                cmdd.CommandType = System.Data.CommandType.StoredProcedure;
+                amountTextBox.Text = cmdd.ExecuteScalar().ToString();
+                cmdd.ExecuteNonQuery();
+                conn.Close();
+            }
+            catch (Exception)
+            {
+
+                Response.Write("<script language=javascript>alert('No data in this warehouse found');</script>");
+
+            }
         }
     }
 }

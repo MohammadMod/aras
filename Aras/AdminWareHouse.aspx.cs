@@ -14,17 +14,30 @@ namespace Aras
     public partial class AdminWareHouse : System.Web.UI.Page
     {
         SmartDelete Deletor;
-
         protected void Page_Load(object sender, EventArgs e)
         {
-            // a simple way to not let all users see some pages.
-            // if (!Permit.isAllowed(Permessions.OnlyAdmin))
-            //   Response.Redirect("Login.aspx");
 
+            // a simple way to not let all users see some pages.
+            if (!Permit.isAllowed(Permessions.OnlyAdmin))
+                Response.Redirect("Login.aspx");
+
+            try
+            {
+                HttpCookie myCookie = Request.Cookies["savedCookie"];
+                string username = myCookie.Values["userid"].ToString();
+                Response.Write("Hello " + username + " from cockies");
+            }
+            catch (Exception)
+            {
+
+                HttpCookie myCookie = Request.Cookies["savedCookie"];
+             string username= myCookie.Values["userid"].ToString();
+                Response.Write("Hello "+username+" from cockies");
+            }
             //Deletor = new SmartDelete(AdminWareHouseGridView, DeleteButton, "warehouse");
         }
 
-        
+
     }
 
 }

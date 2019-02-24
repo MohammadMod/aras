@@ -63,6 +63,24 @@ namespace Aras
 
         protected void SubmitButton_Click(object sender, EventArgs e)
         {
+            if (CheckBox1.Checked)
+            {
+                GridViewRow row = GridView1.SelectedRow;
+                string data = Request.Form[PayPlusInAccountTextBox.UniqueID];
+
+                SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
+                SqlCommand cmd = new SqlCommand("Update_Supplier_Debit", con);
+                con.Open();
+                cmd.Parameters.AddWithValue("Supplier_ID", SelectSupplierDropDownList.SelectedIndex);
+                cmd.Parameters.AddWithValue("para", float.Parse(PayToSupplierTextBox.Text));
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.ExecuteNonQuery();
+                con.Close();
+                GridView1.DataBind();
+
+            }
+            else
+            {
             GridViewRow row = GridView1.SelectedRow;
             string data = Request.Form[PayPlusInAccountTextBox.UniqueID];
 
@@ -76,7 +94,7 @@ namespace Aras
             cmd.ExecuteNonQuery();
             con.Close();
             GridView1.DataBind();
-
+            }
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
