@@ -144,7 +144,7 @@ namespace Aras
                 conn.Open();
                 cmdd.Parameters.AddWithValue("warehouse_name", ChoseWareHouseDropDownList.SelectedItem.Text);
                 cmdd.CommandType = System.Data.CommandType.StoredProcedure;
-                amountTextBox.Text = cmdd.ExecuteScalar().ToString();
+                //amountTextBox.Text = cmdd.ExecuteScalar().ToString();
                 cmdd.ExecuteNonQuery();
                 conn.Close();
             }

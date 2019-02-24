@@ -12,10 +12,22 @@ namespace Aras
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            FormsAuthentication.SignOut();
-            FormsAuthentication.RedirectToLoginPage();
-            Session.Abandon();
-            Response.Cookies.Clear();
+            try
+            {
+                FormsAuthentication.SignOut();
+                FormsAuthentication.RedirectToLoginPage();
+                Session.Abandon();
+                Response.Cookies.Clear();
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                Permit.currentPermission = Permessions.Public;
+            }
+
         }
     }
 }
