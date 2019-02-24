@@ -81,7 +81,7 @@
                 </div> <%-- add customer --%>
                 
                 
-                <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3" id="purchaseShow" runat="server">
+                <%--<div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3" id="purchaseShow" runat="server">
                     <div class="case-wrapper" data-name="Item" data-link="List/Item" title="Item">
                         <a href="Purchase.aspx">
                             <div class="app-icon app-icon-purple" title="كرینی ماسی">
@@ -92,7 +92,8 @@
                             <span class="case-label-text">كرینی ماسی</span>
                         </div>
                     </div>
-                </div> <%-- purchese --%>
+                </div>--%>
+                <%-- purchese --%>
 
                 <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3">
                     <div class="case-wrapper" data-name="Item" data-link="List/Item" title="Item">
@@ -138,7 +139,7 @@
                 </div> <%-- add user --%>
 
             
-                <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3">
+<%--                <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3">
                     <div class="case-wrapper" data-name="Item" data-link="List/Item" title="Item">
                         <a href="#">
                             <div class="app-icon app-icon-ogrange" title="Item">
@@ -149,7 +150,7 @@
                             <span class="case-label-text">Item</span>
                         </div>
                     </div>
-                </div>
+                </div>--%>
 
                 <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3">
                     <div class="case-wrapper" data-name="Item" data-link="List/Item" title="ناردن">
@@ -209,6 +210,19 @@
                 </div> <%-- Customer Payment --%>
 
                 <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3">
+                    <div class="case-wrapper" data-name="Item" data-link="List/Item" title="مەخزەن">
+                        <a href="/logout">
+                            <div class="app-icon app-icon-Cyan" title="مەخزەن">
+                                <i class="fas fa-warehouse ani" title="مەخزەن"></i>
+                            </div>
+                        </a>
+                        <div class="case-label ellipsis">
+                            <span class="case-label-text">مەخزەن</span>
+                        </div>
+                    </div>
+                </div> <%-- warehouse --%>
+
+                <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3">
                     <div class="case-wrapper" data-name="Item" data-link="List/Item" title="چونەدەرەوە">
                         <a href="/logout">
                             <div class="app-icon app-icon-bluelight-2" title="چونەدەرەوە">
@@ -220,6 +234,7 @@
                         </div>
                     </div>
                 </div> <%-- Logout --%>
+
             </div>
         </div>
     </form>
