@@ -142,7 +142,12 @@
 .app-icon-green{
     background-color: #589494;
 }
-.app-icon-yellow{
+
+.app-icon-green-2 {
+    background-color: #03DAC6;
+}
+
+.app-icon-yellow {
     background-color: #FFF5A7;
 }
 .app-icon-red{
@@ -159,7 +164,12 @@
     background-color: #4AA3DF;
 }
 
-.app-icon-purplelisht{
+.app-icon-bluelight-2 {
+    background-color: #6200EE;
+}
+
+
+.app-icon-purplelisht {
     background-color: #7574FF;
 }
 
@@ -173,15 +183,16 @@
 
 .ellipsis{
     white-space: nowrap;
-    overflow: hidden;
+    
     text-overflow: ellipsis;
     max-width: 100%;
     vertical-align: middle;
 }
+
 .case-label{
-    font-size: 12px;
-    font-weight: bold;
-    letter-spacing: 0.4px;
+    font-size: 15px;
+    /*font-weight: bold;*/
+    letter-spacing: 0px;
     color: rgb(0, 0, 0);
     text-align: center;
     margin-top: 10px;
@@ -250,6 +261,8 @@
     transform: scale(1.2);
 }
 
+
+
 .fa-dollar-sign {
     font-size: 3.6rem;
     color: white;
@@ -272,6 +285,33 @@
     color: rgb(73, 73, 78);
     transform: scale(1.2);
 }
+
+
+.fa-eye {
+    font-size: 36px;
+    color: white;
+    transition: all .3s;
+    animation: moveInLeft-icon 1s ease-out;
+}
+
+.fa-eye:hover {
+    color: rgb(73, 73, 78);
+    transform: scale(1.2);
+}
+
+
+.fa-exchange-alt {
+    font-size: 40px;
+    color: white;
+    transition: all .3s;
+    animation: moveInLeft-icon 1s ease-out;
+}
+
+    .fa-exchange-alt:hover {
+        color: rgb(73, 73, 78);
+        transform: scale(1.2);
+    }
+
 
 .fa-cart-plus {
     font-size: 32px;

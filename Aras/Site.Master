@@ -80,6 +80,19 @@
                     </div>
                 </div> <%-- add customer --%>
                 
+                
+                <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3" id="purchaseShow" runat="server">
+                    <div class="case-wrapper" data-name="Item" data-link="List/Item" title="Item">
+                        <a href="Purchase.aspx">
+                            <div class="app-icon app-icon-purple" title="كرینی ماسی">
+                                <i class="fas fa-fish" title="كرینی ماسی"></i>
+                            </div>
+                        </a>
+                        <div class="case-label ellipsis">
+                            <span class="case-label-text">كرینی ماسی</span>
+                        </div>
+                    </div>
+                </div> <%-- purchese --%>
 
                 <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3">
                     <div class="case-wrapper" data-name="Item" data-link="List/Item" title="Item">
@@ -95,18 +108,6 @@
                 </div>
 
             
-                <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3" id="purchaseShow" runat="server">
-                    <div class="case-wrapper" data-name="Item" data-link="List/Item" title="Item">
-                        <a href="Purchase.aspx">
-                            <div class="app-icon app-icon-purple" title="كرینی ماسی">
-                                <i class="fas fa-fish" title="كرینی ماسی"></i>
-                            </div>
-                        </a>
-                        <div class="case-label ellipsis">
-                            <span class="case-label-text">كرینی ماسی</span>
-                        </div>
-                    </div>
-                </div> <%-- purchese --%>
                 
                 
                 <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3" id="usersShow" runat="server">
@@ -150,19 +151,65 @@
                     </div>
                 </div>
 
+                <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3">
+                    <div class="case-wrapper" data-name="Item" data-link="List/Item" title="ناردن">
+                        <a href="/Transfer">
+                            <div class="app-icon app-icon-ogrange" title="ناردن">
+                                <i class="fas fa-exchange-alt ani" title="ناردن"></i>
+                            </div>
+                        </a>
+                        <div class="case-label ellipsis">
+                            <span class="case-label-text">ناردن</span>
+                        </div>
+                    </div>
+                </div> <%-- transfer --%>
+
+                <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3">
+                    <div class="case-wrapper" data-name="Item" data-link="List/Item" title="بینینی وەسڵی فڕۆشتن">
+                        <a href="/ShowSalesInvoice">
+                            <div class="app-icon app-icon-bluelight-2" title="بینینی وەسڵی فڕۆشتن">
+                                <i class="fas fa-eye ani" title="بینینی وەسڵی فڕۆشتن"></i>
+                            </div>
+                        </a>
+                        <div class="case-label ellipsis">
+                            <span class="case-label-text">بینینی وەسڵی فڕۆشتن</span>
+                        </div>
+                    </div>
+                </div> <%-- show salis invoise --%>
+
+
+
+
 
                 <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3">
                     <div class="case-wrapper" data-name="Item" data-link="List/Item">
                         <a href="SupplierPaymentaspx.aspx" class="imgpayment">
-                            <div class="app-icon_img app-img app-icon-yellow" title="پارەدانی فرۆشیار">
-                                <img src="Image/payment.png" title="پارەدانی فرۆشیار">
+                            <div class="app-icon_img app-img app-icon-yellow" title="پارەدانی کریاڕ">
+                                <img src="Image/payment.png" title="پارەدانی کریاڕ">
                             </div>
                         </a>
                         <div class="case-label ellipsis">
-                            <span class="case-label-text">پارەدانی فرۆشیار</span>
+                            <span class="case-label-text">پارەدانی کریاڕ</span>
                         </div>
                     </div>
                 </div> <%-- payment supplier --%>
+
+
+                <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3">
+                    <div class="case-wrapper" data-name="Item" data-link="List/Item">
+                        <a href="CustomerPayment.aspx" class="imgpayment">
+                            <div class="app-icon_img app-img app-icon-green-2" title="پارە وەرگرتن">
+                                <img src="Image/customer payment.png" title="پارە وەرگرتن">
+                            </div>
+                        </a>
+                        <div class="case-label ellipsis">
+                            <span class="case-label-text">پارە وەرگرتن</span>
+                        </div>
+                    </div>
+                </div> <%-- Customer Payment --%>
+
+
+                
 
             </div>
         </div>
