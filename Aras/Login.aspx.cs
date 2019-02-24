@@ -84,7 +84,7 @@ namespace Aras
                         Permit.currentPermission = Permessions.AllUsers;
 
                     //Application.Add()
-                    Response.Redirect("Purchase.aspx");
+                    Response.Redirect("/");
 
                 }
                 else

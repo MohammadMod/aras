@@ -36,6 +36,8 @@ namespace Aras
         protected void PurchaseButton_Click(object sender, EventArgs e)
         {
             inD.InsertPurchase(ViewSupplierDropDownList, dateTimeTextBox.Text, float.Parse(KiloTextBox.Text), float.Parse(CostTextBox.Text),WareHouseSelectDropDownList);
+            Response.Redirect("/");
         }
+
     }
 }

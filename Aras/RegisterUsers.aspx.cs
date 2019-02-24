@@ -18,6 +18,8 @@ namespace Aras
         {
             if (!IsPostBack)
             {
+                if (!Permit.isAllowed(Permessions.OnlyAdmin))
+                    Response.Redirect("Login.aspx");
                 //updating
                 try
                 {
@@ -38,19 +40,19 @@ namespace Aras
         protected void RegisterButton_Click(object sender, EventArgs e)
         {
 
-            //string myId = "";
-            //try
-            //{
-            //    myId = Application["id"].ToString();
-            //}
-            //catch (Exception)
-            //{
+            string myId = "";
+            try
+            {
+                myId = Application["id"].ToString();
+            }
+            catch (Exception)
+            {
 
 
-            //}
+            }
 
-            //if (myId == "")
-            //{
+            if (myId == "")
+            {
                 #region Hama RegisterUsers
                 try
                 {
@@ -76,12 +78,12 @@ namespace Aras
                 {
                     ClientScript.RegisterStartupScript(Page.GetType(), "validation", $"<script language='javascript'>alert('{ex.Message}');</script>");
                 }
-            //}
+            }
 
-            //else
-            //{
-            //    Response.Write("<script language=javascript>alert('You are not in creating mode please update');</script>");
-            //}
+            else
+            {
+                Response.Write("<script language=javascript>alert('You are not in creating mode please update');</script>");
+            }
 
 
 
@@ -164,6 +166,7 @@ namespace Aras
                 SqlCommand cmd = new SqlCommand("update regester_table set name='" + FullNameTextBox.Text + "',last_name='" + "last_name" + "',phone_number='" + PhoneTextBox.Text + "',location='" + LocationTextBox.Text + "',complite_name='" + UserNameTextBox.Text + "',pin_cod='" + PasswordTextBox.Text + "',Admin='" + isAdmin + "'where id='" + int.Parse(myId) + "'", conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
+                Response.Redirect("Users.aspx");
             }
             catch (Exception)
             {

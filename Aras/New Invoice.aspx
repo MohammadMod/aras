@@ -181,9 +181,10 @@
                 <br />
                 chose warehouse:  
                 
-                <asp:DropDownList ID="ChoseWareHouseDropDownList" runat="server" DataSourceID="IDandNameWareHouse" DataTextField="warehouse_name" DataValueField="ID" OnSelectedIndexChanged="ChoseWareHouseDropDownList_SelectedIndexChanged">
+                <asp:DropDownList ID="ChoseWareHouseDropDownList" runat="server"  AutoPostBack="True" OnSelectedIndexChanged="ChoseWareHouseDropDownList_SelectedIndexChanged1">
                     <asp:ListItem Selected="True" Value="select">Select</asp:ListItem>
                 </asp:DropDownList>
+                <asp:TextBox ID="amountTextBox" runat="server"></asp:TextBox>
             </form>
                               
 
@@ -208,7 +209,8 @@
     <script src="js/scripts.js"></script>
    
     
-    <asp:SqlDataSource ID="IDandNameWareHouse" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="SELECT [ID], [warehouse_name] FROM [warehouse]"></asp:SqlDataSource>
+    <p>
+        &nbsp;</p>
    
 </body>
 
