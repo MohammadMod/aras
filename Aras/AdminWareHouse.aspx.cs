@@ -21,7 +21,7 @@ namespace Aras
             // if (!Permit.isAllowed(Permessions.OnlyAdmin))
             //   Response.Redirect("Login.aspx");
 
-            Deletor = new SmartDelete(AdminWareHouseGridView, DeleteButton, "warehouse");
+            //Deletor = new SmartDelete(AdminWareHouseGridView, DeleteButton, "warehouse");
         }
 
         
