@@ -122,12 +122,15 @@
                 
                 <div class="col-lg-10 mt-0">
                     <div class="form-group">
+
                         <label for="Name_resturant" class="col-form-label styleK text-right">هەڵبژاردنی مەخزەن</label>
 
-                        <asp:DropDownList ID="ChoseWareHouseDropDownList" runat="server" DataSourceID="IDandNameWareHouse" Style="padding-top: 0; padding-bottom: 0; font-size: 12px;"
-                            CssClass="form-control form-control-lg invois_multK" DataTextField="warehouse_name" DataValueField="ID" OnSelectedIndexChanged="ChoseWareHouseDropDownList_SelectedIndexChanged">
+                        <asp:DropDownList ID="ChoseWareHouseDropDownList" runat="server" Style="padding-top: 0; padding-bottom: 0; font-size: 12px;"
+                            CssClass="form-control form-control-lg invois_multK"  AutoPostBack="True" OnSelectedIndexChanged="ChoseWareHouseDropDownList_SelectedIndexChanged2">
                             <asp:ListItem Selected="True" Value="select">Select</asp:ListItem>
                         </asp:DropDownList>
+
+                        <asp:TextBox ID="amountTextBox" runat="server"></asp:TextBox>
                     </div>
                 </div>
 
@@ -220,9 +223,7 @@
     <script src="js/scripts.js"></script>
    
     
-    <asp:SqlDataSource ID="IDandNameWareHouse" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="SELECT [ID], [warehouse_name] FROM [warehouse]"></asp:SqlDataSource>
-   
-</body>
+    </body>
 
 
 </html>

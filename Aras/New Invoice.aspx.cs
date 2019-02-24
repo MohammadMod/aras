@@ -20,7 +20,6 @@ namespace Aras
             if (!IsPostBack)
             {
 
-            
             bd.wareHouseName(ChoseWareHouseDropDownList);
             try
             {
@@ -124,16 +123,15 @@ namespace Aras
           
         }
 
-        protected void ChoseWareHouseDropDownList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
+        
 
         protected void UpdateButton_Click(object sender, EventArgs e)
         {
 
         }
 
-        protected void ChoseWareHouseDropDownList_SelectedIndexChanged1(object sender, EventArgs e)
+      
+        protected void ChoseWareHouseDropDownList_SelectedIndexChanged2(object sender, EventArgs e)
         {
             //show QTY
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
@@ -144,7 +142,7 @@ namespace Aras
                 conn.Open();
                 cmdd.Parameters.AddWithValue("warehouse_name", ChoseWareHouseDropDownList.SelectedItem.Text);
                 cmdd.CommandType = System.Data.CommandType.StoredProcedure;
-                //amountTextBox.Text = cmdd.ExecuteScalar().ToString();
+                amountTextBox.Text = cmdd.ExecuteScalar().ToString();
                 cmdd.ExecuteNonQuery();
                 conn.Close();
             }
