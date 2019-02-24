@@ -11,15 +11,42 @@ namespace Aras
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
             try
             {
+                string username = "";
+                if (username=="")
+                {
+                    try
+                    {
+                        username = Application["Name"].ToString();
+                        Response.Write(username);
+
+                    }
+                    catch (Exception)
+                    {
+                        try
+                        {
+                            HttpCookie myCookie = Request.Cookies["savedCookie"];
+                            username = myCookie.Values["userid"].ToString();
+                            Response.Write("Hello " + username + " from cockies");
+                        }
+                        catch (Exception)
+                        {
+
+                            
+                        }
+                       
+                    }
+                }
                 //customerNameLbl.Text = Application["Name"].ToString();
-                DateLbl.Text = DateTime.Now.ToString();
-                DiscountLbl.Text = Application["discount"].ToString();
-                KiloLbl.Text = Application["kilo"].ToString();
-                TotalAllLbl.Text = Application["totalAll"].ToString();
-                TotalLbl.Text = Application["total"].ToString();
-                AmountLbl.Text = Application["monyOfKilo"].ToString();
+                //DateLbl.Text = DateTime.Now.ToString();
+                //DiscountLbl.Text = Application["discount"].ToString();
+                //KiloLbl.Text = Application["kilo"].ToString();
+                //TotalAllLbl.Text = Application["totalAll"].ToString();
+                //TotalLbl.Text = Application["total"].ToString();
+                //AmountLbl.Text = Application["monyOfKilo"].ToString();
+
 
                
             }

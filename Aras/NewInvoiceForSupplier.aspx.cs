@@ -14,7 +14,10 @@ namespace Aras
         BindingData bd = new BindingData();
         protected void Page_Load(object sender, EventArgs e)
         {
-            bd.SupplierName(SelectCustomerDropDownList);
+            if (!IsPostBack)
+            {
+                bd.SupplierName(SelectCustomerDropDownList);
+            }
         }
 
         protected void SubmitNewInvoiceButton_Click(object sender, EventArgs e)
