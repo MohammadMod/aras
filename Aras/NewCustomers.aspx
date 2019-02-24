@@ -28,7 +28,14 @@
     
     <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/droid-arabic-naskh" type="text/css"/>
     <script src="js/HamaScripts.js"></script>
+    <style>
+        /*.btn-secondary {
+            color: #fff;
+            background-color: #6c757d !important;
+            border-color: #6c757d !important;
+        }*/
 
+    </style>
 
 </head>
 <body id="body_newcus" onload="startTime()">
@@ -137,13 +144,12 @@
                              <asp:Button ID="CreateCustomerButton" CssClass="btn btn-success btn-block btn-save-style styleK" 
                              runat="server" OnClick="CreateCustomerButton_Click" Text="زیاد کردن"/>
                         </div>
-                    </div> 
-                    <br />
-                         <div class="col-lg-3 col-md-6 col-sm-6  mt-0">
+                    </div>
+
+                     <div class="col-lg-3 col-md-6 col-sm-6  mt-2">
                         <div class="form-group">
-                            
-                             <asp:Button ID="updateButton" CssClass="btn btn-success btn-block btn-save-style styleK" 
-                             runat="server" Text="Update" OnClick="updateButton_Click"/>
+                             <asp:Button ID="updateButton" CssClass="btn btn-secondary btn-block btn-save-style styleK" 
+                             runat="server" Text="نوێ کردنەوە" OnClick="updateButton_Click"/>
                         </div>
                     </div> 
                 </form>

@@ -27,6 +27,26 @@
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     <script src="js/HamaScripts.js"></script>
     <script src="SearchInGrids.js"></script>
+    <style>
+        @media (max-width: 768px) {
+            .btn-sm{
+                padding: 9px 11px;
+                font-size:11px;
+            }
+        }
+        @media (max-width: 576px) {
+            .btn-sm{
+                padding: 9px 9px;
+                font-size:9px;
+            }
+        }
+        @media (max-width: 450px) {
+            .btn-sm{
+                padding: 8px 7px;
+                font-size:8px;
+            }
+        }
+    </style>
 </head>
 <body id="body_newcus" onload="startTime()">
     <div class="main">
@@ -94,12 +114,15 @@
 
                 <div class="col-6 col-sm-6 col-md-6 col-lg-6 my-1 text-right">       
                     
+                    <asp:Button ID="CreateButton" runat="server"  CssClass="btn btn-success btn-sm styleK" Text="دروستکردن"  OnClick="CreateButton_Click" />
+
+                    
+                    <asp:Button ID="EditButton" CssClass="btn btn-warning btn-sm styleK" runat="server" Text="دەستکاری کردن" />
+
                     <asp:Button ID="DeleteButton" CssClass="btn btn-danger btn-sm styleK" runat="server" Text="رەشکردنەوە" />
 
-                    <asp:Button ID="CreateButton" runat="server"  CssClass="btn btn-danger btn-sm styleK" Text="دروستکردن"  OnClick="CreateButton_Click" />
 
 
-                    <asp:Button ID="EditButton" CssClass="btn btn-warning btn-sm styleK" runat="server" Text="دەستکاری کردن" />
                 </div>
             </div>
 

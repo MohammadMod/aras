@@ -99,7 +99,7 @@
                     <div class="form-group">
                         <label for="Name_resturant" class="col-form-label styleK">چێشتخانە</label>
 
-                        <asp:DropDownList ID="SelectCustomerDropDownList" CssClass="form-control"
+                        <asp:DropDownList ID="SelectCustomerDropDownList" CssClass="form-control form-control-lg" Style="padding-top: 0; padding-bottom: 0; font-size: 16px;"
                             runat="server" OnSelectedIndexChanged="SelectCustomerDropDownList_SelectedIndexChanged">
                         </asp:DropDownList>
 
@@ -112,7 +112,7 @@
                     <div class="form-group">
                         <label for="Name_resturant" class="col-form-label styleK text-right">جۆری وەسڵ</label>
                         <asp:DropDownList ID="SeriesDropDownList" Style="padding-top: 0; padding-bottom: 0; font-size: 12px;"
-                            runat="server" CssClass="form-control invois_multK">
+                            runat="server" CssClass="form-control form-control-lg invois_multK">
                             <asp:ListItem>Name Of Series</asp:ListItem>
                             <asp:ListItem>Name of series return</asp:ListItem>
                         </asp:DropDownList>
