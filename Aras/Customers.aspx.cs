@@ -17,6 +17,11 @@ namespace Aras
         SmartDelete Deletor;
         protected void Page_Load(object sender, EventArgs e)
         {
+
+             if (!Permit.isAllowed(Permessions.AllUsers))
+                Response.Redirect("Login.aspx");
+
+
             #region Hama reading customer names from db to gridview
             if (!IsPostBack)
             {
@@ -34,7 +39,10 @@ namespace Aras
 
 
             // 5 is the location of ID
-            Deletor = new SmartDelete(this.CustomersGridView, DeleteButton, "Customer", 5,this);
+            if (!Permit.isAllowed(Permessions.OnlyAdmin))
+                Deletor = new SmartDelete(this.CustomersGridView, DeleteButton, "Customer", 5,this);
+            else
+                DeleteButton.OnClientClick = "return alert('You must be logged in as Aadmin')";
         }
 
         protected void CreateButton_Click(object sender, EventArgs e)
