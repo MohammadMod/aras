@@ -143,6 +143,10 @@
     background-color: #589494;
 }
 
+.app-icon-Cyan {
+    background-color: #26C6DA;
+}
+
 .app-icon-green-2 {
     background-color: #03DAC6;
 }
@@ -310,6 +314,20 @@
     color: rgb(73, 73, 78);
     transform: scale(1.2);
 }
+
+
+.fa-warehouse {
+    font-size: 36px;
+    color: white;
+    transition: all .3s;
+    animation: moveInLeft-icon 1s ease-out;
+}
+
+.fa-warehouse:hover {
+    color: rgb(73, 73, 78);
+    transform: scale(1.2);
+}
+
 
 
 
