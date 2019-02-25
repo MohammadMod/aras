@@ -15,6 +15,9 @@ namespace Aras
         BindingData bd = new BindingData();
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            if (!Permit.isAllowed(Permessions.AllUsers))
+                Response.Redirect("Login.aspx");
             if (!IsPostBack)
             {
                 bd.wareHouseName(wareHouseDropDownList);

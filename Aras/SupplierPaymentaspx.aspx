@@ -96,7 +96,7 @@
                     <div class="col-lg-6  mt-0">
                         <div class="form-group">
                             <label for="TotallTextBox" class="col-form-label styleK">پارە لە حیساب</label>
-                            <asp:TextBox ID="MoneyInAccountTextBox" CssClass="form-control form-control-lg" runat="server" Enabled="False"></asp:TextBox>
+                            <asp:TextBox ID="MoneyInAccountTextBox" CssClass="form-control form-control-lg" runat="server"></asp:TextBox>
                         </div>
                     </div>
                 </fieldset>
@@ -106,7 +106,7 @@
                     <div class="form-group">
                         <label for="PayToSupplierTextBox" class="col-form-label styleK">پارە دان</label>
                         <asp:TextBox ID="PayToSupplierTextBox" runat="server" CssClass="form-control form-control-lg"
-                            required="true" TextMode="Number" OnTextChanged="PayToSupplierTextBox_TextChanged" onkeyup="calculateSupplier()"></asp:TextBox>
+                            OnTextChanged="PayToSupplierTextBox_TextChanged" onkeyup="calculateSupplier()"></asp:TextBox>
                     </div>
                 </div>
 
@@ -115,7 +115,7 @@
                     <div class="form-group">
                         <label for="PayPlusInAccountTextBox" class="col-form-label styleK">پارەی وەسڵ</label>
 
-                        <asp:TextBox ID="PayPlusInAccountTextBox" CssClass="form-control form-control-lg" runat="server" ReadOnly="true"></asp:TextBox>
+                        <asp:TextBox ID="PayPlusInAccountTextBox" CssClass="form-control form-control-lg" runat="server" ></asp:TextBox>
 
                     </div>
                 </div>
@@ -124,7 +124,7 @@
                 <div class="col-lg-6 mt-0">
                     <div class="form-group">
                         <label for="totalAllTextBox" class="col-form-label styleK">کۆی گشتی پارەی وەسڵ</label>
-                        <asp:TextBox ID="totalAllTextBox" CssClass="form-control form-control-lg" runat="server" Enabled="False"></asp:TextBox>
+                        <asp:TextBox ID="totalAllTextBox" CssClass="form-control form-control-lg" runat="server"></asp:TextBox>
                     </div>
                 </div>
                 <hr />

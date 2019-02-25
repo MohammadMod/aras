@@ -16,9 +16,13 @@ namespace Aras
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            if (!Permit.isAllowed(Permessions.AllUsers))
+                Response.Redirect("Login.aspx");
             if (!IsPostBack)
             {
                 bd.SupplierName(SelectSupplierDropDownList);
+                MoneyInAccountTextBox.Enabled = true;
             }
 
         }
@@ -63,20 +67,34 @@ namespace Aras
 
         protected void SubmitButton_Click(object sender, EventArgs e)
         {
-           //insert remained
+            //insert remained
+            string dataa = Request.Form[PayPlusInAccountTextBox.UniqueID];
+            string supplierBalance = MoneyInAccountTextBox.Text;
+
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
+            SqlCommand cmd = new SqlCommand("INSERT_payment_entry_for_Purchase", con);
+            con.Open();
+            cmd.Parameters.AddWithValue("Supplier_ID", SelectSupplierDropDownList.SelectedIndex);
+            cmd.Parameters.AddWithValue("Posting_date", DateTime.Now);
+            cmd.Parameters.AddWithValue("Different_amount", float.Parse(dataa));
+            cmd.Parameters.AddWithValue("paray_draw", float.Parse(PayToSupplierTextBox.Text));
+            cmd.Parameters.AddWithValue("party_balanceas", float.Parse(supplierBalance));
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.ExecuteNonQuery();
+            con.Close();
+            GridView1.DataBind();
 
             if (CheckBox1.Checked)
             {
                 GridViewRow row = GridView1.SelectedRow;
                 string data = Request.Form[PayPlusInAccountTextBox.UniqueID];
 
-                SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
-                SqlCommand cmd = new SqlCommand("Update_Supplier_Debit", con);
+                SqlCommand cmdd = new SqlCommand("Update_Supplier_Debit", con);
                 con.Open();
-                cmd.Parameters.AddWithValue("Supplier_ID", SelectSupplierDropDownList.SelectedIndex);
-                cmd.Parameters.AddWithValue("para", float.Parse(PayToSupplierTextBox.Text));
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmd.ExecuteNonQuery();
+                cmdd.Parameters.AddWithValue("Supplier_ID", SelectSupplierDropDownList.SelectedIndex);
+                cmdd.Parameters.AddWithValue("para", float.Parse(PayToSupplierTextBox.Text));
+                cmdd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmdd.ExecuteNonQuery();
                 con.Close();
                 GridView1.DataBind();
 
@@ -86,14 +104,13 @@ namespace Aras
             GridViewRow row = GridView1.SelectedRow;
             string data = Request.Form[PayPlusInAccountTextBox.UniqueID];
 
-            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
-            SqlCommand cmd = new SqlCommand("Update_purchase_invoce_for_pay", con);
+            SqlCommand cmddd = new SqlCommand("Update_purchase_invoce_for_pay", con);
             con.Open();
-            cmd.Parameters.AddWithValue("purchase_invoce_ID", int.Parse(row.Cells[1].Text));
-            cmd.Parameters.AddWithValue("Supplier", SelectSupplierDropDownList.SelectedIndex);
-            cmd.Parameters.AddWithValue("para",float.Parse(PayToSupplierTextBox.Text));
-            cmd.CommandType = System.Data.CommandType.StoredProcedure;
-            cmd.ExecuteNonQuery();
+            cmddd.Parameters.AddWithValue("purchase_invoce_ID", int.Parse(row.Cells[1].Text));
+            cmddd.Parameters.AddWithValue("Supplier", SelectSupplierDropDownList.SelectedIndex);
+            cmddd.Parameters.AddWithValue("para",float.Parse(PayToSupplierTextBox.Text));
+            cmddd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmddd.ExecuteNonQuery();
             con.Close();
             GridView1.DataBind();
             }
@@ -109,12 +126,11 @@ namespace Aras
 
         protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
         {
-            TextBox tb = this.Page.FindControl("MoneyInAccountTextBox") as TextBox;
-            string myData = tb.Text;
-            myData = myData.Remove(0,1);
+            //TextBox tb = this.Page.FindControl("MoneyInAccountTextBox") as TextBox;
+            //string myData = tb.Text;
+            //myData = myData.Remove(0, 2);
 
-
-            PayToSupplierTextBox.Text = myData;
+            //PayToSupplierTextBox.Text = myData;
         }
     }
 }
