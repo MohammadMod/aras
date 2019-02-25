@@ -22,6 +22,7 @@ namespace Aras
             if (!IsPostBack)
             {
                 bd.SupplierName(ViewSupplierDropDownList);
+                bd.wareHouseName(WareHouseSelectDropDownList);
             }
 
             //string Name = Application["Name"].ToString();

@@ -97,20 +97,20 @@ namespace Aras
 
                     SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
                     #region MyRegion
-                    //SqlCommand cmd = new SqlCommand("INSERT_payment_entry", con);
-                    //con.Open();
+                    SqlCommand cmd = new SqlCommand("INSERT_payment_entry", con);
+                    con.Open();
 
-                    //cmd.Parameters.AddWithValue("payment_type", "parawargrtn");
-                    //cmd.Parameters.AddWithValue("Costomer_ID", SelectCustomerDropDownList.SelectedIndex);
-                    //cmd.Parameters.AddWithValue("posting_date", DateTime.Now);
-                    //cmd.Parameters.AddWithValue("party_balance", float.Parse(MoneyInAccountTextBox.Text));
-                    //cmd.Parameters.AddWithValue("difference_amount", float.Parse(data));
-                    //cmd.Parameters.AddWithValue("unallocated_amount", 0.0);
-                    //cmd.Parameters.AddWithValue("Series", DBNull.Value);
+                    cmd.Parameters.AddWithValue("payment_type", "parawargrtn");
+                    cmd.Parameters.AddWithValue("Costomer_ID", SelectCustomerDropDownList.SelectedIndex);
+                    cmd.Parameters.AddWithValue("posting_date", DateTime.Now);
+                    cmd.Parameters.AddWithValue("party_balance", float.Parse(MoneyInAccountTextBox.Text));
+                    cmd.Parameters.AddWithValue("difference_amount", float.Parse(data));
+                    cmd.Parameters.AddWithValue("unallocated_amount", float.Parse(ReciveFromSupplierTextBox.Text));
+                    cmd.Parameters.AddWithValue("Series", DBNull.Value);
 
-                    //cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                    //cmd.ExecuteNonQuery();
-                    //con.Close();
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.ExecuteNonQuery();
+                    con.Close();
                     #endregion
 
 

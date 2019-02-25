@@ -100,8 +100,7 @@
                             <div class="form-group">
                                 <label for="WareHouseSelectDropDownList" class="col-form-label styleK">دیاری کردنی مەخزەن</label>
 
-                                <asp:DropDownList ID="WareHouseSelectDropDownList" CssClass="custom-select custom-select-lg invois_multK" runat="server" 
-                                DataSourceID="WareHouseName" DataTextField="warehouse_name" DataValueField="warehouse_name">
+                                <asp:DropDownList ID="WareHouseSelectDropDownList" CssClass="custom-select custom-select-lg invois_multK" runat="server">
                                 </asp:DropDownList>
                                 <asp:SqlDataSource ID="WareHouseName" runat="server"  ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="SELECT [ID], [warehouse_name] FROM [warehouse]"></asp:SqlDataSource>
                             </div>

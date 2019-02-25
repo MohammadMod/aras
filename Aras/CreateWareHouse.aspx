@@ -107,6 +107,10 @@
                             <asp:TextBox ID="WareHouseIDTextBox2" CssClass="form-control form-control-lg"  runat="server"></asp:TextBox>
                         </div>
                     </div>
+
+                    <div>
+                        <asp:DropDownList ID="wareHouseDropDownList" runat="server"></asp:DropDownList>
+                    </div>
                     <div class="col-lg-10 mt-0">
                         <div class="custom-control custom-checkbox my-1 mr-sm-2">
                             <asp:CheckBox ID="isGroupCheckBox" runat="server" />

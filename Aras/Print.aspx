@@ -3,54 +3,37 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<head >
     <title></title>
+      <meta charset="utf-8">
+  <title>receipt</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css">
+  <link rel="stylesheet" href="../paper.css">
+  <style>
+    @page { size: 70mm 150mm } /* output size */
+    body.receipt .sheet { width: 300mm; height: 100mm } /* sheet size */
+    @media print { body.receipt { width: 300mm } } /* fix for Chrome */
+  </style>
 </head>
-<body>
+<body class="receipt">
     <form id="form1" runat="server">
-     <div id="printDiv" style="margin:0; padding:0;">
-          <%--  NO:
-            <asp:Label ID="voiceNoLbl" runat="server" Text="Label"></asp:Label>
-            <br />--%>
-            <br />
-            Customer name:
-            <asp:Label ID="customerNameLbl" runat="server" Text="Label"></asp:Label>
-            <br />
-            <br />
-            Date:
-            <asp:Label ID="DateLbl" runat="server" Text="Label"></asp:Label>
-            <br />
-            <br />
-            Kilo:
-            <asp:Label ID="KiloLbl" runat="server" Text="Label"></asp:Label>
-            <br />
-            <br />
-            Amount:
-            <asp:Label ID="AmountLbl" runat="server" Text="Label"></asp:Label>
-            <br />
-            <br />
-            Total:<asp:Label ID="TotalLbl" runat="server" Text="Label"></asp:Label>
-            <br />
-            <br />
-            Discount:<asp:Label ID="DiscountLbl" runat="server" Text="Label"></asp:Label>
-            <br />
-            <br />
-            Total all:<asp:Label ID="TotalAllLbl" runat="server" Text="Label"></asp:Label>
-            <br />
-            <br />
-            <br />
-            <br />
-        </div>
+   
+  
+  <section class="sheet padding-10mm" style="font-size:15px">
+    .............................................................................
+              <br />
+        <label>Select an installed Printer: Select an installed Printer:</label>
+        <br />
+        <label >ناوى جيشتخان: Select an installed Printer:</label>
+      <br />
+    <label >ناوى جيشتخانه</label>
 
-<input type="button" value="print" title="print" onclick="printing()"/>
-
-        <script>
-            function printing() {
-
-                            window.print();
-            }
-
-        </script>
+        <br />
+  </section>
+  
+    
+       
+        <button onclick="print();">Print Now...</button>
 
     </form>
 </body>

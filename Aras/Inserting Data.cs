@@ -36,7 +36,7 @@ namespace Aras
                 cmd.Parameters.AddWithValue("Totall", rate * amount);
                 cmd.Parameters.AddWithValue("Totall_All", rate * amount - discount);
 
-                cmd.Parameters.AddWithValue("warehouse_ID", wareHouseId.SelectedIndex + 1);
+                cmd.Parameters.AddWithValue("warehouse_ID", wareHouseId.SelectedIndex);
 
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 cmd.ExecuteNonQuery();
@@ -164,10 +164,11 @@ namespace Aras
                 cmd.Parameters.AddWithValue("Posting_date", Convert.ToDateTime(dateTime));
                 cmd.Parameters.AddWithValue("rate", rate);
                 cmd.Parameters.AddWithValue("amount", amount);
+                cmd.Parameters.AddWithValue("satute", "unpaid");
                 cmd.Parameters.AddWithValue("totall_amount", rate * amount);
-                cmd.Parameters.AddWithValue("warehouse_ID", wareHouseId.SelectedIndex + 1);
+                cmd.Parameters.AddWithValue("warehouse_ID", wareHouseId.SelectedIndex);
 
-
+               
 
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 cmd.ExecuteNonQuery();

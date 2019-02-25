@@ -18,8 +18,8 @@ namespace Aras
         {
             if (!IsPostBack)
             {
-                if (!Permit.isAllowed(Permessions.OnlyAdmin))
-                    Response.Redirect("Login.aspx");
+                //if (!Permit.isAllowed(Permessions.OnlyAdmin))
+                //    Response.Redirect("Login.aspx");
                 //updating
                 try
                 {

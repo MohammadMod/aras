@@ -7,12 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace Aras
 {
-    public partial class Print : System.Web.UI.Page
+    public partial class Show_Payment_Entry : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
-           
         }
     }
 }

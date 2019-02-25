@@ -63,6 +63,8 @@ namespace Aras
 
         protected void SubmitButton_Click(object sender, EventArgs e)
         {
+           //insert remained
+
             if (CheckBox1.Checked)
             {
                 GridViewRow row = GridView1.SelectedRow;

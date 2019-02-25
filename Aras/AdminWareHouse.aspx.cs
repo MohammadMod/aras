@@ -18,22 +18,22 @@ namespace Aras
         {
 
             // a simple way to not let all users see some pages.
-            if (!Permit.isAllowed(Permessions.OnlyAdmin))
-                Response.Redirect("Login.aspx");
+            //if (!Permit.isAllowed(Permessions.OnlyAdmin))
+            //    Response.Redirect("Login.aspx");
 
-            try
-            {
-                HttpCookie myCookie = Request.Cookies["savedCookie"];
-                string username = myCookie.Values["userid"].ToString();
-                Response.Write("Hello " + username + " from cockies");
-            }
-            catch (Exception)
-            {
+            //try
+            //{
+            //    HttpCookie myCookie = Request.Cookies["savedCookie"];
+            //    string username = myCookie.Values["userid"].ToString();
+            //    Response.Write("Hello " + username + " from cockies");
+            //}
+            //catch (Exception)
+            //{
 
-                HttpCookie myCookie = Request.Cookies["savedCookie"];
-             string username= myCookie.Values["userid"].ToString();
-                Response.Write("Hello "+username+" from cockies");
-            }
+            //    HttpCookie myCookie = Request.Cookies["savedCookie"];
+            // string username= myCookie.Values["userid"].ToString();
+            //    Response.Write("Hello "+username+" from cockies");
+            //}
             //Deletor = new SmartDelete(AdminWareHouseGridView, DeleteButton, "warehouse");
         }
 

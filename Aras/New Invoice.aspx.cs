@@ -77,17 +77,23 @@ namespace Aras
 
         protected void SubmitNewInvoiceButton_Click(object sender, EventArgs e)
         {
-          
+           
             try
             {
                 #region Hama this region is for inserting to the database
+                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
+                SqlCommand cmdd = new SqlCommand("show_warehouse_quantity", conn);
+                conn.Open();
+                cmdd.Parameters.AddWithValue("warehouse_name", ChoseWareHouseDropDownList.SelectedItem.Text);
+                cmdd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmdd.ExecuteNonQuery();
+                conn.Close();
 
                 inD.InsertToNewInvoice(SeriesDropDownList, SelectCustomerDropDownList, float.Parse(KiloTextBox.Text), float.Parse(CostOfKiloTextBox.Text), DateTime.Now, float.Parse(DiscountTextBox.Text), ChoseWareHouseDropDownList);
                 #endregion
+
+                
                 Response.Redirect("/CustomerPayment.aspx");
-
-
-
 
 
                 #region Hama this region is for printing the incoice
@@ -145,6 +151,9 @@ namespace Aras
                 amountTextBox.Text = cmdd.ExecuteScalar().ToString();
                 cmdd.ExecuteNonQuery();
                 conn.Close();
+
+               
+
             }
             catch (Exception)
             {

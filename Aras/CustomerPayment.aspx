@@ -128,7 +128,7 @@
                     <div class="col-lg-6 mt-0">
                         <div class="form-group">
                             <label for="RecivePlusInAccountTextBox" class="col-form-label styleK">پارە لە وەسل</label>
-                            <asp:TextBox ID="RecivePlusInAccountTextBox" runat="server" ReadOnly="true" CssClass="form-control form-control-lg"></asp:TextBox>
+                            <asp:TextBox ID="RecivePlusInAccountTextBox" runat="server" CssClass="form-control form-control-lg"></asp:TextBox>
                         </div>
                     </div>
                      <hr />
