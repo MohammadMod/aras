@@ -158,17 +158,9 @@
                     
                     <div class="col-lg-3 col-md-6 col-sm-6  mt-0 pb-3">
                         <div class="form-group">
-
                             <asp:Button ID="SubmitNewInvoiceButton" Text="درووست کردن" CssClass="btn btn-primary  btn-block styleK" runat="server" OnClick="SubmitNewInvoiceButton_Click" />
-
-                            
-
-
                         </div>
-                    </div>
-
-                    
-                        
+                    </div>    
                 </form>
             </div>
         </div>
