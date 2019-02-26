@@ -6,7 +6,7 @@
 <head runat="server">
     <title></title>
 
-     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/bootstrap.css" rel="stylesheet" />
     <link href="css/font-awesome.min.css" rel="stylesheet" />
     <link href="css/metisMenu.css" rel="stylesheet" />

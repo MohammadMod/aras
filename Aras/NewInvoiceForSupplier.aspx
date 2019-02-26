@@ -4,127 +4,189 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>New Invoice For Supplier</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <link href="css/metisMenu.css" rel="stylesheet" />
+    <link href="css/owl.carousel.min.css" rel="stylesheet" />
+    <link href="css/responsive.css" rel="stylesheet" />
+    <link href="css/slicknav.min.css" rel="stylesheet" />
+    <link href="css/themify-icons.css" rel="stylesheet" />
+    <link href="css/typography.css" rel="stylesheet" />
+    <link href="css/default-css.css" rel="stylesheet" />
+
+    <link href="css/app.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+    
+
+    <link href="css/styleee.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     <script src="js/HamaScripts.js"></script>
-    <style type="text/css">
 
-
-.form-control-lg,
-.input-group-lg>.form-control,
-.input-group-lg>.input-group-append>.btn,
-.input-group-lg>.input-group-append>.input-group-text,
-.input-group-lg>.input-group-prepend>.btn,
-.input-group-lg>.input-group-prepend>.input-group-text {
-    padding: 13.6px 16px;
-    padding: .85rem 1rem;
-}
-
-.form-control {
-    font-size: 14px;
-    border: 1px solid rgba(170, 170, 170, .3);
-    padding: 10.72px 12.8px;
-    padding: .67rem .8rem;
-}
-
-.form-control,
-.form-control:focus {
-    outline: none;
-    box-shadow: none;
-}
-
-.form-control-lg{height:calc(2.2rem + 2px);padding:.35rem 1rem;font-size:1rem;line-height:1.5;border-radius:.3rem}.form-control{transition:none}.form-control{display:block;width:100%;height:calc(1.8125rem + 2px);padding:.25rem .7rem;font-size:.875rem;line-height:1.5;color:#495057;background-color:#fff;background-clip:padding-box;border:1px solid #ced4da;border-radius:.2rem;transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out}
-
-.form-control-lg, .input-group-lg > .form-control,
-.input-group-lg > .input-group-prepend > .input-group-text,
-.input-group-lg > .input-group-append > .input-group-text,
-.input-group-lg > .input-group-prepend > .btn,
-.input-group-lg > .input-group-append > .btn {
-  padding: 0.5rem 1rem;
-  font-size: 1.25rem;
-  line-height: 1.5;
-  border-radius: 0.3rem;
-}
-
-.form-control {
-  display: block;
-  width: 100%;
-  padding: 0.375rem 0.75rem;
-  font-size: 1rem;
-  line-height: 1.5;
-  color: #495057;
-  background-color: #fff;
-  background-clip: padding-box;
-  border: 1px solid #ced4da;
-  border-radius: 0.25rem;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
-
-*,:after,:before{text-shadow:none!important;box-shadow:none!important}*,:after,:before{box-sizing:border-box}
-
-*, *:before, *:after {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-  *,
-  *::before,
-  *::after {
-    text-shadow: none !important;
-    box-shadow: none !important;
-  }
-  
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-    </style>
 </head>
-<body>
-    <form id="form1" runat="server">
-        <div>
-            select supplier:
-            <asp:DropDownList ID="SelectCustomerDropDownList" runat="server">
-            </asp:DropDownList>
-            <br />
-            <br />
-            chose warehouse:<asp:DropDownList ID="ChoseWareHouseDropDownList" runat="server" DataSourceID="WareHouseName" DataTextField="warehouse_name" DataValueField="warehouse_name">
-            </asp:DropDownList>
-            <asp:SqlDataSource ID="WareHouseName" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="SELECT [warehouse_name] FROM [warehouse]"></asp:SqlDataSource>
-            <br />
-            <br />
-            name of invoice:<asp:DropDownList ID="SeriesDropDownList" runat="server">
-                <asp:ListItem>Name Of Invoice</asp:ListItem>
-                <asp:ListItem>Name Of Invoice Return</asp:ListItem>
-            </asp:DropDownList>
-            <br />
-            <br />
-            kilo:<asp:TextBox ID="KiloTextBox" runat="server" onkeyup="getValues()" CssClass="form-control form-control-lg" required="true"></asp:TextBox>
-                        <br />
-            <br />
-            cost of kilo:<asp:TextBox ID="CostOfKiloTextBox" onkeyup="getValues()" runat="server" CssClass="form-control form-control-lg" required ="true"></asp:TextBox>
-                      <br />
-            <br />
-            total:<asp:TextBox ID="TotallTextBox" runat="server" CssClass="form-control form-control-lg" Enabled="False"></asp:TextBox>
 
-                            <br />
-            <br />
-            discount:<asp:TextBox ID="DiscountTextBox" onkeyup="getValues()" CssClass="form-control form-control-lg" runat="server" required="true"></asp:TextBox>
-                      <br />
-            <br />
-            total all:<asp:TextBox ID="TotallAllTextBox"  CssClass="form-control form-control-lg" Text="0" runat="server" Enabled="False"></asp:TextBox>
-                            <br />
-                            <asp:Button ID="SubmitNewInvoiceButton" Text="درووست کردن" CssClass="btn btn-primary  btn-block styleK" runat="server" OnClick="SubmitNewInvoiceButton_Click" />
-                        <br />
+<body id="body_newcus" onload="startTime()">
+    <div class="main">
+        <nav class="navbar navbar-expand navbar-light bg-dark">
+            <div class="container">
+                <div class=" d-sm-inline-block text-white-70">
+                    <a href="/"><i class="fa fa-home home_icon"></i></a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-white-50" href="#" id="userDropdown" data-toggle="dropdown">
+                                <img src="image/avatar.jpeg" class="avatar img-fluid rounded-circle mr-1" alt="Chris Wood">
+                                <span class="text-white-50">
+                                      <%--<asp:Label ID="label2"  runat="server"  text=""></asp:Label>--%>
+                                </span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right " aria-labelledby="userDropdown">
+
+                                <a class="dropdown-item text-right" href="#">
+                                    <i class="align-middle mr-1 " data-feather="user"></i>زانیاری زیاتر</a>
+                                <a class="dropdown-item text-right " href="#"><i class="align-middle mr-1" data-feather="pie-chart"></i>Analytics</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item text-right" href="#">چوونە دەرەوە</a>
+
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    
+    <section class="py-3">
+      <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-6">
+                <div id="txt"></div>
+
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-6 col-6 text-right">
+            <h4 class="styleK">درووست کردنی مەخزەن </h4>
+          </div>
         </div>
-    </form>
+      </div>
+      <hr/>
+    </section>
+    
+
+    
+    <section class="pt-0 pb-2">
+        <div class="container">
+            <div class="border">
+                <form id="form1" runat="server">
+
+                    <div class="col-lg-10 mt-0">
+                        <div class="form-group">
+                            <label for="SelectCustomerDropDownList" class="col-form-label styleK text-right"> دیاری کردنی کڕیار</label>
+                            <asp:DropDownList ID="SelectCustomerDropDownList" CssClass="form-control style_dropdown" runat="server">
+                            </asp:DropDownList>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-10 mt-0">
+                        <div class="form-group">
+                            <label for="ChoseWareHouseDropDownList" class="col-form-label styleK text-right">دیاری کردنی مەخزەن</label>
+                            <asp:DropDownList ID="ChoseWareHouseDropDownList" CssClass="form-control  style_dropdown"
+                                runat="server" DataSourceID="WareHouseName" DataTextField="warehouse_name" DataValueField="warehouse_name">
+                            </asp:DropDownList>
+                            <asp:SqlDataSource ID="WareHouseName" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="SELECT [warehouse_name] FROM [warehouse]"></asp:SqlDataSource>
+                            
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-10 mt-0">
+                        <div class="form-group">
+                            <label for="SeriesDropDownList" class="col-form-label styleK text-right">جۆری وەسل کردن</label>
+                            <asp:DropDownList ID="SeriesDropDownList" CssClass="form-control style_dropdown" runat="server">
+                                <asp:ListItem>Name Of Invoice</asp:ListItem>
+                                <asp:ListItem>Name Of Invoice Return</asp:ListItem>
+                            </asp:DropDownList>
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-6 mt-0">
+                        <div class="form-group">
+                            <label for="KiloTextBox" class="col-form-label styleK">کیلۆ</label>
+                            <asp:TextBox ID="KiloTextBox" TextMode="Number" runat="server" onkeyup="getValues()" CssClass="form-control form-control-lg" required="true"></asp:TextBox>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 mt-0">
+                        <div class="form-group">
+                            <label for="CostOfKiloTextBox" class="col-form-label styleK">پارە </label>
+                            <asp:TextBox ID="CostOfKiloTextBox" TextMode="Number" onkeyup="getValues()" runat="server" CssClass="form-control form-control-lg" required="true"></asp:TextBox>
+                        </div>
+                    </div>
+
+                    
+                    <fieldset disabled>
+                        <div class="col-lg-6  mt-0">
+                            <div class="form-group">
+                                <label for="TotallTextBox" class="col-form-label styleK">گشتی</label>
+
+                                <asp:TextBox ID="TotallTextBox" runat="server" CssClass="form-control form-control-lg" Enabled="False"></asp:TextBox>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <div class="col-lg-6 mt-0">
+                        <div class="form-group">
+                            <label for="DiscountTextBox" class="col-form-label styleK">داشکان</label>
+                            <asp:TextBox ID="DiscountTextBox" TextMode="Number" onkeyup="getValues()" CssClass="form-control form-control-lg" runat="server" required="true"></asp:TextBox>
+                        </div>
+                    </div>
+
+
+                    <fieldset disabled>
+                        <div class="col-lg-6  mt-0">
+                            <div class="form-group">
+                                <label for="TotallTextBox" class="col-form-label styleK">كۆی گشتی</label>
+
+                                <asp:TextBox ID="TotallAllTextBox" CssClass="form-control form-control-lg" Text="0" runat="server" Enabled="False"></asp:TextBox>
+                            </div>
+                        </div>
+                    </fieldset>
+                    
+                    <div class="col-lg-3 col-md-6 col-sm-6  mt-0 pb-3">
+                        <div class="form-group">
+
+                            <asp:Button ID="SubmitNewInvoiceButton" Text="درووست کردن" CssClass="btn btn-primary  btn-block styleK" runat="server" OnClick="SubmitNewInvoiceButton_Click" />
+
+                            
+
+
+                        </div>
+                    </div>
+
+                    
+                        
+                </form>
+            </div>
+        </div>
+    </section>
+
+    
+    <script src="js/app.js"></script>
+    <script src="js/vendor/jquery-2.2.4.min.js"></script>
+    <!-- bootstrap 4 js -->
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/metisMenu.min.js"></script>
+    <script src="js/jquery.slimscroll.min.js"></script>
+    <script src="js/jquery.slicknav.min.js"></script>
+    
+    <!-- others plugins -->
+    <script src="js/plugins.js"></script>
+    <script src="js/scripts.js"></script>
 </body>
 </html>

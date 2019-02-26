@@ -146,9 +146,18 @@
 .app-icon-Cyan {
     background-color: #26C6DA;
 }
+.style_dropdown {
+   padding-top: 0 !important;
+   padding-bottom: 0 !important;
+   font-size: 16px !important;
+}
 
 .app-icon-green-2 {
     background-color: #03DAC6;
+}
+
+.app-icon-green-3 {
+    background-color: #4caf50;
 }
 
 .app-icon-yellow {
@@ -171,6 +180,8 @@
 .app-icon-bluelight-2 {
     background-color: #6200EE;
 }
+
+
 
 
 .app-icon-purplelisht {
@@ -327,6 +338,21 @@
     color: rgb(73, 73, 78);
     transform: scale(1.2);
 }
+
+
+.fa-folder-plus{
+    font-size: 36px;
+    color: white;
+    transition: all .3s;
+    animation: moveInLeft-icon 1s ease-out;
+}
+
+
+.fa-folder-plus:hover {
+    color: rgb(73, 73, 78);
+    transform: scale(1.2);
+}
+
 
 
 
