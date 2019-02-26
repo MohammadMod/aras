@@ -21,6 +21,8 @@ namespace Aras
                 //if (!Permit.isAllowed(Permessions.OnlyAdmin))
                 //    Response.Redirect("Login.aspx");
                 //updating
+               //updateButton.Attributes["Onclick"] = "return confirm('Do you really want to save?')";
+
                 try
                 {
                     UserNameTextBox.Text = Application["username"].ToString();
@@ -39,6 +41,7 @@ namespace Aras
      
         protected void RegisterButton_Click(object sender, EventArgs e)
         {
+            
 
             string myId = "";
             try
@@ -77,6 +80,15 @@ namespace Aras
                 catch (Exception ex)
                 {
                     ClientScript.RegisterStartupScript(Page.GetType(), "validation", $"<script language='javascript'>alert('{ex.Message}');</script>");
+                }
+                finally
+                {
+                    Application["id"] = "";
+                    Application["username"] = "";
+                    Application["fullname"] = "";
+                    Application["location"] = "";
+                    Application["password"] = "";
+                    Application["phone"] = "";
                 }
             }
 
@@ -149,30 +161,46 @@ namespace Aras
 
         protected void updateButton_Click(object sender, EventArgs e)
         {
-            int isAdmin = 0;
-            if (AdminCheckBox.Checked)
+            Page.Validate();
+            if (Page.IsValid)
             {
-                isAdmin = 1;
+                //Update the database
+                int isAdmin = 0;
+
+                Response.Write("worked");
+                if (AdminCheckBox.Checked)
+                {
+                    isAdmin = 1;
+                }
+                else
+                {
+                    isAdmin = 0;
+                }
+                try
+                {
+                    string myId = Application["id"].ToString();
+                    SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand("update regester_table set name='" + FullNameTextBox.Text + "',last_name='" + "last_name" + "',phone_number='" + PhoneTextBox.Text + "',location='" + LocationTextBox.Text + "',complite_name='" + UserNameTextBox.Text + "',pin_cod='" + PasswordTextBox.Text + "',Admin='" + isAdmin + "'where id='" + int.Parse(myId) + "'", conn);
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                    Response.Redirect("Users.aspx");
+                }
+                catch (Exception)
+                {
+                    Response.Write("<script language=javascript>alert('You are not in updating mode');</script>");
+                }
+                finally
+                {
+                    Application["id"] = "";
+                    Application["username"] = "";
+                    Application["fullname"] = "";
+                    Application["location"] = "";
+                    Application["password"] = "";
+                    Application["phone"] = "";
+                }
             }
-            else
-            {
-                isAdmin = 0;
-            }
-            try
-            {
-                string myId = Application["id"].ToString();
-                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
-                conn.Open();
-                SqlCommand cmd = new SqlCommand("update regester_table set name='" + FullNameTextBox.Text + "',last_name='" + "last_name" + "',phone_number='" + PhoneTextBox.Text + "',location='" + LocationTextBox.Text + "',complite_name='" + UserNameTextBox.Text + "',pin_cod='" + PasswordTextBox.Text + "',Admin='" + isAdmin + "'where id='" + int.Parse(myId) + "'", conn);
-                cmd.ExecuteNonQuery();
-                conn.Close();
-                Response.Redirect("Users.aspx");
-            }
-            catch (Exception)
-            {
-                Response.Write("<script language=javascript>alert('You are not in updating mode');</script>");
-            }
-            
+         
 
         }
     }

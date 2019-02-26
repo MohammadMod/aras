@@ -40,8 +40,6 @@ namespace Aras
         protected void CreateButton_Click(object sender, EventArgs e)
         {
             Response.Redirect("RegisterUsers.aspx");
-
-
         }
 
         protected void ViewUsersGridView_RowEditing(object sender, GridViewEditEventArgs e)

@@ -18,8 +18,8 @@ namespace Aras
         {
             if (!IsPostBack)
             {
-                SubmitButton.Enabled = false;
-                ReciveFromSupplierTextBox.Enabled = false;
+                //SubmitButton.Enabled = false;
+                //ReciveFromSupplierTextBox.Enabled = false;
                 bd.CustomerDropDown(SelectCustomerDropDownList); 
             }
         }
@@ -156,7 +156,7 @@ namespace Aras
             TextBox tb = this.Page.FindControl("MoneyInAccountTextBox") as TextBox;
             string myData = tb.Text;
             myData = myData.Remove(0, 1);
-
+            ReciveFromSupplierTextBox.Enabled = true;
 
             ReciveFromSupplierTextBox.Text = myData;
         }
