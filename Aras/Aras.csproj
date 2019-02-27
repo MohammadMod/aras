@@ -276,6 +276,7 @@
     <Content Include="Show Payment Entry.aspx" />
     <Content Include="ShowDeletedInvoices.aspx" />
     <Content Include="ShowSalesInvoice.aspx" />
+    <Content Include="ShowTransfer.aspx" />
     <Content Include="Site.Master" />
     <Content Include="SupplierPaymentaspx.aspx" />
     <Content Include="Suppliers.aspx" />
@@ -530,6 +531,13 @@
     </Compile>
     <Compile Include="ShowSalesInvoice.aspx.designer.cs">
       <DependentUpon>ShowSalesInvoice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ShowTransfer.aspx.cs">
+      <DependentUpon>ShowTransfer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShowTransfer.aspx.designer.cs">
+      <DependentUpon>ShowTransfer.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>

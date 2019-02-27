@@ -1,10 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Customers.aspx.cs" Inherits="Aras.Customers" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ShowTransfer.aspx.cs" Inherits="Aras.ShowTransfer" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Customers</title>
+    <title>Show Transfer</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/bootstrap.css" rel="stylesheet" />
@@ -27,40 +27,50 @@
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     <script src="js/HamaScripts.js"></script>
     <script src="SearchInGrids.js"></script>
+
     <style>
+        .btn-sm{
+            border-radius:.6rem !important;
+        }
         @media (max-width: 768px) {
             .btn-sm{
                 padding: 9px 11px;
                 font-size:11px;
+                border-radius:.8rem !important; 
             }
         }
         @media (max-width: 576px) {
             .btn-sm{
                 padding: 9px 9px;
                 font-size:9px;
+                border-radius:.6rem !important; 
+
             }
         }
         @media (max-width: 450px) {
             .btn-sm{
                 padding: 8px 7px;
                 font-size:8px;
+                border-radius:.4rem !important; 
             }
         }
     </style>
 </head>
-<body id="body_newcus" onload="startTime()">
+<body>
+    <body id="body_newcus" onload="startTime()">
     <div class="main">
         <nav class="navbar navbar-expand navbar-light bg-dark">
             <div class="container">
                 <div class=" d-sm-inline-block text-white-70">
-                    &nbsp;<a href="/"><i class="fa fa-home home_icon"></i></a></div>
+                    <a href="/"><i class="fa fa-home home_icon"></i></a>
+                </div>
                 <div class="navbar-collapse collapse">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-white-50" href="#" id="userDropdown" data-toggle="dropdown">
                                 <img src="image/avatar.jpeg" class="avatar img-fluid rounded-circle mr-1" alt="Chris Wood">
                                 <span class="text-white-50">
-                            <%--<asp:Label ID="label2"  runat="server"  text=""></asp:Label>--%>
+                                      <%--<asp:Label ID="label2"  runat="server"  text=""></asp:Label>--%>
                                 </span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right " aria-labelledby="userDropdown">
@@ -84,67 +94,20 @@
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6 col-6">
                 <div id="txt"></div>
+
           </div>
           <div class="col-lg-6 col-md-6 col-sm-6 col-6 text-right">
-            <h4 class="styleK">چێشتخانە</h4>
+            <h4 class="styleK">شوفێرەکان</h4>
           </div>
         </div>
       </div>
       <hr/>
     </section>
 
-    <div class="container">      
-
-        <form id="form2" runat="server">
-
-             <div class="form-row ">
-
-                <div class="col-6 col-sm-6 col-md-6 col-lg-6 my-1">
-                        <div class="input-group">
-                            <asp:TextBox ID="SearchTextBox" placeholder="..گەران" CssClass="form-control form-control-lg styleK" runat="server" onkeyup="Search_Gridview(this, 'CustomersGridView')"></asp:TextBox>
-                            <div class="input-group-prepend">
-                            
-                                <asp:Button ID="SearchButton" CssClass="input-group-text styleK" Text="گەران"  runat="server"/>
-
-                            </div>
-                        </div>
-                    </div>
-
-
-                <div class="col-6 col-sm-6 col-md-6 col-lg-6 my-1 text-right">       
-                    
-                    <asp:Button ID="CreateButton" runat="server"  CssClass="btn btn-success btn-sm styleK" Text="دروستکردن"  OnClick="CreateButton_Click" />
-
-                    
-                    <asp:Button ID="EditButton" CssClass="btn btn-warning btn-sm styleK" runat="server" Text="دەستکاری کردن" />
-
-                    <asp:Button ID="DeleteButton" CssClass="btn btn-danger btn-sm styleK" runat="server" Text="رەشکردنەوە" />
-
-
-
-                </div>
-            </div>
-
-
-            <div class="border p-3">
-                <asp:GridView ID="CustomersGridView" CssClass="table table-stripet table-bordered table-hover table-responsive-md text-center"
-                    runat="server" AllowPaging="True" AllowSorting="True">
-                    <Columns>
-                        <asp:TemplateField>
-                            <HeaderTemplate>
-                                <asp:CheckBox ID="cbDeleteHeader" runat="server" AutoPostBack="True" />
-                            </HeaderTemplate>
-                            <ItemTemplate>
-                                <asp:CheckBox ID="cbDelete" runat="server" AutoPostBack="True" />
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                    </Columns>
-              
-                </asp:GridView>
-            </div>
-        </form>
-    </div>
-
+    <form id="form1" runat="server">
+        <div>
+        </div>
+    </form>
 
     <script src="js/app.js"></script>
     <script src="js/vendor/jquery-2.2.4.min.js"></script>
@@ -161,3 +124,51 @@
     <script src="js/scripts.js"></script>
 </body>
 </html>
+
+
+
+
+
+<%--<div class="container">
+
+    <form id="form2" runat="server">
+        <div class="form-row ">
+
+            <div class="col-6 col-sm-6 col-md-6 col-lg-6 my-1">
+                <div class="input-group">
+                    <asp:textbox id="SearchTextBox" placeholder="..گەران" cssclass="form-control form-control-lg styleK" runat="server" onkeyup="Search_Gridview(this, 'ViewUsersGridView')"></asp:textbox>
+                    <div class="input-group-prepend">
+                        <asp:button id="SearchButton" cssclass="input-group-text styleK" text="گەران" runat="server" />
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-6 col-sm-6 col-md-6 col-lg-6 my-1 text-right">
+
+
+                <asp:button id="CreateButton" cssclass="btn btn-success btn-sm styleK" text="دروستکردن" runat="server" onclick="CreateButton_Click" />
+
+                <asp:button id="EditButton" cssclass="btn btn-warning btn-sm styleK" runat="server" text="دەستکاری کردن" onclick="EditButton_Click" />
+                <asp:button id="DeleteButton" cssclass="btn btn-danger btn-sm styleK" runat="server" text="رەشکردنەوە" />
+
+            </div>
+        </div>
+
+
+        <div class="border p-3">
+            <asp:gridview id="ViewUsersGridView" runat="server" onrowcancelingedit="ViewUsersGridView_RowCancelingEdit"
+                onrowediting="ViewUsersGridView_RowEditing" onrowupdating="ViewUsersGridView_RowUpdating" allowpaging="True"
+                allowsorting="True" onpageindexchanging="ViewUsersGridView_PageIndexChanging" onsorted="ViewUsersGridView_Sorted"
+                onsorting="ViewUsersGridView_Sorting" pagesize="5"
+                cssclass="table table-stripet table-bordered table-hover table-responsive-md text-center " onselectedindexchanged="ViewUsersGridView_SelectedIndexChanged">
+                    <Columns>
+                        <asp:CommandField SelectText="Edit" ShowSelectButton="True" />
+                    </Columns>
+                </asp:gridview>
+
+        </div>
+    </form>
+</div>
+     --%>

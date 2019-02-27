@@ -42,13 +42,13 @@
 
                 <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3">
                     <div class="case-wrapper" data-name="Item" data-link="List/Item" >
-                        <a href="New Invoice.aspx">
-                            <div class="app-icon app-icon-green" title="فرۆشتن">
-                                <i class="fas fa-plus" title="فرۆشتن"></i>
+                        <a href="/ShowSalesInvoice.aspx">
+                            <div class="app-icon app-icon-green" title="پسولەی فرۆشتن">
+                                <i class="fas fa-plus" title="پسولەی فرۆشتن"></i>
                             </div>
                         </a>
                         <div class="case-label ellipsis">
-                            <span class="case-label-text">فرۆشتن</span>
+                            <span class="case-label-text">پسولەی فرۆشتن</span>
                         </div>
                     </div>
                 </div> <%-- Invoise --%>
@@ -67,7 +67,7 @@
                     </div>
                 </div> <%-- customer --%>
     
-                <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3">
+ <%--               <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3">
                     <div class="case-wrapper" data-name="Item" data-link="List/Item" >
                         <a href="NewCustomers.aspx">
                         <div class="app-icon app-icon-purplelisht" title="زیاد کردنی چێشتخانە">
@@ -78,7 +78,8 @@
                             <span class="case-label-text">زیاد کردنی چێشتخانە</span>
                         </div>
                     </div>
-                </div> <%-- add customer --%>
+                </div> --%>
+                <%-- add customer --%>
                 
                 
                 <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3" id="purchaseShow" runat="server">
@@ -93,6 +94,7 @@
                         </div>
                     </div>
                 </div>
+
                 <%-- purchese --%>
 
               <%--  <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3">
@@ -111,7 +113,7 @@
             
                 
                 
-                <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3" id="usersShow" runat="server">
+   <%--             <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3" id="usersShow" runat="server">
                     <div class="case-wrapper" data-name="Item" data-link="List/Item">
                         <a href="Users.aspx">
                             <div class="app-icon app-icon-yellow" title="شوفێرەکان">
@@ -122,18 +124,19 @@
                             <span class="case-label-text">شوفێرەکان </span>
                         </div>
                     </div>
-                </div> <%-- Users show --%>
+                </div> --%>
+                <%-- Users show --%>
 
                   
                 <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3" id="registerUser" runat="server">
                     <div class="case-wrapper" data-name="Item" data-link="List/Item" >
-                        <a href="RegisterUsers.aspx">
-                            <div class="app-icon app-icon-red"  title="زیاد کردنی شوفێر">
-                                <i class="fas fa-user-plus" title="زیاد کردنی شوفێر"></i>
+                        <a href="Users.aspx">
+                            <div class="app-icon app-icon-red"  title="شوفێرەکان">
+                                <i class="fas fa-user" title="شوفێرەکان"></i>
                             </div>
                         </a>
                         <div class="case-label ellipsis">
-                            <span class="case-label-text">زیاد کردنی شوفێر</span>
+                            <span class="case-label-text">شوفێرەکان</span>
                         </div>
                     </div>
                 </div> <%-- add user --%>
@@ -167,7 +170,7 @@
                     </div>
                 </div> <%-- transfer --%>
 
-                <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3">
+                <%--<div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3">
                     <div class="case-wrapper" data-name="Item" data-link="List/Item" title="بینینی وەسڵی فڕۆشتن">
                         <a href="/ShowSalesInvoice">
                             <div class="app-icon app-icon-bluelight-2" title="بینینی وەسڵی فڕۆشتن">
@@ -178,7 +181,8 @@
                             <span class="case-label-text">بینینی وەسڵی فڕۆشتن</span>
                         </div>
                     </div>
-                </div> <%-- show salis invoise --%>
+                </div> --%>
+                <%-- show salis invoise --%>
 
 
 
@@ -256,17 +260,17 @@
 
 
                 <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3">
-                    <div class="case-wrapper" data-name="Item" data-link="List/Item" title="مەخزەن">
+                    <div class="case-wrapper" data-name="Item" data-link="List/Item" title="بینینی وەسلی رەشکردنەوە">
                         <a href="/ShowDeletedInvoices">
-                            <div class="app-icon app-icon-Cyan" title="مەخزەن">
-                                <i class="fas fa-trash ani" title="مەخزەن"></i>
+                            <div class="app-icon app-icon-Cyan" title="بینینی وەسلی رەشکردنەوە">
+                                <i class="fas fa-trash ani" title="بینینی وەسلی رەشکردنەوە"></i>
                             </div>
                         </a>
                         <div class="case-label ellipsis">
-                            <span class="case-label-text">مەخزەن</span>
+                            <span class="case-label-text">بینینی وەسلی رەشکردنەوە</span>
                         </div>
                     </div>
-                </div> <%-- warehouse --%>
+                </div> <%-- show delete invoise --%>
 
 
                 <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3">

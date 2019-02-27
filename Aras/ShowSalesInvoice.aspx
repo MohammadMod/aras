@@ -28,6 +28,12 @@
     <script src="js/HamaScripts.js"></script>
     <script src="SearchInGrids.js"></script>
 
+    <style>
+        .btn-sm{
+            border-radius:0.5rem !important; 
+        }
+    </style>
+
 </head>
 <body id="body_newcus" onload="startTime()">
     <div class="main">
@@ -69,7 +75,7 @@
 
           </div>
           <div class="col-lg-6 col-md-6 col-sm-6 col-6 text-right">
-            <h4 class="styleK">چێشتخانە</h4>
+            <h4 class="styleK">پسوولەی فرۆشتن</h4>
           </div>
         </div>
       </div>

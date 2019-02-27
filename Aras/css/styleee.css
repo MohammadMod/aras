@@ -256,7 +256,7 @@
 
 .fa-user {
     font-size: 40px;
-    color: rgb(153, 161, 161);
+    color: white;
     transition: all .3s;
     animation: moveInLeft-icon 1s ease-out;
 }
@@ -267,7 +267,7 @@
 
 .fa-home {
     font-size: 32px;
-    color: white;
+    color: black;
     
 }
 .ani{
@@ -378,6 +378,21 @@
     color: rgb(73, 73, 78);
     transform: scale(1.2);
 }
+
+
+.fa-trash {
+    font-size: 36px;
+    color: white;
+    transition: all .3s;
+    animation: moveInLeft-icon 1s ease-out;
+}
+
+.fa-trash:hover {
+    color: rgb(73, 73, 78);
+    transform: scale(1.2);
+}
+
+
 
 
 

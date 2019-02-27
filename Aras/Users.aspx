@@ -27,6 +27,34 @@
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     <script src="js/HamaScripts.js"></script>
     <script src="SearchInGrids.js"></script>
+
+    <style>
+        .btn-sm{
+            border-radius:.6rem !important;
+        }
+        @media (max-width: 768px) {
+            .btn-sm{
+                padding: 9px 11px;
+                font-size:11px;
+                border-radius:.8rem !important; 
+            }
+        }
+        @media (max-width: 576px) {
+            .btn-sm{
+                padding: 9px 9px;
+                font-size:9px;
+                border-radius:.6rem !important; 
+
+            }
+        }
+        @media (max-width: 450px) {
+            .btn-sm{
+                padding: 8px 7px;
+                font-size:8px;
+                border-radius:.4rem !important; 
+            }
+        }
+    </style>
    
 </head>
 
@@ -97,11 +125,12 @@
 
                 <div class="col-6 col-sm-6 col-md-6 col-lg-6 my-1 text-right">       
                     
-                        <asp:Button ID="DeleteButton" runat="server" Text="Delete" />
 
-                        <asp:Button ID="CreateButton" CssClass="btn btn-danger btn-sm styleK" Text="دروستکردن" runat="server" OnClick="CreateButton_Click"/>
+                        <asp:Button ID="CreateButton" CssClass="btn btn-success btn-sm styleK" Text="دروستکردن" runat="server" OnClick="CreateButton_Click"/>
 
                         <asp:Button ID="EditButton" CssClass="btn btn-warning btn-sm styleK" runat="server" Text="دەستکاری کردن" OnClick="EditButton_Click" />
+                        <asp:Button ID="DeleteButton" CssClass="btn btn-danger btn-sm styleK"  runat="server" Text="رەشکردنەوە" />
+
                 </div>
             </div>
 
