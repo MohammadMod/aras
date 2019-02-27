@@ -94,7 +94,7 @@
                         <div class="form-group">
                             <label for="ChoseWareHouseDropDownList" class="col-form-label styleK text-right">دیاری کردنی مەخزەن</label>
                             <asp:DropDownList ID="ChoseWareHouseDropDownList" CssClass="form-control  style_dropdown"
-                                runat="server" DataSourceID="WareHouseName" DataTextField="warehouse_name" DataValueField="warehouse_name">
+                                runat="server">
                             </asp:DropDownList>
                             <asp:SqlDataSource ID="WareHouseName" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="SELECT [warehouse_name] FROM [warehouse]"></asp:SqlDataSource>
                             

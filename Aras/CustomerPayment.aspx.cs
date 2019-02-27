@@ -31,12 +31,13 @@ namespace Aras
             {
                 if (SelectCustomerDropDownList.SelectedIndex > 0)
                 {
+                    //pishan dani qarzi mushtari
                     SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
                     SqlCommand cmd = new SqlCommand("Customer_debit_Show", con);
                     con.Open();
                     cmd.Parameters.AddWithValue("id", SelectCustomerDropDownList.SelectedIndex);
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                    MoneyInAccountTextBox.Text = "-" + cmd.ExecuteScalar().ToString();
+                    MoneyInAccountTextBox.Text = cmd.ExecuteScalar().ToString();
                     cmd.ExecuteNonQuery();
                     con.Close();
 
@@ -44,14 +45,32 @@ namespace Aras
                 }
                 else
                 {
-                    Response.Write("please select a supplier");
+                    Response.Write("<script language=javascript>alert('Please select a supplier ');</script>");
                 }
                 moneyInAcc = MoneyInAccountTextBox.Text;
             }
             catch (Exception)
             {
 
-                throw;
+                Response.Write("<script language=javascript>alert('Please select a supplier ');</script>");
+            }
+
+            try
+            {
+                //pishandani koi gshti waslakan
+                SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
+                SqlCommand cmd = new SqlCommand("All_credit", con);
+                con.Open();
+                cmd.Parameters.AddWithValue("customer", SelectCustomerDropDownList.SelectedIndex);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                unpaidTotalAllInvoicesTextBox.Text =  cmd.ExecuteScalar().ToString();
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            catch (Exception)
+            {
+
+                Response.Write("<script language=javascript>alert('Please select a supplier ');</script>");
             }
         }
 
@@ -153,12 +172,22 @@ namespace Aras
 
         protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
         {
+
             TextBox tb = this.Page.FindControl("MoneyInAccountTextBox") as TextBox;
             string myData = tb.Text;
             myData = myData.Remove(0, 1);
             ReciveFromSupplierTextBox.Enabled = true;
 
             ReciveFromSupplierTextBox.Text = myData;
+            if (CheckBox1.Checked)
+            {
+                GridView1.Visible = false;
+            }
+            else
+            {
+                GridView1.Visible = true;
+
+            }
         }
     }
 }

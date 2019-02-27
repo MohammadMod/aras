@@ -21,8 +21,7 @@ namespace Aras
                 //if (!Permit.isAllowed(Permessions.OnlyAdmin))
                 //    Response.Redirect("Login.aspx");
                 //updating
-               //updateButton.Attributes["Onclick"] = "return confirm('Do you really want to save?')";
-
+                updateButton.Attributes["Onclick"] = "return confirm('Do you really want to save?')";
                 try
                 {
                     UserNameTextBox.Text = Application["username"].ToString();
@@ -167,7 +166,6 @@ namespace Aras
                 //Update the database
                 int isAdmin = 0;
 
-                Response.Write("worked");
                 if (AdminCheckBox.Checked)
                 {
                     isAdmin = 1;

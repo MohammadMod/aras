@@ -1,4 +1,4 @@
-﻿//This function is for calculating the values of new invoice form
+﻿//This function is for calculating the values of new invoice form when an invoice selected
 function getValues() {
     var numVal1 = parseInt(document.getElementById("KiloTextBox").value);
     var numVal2 = parseInt(document.getElementById("CostOfKiloTextBox").value);
@@ -53,3 +53,11 @@ function calculateCustomer() {
     document.getElementById('RecivePlusInAccountTextBox').value = -myResult;
 }
 
+//This function is for calculating the values of new invoice form when paying from account
+function calculateCustomerr() {
+    var myBox1 = document.getElementById('totalAllTextBox').value;
+    var myBox2 = document.getElementById('ReciveFromSupplierTextBox').value;
+    var result = document.getElementById('RecivePlusInAccountTextBox');
+    var myResult = myBox2 - myBox1;
+    document.getElementById('RecivePlusInAccountTextBox').value = -myResult;
+}
