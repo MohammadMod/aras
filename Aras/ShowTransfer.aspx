@@ -70,7 +70,7 @@
                             <a class="nav-link dropdown-toggle text-white-50" href="#" id="userDropdown" data-toggle="dropdown">
                                 <img src="image/avatar.jpeg" class="avatar img-fluid rounded-circle mr-1" alt="Chris Wood">
                                 <span class="text-white-50">
-                                      <%--<asp:Label ID="label2"  runat="server"  text=""></asp:Label>--%>
+                            <%--<asp:Label ID="label2"  runat="server"  text=""></asp:Label>--%>
                                 </span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right " aria-labelledby="userDropdown">
@@ -106,8 +106,13 @@
 
     <form id="form1" runat="server">
         <div>
+            <br />
+            <asp:Button ID="newButton" runat="server" OnClick="newButton_Click" Text="New" />
+            <br />
+            <br />
+            <br />
+            <br />
         </div>
-    </form>
 
     <script src="js/app.js"></script>
     <script src="js/vendor/jquery-2.2.4.min.js"></script>
@@ -122,53 +127,17 @@
     <!-- others plugins -->
     <script src="js/plugins.js"></script>
     <script src="js/scripts.js"></script>
-</body>
+        <asp:GridView ID="GridView1" runat="server" Height="176px" Width="521px">
+            <Columns>
+                <asp:CommandField SelectText="Edit" ShowSelectButton="True" />
+            </Columns>
+        </asp:GridView>
+    </form>
+
+    </body>
 </html>
 
 
 
 
 
-<%--<div class="container">
-
-    <form id="form2" runat="server">
-        <div class="form-row ">
-
-            <div class="col-6 col-sm-6 col-md-6 col-lg-6 my-1">
-                <div class="input-group">
-                    <asp:textbox id="SearchTextBox" placeholder="..گەران" cssclass="form-control form-control-lg styleK" runat="server" onkeyup="Search_Gridview(this, 'ViewUsersGridView')"></asp:textbox>
-                    <div class="input-group-prepend">
-                        <asp:button id="SearchButton" cssclass="input-group-text styleK" text="گەران" runat="server" />
-
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="col-6 col-sm-6 col-md-6 col-lg-6 my-1 text-right">
-
-
-                <asp:button id="CreateButton" cssclass="btn btn-success btn-sm styleK" text="دروستکردن" runat="server" onclick="CreateButton_Click" />
-
-                <asp:button id="EditButton" cssclass="btn btn-warning btn-sm styleK" runat="server" text="دەستکاری کردن" onclick="EditButton_Click" />
-                <asp:button id="DeleteButton" cssclass="btn btn-danger btn-sm styleK" runat="server" text="رەشکردنەوە" />
-
-            </div>
-        </div>
-
-
-        <div class="border p-3">
-            <asp:gridview id="ViewUsersGridView" runat="server" onrowcancelingedit="ViewUsersGridView_RowCancelingEdit"
-                onrowediting="ViewUsersGridView_RowEditing" onrowupdating="ViewUsersGridView_RowUpdating" allowpaging="True"
-                allowsorting="True" onpageindexchanging="ViewUsersGridView_PageIndexChanging" onsorted="ViewUsersGridView_Sorted"
-                onsorting="ViewUsersGridView_Sorting" pagesize="5"
-                cssclass="table table-stripet table-bordered table-hover table-responsive-md text-center " onselectedindexchanged="ViewUsersGridView_SelectedIndexChanged">
-                    <Columns>
-                        <asp:CommandField SelectText="Edit" ShowSelectButton="True" />
-                    </Columns>
-                </asp:gridview>
-
-        </div>
-    </form>
-</div>
-     --%>

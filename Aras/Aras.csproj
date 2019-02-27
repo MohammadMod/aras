@@ -584,6 +584,7 @@
       <DependentUpon>Users.aspx</DependentUpon>
     </Compile>
     <Compile Include="Validation.cs" />
+    <Compile Include="ViewDeletedInvoicesGridView.cs" />
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

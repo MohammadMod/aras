@@ -28,17 +28,17 @@ namespace Aras
         protected void SubmitNewInvoiceButton_Click(object sender, EventArgs e)
         {
             //INSERT_payment_entry
-            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
+            //SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
 
-            SqlCommand cmd = new SqlCommand("INSERT_sales_Invoce", con);
+            //SqlCommand cmd = new SqlCommand("INSERT_sales_Invoce", con);
 
-            con.Open();
+            //con.Open();
 
-            cmd.Parameters.AddWithValue("payment_type", "paradan");
-            cmd.Parameters.AddWithValue("Costomer_ID", SelectCustomerDropDownList.SelectedIndex);
+            //cmd.Parameters.AddWithValue("payment_type", "paradan");
+            //cmd.Parameters.AddWithValue("Costomer_ID", SelectCustomerDropDownList.SelectedIndex);
 
-            cmd.Parameters.AddWithValue("posting_date", DateTime.Now);
-            cmd.Parameters.AddWithValue("party_balance", "");
+            //cmd.Parameters.AddWithValue("posting_date", DateTime.Now);
+            //cmd.Parameters.AddWithValue("party_balance", "");
 
             //cmd.Parameters.AddWithValue("difference_amount", date);
             //cmd.Parameters.AddWithValue("unallocated_amount", discount);
@@ -48,9 +48,9 @@ namespace Aras
 
             //cmd.Parameters.AddWithValue("warehouse_ID", wareHouseId.SelectedIndex);
 
-            cmd.CommandType = System.Data.CommandType.StoredProcedure;
-            cmd.ExecuteNonQuery();
-            con.Close();
+            //cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            //cmd.ExecuteNonQuery();
+            //con.Close();
         }
     }
 }

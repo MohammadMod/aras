@@ -115,7 +115,7 @@
                             </div>
                         </div>
 
-                        
+                        <div runat="server" id="hideDive">
                     <div class="col-lg-6 mt-0">
                         <fieldset disabled="disabled">
                             <div class="form-group">
@@ -169,7 +169,7 @@
                                         <div class="container">
                                             <asp:TextBox ID="unpaidTotalAllInvoicesTextBox" runat="server"></asp:TextBox>
 </div>
-                    
+                    </div>
                     <div class="col-md-3 col-sm-3 col-lg-3 ">
                         <asp:Button ID="SubmitButton" CssClass="btn btn-success btn-block" runat="server" Text="پارە دان" OnClick="SubmitButton_Click" />
 

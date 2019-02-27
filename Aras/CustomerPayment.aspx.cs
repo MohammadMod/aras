@@ -86,9 +86,9 @@ namespace Aras
 
         protected void SubmitButton_Click(object sender, EventArgs e)
         {
+            float para = float.Parse(ReciveFromSupplierTextBox.Text);
             if (CheckBox1.Checked)
             {
-                GridViewRow row = GridView1.SelectedRow;
                 SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
 
                 SqlCommand cmdd = new SqlCommand("Update_customer_creidt", con);
@@ -96,7 +96,7 @@ namespace Aras
 
 
                 cmdd.Parameters.AddWithValue("Customer_ID", SelectCustomerDropDownList.SelectedIndex);
-                cmdd.Parameters.AddWithValue("para", float.Parse(ReciveFromSupplierTextBox.Text));
+                cmdd.Parameters.AddWithValue("para", -para);
 
 
                 cmdd.CommandType = System.Data.CommandType.StoredProcedure;
@@ -155,13 +155,15 @@ namespace Aras
 
                     #endregion
 
-                    Response.Redirect("/CustomerPayment.aspx");
 
                 }
                 catch (Exception)
                 {
-
-                    throw;
+                    Response.Write("<script language=javascript>alert('An Error occurred or may invalid data entered, please try again ');</script>");
+                }
+                finally
+                {
+                    Response.Redirect("/CustomerPayment.aspx");
                 }
 
             }
@@ -172,22 +174,29 @@ namespace Aras
 
         protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
         {
-
-            TextBox tb = this.Page.FindControl("MoneyInAccountTextBox") as TextBox;
-            string myData = tb.Text;
-            myData = myData.Remove(0, 1);
-            ReciveFromSupplierTextBox.Enabled = true;
-
-            ReciveFromSupplierTextBox.Text = myData;
-            if (CheckBox1.Checked)
+            try
             {
-                GridView1.Visible = false;
+                TextBox tb = this.Page.FindControl("MoneyInAccountTextBox") as TextBox;
+                string myData = tb.Text;
+                ReciveFromSupplierTextBox.Enabled = true;
+                ReciveFromSupplierTextBox.Text = myData;
+                if (CheckBox1.Checked)
+                {
+                    GridView1.Visible = false;
+                    hideDive.Visible = false;
+                }
+                else
+                {
+                    GridView1.Visible = true;
+                    hideDive.Visible = true;
+                }
             }
-            else
+            catch (Exception)
             {
-                GridView1.Visible = true;
-
+                Response.Write("<script language=javascript>alert('An Error occurred or may invalid data entered, please try again ');</script>");
             }
+
+           
         }
     }
 }

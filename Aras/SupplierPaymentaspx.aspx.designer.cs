@@ -58,6 +58,15 @@ namespace Aras {
         protected global::System.Web.UI.WebControls.TextBox PayToSupplierTextBox;
         
         /// <summary>
+        /// hideDive control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl hideDive;
+        
+        /// <summary>
         /// PayPlusInAccountTextBox control.
         /// </summary>
         /// <remarks>
@@ -94,31 +103,22 @@ namespace Aras {
         protected global::System.Web.UI.WebControls.GridView GridView1;
         
         /// <summary>
-        /// purchaseInvoiceHasNoPaymentEntry1 control.
+        /// SqlDataSource1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource purchaseInvoiceHasNoPaymentEntry1;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
         
         /// <summary>
-        /// salesInvoicehasnopaymententry control.
+        /// totallAllForInvoicesTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource salesInvoicehasnopaymententry;
-        
-        /// <summary>
-        /// PurchaseInvoiceHasNoPaymentEntry control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource PurchaseInvoiceHasNoPaymentEntry;
+        protected global::System.Web.UI.WebControls.TextBox totallAllForInvoicesTextBox;
         
         /// <summary>
         /// SubmitButton control.

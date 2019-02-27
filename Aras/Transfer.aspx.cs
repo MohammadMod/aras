@@ -78,7 +78,7 @@ namespace Aras
                 cmd.ExecuteNonQuery();
                 con.Close();
             }
-            Response.Redirect("Transfer.aspx");
+            Response.Redirect("ShowTransfer.aspx");
         }
     }
 }
