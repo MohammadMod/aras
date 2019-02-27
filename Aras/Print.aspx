@@ -7,39 +7,56 @@
   <title>Print</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css"/>
-    <link rel="stylesheet" href="../paper.css" />
+
+    
+    
     <link href="css/bootstrap.css" rel="stylesheet" />
 
+    <link href="css/styleee.css" rel="stylesheet" />
   <style>
-    @page { size: 70mm 150mm } /* output size */
-    body.receipt .sheet { width: 300mm; height: 100mm } /* sheet size */
-    @media print { body.receipt { width: 300mm } } /* fix for Chrome */
+
+      @media print {
+        @page {
+          size: 80mm 350mm;
+          margin: 0;
+          margin-right:-15px;
+          
+        }
+
+    }
+    
+    p{
+        margin:0px;
+    }
+    .fonts{
+        font-size:2rem;
+    }
+    
   </style>
 
 </head>
 <body>
-    
-    <form id="form1" runat="server">
-    <section class="sheet padding-10mm" style="font-size:15px">
-    .............................................................................
-        <div class="row">
-        <div class="text-center col">
-        <label>Select an dawd Printer: Select an installed Printer:</label>
-        </div>
-    </div>
-              <br />
-        <label>Select an dawd Printer: Select an installed Printer:</label>
-        <br />
-        <label >ناوى جيشتخان: Select an installed Printer:</label>
-      <br />
-    <label >ناوى جيشتخانه</label>
 
-        <br />
-  </section>
-  
-    
-       
+    <form id="form1"  runat="server">
+        <section class="sheet fonts">
+            <div class="row">
+                <div class="text-center col-8">
+                    <h5 class="p-0" style="font-size: 3rem;">علو‌‌ة ئاراس</h5>
+                    <p>بۆ فرۆشتنی ماسێ زیندوو و مردو</p>
+
+                    <p>ناونیشان /هەولێر </p>
+
+                </div>
+            </div>
+            <br />
+            <label>Select an dawd Printer: Select an installed Printer:</label>
+            
+
+            <br />
+        </section>
+
+
+
         <button onclick="print();">Print Now...</button>
 
     </form>

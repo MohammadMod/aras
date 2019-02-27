@@ -143,6 +143,8 @@
     background-color: #589494;
 }
 
+
+
 .app-icon-Cyan {
     background-color: #26C6DA;
 }
@@ -150,6 +152,10 @@
    padding-top: 0 !important;
    padding-bottom: 0 !important;
    font-size: 16px !important;
+}
+
+.app-icon-pink {
+    background-color: #F8DBD0;
 }
 
 .app-icon-green-2 {
@@ -173,7 +179,16 @@
 .app-icon-purple{
     background-color: #8E44AD;
 }
-.app-icon-bluelight{
+.app-icon-purple-2 {
+    background-color: #7C4DFF;
+}
+
+
+.app-icon-brown {
+    background-color: #757575;
+}
+
+.app-icon-bluelight {
     background-color: #4AA3DF;
 }
 
@@ -353,7 +368,16 @@
     transform: scale(1.2);
 }
 
-
+.fa-calendar-plus {
+    font-size: 36px;
+    color: white;
+    transition: all .3s;
+    animation: moveInLeft-icon 1s ease-out;
+}
+.fa-calendar-plus:hover {
+    color: rgb(73, 73, 78);
+    transform: scale(1.2);
+}
 
 
 
