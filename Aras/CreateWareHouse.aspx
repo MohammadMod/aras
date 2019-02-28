@@ -101,16 +101,14 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-10 mt-0">
+                    <div class="col-lg-6 mt-0">
                         <div class="form-group">
-                            <label for="LocationTextBox" class="col-form-label styleK"> parint ware house ID:</label>
-                            <asp:TextBox ID="WareHouseIDTextBox2" CssClass="form-control form-control-lg"  runat="server"></asp:TextBox>
+                            <label for="wareHouseDropDownList" class="col-form-label styleK">دیاری کردنی مەخزەن</label>
+                            <asp:DropDownList ID="wareHouseDropDownList" CssClass="form-control form-control-lg" runat="server"></asp:DropDownList>
                         </div>
                     </div>
 
-                    <div>
-                        <asp:DropDownList ID="wareHouseDropDownList" runat="server"></asp:DropDownList>
-                    </div>
+                    
                     <div class="col-lg-10 mt-0">
                         <div class="custom-control custom-checkbox my-1 mr-sm-2">
                             <asp:CheckBox ID="isGroupCheckBox" runat="server" />

@@ -261,6 +261,22 @@
                 </div>--%>
                 <%-- Create Warehouse --%>
 
+                
+                <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3">
+                    <div class="case-wrapper" data-name="Item" data-link="List/Item" title="پشاندانی کرین لە فرۆشیار">
+                        <a href="/Show Payment Entry Purchase">
+                            <div class="app-icon app-icon-green-3" title="پشاندانی کرین لە فرۆشیار">
+                                <i class="fas fa-eye ani" title="پشاندانی کرین لە فرۆشیار"></i>
+                            </div>
+                        </a>
+                        <div class="case-label ellipsis">
+                            <span class="case-label-text">پشاندانی کرین لە فرۆشیار</span>
+                        </div>
+                    </div>
+                </div>
+
+
+
 
                 <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3">
                     <div class="case-wrapper" data-name="Item" data-link="List/Item" title="بینینی وەسلی رەشکردنەوە">
