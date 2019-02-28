@@ -54,20 +54,9 @@
                 </div> <%-- Invoise --%>
 
                 
-                <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3">
-                    <div class="case-wrapper" data-name="Item" data-link="List/Item">
-                        <a href="Customers.aspx">
-                            <div class="app-icon app-icon-grelight" title="چێشتخانە">
-                                <i class="fas fa-utensils" title="چێشتخانە"></i>
-                            </div>
-                        </a>
-                        <div class="case-label ellipsis">
-                            <span class="case-label-text">چێشتخانە</span>
-                        </div>
-                    </div>
-                </div> <%-- customer --%>
+                
     
- <%--               <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3">
+<%--               <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3">
                     <div class="case-wrapper" data-name="Item" data-link="List/Item" >
                         <a href="NewCustomers.aspx">
                         <div class="app-icon app-icon-purplelisht" title="زیاد کردنی چێشتخانە">
@@ -96,6 +85,19 @@
                 </div>
 
                 <%-- purchese --%>
+
+                <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3">
+                    <div class="case-wrapper" data-name="Item" data-link="List/Item">
+                        <a href="Customers.aspx">
+                            <div class="app-icon app-icon-grelight" title="چێشتخانە">
+                                <i class="fas fa-utensils" title="چێشتخانە"></i>
+                            </div>
+                        </a>
+                        <div class="case-label ellipsis">
+                            <span class="case-label-text">چێشتخانە</span>
+                        </div>
+                    </div>
+                </div> <%-- customer --%>
 
               <%--  <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3">
                     <div class="case-wrapper" data-name="Item" data-link="List/Item" title="Item">
@@ -144,13 +146,13 @@
             
                 <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3">
                     <div class="case-wrapper" data-name="Item" data-link="List/Item" title="زیاد کردنی کریار">
-                        <a href="/newSupplier">
+                        <a href="/Suppliers">
                             <div class="app-icon app-icon-brown" title="زیاد کردنی کریار">
                                 <i class="fas fa-calendar-plus ani" title="زیاد کردنی کریار"></i>
                             </div>
                         </a>
                         <div class="case-label ellipsis">
-                            <span class="case-label-text">زیاد کردنی کریار </span>
+                            <span class="case-label-text"> کریار </span>
                         </div>
                     </div>
                 </div>
@@ -159,8 +161,8 @@
 
                 <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3">
                     <div class="case-wrapper" data-name="Item" data-link="List/Item" title="ناردن">
-                        <a href="/Transfer">
-                            <div class="app-icon app-icon-ogrange" title="ناردن">
+                        <a href="/ShowTransfer.aspx">
+                            <div class="app-icon app-icon-purplelisht" title="ناردن">
                                 <i class="fas fa-exchange-alt ani" title="ناردن"></i>
                             </div>
                         </a>
@@ -245,7 +247,7 @@
                 </div> <%-- warehouse --%>
 
                 
-                <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3">
+                <%--<div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3">
                     <div class="case-wrapper" data-name="Item" data-link="List/Item" title="چونەدەرەوە">
                         <a href="/CreateWareHouse">
                             <div class="app-icon app-icon-green-3" title="دروست کردنی مەخزەن">
@@ -256,7 +258,8 @@
                             <span class="case-label-text">دروست کردنی مەخزەن</span>
                         </div>
                     </div>
-                </div> <%-- Create Warehouse --%>
+                </div>--%>
+                <%-- Create Warehouse --%>
 
 
                 <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3">

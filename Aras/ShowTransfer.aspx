@@ -30,34 +30,39 @@
 
     <style>
         .btn-sm{
+            padding-right: 2rem;
+            padding-left: 2rem;
+            font-size:12px;
             border-radius:.6rem !important;
         }
         @media (max-width: 768px) {
             .btn-sm{
-                padding: 9px 11px;
-                font-size:11px;
-                border-radius:.8rem !important; 
+                padding-right: 1.6rem;
+                padding-left: 1.6rem;
+                font-size:14px;
+                border-radius:.5rem !important; 
             }
         }
         @media (max-width: 576px) {
             .btn-sm{
-                padding: 9px 9px;
-                font-size:9px;
-                border-radius:.6rem !important; 
+                padding-right: 1.4rem;
+                padding-left: 1.4rem;
+                font-size:12px;
+                border-radius:.4rem !important; 
 
             }
         }
         @media (max-width: 450px) {
             .btn-sm{
-                padding: 8px 7px;
-                font-size:8px;
-                border-radius:.4rem !important; 
+                padding-right: 1.3rem;
+                padding-left: 1.3rem;
+                font-size:12px;
+                border-radius:.3rem !important; 
             }
         }
     </style>
 </head>
-<body>
-    <body id="body_newcus" onload="startTime()">
+<body id="body_newcus" onload="startTime()">
     <div class="main">
         <nav class="navbar navbar-expand navbar-light bg-dark">
             <div class="container">
@@ -70,7 +75,7 @@
                             <a class="nav-link dropdown-toggle text-white-50" href="#" id="userDropdown" data-toggle="dropdown">
                                 <img src="image/avatar.jpeg" class="avatar img-fluid rounded-circle mr-1" alt="Chris Wood">
                                 <span class="text-white-50">
-                            <%--<asp:Label ID="label2"  runat="server"  text=""></asp:Label>--%>
+                                    <%--<asp:Label ID="label2"  runat="server"  text=""></asp:Label>--%>
                                 </span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right " aria-labelledby="userDropdown">
@@ -88,31 +93,39 @@
             </div>
         </nav>
     </div>
-    
-    <section class="py-3">
-      <div class="container">
-        <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-6 col-6">
-                <div id="txt"></div>
 
-          </div>
-          <div class="col-lg-6 col-md-6 col-sm-6 col-6 text-right">
-            <h4 class="styleK">شوفێرەکان</h4>
-          </div>
+    <section class="py-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-6">
+                    <div id="txt"></div>
+
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-6 text-right">
+                    <h4 class="styleK">ناردنەکان</h4>
+                </div>
+            </div>
         </div>
-      </div>
-      <hr/>
+        <hr />
     </section>
 
-    <form id="form1" runat="server">
-        <div>
-            <br />
-            <asp:Button ID="newButton" runat="server" OnClick="newButton_Click" Text="New" />
-            <br />
-            <br />
-            <br />
-            <br />
-        </div>
+    <div class="container">
+        <form id="form1" runat="server">
+            <div class="row mb-2">
+                <div class="col-12 text-right">
+                    <asp:Button ID="newButton" CssClass="btn btn-success btn-sm styleK " runat="server" OnClick="newButton_Click" Text="ناردن " />
+                </div>
+            </div>
+            <div class="border p-2">
+                <asp:GridView ID="GridView1" runat="server" 
+                    CssClass="table table-stripet table-bordered table-hover table-responsive-md text-center">
+                    <Columns>
+                        <asp:CommandField SelectText="Edit" ShowSelectButton="True" />
+                    </Columns>
+                </asp:GridView>
+            </div>
+        </form>
+    </div>
 
     <script src="js/app.js"></script>
     <script src="js/vendor/jquery-2.2.4.min.js"></script>
@@ -123,18 +136,11 @@
     <script src="js/metisMenu.min.js"></script>
     <script src="js/jquery.slimscroll.min.js"></script>
     <script src="js/jquery.slicknav.min.js"></script>
-    
+
     <!-- others plugins -->
     <script src="js/plugins.js"></script>
     <script src="js/scripts.js"></script>
-        <asp:GridView ID="GridView1" runat="server" Height="176px" Width="521px">
-            <Columns>
-                <asp:CommandField SelectText="Edit" ShowSelectButton="True" />
-            </Columns>
-        </asp:GridView>
-    </form>
-
-    </body>
+</body>
 </html>
 
 

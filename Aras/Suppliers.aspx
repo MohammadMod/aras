@@ -28,8 +28,36 @@
 
     <script src="js/HamaScripts.js"></script>
     <script src="SearchInGrids.js"></script>
-   
 
+    <style>
+        .btn-sm{
+            border-radius:.5rem !important;
+        }
+        @media (max-width: 768px) {
+            .btn-sm{
+                padding: 9px 11px;
+                font-size:11px;
+                border-radius:.4rem !important;
+
+            }
+        }
+        @media (max-width: 576px) {
+            .btn-sm{
+                padding: 9px 9px;
+                font-size:9px;
+                border-radius:.35rem !important;
+
+            }
+        }
+        @media (max-width: 450px) {
+            .btn-sm{
+                padding: 8px 7px;
+                font-size:8px;
+                border-radius:.3rem !important;
+
+            }
+        }
+    </style>
 
 </head>
 
@@ -72,7 +100,7 @@
                 <div id="txt"></div>
           </div>
           <div class="col-lg-6 col-md-6 col-sm-6 col-6 text-right">
-            <h4 class="styleK">فرۆشیاری</h4>
+            <h4 class="styleK">کریار</h4>
           </div>
         </div>
       </div>
@@ -97,9 +125,13 @@
 
 
                 <div class="col-6 col-sm-6 col-md-6 col-lg-6 my-1 text-right">
-                     <asp:Button ID="DeleteButton" CssClass="btn btn-danger btn-sm styleK" runat="server" Text="رەشکردنەوە" />
+
+                    <asp:Button ID="CreateButton" CssClass="btn btn-success btn-sm styleK" runat="server" OnClick="CreateButton_Click" Text="دروستکردن" />
+
+                    <asp:Button ID="DeleteButton" CssClass="btn btn-danger btn-sm styleK" runat="server" Text="رەشکردنەوە" />
+
                     <asp:Button ID="EditButton" CssClass="btn btn-warning btn-sm styleK" runat="server" Text="دەستکاری کردن" />
-                    <asp:Button ID="CreateButton" CssClass="btn btn-danger btn-sm styleK" runat="server" OnClick="CreateButton_Click" Text="دروستکردن" />
+
                 </div>
             </div>
 

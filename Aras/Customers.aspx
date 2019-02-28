@@ -28,6 +28,9 @@
     <script src="js/HamaScripts.js"></script>
     <script src="SearchInGrids.js"></script>
     <style>
+        .btn-sm{
+            border-radius:.5rem !important;
+        }
         @media (max-width: 768px) {
             .btn-sm{
                 padding: 9px 11px;

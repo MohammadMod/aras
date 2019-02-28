@@ -41,9 +41,9 @@
                 font-size:9px;
             }
         }
-        @media (max-width: 400px) {
+        @media (max-width: 420px) {
             .btn-sm{
-                padding: 8px 7px;
+                padding: 9px 6px;
                 font-size:8px;
             }
         }
@@ -115,7 +115,7 @@
 
 
                 <div class="col-6 col-sm-6 col-md-6 col-lg-6 my-1 text-right">
-                    <asp:Button ID="CreateButton" CssClass="btn btn-success btn-sm styleK" runat="server" Text="دروستکردن" />
+                    <asp:Button ID="CreateButton"  CssClass="btn btn-success btn-sm styleK" runat="server" Text="دروستکردن" />
                     <asp:Button ID="EditButton" CssClass="btn btn-warning btn-sm styleK" runat="server" Text="دەستکاری کردن" />
                     <asp:Button ID="DeleteButton" CssClass="btn btn-danger btn-sm styleK" runat="server" Text="رەشکردنەوە" />
 
@@ -127,7 +127,7 @@
             <div class="border p-3">
                 <asp:GridView ID="AdminWareHouseGridView" runat="server" AllowPaging="True" PageSize="5" 
                     AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="ID" DataSourceID="viewWareHouses" 
-                    CssClass="table table-stripet table-bordered table-hover table-responsive-md text-center " >
+                    CssClass="table table-stripet table-bordered table-hover table-responsive-lg text-center " >
                     <Columns>
                         <asp:TemplateField>
                             <HeaderTemplate>
