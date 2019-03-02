@@ -142,7 +142,7 @@
                         CssClass="table table-stripet table-bordered table-hover table-responsive-md text-center" AllowPaging="True" AllowSorting="True" DataKeyNames="ID" DataSourceID="SqlDataSource1">
                         <Columns>
                             <asp:CommandField SelectText="Pay" ShowSelectButton="True" />
-                            <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
+                            <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID"/>
                             <asp:BoundField DataField="Posting_date" HeaderText="Posting_date" SortExpression="Posting_date" />
                             <asp:BoundField DataField="rate" HeaderText="rate" SortExpression="rate" />
                             <asp:BoundField DataField="totall_amount" HeaderText="totall_amount" SortExpression="totall_amount" />

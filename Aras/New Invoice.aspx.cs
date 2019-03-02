@@ -23,7 +23,7 @@ namespace Aras
             bd.wareHouseName(ChoseWareHouseDropDownList);
             try
             {
-                myStatus = Application["status"].ToString();
+                //myStatus = Application["status"].ToString();
             }
             catch (Exception)
             {

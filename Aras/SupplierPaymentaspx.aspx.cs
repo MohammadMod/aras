@@ -47,7 +47,7 @@ namespace Aras
                     con.Open();
                     cmdd.Parameters.AddWithValue("supplier", SelectSupplierDropDownList.SelectedIndex);
                     cmdd.CommandType = System.Data.CommandType.StoredProcedure;
-                    totallAllForInvoicesTextBox.Text = cmd.ExecuteScalar().ToString();
+                    totallAllForInvoicesTextBox.Text = cmdd.ExecuteScalar().ToString();
                     cmdd.ExecuteNonQuery();
                     con.Close();
                

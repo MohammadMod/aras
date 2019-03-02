@@ -139,8 +139,8 @@
                 <asp:GridView ID="ViewUsersGridView" runat="server" OnRowCancelingEdit="ViewUsersGridView_RowCancelingEdit"
                     OnRowEditing="ViewUsersGridView_RowEditing" OnRowUpdating="ViewUsersGridView_RowUpdating" AllowPaging="True"
                     AllowSorting="True" OnPageIndexChanging="ViewUsersGridView_PageIndexChanging" OnSorted="ViewUsersGridView_Sorted"
-                    OnSorting="ViewUsersGridView_Sorting" PageSize="5"
-                    CssClass="table table-stripet table-bordered table-hover table-responsive-md text-center " OnSelectedIndexChanged="ViewUsersGridView_SelectedIndexChanged">
+                    OnSorting="ViewUsersGridView_Sorting" PageSize="15"
+                    CssClass="table table-stripet table-bordered table-hover table-responsive-md text-center " OnSelectedIndexChanged="ViewUsersGridView_SelectedIndexChanged" Height="452px" Width="1073px">
                     <Columns>
                         <asp:CommandField SelectText="Edit" ShowSelectButton="True" />
                     </Columns>
