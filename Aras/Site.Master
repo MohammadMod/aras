@@ -172,20 +172,7 @@
                     </div>
                 </div> <%-- transfer --%>
 
-                <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3">
-                    <div class="case-wrapper" data-name="Item" data-link="List/Item" title="بینینی وەسڵی فڕۆشتن">
-                        <a href="/ShowSalesInvoice">
-                            <div class="app-icon app-icon-bluelight" title="بینینی وەسڵی فڕۆشتن">
-                                <i class="fas fa-surprise ani" title="بینینی وەسڵی فڕۆشتن"></i>
-                            </div>
-                        </a>
-                        <div class="case-label ellipsis">
-                            <span class="case-label-text">بینینی وەسڵی فڕۆشتن</span>
-                        </div>
-                    </div>
-                </div> 
-                <%-- show salis invoise --%>
-
+               
 
 
 
@@ -218,6 +205,20 @@
                 </div> <%-- Customer Payment --%>
 
                 
+                 <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3">
+                    <div class="case-wrapper" data-name="Item" data-link="List/Item" title="بینینی وەسڵی فڕۆشتن">
+                        <a href="/ShowSalesInvoice">
+                            <div class="app-icon app-icon-bluelight" title="بینینی وەسڵی فڕۆشتن">
+                                <i class="fas fa-surprise ani" title="بینینی وەسڵی فڕۆشتن"></i>
+                            </div>
+                        </a>
+                        <div class="case-label ellipsis">
+                            <span class="case-label-text">بینینی وەسڵی فڕۆشتن</span>
+                        </div>
+                    </div>
+                </div> 
+                <%-- show salis invoise --%>
+
                 
                 <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3">
                     <div class="case-wrapper" data-name="Item" data-link="List/Item">

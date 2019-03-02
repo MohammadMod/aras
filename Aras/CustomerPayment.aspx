@@ -60,7 +60,7 @@
         </nav>
     </div>
     
-    <section class="py-3">
+    <section class="py-2">
       <div class="container">
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6 col-6">
@@ -68,7 +68,7 @@
 
           </div>
           <div class="col-lg-6 col-md-6 col-sm-6 col-6 text-right">
-            <h4 class="styleK">پارەدانی چێشتخانە</h4>
+            <h4 class="styleK">پارەدانی لە چێشتخانە</h4>
           </div>
         </div>
       </div>
@@ -76,8 +76,13 @@
     </section>
     
     
-    <section class="pt-0 pb-2">
+    <section class="pt-0 pb-1">
         <div class="container">
+            <div class="row text-right pb-3">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                    <a href="/ShowSalesInvoice.aspx" class="btn btn-facebook styleK">پشاندانی پسولەی فرۆشیار</a>
+                </div>
+            </div>
             <div class="border">
 
                 <form id="form1" runat="server">
@@ -166,12 +171,7 @@
                                 </SelectParameters>
                             </asp:SqlDataSource>
                         </div>
-                    </div>
-
-                    <div class="col-md-3 col-sm-3 col-lg-3 mb-3">
-                        <asp:Button ID="SubmitButton" CssClass="btn btn-success btn-block" runat="server" Text="پارە وەرگرتن" OnClick="SubmitButton_Click" />
-
-                    </div>
+                        <hr />
 
                     <div class="offset-lg-6 offset-md-6 col-lg-6 col-md-6 mt-0 text-right">
                         <div class="form-group">
@@ -180,6 +180,14 @@
                             <asp:TextBox ID="unpaidTotalAllInvoicesTextBox" ReadOnly="true" CssClass="form-control form-control-lg" runat="server"></asp:TextBox>
                         </div>
                     </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-3 col-lg-3 mb-3">
+                        <asp:Button ID="SubmitButton" CssClass="btn btn-success btn-block" runat="server" Text="پارە وەرگرتن" OnClick="SubmitButton_Click" />
+
+                    </div>
+
+                   
                 </form>
             </div>
         </div>

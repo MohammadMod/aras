@@ -61,14 +61,14 @@
         </nav>
     </div>
     
-    <section class="py-3">
+    <section class="py-2">
       <div class="container">
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6 col-6">
                 <div id="txt"></div>
           </div>
           <div class="col-lg-6 col-md-6 col-sm-6 col-6 text-right">
-            <h4 class="styleK">پارەدانی فرۆشیار</h4>
+            <h4 class="styleK">پارەدانی کریار</h4>
           </div>
         </div>
       </div>
@@ -77,6 +77,11 @@
 
     <div class="container">
 
+        <div class="row text-right pb-3">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                <a href="/Show Payment Entry Purchase.aspx" class="btn btn-facebook styleK">پشاندانی پسولەی کرین</a>
+            </div>
+        </div>
         <div class="border">
 
             <form id="form1" runat="server">
@@ -90,7 +95,15 @@
                     </div>
                 </div>
                 <br />
-                <asp:CheckBox ID="CheckBox1" runat="server" Text="Para la hisab wasl ka?" AutoPostBack="True" OnCheckedChanged="CheckBox1_CheckedChanged" />
+
+                
+                <div class="col-lg-6 mt-0">
+                    <div class="form-group">
+                        <asp:CheckBox ID="CheckBox1" runat="server" Text="پارە دان لە حیساب" AutoPostBack="True" OnCheckedChanged="CheckBox1_CheckedChanged" />
+                    </div>
+                </div>
+
+                
 
                 <fieldset disabled>
                     <div class="col-lg-6  mt-0">
@@ -111,55 +124,63 @@
                 </div>
                 <div runat="server" id="hideDive">
 
-                <div class="col-lg-6 mt-0">
-                    <div class="form-group">
-                        <label for="PayPlusInAccountTextBox" class="col-form-label styleK">پارەی وەسڵ</label>
+                    <div class="col-lg-6 mt-0">
+                        <div class="form-group">
+                            <label for="PayPlusInAccountTextBox" class="col-form-label styleK">پارەی وەسڵ</label>
 
-                        <asp:TextBox ID="PayPlusInAccountTextBox" CssClass="form-control form-control-lg" runat="server" ></asp:TextBox>
+                            <asp:TextBox ID="PayPlusInAccountTextBox" CssClass="form-control form-control-lg" runat="server"></asp:TextBox>
 
+                        </div>
                     </div>
-                </div>
 
 
-                <div class="col-lg-6 mt-0">
-                    <div class="form-group">
-                        <label for="totalAllTextBox" class="col-form-label styleK">کۆی گشتی پارەی وەسڵ</label>
-                        <asp:TextBox ID="totalAllTextBox" CssClass="form-control form-control-lg" runat="server"></asp:TextBox>
+                    <div class="col-lg-6 mt-0">
+                        <div class="form-group">
+                            <label for="totalAllTextBox" class="col-form-label styleK">کۆی گشتی پارەی وەسڵ</label>
+                            <asp:TextBox ID="totalAllTextBox" CssClass="form-control form-control-lg" runat="server"></asp:TextBox>
+                        </div>
                     </div>
-                </div>
-                <hr />
+                    <hr />
 
 
-                <div class="col-lg-6 mt-0">
-                    <div class="form-group">
-                        <label for="searchTextBox" class="col-form-label styleK">گەران</label>
-                        <asp:TextBox ID="searchTextBox" CssClass="form-control form-control-lg" runat="server" onkeyup="Search_Gridview(this, 'GridView1')"></asp:TextBox>
+                    <div class="col-lg-6 mt-0">
+                        <div class="form-group">
+                            <label for="searchTextBox" class="col-form-label styleK">گەران</label>
+                            <asp:TextBox ID="searchTextBox" CssClass="form-control form-control-lg" runat="server" onkeyup="Search_Gridview(this, 'GridView1')"></asp:TextBox>
+                        </div>
                     </div>
-                </div>
 
-                <div class="container">
-                    <asp:GridView ID="GridView1" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AutoGenerateColumns="False"
-                        CssClass="table table-stripet table-bordered table-hover table-responsive-md text-center" AllowPaging="True" AllowSorting="True" DataKeyNames="ID" DataSourceID="SqlDataSource1">
-                        <Columns>
-                            <asp:CommandField SelectText="Pay" ShowSelectButton="True" />
-                            <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID"/>
-                            <asp:BoundField DataField="Posting_date" HeaderText="Posting_date" SortExpression="Posting_date" />
-                            <asp:BoundField DataField="rate" HeaderText="rate" SortExpression="rate" />
-                            <asp:BoundField DataField="totall_amount" HeaderText="totall_amount" SortExpression="totall_amount" />
-                            <asp:BoundField DataField="amount" HeaderText="amount" SortExpression="amount" />
-                        </Columns>
-                    </asp:GridView>
+                    <div class="container">
+                        <asp:GridView ID="GridView1" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AutoGenerateColumns="False"
+                            CssClass="table table-stripet table-bordered table-hover table-responsive-md text-center" AllowPaging="True" AllowSorting="True" DataKeyNames="ID" DataSourceID="SqlDataSource1">
+                            <Columns>
+                                <asp:CommandField SelectText="Pay" ShowSelectButton="True" />
+                                <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
+                                <asp:BoundField DataField="Posting_date" HeaderText="Posting_date" SortExpression="Posting_date" />
+                                <asp:BoundField DataField="rate" HeaderText="rate" SortExpression="rate" />
+                                <asp:BoundField DataField="totall_amount" HeaderText="totall_amount" SortExpression="totall_amount" />
+                                <asp:BoundField DataField="amount" HeaderText="amount" SortExpression="amount" />
+                            </Columns>
+                        </asp:GridView>
 
-                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="Purchase_invoies_have_no_payment_entry" SelectCommandType="StoredProcedure">
-                        <SelectParameters>
-                            <asp:ControlParameter ControlID="SelectSupplierDropDownList" Name="supplier" PropertyName="SelectedIndex" Type="Int32" />
-                        </SelectParameters>
-                    </asp:SqlDataSource>
-                    <br />
-                    Total all: <asp:TextBox ID="totallAllForInvoicesTextBox" runat="server" Width="296px"></asp:TextBox>
-
-                </div>
+                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="Purchase_invoies_have_no_payment_entry" SelectCommandType="StoredProcedure">
+                            <SelectParameters>
+                                <asp:ControlParameter ControlID="SelectSupplierDropDownList" Name="supplier" PropertyName="SelectedIndex" Type="Int32" />
+                            </SelectParameters>
+                        </asp:SqlDataSource>
+                        <br />
+                        
+                        
                     </div>
+
+                    <div class="offset-lg-6 offset-md-6 col-lg-6 col-md-6 mt-0 text-right">
+                        <div class="form-group">
+                            <label for="totallAllForInvoicesTextBox" class="col-form-label styleK">کۆی گشتی</label>
+                            <asp:TextBox ID="totallAllForInvoicesTextBox" ReadOnly="true" CssClass="form-control form-control-lg" runat="server"></asp:TextBox>
+                        </div>
+                    </div>
+
+                </div>
                 <div class="col-md-3 col-sm-3 col-lg-3 ">
                     <asp:Button ID="SubmitButton" CssClass="btn btn-success btn-block styleK mb-3 fs-4" runat="server" Text="پارە دان" OnClick="SubmitButton_Click" />
                 </div>
