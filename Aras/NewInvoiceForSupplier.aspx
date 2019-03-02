@@ -68,7 +68,7 @@
 
           </div>
           <div class="col-lg-6 col-md-6 col-sm-6 col-6 text-right">
-            <h4 class="styleK">درووست کردنی مەخزەن </h4>
+            <h4 class="styleK"></h4>
           </div>
         </div>
       </div>

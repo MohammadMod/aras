@@ -220,7 +220,22 @@
                 <%-- show salis invoise --%>
 
                 
-                <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3">
+                <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3" id="usersShow" runat="server">
+                    <div class="case-wrapper" data-name="Item" data-link="List/Item">
+                        <a href="/Show Payment Entry.aspx">
+                            <div class="app-icon app-icon-pink" title="پشاندانی وەسلی پارەدان">
+                                <span class="fas fa-star" title="پشاندانی وەسلی پارەدان"></span>
+                            </div>
+                        </a>
+                        <div class="case-label ellipsis">
+                            <span class="case-label-text">پشاندانی وەسلی پارەدان </span>
+                        </div>
+                    </div>
+                </div> 
+
+
+                
+<%--                <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3">
                     <div class="case-wrapper" data-name="Item" data-link="List/Item">
                         <a href="/NewInvoiceForSupplier" class="imgpayment">
                             <div class="app-icon_img app-img app-icon-pink" title="وەسل بۆ کڕیار">
