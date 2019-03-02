@@ -14,31 +14,22 @@ namespace Aras
     {
         Inserting_Data inD = new Inserting_Data();
         BindingData bd = new BindingData();
-        string myStatus;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Permit.isAllowed(Permessions.AllUsers))
+                Response.Redirect("Login.aspx");
             if (!IsPostBack)
             {
 
-            bd.wareHouseName(ChoseWareHouseDropDownList);
-            try
-            {
-                //myStatus = Application["status"].ToString();
-            }
-            catch (Exception)
-            {
+        
+                try
+                {
+                       bd.wareHouseName(ChoseWareHouseDropDownList);
+                }
+                catch (Exception)
+                {
 
-                myStatus = "New";           }
-
-            if (myStatus=="update")
-            {
-                UpdateButton.Visible = true;
-                
-            }
-            else
-            {
-                UpdateButton.Visible = false;
-            }
+                }
 
             #region Hama reding the customer names form the db to the dropdown list
             try

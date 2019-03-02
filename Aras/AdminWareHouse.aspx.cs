@@ -18,8 +18,8 @@ namespace Aras
         {
 
             // a simple way to not let all users see some pages.
-            //if (!Permit.isAllowed(Permessions.OnlyAdmin))
-            //    Response.Redirect("Login.aspx");
+            if (!Permit.isAllowed(Permessions.AllUsers))
+                Response.Redirect("Login.aspx");
 
             //try
             //{

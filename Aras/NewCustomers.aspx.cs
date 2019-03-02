@@ -20,11 +20,11 @@ namespace Aras
             {
                 try
                 {
-                    CostumerNameTextBox.Text = Application["rname"].ToString();
-                    ResturantNameTextBox.Text = Application["resturant_name"].ToString();
-                    LocationTextBox.Text = Application["location"].ToString();
-                    PhoneNumberTextBox.Text = Application["phone_number"].ToString();
-                    MoneyInDeptTextBox.Text = Application["credit"].ToString();
+                    //CostumerNameTextBox.Text = Application["rname"].ToString();
+                    //ResturantNameTextBox.Text = Application["resturant_name"].ToString();
+                    //LocationTextBox.Text = Application["location"].ToString();
+                    //PhoneNumberTextBox.Text = Application["phone_number"].ToString();
+                    //MoneyInDeptTextBox.Text = Application["credit"].ToString();
                 }
                 catch (Exception)
                 {

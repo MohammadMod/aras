@@ -21,10 +21,10 @@ namespace Aras
                 try
                 {
 
-                    SupplierFullNameTextBox.Text = Application["namee"].ToString();
-                    NewSupplierDepitMoneyTextBox.Text = Application["debit"].ToString();
-                    SupplierLocationTextBox.Text = Application["location"].ToString();
-                    SupplierPhoneNumberTextBox.Text = Application["phone_number"].ToString();
+                    //SupplierFullNameTextBox.Text = Application["namee"].ToString();
+                    //NewSupplierDepitMoneyTextBox.Text = Application["debit"].ToString();
+                    //SupplierLocationTextBox.Text = Application["location"].ToString();
+                    //SupplierPhoneNumberTextBox.Text = Application["phone_number"].ToString();
 
                 
                 }

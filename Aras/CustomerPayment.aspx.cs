@@ -76,6 +76,7 @@ namespace Aras
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
+
             GridViewRow gridViewRow = GridView1.SelectedRow;
             string totalAll = gridViewRow.Cells[4].Text.ToString();
             totalAllTextBox.Text = totalAll;
