@@ -21,7 +21,7 @@ namespace Aras
                 try
                 {
 
-                    SupplierFullNameTextBox.Text = Application["name"].ToString();
+                    SupplierFullNameTextBox.Text = Application["namee"].ToString();
                     NewSupplierDepitMoneyTextBox.Text = Application["debit"].ToString();
                     SupplierLocationTextBox.Text = Application["location"].ToString();
                     SupplierPhoneNumberTextBox.Text = Application["phone_number"].ToString();
@@ -112,7 +112,7 @@ namespace Aras
             {
                 Response.Write("<script language=javascript>alert('You are not in updating mode');</script>");
             }
-            Application["name"] = "";
+            Application["namee"] = "";
             Application["debit"] = "";
             Application["location"] = "";
             Application["phone_number"] = "";

@@ -12,8 +12,8 @@ namespace Aras
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            if (!Permit.isAllowed(Permessions.AllUsers))
-                Response.Redirect("Login.aspx");
+            //if (!Permit.isAllowed(Permessions.AllUsers))
+            //    Response.Redirect("Login.aspx");
         }
     }
 }

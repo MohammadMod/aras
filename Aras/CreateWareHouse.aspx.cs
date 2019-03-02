@@ -55,6 +55,7 @@ namespace Aras
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 cmd.ExecuteNonQuery();
                 con.Close();
+                Response.Redirect("/AdminWareHouse.aspx");
             }
             catch (Exception)
             {

@@ -124,8 +124,6 @@
                                 <asp:CheckBox ID="cbDelete" runat="server" AutoPostBack="True" />
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:CommandField ShowSelectButton="True" />
-                        <asp:CommandField ShowEditButton="True" />
                     </Columns>
            
                 </asp:GridView>

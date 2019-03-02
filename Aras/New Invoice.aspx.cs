@@ -33,13 +33,11 @@ namespace Aras
             if (myStatus=="update")
             {
                 UpdateButton.Visible = true;
-                SubmitNewInvoiceButton.Visible = false;
                 
             }
             else
             {
                 UpdateButton.Visible = false;
-                SubmitNewInvoiceButton.Visible = true;
             }
 
             #region Hama reding the customer names form the db to the dropdown list
