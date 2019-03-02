@@ -292,6 +292,20 @@
 }
 
 
+.fa-surprise {
+    font-size: 32px;
+    color: white;
+    transition: all .3s;
+    animation: moveInLeft-icon 1s ease-out;
+}
+
+.fa-surprise:hover {
+    color: rgb(73, 73, 78);
+    transform: scale(1.2);
+}
+
+
+
 
 .fa-dollar-sign {
     font-size: 3.6rem;
