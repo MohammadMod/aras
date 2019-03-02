@@ -82,9 +82,11 @@
                             <div class="submit-btn-area">
                                  <asp:Button ID="Button2" runat="server" CssClass="btnn" type="submit" Text="تۆمارکردن"  OnClick="RegisterButton_Click" />
                             </div>
+
                             <br />
+
                              <div class="submit-btn-area">
-                                 <asp:Button ID="updateButton" runat="server" CssClass="btnn" type="submit" Text="Upadate" OnClick="updateButton_Click" />
+                                 <asp:Button ID="updateButton" runat="server" CssClass="btnn" type="submit" Text="نوێکردنەوە" OnClick="updateButton_Click" />
                             </div>
                         </div>
                     </form>
