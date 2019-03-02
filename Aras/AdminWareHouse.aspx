@@ -115,7 +115,7 @@
 
 
                 <div class="col-6 col-sm-6 col-md-6 col-lg-6 my-1 text-right">
-                    <asp:Button ID="CreateButton"  CssClass="btn btn-success btn-sm styleK" runat="server" Text="دروستکردن" />
+                    <asp:Button ID="CreateButton"  CssClass="btn btn-success btn-sm styleK" runat="server" Text="دروستکردن" OnClick="CreateButton_Click" />
                     <asp:Button ID="EditButton" CssClass="btn btn-warning btn-sm styleK" runat="server" Text="دەستکاری کردن" />
                     <asp:Button ID="DeleteButton" CssClass="btn btn-danger btn-sm styleK" runat="server" Text="رەشکردنەوە" />
 

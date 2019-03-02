@@ -37,7 +37,10 @@ namespace Aras
             //Deletor = new SmartDelete(AdminWareHouseGridView, DeleteButton, "warehouse");
         }
 
-
+        protected void CreateButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/CreateWareHouse.aspx");
+        }
     }
 
 }

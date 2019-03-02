@@ -128,11 +128,20 @@
                         <div class="form-group">
                             <asp:Button ID="CreateNewSupplierButton" class="btn btn-success btn-block styleK" 
                             runat="server" OnClick="CreateNewSupplierButton_Click" Text="خەزن کردن" />
-                            <br />
-                            <asp:Button ID="updateButton" class="btn btn-success btn-block styleK" 
-                            runat="server" Text="Update" OnClick="updateButton_Click" />
+                            
                         </div>
-                    </div>  
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 col-sm-6  mt-0">
+                        <div class="form-group">
+                            <asp:Button ID="updateButton" class="btn btn-secondary btn-block styleK" 
+                            runat="server" Text="نوێ کردنەوە" OnClick="updateButton_Click" />
+
+                            
+                        </div>
+                    </div>
+                    
+                            
                 </form>
             </div>
         </div>
