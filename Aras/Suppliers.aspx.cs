@@ -33,7 +33,7 @@ namespace Aras
 
             // Hama you need to edit the database for this.
 
-            Deletor = new SmartDelete(this.ViewSuppliersGridView, DeleteButton, "supplier", 9,this);
+            //Deletor = new SmartDelete(this.ViewSuppliersGridView, DeleteButton, "supplier", 9,this);
             #endregion
         }
 

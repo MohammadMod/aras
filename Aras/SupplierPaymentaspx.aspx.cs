@@ -13,15 +13,19 @@ namespace Aras
     public partial class SupplierPaymentaspx : System.Web.UI.Page
     {
         BindingData bd = new BindingData();
+        SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
 
         protected void Page_Load(object sender, EventArgs e)
         {
 
             //if (!Permit.isAllowed(Permessions.AllUsers))
             //    Response.Redirect("Login.aspx");
+
             if (!IsPostBack)
             {
                 bd.SupplierName(SelectSupplierDropDownList);
+
+               
             }
 
         }
@@ -31,9 +35,19 @@ namespace Aras
             //Purchase_invoies_have_no_payment_entry
             try
             {
-               
-                    //pishandani qardi supplier
-                    SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
+                try
+                {
+                    //pishandani waslakani unpaid
+                   
+                }
+                catch (Exception)
+                {
+                    Response.Write("<script language=javascript>alert('An Error occurred or may invalid data entered, please try again ');</script>");
+                }
+
+
+                //pishandani qardi supplier
+                SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
                     SqlCommand cmd = new SqlCommand("Supplier_debit_Show", con);
                     con.Open();
                     cmd.Parameters.AddWithValue("id", SelectSupplierDropDownList.SelectedIndex);

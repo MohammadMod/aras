@@ -151,23 +151,18 @@
                     </div>
 
                     <div class="container">
-                        <asp:GridView ID="GridView1" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AutoGenerateColumns="False"
-                            CssClass="table table-stripet table-bordered table-hover table-responsive-md text-center" AllowPaging="True" AllowSorting="True" DataKeyNames="ID" DataSourceID="SqlDataSource1">
+                        <asp:GridView ID="GridView1" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AutoGenerateColumns="true"
+                            CssClass="table table-stripet table-bordered table-hover table-responsive-md text-center" AllowPaging="True" AllowSorting="True" Width="312px" DataSourceID="purchaseinvoicehasnopaymententry">
                             <Columns>
-                                <asp:CommandField SelectText="Pay" ShowSelectButton="True" />
-                                <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
-                                <asp:BoundField DataField="Posting_date" HeaderText="Posting_date" SortExpression="Posting_date" />
-                                <asp:BoundField DataField="rate" HeaderText="rate" SortExpression="rate" />
-                                <asp:BoundField DataField="totall_amount" HeaderText="totall_amount" SortExpression="totall_amount" />
-                                <asp:BoundField DataField="amount" HeaderText="amount" SortExpression="amount" />
+                                <asp:CommandField SelectText="واسل كردن" ShowSelectButton="True" />
                             </Columns>
                         </asp:GridView>
 
-                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="Purchase_invoies_have_no_payment_entry" SelectCommandType="StoredProcedure">
-                            <SelectParameters>
-                                <asp:ControlParameter ControlID="SelectSupplierDropDownList" Name="supplier" PropertyName="SelectedIndex" Type="Int32" />
-                            </SelectParameters>
-                        </asp:SqlDataSource>
+                            <asp:SqlDataSource ID="purchaseinvoicehasnopaymententry" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="Purchase_invoies_have_no_payment_entry" SelectCommandType="StoredProcedure">
+                                <SelectParameters>
+                                    <asp:ControlParameter ControlID="SelectSupplierDropDownList" Name="supplier" PropertyName="SelectedIndex" Type="Int32" />
+                                </SelectParameters>
+                            </asp:SqlDataSource>
                         <br />
                         
                         
