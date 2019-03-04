@@ -29,30 +29,25 @@ namespace Aras
         {
             try
             {
-                if (SelectCustomerDropDownList.SelectedIndex > 0)
-                {
+                
                     //pishan dani qarzi mushtari
                     SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
                     SqlCommand cmd = new SqlCommand("Customer_debit_Show", con);
                     con.Open();
-                    cmd.Parameters.AddWithValue("id", SelectCustomerDropDownList.SelectedIndex);
+                    cmd.Parameters.AddWithValue("Customer_name", SelectCustomerDropDownList.SelectedItem.Text);
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
                     MoneyInAccountTextBox.Text = cmd.ExecuteScalar().ToString();
                     cmd.ExecuteNonQuery();
                     con.Close();
 
            
-                }
-                else
-                {
-                    Response.Write("<script language=javascript>alert('Please select a supplier ');</script>");
-                }
+         
                 moneyInAcc = MoneyInAccountTextBox.Text;
             }
             catch (Exception)
             {
 
-                Response.Write("<script language=javascript>alert('Please select a supplier ');</script>");
+                Response.Write("<script language=javascript>alert('Error in using the form ');</script>");
             }
 
             try
@@ -61,7 +56,7 @@ namespace Aras
                 SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
                 SqlCommand cmd = new SqlCommand("All_credit", con);
                 con.Open();
-                cmd.Parameters.AddWithValue("customer", SelectCustomerDropDownList.SelectedIndex);
+                cmd.Parameters.AddWithValue("customer", SelectCustomerDropDownList.SelectedItem.Text);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 unpaidTotalAllInvoicesTextBox.Text =  cmd.ExecuteScalar().ToString();
                 cmd.ExecuteNonQuery();
@@ -96,10 +91,8 @@ namespace Aras
                 con.Open();
 
 
-                cmdd.Parameters.AddWithValue("Customer_ID", SelectCustomerDropDownList.SelectedIndex);
+                cmdd.Parameters.AddWithValue("Customer_Name", SelectCustomerDropDownList.SelectedItem.Text);
                 cmdd.Parameters.AddWithValue("para", -para);
-
-
                 cmdd.CommandType = System.Data.CommandType.StoredProcedure;
                 cmdd.ExecuteNonQuery();
                 con.Close();
