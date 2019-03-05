@@ -126,8 +126,7 @@ namespace Aras
                     showSalesInvoice.Rows[0].Cells[0].ColumnSpan = columncount;
                     showSalesInvoice.Rows[0].Cells[0].Text = "No Records Found";
                 }
-                showSalesInvoice.AllowPaging = true;
-                showSalesInvoice.AllowSorting = true;
+              
             }
             catch (Exception)
             {

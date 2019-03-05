@@ -149,27 +149,13 @@
 
                         <div class="container">
 
-                            <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True"
-                                AutoGenerateColumns="False" DataKeyNames="ID" DataSourceID="salesInvoiceHasNoPayment" OnSelectedIndexChanged="GridView1_SelectedIndexChanged"
+                            <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" OnSelectedIndexChanged="GridView1_SelectedIndexChanged"
                                 CssClass="table table-stripet table-bordered table-hover table-responsive-md text-center">
                                 <Columns>
-                                    <asp:CommandField ShowSelectButton="True" HeaderText="Pay" SelectText="Pay" />
-                                    <asp:BoundField DataField="series" HeaderText="series" SortExpression="series" />
-                                    <asp:BoundField DataField="rate" HeaderText="rate" SortExpression="rate" />
-                                    <asp:BoundField DataField="amount" HeaderText="amount" SortExpression="amount" />
-                                    <asp:BoundField DataField="Totall_All" HeaderText="Totall_All" SortExpression="Totall_All" />
-                                    <asp:BoundField DataField="discount" HeaderText="discount" SortExpression="discount" />
-                                    <asp:BoundField DataField="Customer" HeaderText="Customer" SortExpression="Customer" />
-                                    <asp:BoundField DataField="Totall" HeaderText="Totall" SortExpression="Totall" />
-                                    <asp:BoundField DataField="posting_date" HeaderText="posting_date" SortExpression="posting_date" />
-                                    <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
+                                    <asp:CommandField SelectText="Pay" ShowSelectButton="True" />
                                 </Columns>
                             </asp:GridView>
-                            <asp:SqlDataSource ID="salesInvoiceHasNoPayment" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="sales_invoies_have_no_payment_entry" SelectCommandType="StoredProcedure">
-                                <SelectParameters>
-                                    <asp:ControlParameter ControlID="SelectCustomerDropDownList" Name="customer" PropertyName="SelectedIndex" Type="Int32" />
-                                </SelectParameters>
-                            </asp:SqlDataSource>
+                            
                         </div>
                         <hr />
 

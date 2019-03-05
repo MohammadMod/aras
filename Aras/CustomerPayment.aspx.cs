@@ -29,10 +29,33 @@ namespace Aras
         {
             try
             {
-                
-                    //pishan dani qarzi mushtari
-                    SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
-                    SqlCommand cmd = new SqlCommand("Customer_debit_Show", con);
+                //unpaid invoices to grid view
+                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
+
+                SqlCommand cmdaa = new SqlCommand("sales_invoies_have_no_payment_entry", conn);
+                SqlDataAdapter da = new SqlDataAdapter(cmdaa);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                //first paramenter: parameter name, second parameter: parameter value of object type
+                //using this way you can add more parameters
+                da.SelectCommand.Parameters.AddWithValue("customer", SelectCustomerDropDownList.SelectedItem.Text);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                GridView1.DataSource = ds;
+                GridView1.DataBind();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+           
+
+            try
+            {
+                SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
+
+                //pishan dani qarzi mushtari
+                SqlCommand cmd = new SqlCommand("Customer_debit_Show", con);
                     con.Open();
                     cmd.Parameters.AddWithValue("Customer_name", SelectCustomerDropDownList.SelectedItem.Text);
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
@@ -61,6 +84,8 @@ namespace Aras
                 unpaidTotalAllInvoicesTextBox.Text =  cmd.ExecuteScalar().ToString();
                 cmd.ExecuteNonQuery();
                 con.Close();
+
+
             }
             catch (Exception)
             {
@@ -114,7 +139,7 @@ namespace Aras
                     con.Open();
 
                     cmd.Parameters.AddWithValue("payment_type", "parawargrtn");
-                    cmd.Parameters.AddWithValue("Costomer_ID", SelectCustomerDropDownList.SelectedIndex);
+                    cmd.Parameters.AddWithValue("Costomer_ID", SelectCustomerDropDownList.SelectedItem.Text);
                     cmd.Parameters.AddWithValue("posting_date", DateTime.Now);
                     cmd.Parameters.AddWithValue("party_balance", float.Parse(MoneyInAccountTextBox.Text));
                     cmd.Parameters.AddWithValue("difference_amount", float.Parse(data));
