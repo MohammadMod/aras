@@ -25,8 +25,9 @@
     <link href="css/style.css" rel="stylesheet" />
 
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-    
+    <script src="js/HamaScripts.js"></script>
     <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/droid-arabic-naskh" type="text/css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 
     <script src="js/HamaScripts.js"></script>

@@ -142,7 +142,7 @@
                 <div class="col-lg-6 mt-0">
                     <div class="form-group">
                         <label for="amountTextBox" class="col-form-label styleK">لە مەخزەن</label>
-                        <asp:TextBox ID="amountTextBox" TextMode="Number" CssClass="form-control form-control-lg" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="amountTextBox" ReadOnly="true" TextMode="Number" CssClass="form-control form-control-lg" runat="server"></asp:TextBox>
 
                         
                     </div>

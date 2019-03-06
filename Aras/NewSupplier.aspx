@@ -96,7 +96,7 @@
                         <div class="form-group">
                             <label for="NewSupplierDepitMoneyTextBox" class="col-form-label styleK">چەند پارەی قەردارین</label>
 
-                            <asp:TextBox ID="NewSupplierDepitMoneyTextBox" CssClass="form-control form-control-lg" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="NewSupplierDepitMoneyTextBox" TextMode="Number" CssClass="form-control form-control-lg" runat="server"></asp:TextBox>
                         </div>
                     </div>
 

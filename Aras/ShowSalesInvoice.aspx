@@ -60,22 +60,17 @@
    
     </style>
     <script>
-
-    $(document).ready(function(){
-            $("td:contains('paid')").addClass('paid'); 
-            
-        });
-        $(document).ready(function(){
-            $("td:contains('unpaid')").addClass('unpaid'); 
-            
-
-        });
         
+$(document).ready(function () {
+    $("td:contains('paid')").addClass('paid');
+
+});
+$(document).ready(function () {
+    $("td:contains('unpaid')").addClass('unpaid');
 
 
-
-</script>
-
+});
+    </script>
     <style>
         .btn-sm{
             border-radius:0.5rem !important; 

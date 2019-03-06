@@ -90,7 +90,7 @@
                     <div class="col-lg-10 mt-0">
                         <div class="form-group">
                             <label for="WareHousePhoneTextBox0" class="col-form-label styleK">ژمارەی موبایل</label>
-                            <asp:TextBox ID="WareHousePhoneTextBox0" CssClass="form-control form-control-lg" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="WareHousePhoneTextBox0" TextMode="Number" CssClass="form-control form-control-lg" runat="server"></asp:TextBox>
                         </div>
                     </div>
 

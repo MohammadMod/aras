@@ -62,3 +62,13 @@ function calculateCustomerr() {
     document.getElementById('RecivePlusInAccountTextBox').value = -myResult;
 }
 
+
+$(document).ready(function () {
+    $("td:contains('paid')").addClass('paid');
+
+});
+$(document).ready(function () {
+    $("td:contains('unpaid')").addClass('unpaid');
+
+
+});

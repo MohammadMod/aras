@@ -7,11 +7,13 @@
 }
 
 .unpaid {
-    color: red;
+    color: red !important;
+    text-shadow: .5px 1px 3px rgb(240,10,10) !important;
 }
 
 .paid {
     color: green;
+    text-shadow: .5px 1px 3px rgb(5,240,10);
 }
 
 .fs-1{
