@@ -161,7 +161,7 @@
             
                 <asp:GridView ID="ShowSalesInvoicesGridView" runat="server"
                     OnRowEditing="ShowSalesInvoicesGridView_RowEditing" OnRowUpdating="ShowSalesInvoicesGridView_RowUpdating" 
-                     OnRowCancelingEdit="ShowSalesInvoicesGridView_RowCancelingEdit" AllowPaging="True" PageSize="20" AllowSorting="True"
+                     OnRowCancelingEdit="ShowSalesInvoicesGridView_RowCancelingEdit"  AllowSorting="True"
                     OnSorting="ShowSalesInvoicesGridView_Sorting" OnPageIndexChanging="ShowSalesInvoicesGridView_PageIndexChanging"
                     CssClass="table table-stripet table-bordered table-hover table-responsive-md text-center" OnSelectedIndexChanged="ShowSalesInvoicesGridView_SelectedIndexChanged">
                     <Columns>

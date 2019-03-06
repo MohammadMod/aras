@@ -22,7 +22,7 @@ namespace Aras
                 con.Open();
 
                 cmd.Parameters.AddWithValue("series", series.SelectedItem.Text);
-                cmd.Parameters.AddWithValue("Customer", customer.SelectedIndex);
+                cmd.Parameters.AddWithValue("Customer", customer.SelectedItem.Text);
 
                 cmd.Parameters.AddWithValue("rate", rate);
                 cmd.Parameters.AddWithValue("amount", amount);

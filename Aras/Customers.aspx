@@ -131,7 +131,7 @@
 
             <div class="border p-3">
                 <asp:GridView ID="CustomersGridView" CssClass="table table-stripet table-bordered table-hover table-responsive-md text-center"
-                    runat="server" AllowPaging="True" AllowSorting="True">
+                    runat="server"  AllowSorting="True">
                     <Columns>
                         <asp:TemplateField>
                             <HeaderTemplate>
@@ -142,7 +142,6 @@
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
-              
                 </asp:GridView>
             </div>
         </form>

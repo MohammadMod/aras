@@ -29,10 +29,32 @@ namespace Aras
         {
             try
             {
-                
-                    //pishan dani qarzi mushtari
-                    SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
-                    SqlCommand cmd = new SqlCommand("Customer_debit_Show", con);
+                //unpaid invoices to grid view
+                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
+                SqlCommand cmdaa = new SqlCommand("sales_invoies_have_no_payment_entry", conn);
+                SqlDataAdapter da = new SqlDataAdapter(cmdaa);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                //first paramenter: parameter name, second parameter: parameter value of object type
+                //using this way you can add more parameters
+                da.SelectCommand.Parameters.AddWithValue("customer", SelectCustomerDropDownList.SelectedItem.Text);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                GridView1.DataSource = ds;
+                GridView1.DataBind();
+            }
+            catch (Exception)
+            {
+
+                Response.Write("<script language=javascript>alert('No unpaid sales invoices');</script>");
+            }
+           
+
+            try
+            {
+                SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
+
+                //pishan dani qarzi mushtari
+                SqlCommand cmd = new SqlCommand("Customer_debit_Show", con);
                     con.Open();
                     cmd.Parameters.AddWithValue("Customer_name", SelectCustomerDropDownList.SelectedItem.Text);
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
@@ -61,6 +83,8 @@ namespace Aras
                 unpaidTotalAllInvoicesTextBox.Text =  cmd.ExecuteScalar().ToString();
                 cmd.ExecuteNonQuery();
                 con.Close();
+
+
             }
             catch (Exception)
             {
@@ -85,69 +109,92 @@ namespace Aras
             float para = float.Parse(ReciveFromSupplierTextBox.Text);
             if (CheckBox1.Checked)
             {
-                SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
-
-                SqlCommand cmdd = new SqlCommand("Update_customer_creidt", con);
-                con.Open();
-
-
-                cmdd.Parameters.AddWithValue("Customer_Name", SelectCustomerDropDownList.SelectedItem.Text);
-                cmdd.Parameters.AddWithValue("para", -para);
-                cmdd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmdd.ExecuteNonQuery();
-                con.Close();
-                GridView1.DataBind();
-
-
-                Response.Redirect("/CustomerPayment.aspx");
-            }
-            else
-            {
                 try
                 {
-                    string data = Request.Form[RecivePlusInAccountTextBox.UniqueID];
-                    //GridViewRow gridViewRow = GridView1.SelectedRow;
-
                     SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
-                    #region MyRegion
-                    SqlCommand cmd = new SqlCommand("INSERT_payment_entry", con);
+
+                    SqlCommand cmdd = new SqlCommand("Update_customer_creidt", con);
                     con.Open();
-
-                    cmd.Parameters.AddWithValue("payment_type", "parawargrtn");
-                    cmd.Parameters.AddWithValue("Costomer_ID", SelectCustomerDropDownList.SelectedIndex);
-                    cmd.Parameters.AddWithValue("posting_date", DateTime.Now);
-                    cmd.Parameters.AddWithValue("party_balance", float.Parse(MoneyInAccountTextBox.Text));
-                    cmd.Parameters.AddWithValue("difference_amount", float.Parse(data));
-                    cmd.Parameters.AddWithValue("unallocated_amount", float.Parse(ReciveFromSupplierTextBox.Text));
-                    cmd.Parameters.AddWithValue("Series", DBNull.Value);
-
-                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                    #endregion
-
-
-                    #region update sales invoice where the costumer select invoice
-
-                    //update statues in sales invice
-
-                    GridViewRow row = GridView1.SelectedRow;
-
-                    SqlCommand cmdd = new SqlCommand("Update_sales_invoice", con);
-                    con.Open();
-
-
-                    cmdd.Parameters.AddWithValue("Sales_invoice_ID", int.Parse(row.Cells[9].Text));
-                    cmdd.Parameters.AddWithValue("Customer", SelectCustomerDropDownList.SelectedIndex);
-                    cmdd.Parameters.AddWithValue("para", float.Parse(ReciveFromSupplierTextBox.Text));
-
-
+                    cmdd.Parameters.AddWithValue("Customer_Name", SelectCustomerDropDownList.SelectedItem.Text);
+                    cmdd.Parameters.AddWithValue("para", -para);
                     cmdd.CommandType = System.Data.CommandType.StoredProcedure;
                     cmdd.ExecuteNonQuery();
                     con.Close();
                     GridView1.DataBind();
 
-                    #endregion
+                    Response.Redirect("/CustomerPayment.aspx");
+                }
+                catch (Exception)
+                {
+                    Response.Write("<script language=javascript>alert('Error in data entered');</script>");
+                }
+                
+            }
+            else
+            {
+                try
+                {
+                    try
+                    {
+                        string data = Request.Form[RecivePlusInAccountTextBox.UniqueID];
+                        //GridViewRow gridViewRow = GridView1.SelectedRow;
+
+                        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
+                        #region MyRegion
+                        SqlCommand cmd = new SqlCommand("INSERT_payment_entry", con);
+                        con.Open();
+
+                        cmd.Parameters.AddWithValue("payment_type", "parawargrtn");
+                        cmd.Parameters.AddWithValue("Costomer_ID", SelectCustomerDropDownList.SelectedItem.Text);
+                        cmd.Parameters.AddWithValue("posting_date", DateTime.Now);
+                        cmd.Parameters.AddWithValue("party_balance", float.Parse(MoneyInAccountTextBox.Text));
+                        cmd.Parameters.AddWithValue("difference_amount", float.Parse(data));
+                        cmd.Parameters.AddWithValue("unallocated_amount", float.Parse(ReciveFromSupplierTextBox.Text));
+                        cmd.Parameters.AddWithValue("Series", DBNull.Value);
+
+                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+                        #endregion
+                    }
+                    catch (Exception)
+                    {
+
+                        Response.Write("<script language=javascript>alert('Error in inserting');</script>");
+                    }
+
+                    try
+                    {
+                        #region update sales invoice where the costumer select invoice
+
+                        //update statues in sales invice
+                        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
+
+                        GridViewRow row = GridView1.SelectedRow;
+
+                        SqlCommand cmdd = new SqlCommand("Update_sales_invoice", con);
+                        con.Open();
+
+
+                        cmdd.Parameters.AddWithValue("Sales_invoice_ID", int.Parse(row.Cells[9].Text));
+                        cmdd.Parameters.AddWithValue("Customer", SelectCustomerDropDownList.SelectedIndex);
+                        cmdd.Parameters.AddWithValue("para", float.Parse(ReciveFromSupplierTextBox.Text));
+
+
+                        cmdd.CommandType = System.Data.CommandType.StoredProcedure;
+                        cmdd.ExecuteNonQuery();
+                        con.Close();
+                        GridView1.DataBind();
+
+                        #endregion
+                    }
+                    catch (Exception)
+                    {
+
+                        Response.Write("<script language=javascript>alert('Error in updating the statues');</script>");
+                    }
+
+                   
 
 
                 }
