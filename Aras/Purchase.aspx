@@ -110,7 +110,7 @@
                     <div class="col-lg-6 mt-0">
                         <div class="form-group">
                             <label for="KiloTextBox" class="col-form-label styleK">کیلۆ</label>
-                            <asp:TextBox ID="KiloTextBox" runat="server"  CssClass="form-control form-control-lg" oninput="calculate()"></asp:TextBox>
+                            <asp:TextBox ID="KiloTextBox" TextMode="Number" runat="server"  CssClass="form-control form-control-lg" oninput="calculate()"></asp:TextBox>
                         </div>
                     </div>
 

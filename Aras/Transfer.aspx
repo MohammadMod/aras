@@ -90,7 +90,7 @@
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-6 mt-0">
                         <div class="form-group">
-                            <label for="SelectSupplierDropDownList" class="col-form-label styleK text-right">دیاری کردنی فرۆشیار</label>
+                            <label for="SelectSupplierDropDownList" class="col-form-label styleK text-right">جوون لۆ مەخزەن</label>
 
                             <asp:DropDownList ID="toWareHouseDropDownList" runat="server" Style="padding-top: 0; padding-bottom: 0; font-size: 12px;"
                                 CssClass="form-control invois_multK">
@@ -110,8 +110,8 @@
 
                 <div class="col-lg-6 col-md-6 col-sm-6 col-6 mt-0">
                     <div class="form-group">
-                        <label for="fromWareHouseDropDownList" class="col-form-label styleK text-right">ناردنی چەند</label>
-                        <asp:TextBox ID="TranseferAmountTextBox" runat="server" CssClass="form-control form-control-lg"></asp:TextBox>
+                        <label for="fromWareHouseDropDownList"  class="col-form-label styleK text-right">ناردنی چەند</label>
+                        <asp:TextBox ID="TranseferAmountTextBox" TextMode="Number" runat="server" CssClass="form-control form-control-lg"></asp:TextBox>
                     </div>
                 </div>
 

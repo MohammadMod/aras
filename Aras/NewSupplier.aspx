@@ -111,7 +111,7 @@
                     <div class="col-lg-10 mt-0">
                         <div class="form-group">
                             <label for="SupplierPhoneNumberTextBox" class="col-form-label styleK">ڕەقەم مۆبایل</label>
-                            <asp:TextBox ID="SupplierPhoneNumberTextBox" CssClass="form-control form-control-lg" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="SupplierPhoneNumberTextBox" TextMode="Number" CssClass="form-control form-control-lg" runat="server"></asp:TextBox>
                         </div>
                     </div>
 

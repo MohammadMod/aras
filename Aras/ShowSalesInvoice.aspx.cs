@@ -144,5 +144,10 @@ namespace Aras
             Application["InvoiceName"] = gridViewRow.Cells[2].Text;
             Response.Redirect("Transfer.aspx");
         }
+
+        protected void payment_entry_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/CustomerPayment.aspx");
+        }
     }
 }

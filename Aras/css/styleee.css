@@ -6,6 +6,14 @@
     width: 100%;
 }
 
+.unpaid {
+    color: red;
+}
+
+.paid {
+    color: green;
+}
+
 .fs-1{
     font-size:8px !important;
 }

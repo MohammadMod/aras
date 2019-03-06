@@ -28,6 +28,54 @@
     <script src="js/HamaScripts.js"></script>
     <script src="SearchInGrids.js"></script>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <style>
+        
+        .btn-sm{
+            border-radius:.6rem !important;
+        }
+        @media (max-width: 768px) {
+            .btn-sm{
+                padding: 9px 11px;
+                font-size:11px;
+                border-radius:.8rem !important; 
+            }
+        }
+        @media (max-width: 576px) {
+            .btn-sm{
+                padding: 9px 9px;
+                font-size:9px;
+                border-radius:.6rem !important; 
+
+            }
+        }
+        @media (max-width: 450px) {
+            .btn-sm{
+                padding: 8px 7px;
+                font-size:10px;
+                border-radius:.4rem !important; 
+            }
+        }
+   
+    </style>
+    <script>
+
+    $(document).ready(function(){
+            $("td:contains('paid')").addClass('paid'); 
+            
+        });
+        $(document).ready(function(){
+            $("td:contains('unpaid')").addClass('unpaid'); 
+            
+
+        });
+        
+
+
+
+</script>
+
     <style>
         .btn-sm{
             border-radius:0.5rem !important; 
@@ -103,6 +151,7 @@
                 <div class="col-6 col-sm-6 col-md-6 col-lg-6 my-1 text-right">       
                     
                     <asp:Button ID="NewInvoiceButton" runat="server" CssClass="btn btn-primary btn-sm styleK" Text="وەسلی نوێ" OnClick="NewInvoiceButton_Click" />   
+                    <asp:Button ID="payment_entry" runat="server" CssClass="btn btn-info btn-sm styleK" Text="پارە وەرگرتن" OnClick="payment_entry_Click" />   
                     <asp:Button ID="DeleteButton" CssClass="btn btn-danger btn-sm styleK" runat="server" Text="رەشکردنەوە" />
                     
                 </div>

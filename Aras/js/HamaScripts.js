@@ -61,3 +61,4 @@ function calculateCustomerr() {
     var myResult = myBox2 - myBox1;
     document.getElementById('RecivePlusInAccountTextBox').value = -myResult;
 }
+

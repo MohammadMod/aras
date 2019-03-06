@@ -128,9 +128,10 @@
 
                     <asp:Button ID="CreateButton" CssClass="btn btn-success btn-sm styleK" runat="server" OnClick="CreateButton_Click" Text="دروستکردن" />
 
+                    <asp:Button ID="EditButton" CssClass="btn btn-warning btn-sm styleK" runat="server" Text="دەستکاری کردن" />
+
                     <asp:Button ID="DeleteButton" CssClass="btn btn-danger btn-sm styleK" runat="server" Text="رەشکردنەوە" />
 
-                    <asp:Button ID="EditButton" CssClass="btn btn-warning btn-sm styleK" runat="server" Text="دەستکاری کردن" />
 
                 </div>
             </div>
