@@ -177,7 +177,7 @@ namespace Aras
 
 
                         cmdd.Parameters.AddWithValue("Sales_invoice_ID", int.Parse(row.Cells[9].Text));
-                        cmdd.Parameters.AddWithValue("Customer", SelectCustomerDropDownList.SelectedIndex);
+                        cmdd.Parameters.AddWithValue("Customer", SelectCustomerDropDownList.SelectedItem.Text);
                         cmdd.Parameters.AddWithValue("para", float.Parse(ReciveFromSupplierTextBox.Text));
 
 

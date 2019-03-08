@@ -87,7 +87,7 @@
         <div class="border p-3">
             <form id="form1" runat="server">
                 <asp:GridView ID="GridView1" CssClass="table table-stripet table-bordered table-hover table-responsive-md text-center"
-                    runat="server" AutoGenerateColumns="False" DataKeyNames="Payment NO" DataSourceID="ShowPaymentEntry">
+                    runat="server" AutoGenerateColumns="False" DataKeyNames="Payment NO" DataSourceID="ShowPaymentEntry" AllowSorting="True">
                     <Columns>
                         <asp:BoundField DataField="Payment NO" HeaderText="Payment NO" InsertVisible="False" ReadOnly="True" SortExpression="Payment NO" />
                         <asp:BoundField DataField="Customer" HeaderText="Customer" SortExpression="Customer" />
