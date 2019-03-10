@@ -59,7 +59,7 @@ namespace Aras
                     //total all Invoiceakan
                     SqlCommand cmdd = new SqlCommand("All_Debit", con);
                     con.Open();
-                    cmdd.Parameters.AddWithValue("supplier", SelectSupplierDropDownList.SelectedIndex);
+                    cmdd.Parameters.AddWithValue("supplier", SelectSupplierDropDownList.SelectedItem.Text);
                     cmdd.CommandType = System.Data.CommandType.StoredProcedure;
                     totallAllForInvoicesTextBox.Text = cmdd.ExecuteScalar().ToString();
                     cmdd.ExecuteNonQuery();

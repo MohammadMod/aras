@@ -107,6 +107,7 @@ namespace Aras
         protected void SubmitButton_Click(object sender, EventArgs e)
         {
             float para = float.Parse(ReciveFromSupplierTextBox.Text);
+            //para la hisab
             if (CheckBox1.Checked)
             {
                 try
@@ -137,7 +138,8 @@ namespace Aras
                     try
                     {
                         string data = Request.Form[RecivePlusInAccountTextBox.UniqueID];
-                        //GridViewRow gridViewRow = GridView1.SelectedRow;
+                        string moneyInDibt = Request.Form[MoneyInAccountTextBox.UniqueID];
+
 
                         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
                         #region MyRegion
@@ -147,7 +149,7 @@ namespace Aras
                         cmd.Parameters.AddWithValue("payment_type", "parawargrtn");
                         cmd.Parameters.AddWithValue("Costomer_ID", SelectCustomerDropDownList.SelectedItem.Text);
                         cmd.Parameters.AddWithValue("posting_date", DateTime.Now);
-                        cmd.Parameters.AddWithValue("party_balance", float.Parse(MoneyInAccountTextBox.Text));
+                        cmd.Parameters.AddWithValue("party_balance", float.Parse(moneyInDibt));
                         cmd.Parameters.AddWithValue("difference_amount", float.Parse(data));
                         cmd.Parameters.AddWithValue("unallocated_amount", float.Parse(ReciveFromSupplierTextBox.Text));
                         cmd.Parameters.AddWithValue("Series", DBNull.Value);
@@ -155,12 +157,49 @@ namespace Aras
                         cmd.CommandType = System.Data.CommandType.StoredProcedure;
                         cmd.ExecuteNonQuery();
                         con.Close();
+
+
+                       
+
+
+
+
+
                         #endregion
                     }
                     catch (Exception)
                     {
 
                         Response.Write("<script language=javascript>alert('Error in inserting');</script>");
+                    }
+
+                    try
+                    {
+                        //mawa
+
+                        //try
+                        //{
+                        //    // INSERT_payment_entry refrence mawa
+                        //    string myID = "";
+                        //    SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
+                        //    SqlCommand cmd = new SqlCommand("show_payment_entry_ID", con);
+                        //    con.Open();
+                        //    cmd.Parameters.AddWithValue("customer", SelectCustomerDropDownList.SelectedItem.Text);
+                        //    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                        //    myID = cmd.ExecuteScalar().ToString();
+                        //    cmd.ExecuteNonQuery();
+                        //    con.Close();
+                        //}
+                        //catch (Exception)
+                        //{
+
+                        //    throw;
+                        //}
+                    }
+                    catch (Exception)
+                    {
+
+                        throw;
                     }
 
                     try
