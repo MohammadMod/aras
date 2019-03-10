@@ -16,8 +16,17 @@ namespace Aras
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            if (!Permit.isAllowed(Permessions.AllUsers))
+            try
+            {
+                if (Session["username"] != null)  // has user logged in?
+                    ;   
+                else
+                    throw new Exception();
+            }
+            catch
+            {
                 Response.Redirect("Login.aspx");
+            }
             if (!IsPostBack)
             {
                 bd.wareHouseName(wareHouseDropDownList);

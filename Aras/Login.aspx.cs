@@ -77,12 +77,8 @@ namespace Aras
                     Application["Name"] = UserNameTextBox.Text;
 
                     bool isAdmin = (bool)dt.Rows[0]["Admin"];
-
-                    if (isAdmin)
-                        Permit.currentPermission = Permessions.OnlyAdmin;
-                    else
-                        Permit.currentPermission = Permessions.AllUsers;
-
+                    Session["username"] = UserNameTextBox;
+                    Session["isadmin"] = isAdmin;
                     //Application.Add()
                     Response.Redirect("/");
 

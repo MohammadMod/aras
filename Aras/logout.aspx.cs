@@ -23,10 +23,6 @@ namespace Aras
             {
 
             }
-            finally
-            {
-                Permit.currentPermission = Permessions.Public;
-            }
 
         }
     }
