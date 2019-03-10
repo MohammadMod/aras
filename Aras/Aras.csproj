@@ -481,7 +481,6 @@
     <Compile Include="NewSupplier.aspx.designer.cs">
       <DependentUpon>NewSupplier.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Permession.cs" />
     <Compile Include="Print.aspx.cs">
       <DependentUpon>Print.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
