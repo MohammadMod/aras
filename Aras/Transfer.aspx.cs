@@ -68,12 +68,10 @@ namespace Aras
                 SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
                 SqlCommand cmd = new SqlCommand("INSERT_Transfer", con);
                 con.Open();
-                
-                cmd.Parameters.AddWithValue("sours_warehouse_ID", fromWareHouseDropDownList.SelectedIndex);
-                cmd.Parameters.AddWithValue("Target_warehouse_ID", toWareHouseDropDownList.SelectedIndex);
+                cmd.Parameters.AddWithValue("sours_warehouse_ID", fromWareHouseDropDownList.SelectedItem.Text);
+                cmd.Parameters.AddWithValue("Target_warehouse_ID", toWareHouseDropDownList.SelectedItem.Text);
                 cmd.Parameters.AddWithValue("quantityas", float.Parse(TranseferAmountTextBox.Text));
                 cmd.Parameters.AddWithValue("Date_time", DateTime.Now);
-
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 cmd.ExecuteNonQuery();
                 con.Close();

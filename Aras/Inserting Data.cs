@@ -36,7 +36,7 @@ namespace Aras
                 cmd.Parameters.AddWithValue("Totall", rate * amount);
                 cmd.Parameters.AddWithValue("Totall_All", rate * amount - discount);
 
-                cmd.Parameters.AddWithValue("warehouse_ID", wareHouseId.SelectedIndex);
+                cmd.Parameters.AddWithValue("warehouse_ID", wareHouseId.SelectedItem.Text);
 
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 cmd.ExecuteNonQuery();
@@ -160,13 +160,13 @@ namespace Aras
                 SqlCommand cmd = new SqlCommand("INSERT_purchase_Invoce", con);
                 con.Open();
                 cmd.Parameters.AddWithValue("series", "");
-                cmd.Parameters.AddWithValue("Supplier_ID", selectSupplier.SelectedIndex);
+                cmd.Parameters.AddWithValue("Supplier_ID", selectSupplier.SelectedItem.Text);
                 cmd.Parameters.AddWithValue("Posting_date", Convert.ToDateTime(dateTime));
                 cmd.Parameters.AddWithValue("rate", rate);
                 cmd.Parameters.AddWithValue("amount", amount);
                 cmd.Parameters.AddWithValue("satute", "unpaid");
                 cmd.Parameters.AddWithValue("totall_amount", rate * amount);
-                cmd.Parameters.AddWithValue("warehouse_ID", wareHouseId.SelectedIndex);
+                cmd.Parameters.AddWithValue("warehouse_ID", wareHouseId.SelectedItem.Text);
 
                
 

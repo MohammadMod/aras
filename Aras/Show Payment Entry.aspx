@@ -90,7 +90,7 @@
                     runat="server" AutoGenerateColumns="False" DataKeyNames="Payment NO" DataSourceID="ShowPaymentEntry" AllowSorting="True">
                     <Columns>
                         <asp:BoundField DataField="Payment NO" HeaderText="Payment NO" InsertVisible="False" ReadOnly="True" SortExpression="Payment NO" />
-                        <asp:BoundField DataField="Customer" HeaderText="Customer" SortExpression="Customer" />
+                        <asp:BoundField DataField="Customer" HeaderText="مطعم" SortExpression="Customer" />
                         <asp:BoundField DataField="Type" HeaderText="Type" SortExpression="Type" />
                         <asp:BoundField DataField="Amount" HeaderText="Amount" SortExpression="Amount" />
                     </Columns>
