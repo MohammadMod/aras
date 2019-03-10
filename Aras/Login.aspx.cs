@@ -75,7 +75,7 @@ namespace Aras
                     Application["LoggedUserName"] = UserNameTextBox.Text;
 
                     bool isAdmin = (bool)dt.Rows[0]["Admin"];
-                    Session["username"] = UserNameTextBox;
+                    Session["username"] = UserNameTextBox.Text;
                     Session["isadmin"] = isAdmin;
                     //Application.Add()
                     Response.Redirect("/");

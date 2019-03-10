@@ -63,16 +63,17 @@
                             <a class="nav-link dropdown-toggle text-white-50" href="#" id="userDropdown" data-toggle="dropdown">
                                 <img src="image/avatar.jpeg" class="avatar img-fluid rounded-circle mr-1" alt="Chris Wood">
                                 <span class="text-white-50">
-                                      <%--<asp:Label ID="label2"  runat="server"  text=""></asp:Label>--%>
+                            <%--<asp:Label ID="label2"  runat="server"  text=""></asp:Label>--%>
+                            <asp:Label ID="UserName" runat="server"></asp:Label>
                                 </span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right " aria-labelledby="userDropdown">
-
+                               
                                 <a class="dropdown-item text-right" href="#">
                                     <i class="align-middle mr-1 " data-feather="user"></i>زانیاری زیاتر</a>
                                 <a class="dropdown-item text-right " href="#"><i class="align-middle mr-1" data-feather="pie-chart"></i>Analytics</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item text-right" href="#">چوونە دەرەوە</a>
+                                <a class="dropdown-item text-right" href="/logout">چوونە دەرەوە</a>
 
                             </div>
                         </li>

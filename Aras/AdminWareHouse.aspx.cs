@@ -35,7 +35,7 @@ namespace Aras
             {
                 Response.Redirect("Login.aspx");
             }
-
+            UserName.Text = string.Format(" {0} {1} ",  Session["username"].ToString(), "بە خێر بیێ");
             //try
             //{
             //    HttpCookie myCookie = Request.Cookies["savedCookie"];
