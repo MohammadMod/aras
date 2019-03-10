@@ -54,9 +54,7 @@ namespace Aras
             try
             {
                
-                
-
-                SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
+                 SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
 
                 SqlCommand cmd = new SqlCommand("login_search", con);
                 cmd.Parameters.AddWithValue("complite_name", UserNameTextBox.Text);
@@ -74,7 +72,7 @@ namespace Aras
                 if (dt.Rows.Count > 0)
                 {
                     FormsAuthentication.RedirectFromLoginPage(PasswordTextBox.Text,true);
-                    Application["Name"] = UserNameTextBox.Text;
+                    Application["LoggedUserName"] = UserNameTextBox.Text;
 
                     bool isAdmin = (bool)dt.Rows[0]["Admin"];
                     Session["username"] = UserNameTextBox;

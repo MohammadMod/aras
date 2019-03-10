@@ -11,8 +11,10 @@ namespace Aras
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Response.Write("Welcome: " + Session["username"].ToString());
+            
 
- 
+
         }
     }
 }
