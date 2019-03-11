@@ -12,16 +12,17 @@ namespace Aras
     {
         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
         public string alertIsAvilable { set; get; }
-        public void InsertToNewInvoice(DropDownList series, DropDownList customer, float rate, float amount, DateTime date, float discount,DropDownList wareHouseId)
+        public void InsertToNewInvoice(DropDownList series, DropDownList customer, float rate, float amount, DateTime date, float discount,DropDownList wareHouseId, string username)
         {
             #region for new invoice form inserting data to db
             try
             {
+
                 SqlCommand cmd = new SqlCommand("INSERT_sales_Invoce", con);
 
                 con.Open();
 
-                cmd.Parameters.AddWithValue("series", series.SelectedItem.Text);
+                cmd.Parameters.AddWithValue("series", username);
                 cmd.Parameters.AddWithValue("Customer", customer.SelectedItem.Text);
 
                 cmd.Parameters.AddWithValue("rate", rate);

@@ -14,6 +14,7 @@ namespace Aras
     {
         Inserting_Data inD = new Inserting_Data();
         BindingData bd = new BindingData();
+        string username = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -22,6 +23,8 @@ namespace Aras
                     ;
                 else
                     throw new Exception();
+               username = Session["username"].ToString();
+
 
             }
             catch
@@ -88,7 +91,7 @@ namespace Aras
                 cmdd.ExecuteNonQuery();
                 conn.Close();
 
-                inD.InsertToNewInvoice(SeriesDropDownList, SelectCustomerDropDownList, float.Parse(KiloTextBox.Text), float.Parse(CostOfKiloTextBox.Text), DateTime.Now, float.Parse(DiscountTextBox.Text), ChoseWareHouseDropDownList);
+                inD.InsertToNewInvoice(SeriesDropDownList, SelectCustomerDropDownList, float.Parse(KiloTextBox.Text), float.Parse(CostOfKiloTextBox.Text), DateTime.Now, float.Parse(DiscountTextBox.Text), ChoseWareHouseDropDownList,username);
                 #endregion
 
                 

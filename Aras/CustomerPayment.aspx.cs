@@ -150,9 +150,12 @@ namespace Aras
                 {
                     try
                     {
+                        string username =  Session["username"].ToString();
+
                         string data = Request.Form[RecivePlusInAccountTextBox.UniqueID];
                         string moneyInDibt = Request.Form[MoneyInAccountTextBox.UniqueID];
-
+                        TextBox tb = this.Page.FindControl("MoneyInAccountTextBox") as TextBox;
+                        string myData = tb.Text;
 
                         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
                         #region MyRegion
@@ -162,10 +165,10 @@ namespace Aras
                         cmd.Parameters.AddWithValue("payment_type", "parawargrtn");
                         cmd.Parameters.AddWithValue("Costomer_ID", SelectCustomerDropDownList.SelectedItem.Text);
                         cmd.Parameters.AddWithValue("posting_date", DateTime.Now);
-                        cmd.Parameters.AddWithValue("party_balance", float.Parse(moneyInDibt));
+                        cmd.Parameters.AddWithValue("party_balance", Int64.Parse(myData));
                         cmd.Parameters.AddWithValue("difference_amount", float.Parse(data));
                         cmd.Parameters.AddWithValue("unallocated_amount", float.Parse(ReciveFromSupplierTextBox.Text));
-                        cmd.Parameters.AddWithValue("Series", DBNull.Value);
+                        cmd.Parameters.AddWithValue("Series", username);
 
                         cmd.CommandType = System.Data.CommandType.StoredProcedure;
                         cmd.ExecuteNonQuery();
@@ -182,7 +185,6 @@ namespace Aras
                     }
                     catch (Exception)
                     {
-
                         Response.Write("<script language=javascript>alert('Error in inserting');</script>");
                     }
 
@@ -254,10 +256,7 @@ namespace Aras
                 {
                     Response.Write("<script language=javascript>alert('An Error occurred or may invalid data entered, please try again ');</script>");
                 }
-                finally
-                {
-                    Response.Redirect("/CustomerPayment.aspx");
-                }
+           
 
             }
             //delete from Sales_invoce where ID=11

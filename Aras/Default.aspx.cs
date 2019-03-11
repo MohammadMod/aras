@@ -11,7 +11,15 @@ namespace Aras
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Response.Write("Welcome: " + Session["username"].ToString());
+            try
+            {
+                Response.Write("Welcome: " + Session["username"].ToString());
+            }
+            catch (Exception)
+            {
+
+                Response.Redirect("login.aspx");
+            }
             
 
 
