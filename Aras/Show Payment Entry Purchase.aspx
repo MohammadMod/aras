@@ -80,25 +80,51 @@
       <hr/>
     </section>
     
-    
+
     <div class="container">
-            <div class="border p-3">
-                <form id="form1" runat="server">
-                    <asp:GridView ID="GridView1" CssClass="table table-stripet table-bordered table-hover table-responsive-md text-center"
-                        runat="server" AutoGenerateColumns="False" DataKeyNames="Purchase_ID" DataSourceID="SupplierPaymentEntry">
-                        <Columns>
-                            <asp:BoundField DataField="Purchase_ID" HeaderText="Purchase_ID" InsertVisible="False" ReadOnly="True" SortExpression="Purchase_ID" />
-                            <asp:BoundField DataField="supplier" HeaderText="supplier" SortExpression="supplier" />
-                            <asp:BoundField DataField="Date" HeaderText="Date" SortExpression="Date" />
-                            <asp:BoundField DataField="rate" HeaderText="rate" SortExpression="rate" />
-                            <asp:BoundField DataField="totall_amount" HeaderText="totall_amount" SortExpression="totall_amount" />
-                            <asp:BoundField DataField="satute" HeaderText="satute" SortExpression="satute" />
-                        </Columns>
-                    </asp:GridView>
-                    <asp:SqlDataSource ID="SupplierPaymentEntry" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="show_purchase_Invoices" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
-                </form>
+        <form id="form1" runat="server">
+            <div class="form-row ">
+
+                <div class="col-6 col-sm-6 col-md-6 col-lg-6 my-1">
+                    <div class="input-group">
+                        <asp:TextBox ID="SearchTextBox" placeholder="..گەران" CssClass="form-control form-control-lg styleK" runat="server" onkeyup="Search_Gridview(this, 'ShowSalesInvoicesGridView')"></asp:TextBox>
+
+                        <%--<div class="input-group-prepend">
+
+                                
+
+                        </div>--%>
+                    </div>
+                </div>
+
+                <div class="col-6 col-sm-6 col-md-6 col-lg-6 my-1 text-right">
+
+                    <asp:Button ID="NewPushesButton" runat="server" CssClass="btn btn-primary btn-sm styleK" OnClick="NewPushesButton_Click"  Text="وەسلی نوێ" />
+                    
+                    
+
+                </div>
             </div>
-        </div>
+
+            <div class="border p-3">
+
+                <asp:GridView ID="GridView1" CssClass="table table-stripet table-bordered table-hover table-responsive-md text-center"
+                    runat="server" AutoGenerateColumns="False" DataKeyNames="Purchase_ID" DataSourceID="SupplierPaymentEntry">
+                    <Columns>
+                        <asp:BoundField DataField="Purchase_ID" HeaderText="Purchase_ID" InsertVisible="False" ReadOnly="True" SortExpression="Purchase_ID" />
+                        <asp:BoundField DataField="supplier" HeaderText="supplier" SortExpression="supplier" />
+                        <asp:BoundField DataField="Date" HeaderText="Date" SortExpression="Date" />
+                        <asp:BoundField DataField="rate" HeaderText="rate" SortExpression="rate" />
+                        <asp:BoundField DataField="totall_amount" HeaderText="totall_amount" SortExpression="totall_amount" />
+                        <asp:BoundField DataField="satute" HeaderText="satute" SortExpression="satute" />
+                    </Columns>
+                </asp:GridView>
+                <asp:SqlDataSource ID="SupplierPaymentEntry" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="show_purchase_Invoices" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
+            </div>
+        </form>
+    </div>
+   
+    
     <script src="js/app.js"></script>
 
     <script src="js/vendor/jquery-2.2.4.min.js"></script>

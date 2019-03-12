@@ -109,13 +109,24 @@
         <hr />
     </section>
 
+
     <div class="container">
         <form id="form1" runat="server">
-            <div class="row mb-2">
-                <div class="col-12 text-right">
+
+            <div class="form-row ">
+
+                <div class="col-6 col-sm-6 col-md-6 col-lg-6 my-1">
+                    <div class="input-group">
+                        <asp:TextBox ID="SearchTextBox" placeholder="..گەران" CssClass="form-control form-control-lg styleK" runat="server" ></asp:TextBox>
+                    </div>
+                </div>
+
+                <div class="col-6 col-sm-6 col-md-6 col-lg-6 my-1 text-right">       
                     <asp:Button ID="newButton" CssClass="btn btn-success btn-sm styleK " runat="server" OnClick="newButton_Click" Text="ناردن " />
                 </div>
             </div>
+
+
             <div class="border p-2">
                 <asp:GridView ID="GridView1" runat="server" 
                     CssClass="table table-stripet table-bordered table-hover table-responsive-md text-center">

@@ -134,7 +134,7 @@ $(document).ready(function () {
                 <div class="col-6 col-sm-6 col-md-6 col-lg-6 my-1">
                     <div class="input-group">
                         <asp:TextBox ID="SearchTextBox" placeholder="..گەران" CssClass="form-control form-control-lg styleK" runat="server" onkeyup="Search_Gridview(this, 'ShowSalesInvoicesGridView')" ></asp:TextBox>
-
+                        
                         <%--<div class="input-group-prepend">
 
                                 
