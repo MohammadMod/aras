@@ -99,18 +99,7 @@
                     </div>
                 </div> <%-- customer --%>
 
-              <%--  <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3">
-                    <div class="case-wrapper" data-name="Item" data-link="List/Item" title="Item">
-                        <a href="Payment_Entry.aspx">
-                            <div class="app-icon_dolar app-icon-bluelight" title="Item">
-                                <i class="fas fa-dollar-sign" title="Item"></i>
-                            </div>
-                        </a>
-                        <div class="case-label ellipsis">
-                            <span class="case-label-text">Payment Entry</span>
-                        </div>
-                    </div>
-                </div>--%>
+                
 
             
                 
@@ -293,7 +282,18 @@
                 </div>
                 --%>
 
-
+                <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3">
+                    <div class="case-wrapper" data-name="Item" data-link="List/Item" title="مەسروفات">
+                        <a href="/Show Expinces.aspx">
+                            <div class="app-icon_dolar app-icon-red-2" title="مەسروفات">
+                                <i class="fas fa-dollar-sign" title="مەسروفات"></i>
+                            </div>
+                        </a>
+                        <div class="case-label ellipsis">
+                            <span class="case-label-text">مەسروفات</span>
+                        </div>
+                    </div>
+                </div>
 
 
                 <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3">

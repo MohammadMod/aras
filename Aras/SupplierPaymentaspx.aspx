@@ -152,7 +152,7 @@
 
                     <div class="container">
                         <asp:GridView ID="GridView1" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AutoGenerateColumns="true"
-                            CssClass="table table-stripet table-bordered table-hover table-responsive-md text-center" AllowPaging="True" AllowSorting="True" Width="312px" DataSourceID="purchaseinvoicehasnopaymententry">
+                            CssClass="table table-stripet table-bordered table-hover table-responsive-md text-center" AllowPaging="True" AllowSorting="True" DataSourceID="purchaseinvoicehasnopaymententry">
                             <Columns>
                                 <asp:CommandField SelectText="واسل كردن" ShowSelectButton="True" />
                             </Columns>

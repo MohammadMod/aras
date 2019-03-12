@@ -168,6 +168,8 @@
     background-color: #F8DBD0;
 }
 
+
+
 .app-icon-green-2 {
     background-color: #03DAC6;
 }
@@ -182,6 +184,10 @@
 .app-icon-red{
     background-color: #C0392B;
 }
+.app-icon-red-2 {
+    background-color: #ec407a;
+}
+
 .app-icon-grelight{
     background-color: #7F8C8D;
 }

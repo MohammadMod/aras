@@ -44,5 +44,10 @@ namespace Aras
                 }
             }
         }
+
+        protected void NewExpinsive_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Expenses");
+        }
     }
 }
