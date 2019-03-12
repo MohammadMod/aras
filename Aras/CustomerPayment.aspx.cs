@@ -146,116 +146,154 @@ namespace Aras
             }
             else
             {
+
                 try
                 {
-                    try
-                    {
-                        string username =  Session["username"].ToString();
+                    string username = Session["username"].ToString();
+                    string data = Request.Form[RecivePlusInAccountTextBox.UniqueID];
+                    string moneyInDibt = Request.Form[MoneyInAccountTextBox.UniqueID];
+                    TextBox tb = this.Page.FindControl("MoneyInAccountTextBox") as TextBox;
+                    string myData = tb.Text;
 
-                        string data = Request.Form[RecivePlusInAccountTextBox.UniqueID];
-                        string moneyInDibt = Request.Form[MoneyInAccountTextBox.UniqueID];
-                        TextBox tb = this.Page.FindControl("MoneyInAccountTextBox") as TextBox;
-                        string myData = tb.Text;
+                    SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
+                    #region MyRegion
+                    SqlCommand cmd = new SqlCommand("INSERT_payment_entry", con);
+                    con.Open();
 
-                        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
-                        #region MyRegion
-                        SqlCommand cmd = new SqlCommand("INSERT_payment_entry", con);
-                        con.Open();
+                    cmd.Parameters.AddWithValue("payment_type", "parawargrtn");
+                    cmd.Parameters.AddWithValue("Costomer_ID", SelectCustomerDropDownList.SelectedItem.Text);
+                    cmd.Parameters.AddWithValue("posting_date", DateTime.Now);
+                    cmd.Parameters.AddWithValue("party_balance", Int64.Parse(myData));
+                    cmd.Parameters.AddWithValue("difference_amount", float.Parse(data));
+                    cmd.Parameters.AddWithValue("unallocated_amount", float.Parse(ReciveFromSupplierTextBox.Text));
+                    cmd.Parameters.AddWithValue("Series", username);
 
-                        cmd.Parameters.AddWithValue("payment_type", "parawargrtn");
-                        cmd.Parameters.AddWithValue("Costomer_ID", SelectCustomerDropDownList.SelectedItem.Text);
-                        cmd.Parameters.AddWithValue("posting_date", DateTime.Now);
-                        cmd.Parameters.AddWithValue("party_balance", Int64.Parse(myData));
-                        cmd.Parameters.AddWithValue("difference_amount", float.Parse(data));
-                        cmd.Parameters.AddWithValue("unallocated_amount", float.Parse(ReciveFromSupplierTextBox.Text));
-                        cmd.Parameters.AddWithValue("Series", username);
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+                catch (Exception)
+                {
+                    Response.Write("<script language=javascript>alert('Error in inserting to payment entry ');</script>");
 
-                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                        cmd.ExecuteNonQuery();
-                        con.Close();
-
-
-                       
-
-
+                }
 
 
+
+
+                #region insert payment entry refrence
+                try
+                {
+                    TextBox tbb = this.Page.FindControl("totalAllTextBox") as TextBox;
+                    string myDataa = tbb.Text;
+
+                    GridViewRow row = GridView1.SelectedRow;
+
+                    string bil_no = row.Cells[9].Text.ToString();
+                    string total_amount = row.Cells[4].Text.ToString();
+
+                    float paray_draw = float.Parse(ReciveFromSupplierTextBox.Text);
+                    float total_la_wasl = float.Parse(total_amount);
+
+                    float outstanding_amount = total_la_wasl - paray_draw;
+
+                    string payment_entry_id;
+                    SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
+
+                    //show payment entry id
+                    SqlCommand cmddd = new SqlCommand("show_payment_entry_ID", con);
+                    con.Open();
+                    cmddd.Parameters.AddWithValue("customer_Name", SelectCustomerDropDownList.SelectedItem.Text);
+                    cmddd.CommandType = System.Data.CommandType.StoredProcedure;
+                    payment_entry_id = cmddd.ExecuteScalar().ToString();
+                    cmddd.ExecuteNonQuery();
+                    con.Close();
+
+                    SqlCommand cmdd = new SqlCommand("INSERT_payment_entry_refrence", con);
+                    con.Open();
+
+                    cmdd.Parameters.AddWithValue("refrence_name", "sales invoice");
+                    cmdd.Parameters.AddWithValue("bill_no", bil_no);
+                    cmdd.Parameters.AddWithValue("totall_amount", float.Parse(total_amount));
+                    cmdd.Parameters.AddWithValue("allocated_amount", float.Parse(ReciveFromSupplierTextBox.Text));
+                    cmdd.Parameters.AddWithValue("outstanding_amount", outstanding_amount);
+                    cmdd.Parameters.AddWithValue("Pyment_entry_ID", payment_entry_id);
+
+                    cmdd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmdd.ExecuteNonQuery();
+                    con.Close();
+                }
+                catch (Exception)
+                {
+                    Response.Write("<script language=javascript>alert('Error in inserting to payment entry refrence ');</script>");
+                }
+
+
+
+
+
+
+                #endregion
+
+                //mawa
+
+                //try
+                //{
+                //    // INSERT_payment_entry refrence mawa
+                //    string myID = "";
+                //    SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
+                //    SqlCommand cmd = new SqlCommand("show_payment_entry_ID", con);
+                //    con.Open();
+                //    cmd.Parameters.AddWithValue("customer", SelectCustomerDropDownList.SelectedItem.Text);
+                //    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                //    myID = cmd.ExecuteScalar().ToString();
+                //    cmd.ExecuteNonQuery();
+                //    con.Close();
+                //}
+                //catch (Exception)
+                //{
+
+                //    throw;
+                //}
+
+
+                #region update sales invoice where the costumer select invoice
+                try
+                {
+                    //update statues in sales invice
+                    SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
+
+                    GridViewRow roww = GridView1.SelectedRow;
+
+                    SqlCommand cmdddd = new SqlCommand("Update_sales_invoice", con);
+                    con.Open();
+
+
+                    cmdddd.Parameters.AddWithValue("Sales_invoice_ID", int.Parse(roww.Cells[9].Text));
+                    cmdddd.Parameters.AddWithValue("Customer", SelectCustomerDropDownList.SelectedItem.Text);
+                    cmdddd.Parameters.AddWithValue("para", float.Parse(ReciveFromSupplierTextBox.Text));
+
+
+                    cmdddd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmdddd.ExecuteNonQuery();
+                    con.Close();
+                    GridView1.DataBind();
+                }
+                catch (Exception)
+                {
+
+                    Response.Write("<script language=javascript>alert('Error in updating sales invoice ');</script>");
+                }
+               
 
                         #endregion
-                    }
-                    catch (Exception)
-                    {
-                        Response.Write("<script language=javascript>alert('Error in inserting');</script>");
-                    }
-
-                    try
-                    {
-                        //mawa
-
-                        //try
-                        //{
-                        //    // INSERT_payment_entry refrence mawa
-                        //    string myID = "";
-                        //    SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
-                        //    SqlCommand cmd = new SqlCommand("show_payment_entry_ID", con);
-                        //    con.Open();
-                        //    cmd.Parameters.AddWithValue("customer", SelectCustomerDropDownList.SelectedItem.Text);
-                        //    cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                        //    myID = cmd.ExecuteScalar().ToString();
-                        //    cmd.ExecuteNonQuery();
-                        //    con.Close();
-                        //}
-                        //catch (Exception)
-                        //{
-
-                        //    throw;
-                        //}
-                    }
-                    catch (Exception)
-                    {
-
-                        throw;
-                    }
-
-                    try
-                    {
-                        #region update sales invoice where the costumer select invoice
-
-                        //update statues in sales invice
-                        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
-
-                        GridViewRow row = GridView1.SelectedRow;
-
-                        SqlCommand cmdd = new SqlCommand("Update_sales_invoice", con);
-                        con.Open();
-
-
-                        cmdd.Parameters.AddWithValue("Sales_invoice_ID", int.Parse(row.Cells[9].Text));
-                        cmdd.Parameters.AddWithValue("Customer", SelectCustomerDropDownList.SelectedItem.Text);
-                        cmdd.Parameters.AddWithValue("para", float.Parse(ReciveFromSupplierTextBox.Text));
-
-
-                        cmdd.CommandType = System.Data.CommandType.StoredProcedure;
-                        cmdd.ExecuteNonQuery();
-                        con.Close();
-                        GridView1.DataBind();
-
-                        #endregion
-                    }
-                    catch (Exception)
-                    {
-
-                        Response.Write("<script language=javascript>alert('Error in updating the statues');</script>");
-                    }
+                    
 
                    
 
 
-                }
-                catch (Exception)
-                {
-                    Response.Write("<script language=javascript>alert('An Error occurred or may invalid data entered, please try again ');</script>");
-                }
+                
+             
            
 
             }
@@ -292,3 +330,4 @@ namespace Aras
         }
     }
 }
+#endregion

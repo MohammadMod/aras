@@ -10,16 +10,17 @@ using System.Web.UI.WebControls;
 
 namespace Aras
 {
-    public partial class Show_Payment_Entry : System.Web.UI.Page
+    public partial class Show_Expinces : System.Web.UI.Page
     {
         SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("Show_payment_entry", conn);
+                SqlCommand cmd = new SqlCommand("show_expens", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
@@ -42,7 +43,6 @@ namespace Aras
                     GridView1.Rows[0].Cells[0].Text = "No Records Found";
                 }
             }
-               
         }
     }
 }

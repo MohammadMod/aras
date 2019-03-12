@@ -10,7 +10,7 @@
 namespace Aras {
     
     
-    public partial class Show_Payment_Entry {
+    public partial class Show_Expinces {
         
         /// <summary>
         /// form1 control.
