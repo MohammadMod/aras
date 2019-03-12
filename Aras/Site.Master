@@ -73,13 +73,13 @@
                 
                 <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3" id="purchaseShow" runat="server">
                     <div class="case-wrapper" data-name="Item" data-link="List/Item" title="Item">
-                        <a href="Purchase.aspx">
+                        <a href="/Show Payment Entry Purchase.aspx">
                             <div class="app-icon app-icon-purple" title="كرینی ماسی">
                                 <i class="fas fa-fish" title="كرینی ماسی"></i>
                             </div>
                         </a>
                         <div class="case-label ellipsis">
-                            <span class="case-label-text">كرینی ماسی</span>
+                            <span class="case-label-text">پسولەی کرین</span>
                         </div>
                     </div>
                 </div>
@@ -278,6 +278,7 @@
                 <%-- Create Warehouse --%>
 
                 
+                <%--            
                 <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3">
                     <div class="case-wrapper" data-name="Item" data-link="List/Item" title="پشاندانی کرین لە فرۆشیار">
                         <a href="/Show Payment Entry Purchase">
@@ -290,6 +291,7 @@
                         </div>
                     </div>
                 </div>
+                --%>
 
 
 
@@ -297,7 +299,7 @@
                 <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3">
                     <div class="case-wrapper" data-name="Item" data-link="List/Item" title="بینینی وەسلی رەشکردنەوە">
                         <a href="/ShowDeletedInvoices">
-                            <div class="app-icon app-icon-Cyan" title="بینینی وەسلی رەشکردنەوە">
+                            <div class="app-icon app-icon-green-3" title="بینینی وەسلی رەشکردنەوە">
                                 <i class="fas fa-trash ani" title="بینینی وەسلی رەشکردنەوە"></i>
                             </div>
                         </a>

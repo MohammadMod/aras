@@ -13,5 +13,11 @@ namespace Aras
         {
 
         }
+
+
+        protected void NewPushesButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Purchase");
+        }
     }
 }
