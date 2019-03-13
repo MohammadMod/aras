@@ -109,17 +109,8 @@
             <div class="border p-3">
 
                 <asp:GridView ID="GridView1" CssClass="table table-stripet table-bordered table-hover table-responsive-md text-center"
-                    runat="server" AutoGenerateColumns="False" DataKeyNames="Purchase_ID" DataSourceID="SupplierPaymentEntry">
-                    <Columns>
-                        <asp:BoundField DataField="Purchase_ID" HeaderText="Purchase_ID" InsertVisible="False" ReadOnly="True" SortExpression="Purchase_ID" />
-                        <asp:BoundField DataField="supplier" HeaderText="supplier" SortExpression="supplier" />
-                        <asp:BoundField DataField="Date" HeaderText="Date" SortExpression="Date" />
-                        <asp:BoundField DataField="rate" HeaderText="rate" SortExpression="rate" />
-                        <asp:BoundField DataField="totall_amount" HeaderText="totall_amount" SortExpression="totall_amount" />
-                        <asp:BoundField DataField="satute" HeaderText="satute" SortExpression="satute" />
-                    </Columns>
+                    runat="server" AutoGenerateColumns="True" AllowPaging="True" AllowSorting="True">
                 </asp:GridView>
-                <asp:SqlDataSource ID="SupplierPaymentEntry" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="show_purchase_Invoices" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
             </div>
         </form>
     </div>

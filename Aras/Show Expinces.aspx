@@ -96,6 +96,7 @@
             <div class="border p-3">
                 <asp:GridView ID="GridView1" CssClass="table table-stripet table-bordered table-hover table-responsive-md text-center"  runat="server">
                 </asp:GridView>
+                
             </div>
 
         </form>

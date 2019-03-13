@@ -17,8 +17,7 @@ namespace Aras
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
+          
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("show_expens", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -42,7 +41,7 @@ namespace Aras
                     GridView1.Rows[0].Cells[0].ColumnSpan = columncount;
                     GridView1.Rows[0].Cells[0].Text = "No Records Found";
                 }
-            }
+            
         }
 
         protected void NewExpinsive_Click(object sender, EventArgs e)
