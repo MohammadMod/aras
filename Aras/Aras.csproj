@@ -220,6 +220,7 @@
     <Content Include="Inserting Data.html" />
     <Content Include="NewInvoiceForSupplier.aspx" />
     <Content Include="Print.aspx" />
+    <Content Include="Report.aspx" />
     <Content Include="SearchInGrids.js" />
     <Content Include="js\app.js" />
     <Content Include="js\bar-chart.js" />
@@ -511,6 +512,13 @@
     </Compile>
     <Compile Include="RegisterUsers.aspx.designer.cs">
       <DependentUpon>RegisterUsers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Report.aspx.cs">
+      <DependentUpon>Report.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Report.aspx.designer.cs">
+      <DependentUpon>Report.aspx</DependentUpon>
     </Compile>
     <Compile Include="Show Expinces.aspx.cs">
       <DependentUpon>Show Expinces.aspx</DependentUpon>

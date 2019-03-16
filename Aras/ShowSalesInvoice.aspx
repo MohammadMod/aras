@@ -164,9 +164,6 @@ $(document).ready(function () {
                             <HeaderTemplate>
                                 <asp:CheckBox ID="cbDeleteHeader" runat="server" AutoPostBack="True" />
                             </HeaderTemplate>
-                            <ItemTemplate>
-                                <asp:CheckBox ID="cbDelete" runat="server" AutoPostBack="True" />
-                            </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
            

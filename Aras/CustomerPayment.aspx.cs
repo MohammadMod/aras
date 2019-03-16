@@ -14,6 +14,7 @@ namespace Aras
     {
         BindingData bd = new BindingData();
         bool updateSalesInvoiceToPay = false;
+        string username = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -22,6 +23,7 @@ namespace Aras
                     ;
                 else
                     throw new Exception();
+                username = Session["username"].ToString();
 
             }
             catch
@@ -33,7 +35,8 @@ namespace Aras
             {
                 //SubmitButton.Enabled = false;
                 //ReciveFromSupplierTextBox.Enabled = false;
-                bd.CustomerDropDown(SelectCustomerDropDownList); 
+                bd.CustomerDropDown(SelectCustomerDropDownList);
+
             }
         }
 
@@ -149,7 +152,6 @@ namespace Aras
 
                 try
                 {
-                    string username = Session["username"].ToString();
                     string data = Request.Form[RecivePlusInAccountTextBox.UniqueID];
                     string moneyInDibt = Request.Form[MoneyInAccountTextBox.UniqueID];
                     TextBox tb = this.Page.FindControl("MoneyInAccountTextBox") as TextBox;
