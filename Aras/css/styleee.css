@@ -16,8 +16,12 @@
     text-shadow: .5px 1px 3px rgb(5,240,10);
 }
 
-.fs-1{
-    font-size:8px !important;
+.mt-6 {
+    margin-top: 2.2rem !important;
+}
+
+.fs-1 {
+    font-size: 8px !important;
 }
 
 .fs-2 {
