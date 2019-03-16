@@ -195,6 +195,7 @@
     <Content Include="css\styleee.css" />
     <Content Include="css\themify-icons.css" />
     <Content Include="css\typography.css" />
+    <Content Include="Customer credit report.aspx" />
     <Content Include="CustomerPayment.aspx" />
     <Content Include="Customers.aspx" />
     <Content Include="Default.aspx" />
@@ -416,6 +417,13 @@
     </Compile>
     <Compile Include="CreateWareHouse.aspx.designer.cs">
       <DependentUpon>CreateWareHouse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customer credit report.aspx.cs">
+      <DependentUpon>Customer credit report.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer credit report.aspx.designer.cs">
+      <DependentUpon>Customer credit report.aspx</DependentUpon>
     </Compile>
     <Compile Include="CustomerPayment.aspx.cs">
       <DependentUpon>CustomerPayment.aspx</DependentUpon>
