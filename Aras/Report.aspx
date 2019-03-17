@@ -101,7 +101,7 @@
                     <label for="dtp_input1" class="control-label">کاتی دەست پێک</label>
                     <div class="input-group date form_datetime" data-date="" data-date-format="yyyy-mm-dd" data-link-field="dtp_input1">
 
-                        <asp:TextBox ID="Date_start" placeholder="دەست پێك" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="start_date_txt" placeholder="دەست پێك" CssClass="form-control" runat="server"></asp:TextBox>
                         <div class="input-group-prepend">
                             <span class="input-group-text"><span class="fas fa-calendar-alt"></span></span>
                             <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
@@ -114,7 +114,7 @@
                     <label for="dtp_input1" class="control-label">تا کاتی</label>
                     <div class="input-group date form_datetime" data-date="" data-date-format="yyyy-mm-dd" data-link-field="dtp_input1">
 
-                        <asp:TextBox ID="TextBox1" placeholder="دەست پێك" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="end_date_txt" placeholder="دەست پێك" CssClass="form-control" runat="server"></asp:TextBox>
                         <div class="input-group-prepend">
                             <span class="input-group-text"><span class="fas fa-calendar-alt"></span></span>
                             <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
@@ -128,26 +128,21 @@
 
                     <asp:DropDownList CssClass="form-control " Style="padding-top: 0; padding-bottom: 0; font-size: 16px;"
                         ID="periodDropDownList" runat="server">
-                        <asp:ListItem  Selected="True">daily</asp:ListItem>
-                        <asp:ListItem>Monthly</asp:ListItem>
+                        <asp:ListItem  Selected="True">رۆژانە</asp:ListItem>
+                        <asp:ListItem>مانگانە</asp:ListItem>
                     </asp:DropDownList>
                 </div>
                 <div class="col-6 col-sm-6 col-md-6 col-lg-3">
                     <label for="statuesDropDownList" class="col-form-label styleK">جۆری وەسڵ</label>
                      
                     <asp:DropDownList ID="statuesDropDownList" CssClass="form-control " Style="padding-top: 0; padding-bottom: 0; font-size: 16px;" runat="server">
-                        <asp:ListItem>paid</asp:ListItem>
-                        <asp:ListItem>unpaid</asp:ListItem>
+                        <asp:ListItem>واصل</asp:ListItem>
+                        <asp:ListItem>غير واصل</asp:ListItem>
                     </asp:DropDownList>
                 </div>
             </div>
             <div>
-                From:
             </div>
-            <asp:Calendar ID="Calendar1" runat="server"></asp:Calendar>
-            <br />
-            To:<br />
-            <asp:Calendar ID="Calendar2" runat="server"></asp:Calendar>
       
 
          

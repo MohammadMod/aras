@@ -22,22 +22,22 @@ namespace Aras {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Date_start control.
+        /// start_date_txt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Date_start;
+        protected global::System.Web.UI.WebControls.TextBox start_date_txt;
         
         /// <summary>
-        /// TextBox1 control.
+        /// end_date_txt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox end_date_txt;
         
         /// <summary>
         /// periodDropDownList control.
@@ -56,24 +56,6 @@ namespace Aras {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList statuesDropDownList;
-        
-        /// <summary>
-        /// Calendar1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar Calendar1;
-        
-        /// <summary>
-        /// Calendar2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar Calendar2;
         
         /// <summary>
         /// GridView1 control.

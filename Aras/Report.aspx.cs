@@ -19,16 +19,37 @@ namespace Aras
 
         protected void submitButton_Click(object sender, EventArgs e)
         {
+            string period = "";
+            string statues = "";
+
+            if (periodDropDownList.SelectedIndex==0)
+            {
+                period = "daily";
+            }
+            else
+            {
+                period = "Monthly";
+            }
+
+            if (statuesDropDownList.SelectedIndex==0)
+            {
+                statues = "paid";
+            }
+            else
+            {
+                statues = "unpaid";
+            }
+
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
             SqlCommand cmdaa = new SqlCommand("sales_invoce_report", conn);
             SqlDataAdapter da = new SqlDataAdapter(cmdaa);
             da.SelectCommand.CommandType = CommandType.StoredProcedure;
             //first paramenter: parameter name, second parameter: parameter value of object type
             //using this way you can add more parameters
-            da.SelectCommand.Parameters.AddWithValue("priod", periodDropDownList.SelectedItem.Text);
-            da.SelectCommand.Parameters.AddWithValue("from", Calendar1.SelectedDate.Date);
-            da.SelectCommand.Parameters.AddWithValue("to", Calendar2.SelectedDate.Date);
-            da.SelectCommand.Parameters.AddWithValue("stauts", statuesDropDownList.SelectedItem.Text);
+            da.SelectCommand.Parameters.AddWithValue("priod", period);
+            da.SelectCommand.Parameters.AddWithValue("from", Convert.ToDateTime(start_date_txt.Text).Date);
+            da.SelectCommand.Parameters.AddWithValue("to", Convert.ToDateTime(end_date_txt.Text).Date);
+            da.SelectCommand.Parameters.AddWithValue("stauts", statues);
 
             DataSet ds = new DataSet();
             da.Fill(ds);
