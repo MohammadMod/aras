@@ -139,6 +139,23 @@ namespace Aras
                     con.Close();
                     GridView1.DataBind();
 
+
+                    TextBox tbb = this.Page.FindControl("MoneyInAccountTextBox") as TextBox;
+                    string myDataa = tbb.Text;
+                    SqlCommand cmd = new SqlCommand("insert_to_pay_to_account", con);
+
+                    con.Open();
+
+                    cmd.Parameters.AddWithValue("username", username);
+                    cmd.Parameters.AddWithValue("depit_amount",Int64.Parse(myDataa));
+                    cmd.Parameters.AddWithValue("recieved_amount", Int64.Parse(ReciveFromSupplierTextBox.Text));
+                    cmd.Parameters.AddWithValue("resturant_name", SelectCustomerDropDownList.SelectedItem.Text);
+                    cmd.Parameters.AddWithValue("date", DateTime.Now.Date);
+
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+
                     Response.Redirect("/CustomerPayment.aspx");
                 }
                 catch (Exception)
@@ -179,7 +196,43 @@ namespace Aras
                     Response.Write("<script language=javascript>alert('Error in inserting to payment entry ');</script>");
 
                 }
+                try
+                {
+                    float totalAllInInvoice = 0;
+                    float receiveAmount = float.Parse(ReciveFromSupplierTextBox.Text);
+                    GridViewRow row = GridView1.SelectedRow;
 
+                    totalAllInInvoice = float.Parse(row.Cells[4].Text);
+                    int invoiceID = int.Parse(row.Cells[9].Text);
+
+                    if (receiveAmount-totalAllInInvoice!=0)
+                    {
+                        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
+
+              
+                        SqlCommand cmd = new SqlCommand("insert_to_pay_twice_invoice", con);
+
+                        con.Open();
+
+                        cmd.Parameters.AddWithValue("username", username);
+                        cmd.Parameters.AddWithValue("resturant_name", SelectCustomerDropDownList.SelectedItem.Text);
+                        cmd.Parameters.AddWithValue("invoiceID", invoiceID);
+                        cmd.Parameters.AddWithValue("total_in_invoce", totalAllInInvoice);
+                        cmd.Parameters.AddWithValue("recived_amount", Int64.Parse(ReciveFromSupplierTextBox.Text));
+                        cmd.Parameters.AddWithValue("date", DateTime.Now.Date);
+
+                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+
+                        Response.Redirect("/CustomerPayment.aspx");
+                    }
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
 
 
 

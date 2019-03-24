@@ -278,8 +278,10 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Show Expinces.aspx" />
+    <Content Include="show in account invoices.aspx" />
     <Content Include="Show Payment Entry Purchase.aspx" />
     <Content Include="Show Payment Entry.aspx" />
+    <Content Include="show twice paid invoices.aspx" />
     <Content Include="ShowDeletedInvoices.aspx" />
     <Content Include="ShowSalesInvoice.aspx" />
     <Content Include="ShowTransfer.aspx" />
@@ -537,6 +539,13 @@
     <Compile Include="Show Expinces.aspx.designer.cs">
       <DependentUpon>Show Expinces.aspx</DependentUpon>
     </Compile>
+    <Compile Include="show in account invoices.aspx.cs">
+      <DependentUpon>show in account invoices.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="show in account invoices.aspx.designer.cs">
+      <DependentUpon>show in account invoices.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Show Payment Entry Purchase.aspx.cs">
       <DependentUpon>Show Payment Entry Purchase.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -550,6 +559,13 @@
     </Compile>
     <Compile Include="Show Payment Entry.aspx.designer.cs">
       <DependentUpon>Show Payment Entry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="show twice paid invoices.aspx.cs">
+      <DependentUpon>show twice paid invoices.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="show twice paid invoices.aspx.designer.cs">
+      <DependentUpon>show twice paid invoices.aspx</DependentUpon>
     </Compile>
     <Compile Include="ShowDeletedInvoices.aspx.cs">
       <DependentUpon>ShowDeletedInvoices.aspx</DependentUpon>
