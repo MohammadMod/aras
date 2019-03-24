@@ -151,6 +151,20 @@ $(document).ready(function () {
                     
                 </div>
             </div>
+            <hr />
+            <div class="form-row pb-2">
+                <div class="col-3 col-sm-3 col-md-3 col-lg-3 my-1">
+                    <asp:DropDownList ID="DropDownList1" runat="server" CssClass="form-control invois_multK" Style="padding-top: 0; padding-bottom: 0; font-size: 12px;">
+                        
+                    </asp:DropDownList>
+                </div>
+
+                <div class="col-3 col-sm-3 col-md-3 col-lg-3 my-1">
+                    <asp:DropDownList ID="DropDownList2" runat="server" CssClass="form-control invois_multK" Style="padding-top: 0; padding-bottom: 0; font-size: 12px;">
+                        
+                    </asp:DropDownList>
+                </div>
+            </div>
 
             <div class="border p-3">
             
@@ -168,6 +182,21 @@ $(document).ready(function () {
                     </Columns>
            
                 </asp:GridView>
+                <hr />
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="amountTextBox" class="col-form-label styleK">غێر وا‌سڵ </label>
+                            <asp:TextBox ID="amountTextBox" ReadOnly="true" TextMode="Number" CssClass="form-control form-control-lg" runat="server"></asp:TextBox>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="amountTextBox" class="col-form-label styleK">واسڵ</label>
+                            <asp:TextBox ID="TextBox1" ReadOnly="true" TextMode="Number" CssClass="form-control form-control-lg" runat="server"></asp:TextBox>
+                        </div>
+                    </div>
+                </div>
             </div>
         </form>
     </div>
