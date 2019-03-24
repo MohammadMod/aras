@@ -154,13 +154,15 @@ $(document).ready(function () {
             <hr />
             <div class="form-row pb-2">
                 <div class="col-3 col-sm-3 col-md-3 col-lg-3 my-1">
-                    <asp:DropDownList ID="DropDownList1" runat="server" CssClass="form-control invois_multK" Style="padding-top: 0; padding-bottom: 0; font-size: 12px;">
+                    <asp:DropDownList ID="DropDownList1" runat="server" CssClass="form-control invois_multK" Style="padding-top: 0; padding-bottom: 0; font-size: 12px;" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+                        <asp:ListItem>غير واصل</asp:ListItem>
+                        <asp:ListItem>واصل</asp:ListItem>
                         
                     </asp:DropDownList>
                 </div>
 
                 <div class="col-3 col-sm-3 col-md-3 col-lg-3 my-1">
-                    <asp:DropDownList ID="DropDownList2" runat="server" CssClass="form-control invois_multK" Style="padding-top: 0; padding-bottom: 0; font-size: 12px;">
+                    <asp:DropDownList ID="DropDownList2" runat="server" CssClass="form-control invois_multK" Style="padding-top: 0; padding-bottom: 0; font-size: 12px;" AutoPostBack="True" OnSelectedIndexChanged="DropDownList2_SelectedIndexChanged">
                         
                     </asp:DropDownList>
                 </div>
@@ -187,13 +189,13 @@ $(document).ready(function () {
                     <div class="col-6">
                         <div class="form-group">
                             <label for="amountTextBox" class="col-form-label styleK">غێر وا‌سڵ </label>
-                            <asp:TextBox ID="amountTextBox" ReadOnly="true" TextMode="Number" CssClass="form-control form-control-lg" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="unpaidTextBox" ReadOnly="true" TextMode="Number" CssClass="form-control form-control-lg" runat="server"></asp:TextBox>
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="form-group">
                             <label for="amountTextBox" class="col-form-label styleK">واسڵ</label>
-                            <asp:TextBox ID="TextBox1" ReadOnly="true" TextMode="Number" CssClass="form-control form-control-lg" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="paidTextBox" ReadOnly="true" TextMode="Number" CssClass="form-control form-control-lg" runat="server"></asp:TextBox>
                         </div>
                     </div>
                 </div>

@@ -85,21 +85,21 @@ namespace Aras {
         protected global::System.Web.UI.WebControls.GridView ShowSalesInvoicesGridView;
         
         /// <summary>
-        /// amountTextBox control.
+        /// unpaidTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox amountTextBox;
+        protected global::System.Web.UI.WebControls.TextBox unpaidTextBox;
         
         /// <summary>
-        /// TextBox1 control.
+        /// paidTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox paidTextBox;
     }
 }

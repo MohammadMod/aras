@@ -18,6 +18,7 @@ namespace Aras
         {
             if (!IsPostBack)
             {
+
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("Show_payment_entry", conn);
                 cmd.CommandType = CommandType.StoredProcedure;

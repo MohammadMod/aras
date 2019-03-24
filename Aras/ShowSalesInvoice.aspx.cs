@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -24,6 +25,9 @@ namespace Aras
                 try
                 {
                     bd.showSalesInvoice(ShowSalesInvoicesGridView);
+                    bd.CustomerDropDown(DropDownList2);
+
+
                 }
                 catch (Exception)
                 {
@@ -148,6 +152,93 @@ namespace Aras
         protected void payment_entry_Click(object sender, EventArgs e)
         {
             Response.Redirect("/CustomerPayment.aspx");
+        }
+
+        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
+
+            if (DropDownList1.SelectedIndex==1)
+            {
+
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("showInvoices_paid", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                conn.Close();
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    ShowSalesInvoicesGridView.DataSource = ds;
+                    ShowSalesInvoicesGridView.DataBind();
+                }
+                else
+                {
+                    ds.Tables[0].Rows.Add(ds.Tables[0].NewRow());
+                    ShowSalesInvoicesGridView.DataSource = ds;
+                    ShowSalesInvoicesGridView.DataBind();
+                    int columncount = ShowSalesInvoicesGridView.Rows[0].Cells.Count;
+                    ShowSalesInvoicesGridView.Rows[0].Cells.Clear();
+                    ShowSalesInvoicesGridView.Rows[0].Cells.Add(new TableCell());
+                    ShowSalesInvoicesGridView.Rows[0].Cells[0].ColumnSpan = columncount;
+                    ShowSalesInvoicesGridView.Rows[0].Cells[0].Text = "No Records Found";
+                }
+
+            }
+            else
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("showInvoices", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                conn.Close();
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    ShowSalesInvoicesGridView.DataSource = ds;
+                    ShowSalesInvoicesGridView.DataBind();
+                }
+                else
+                {
+                    ds.Tables[0].Rows.Add(ds.Tables[0].NewRow());
+                    ShowSalesInvoicesGridView.DataSource = ds;
+                    ShowSalesInvoicesGridView.DataBind();
+                    int columncount = ShowSalesInvoicesGridView.Rows[0].Cells.Count;
+                    ShowSalesInvoicesGridView.Rows[0].Cells.Clear();
+                    ShowSalesInvoicesGridView.Rows[0].Cells.Add(new TableCell());
+                    ShowSalesInvoicesGridView.Rows[0].Cells[0].ColumnSpan = columncount;
+                    ShowSalesInvoicesGridView.Rows[0].Cells[0].Text = "No Records Found";
+                }
+            }
+            DropDownList2.SelectedIndex = 0;
+        }
+
+        protected void DropDownList2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //unpaid invoices to grid view
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
+            SqlCommand cmdaa = new SqlCommand("showInvoices_customer", conn);
+            SqlDataAdapter da = new SqlDataAdapter(cmdaa);
+            da.SelectCommand.CommandType = CommandType.StoredProcedure;
+            //first paramenter: parameter name, second parameter: parameter value of object type
+            //using this way you can add more parameters
+            da.SelectCommand.Parameters.AddWithValue("customername", DropDownList2.SelectedItem.Text);
+            if (DropDownList1.SelectedIndex!=1)
+            {
+                da.SelectCommand.Parameters.AddWithValue("statue", "unpaid");
+
+            }
+            else
+            {
+                da.SelectCommand.Parameters.AddWithValue("statue", "paid");
+
+            }
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            ShowSalesInvoicesGridView.DataSource = ds;
+            ShowSalesInvoicesGridView.DataBind();
         }
     }
 }
