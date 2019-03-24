@@ -151,7 +151,11 @@
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.15);
 }
 .app-icon-ogrange{
-    background-color: #f39c12;
+    background-color: #f3cc12;
+}
+
+.app-icon-ogrange-1 {
+    background-color: #f3cc12;
 }
 .app-icon-green{
     background-color: #589494;
@@ -300,6 +304,19 @@
 }
 
 
+.fa-money-bill-wave {
+    font-size: 32px;
+    color: white;
+    transition: all .3s;
+    animation: moveInLeft-icon 1s ease-out;
+}
+
+.fa-money-bill-wave:hover {
+    color: rgb(73, 73, 78);
+    transform: scale(1.2);
+}
+
+
 .fa-user-plus {
     font-size: 32px;
     color: white;
@@ -326,6 +343,19 @@
 
 
 
+
+
+.fa-hand-scissors {
+    font-size: 2.6rem;
+    color: white;
+    transition: all .3s;
+    animation: moveInLeft-icon 1s ease-out;
+}
+
+.fa-hand-scissors:hover {
+        color: rgb(73, 73, 78);
+        transform: scale(1.2);
+}
 
 .fa-dollar-sign {
     font-size: 3.6rem;

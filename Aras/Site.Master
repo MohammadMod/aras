@@ -56,20 +56,7 @@
                 
                 
     
-<%--               <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3">
-                    <div class="case-wrapper" data-name="Item" data-link="List/Item" >
-                        <a href="NewCustomers.aspx">
-                        <div class="app-icon app-icon-purplelisht" title="زیاد کردنی چێشتخانە">
-                            <i class="fas fa-cart-plus" title="زیاد کردنی چێشتخانە"></i>
-                        </div>
-                            </a>
-                        <div class="case-label ellipsis">
-                            <span class="case-label-text">زیاد کردنی چێشتخانە</span>
-                        </div>
-                    </div>
-                </div> --%>
-                <%-- add customer --%>
-                
+               
                 
                 <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3" id="purchaseShow" runat="server">
                     <div class="case-wrapper" data-name="Item" data-link="List/Item" title="Item">
@@ -269,6 +256,38 @@
                     </div>
                 </div>
                 --%>
+
+                <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3">
+                    <div class="case-wrapper" data-name="Item" data-link="List/Item" >
+                        <a href="show twice paid invoices.aspx">
+                        <div class="app-icon app-icon-green" title="پسولەی دووجار">
+                            <i class="fas fa-hand-scissors" title="پسولەی دووجار"></i>
+
+                            
+                        </div>
+                            </a>
+                        <div class="case-label ellipsis">
+                            <span class="case-label-text">پسولەی دووجار</span>
+                        </div>
+                    </div>
+                </div>
+                <%-- show Invoise Account --%>
+                
+
+                <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3">
+                    <div class="case-wrapper" data-name="Item" data-link="List/Item" >
+                        <a href="show in account invoices.aspx">
+                        <div class="app-icon app-icon-ogrange-1" title="پسولەی قەرز">
+                            <i class="fas fa-money-bill-wave" title="پسولەی قەرز"></i>
+                        </div>
+                            </a>
+                        <div class="case-label ellipsis">
+                            <span class="case-label-text">پسولەی قەرز </span>
+                        </div>
+                    </div>
+                </div>
+                <%-- show Invoise Account --%>
+                
 
                 <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3">
                     <div class="case-wrapper" data-name="Item" data-link="List/Item" title="راپۆرت">
