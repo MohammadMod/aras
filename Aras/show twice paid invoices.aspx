@@ -98,7 +98,6 @@
             grid.rows[0].cells[5].innerText = 'كات';
             grid.rows[0].cells[6].innerText = 'ره قه مى وه سل';
 
-
 			return false;
 		}
 	</script>
