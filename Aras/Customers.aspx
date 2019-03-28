@@ -51,7 +51,7 @@
         }
     </style>
 </head>
-<body id="body_newcus" onload="startTime()">
+<body id="body_newcus" onload="startTime(); ChangeHeader(); add()">
     <div class="main">
         <nav class="navbar navbar-expand navbar-light bg-dark">
             <div class="container">
@@ -143,10 +143,45 @@
                         </asp:TemplateField>
                     </Columns>
                 </asp:GridView>
+                <hr />
+
+                <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="unpaidTextBox" class="col-form-label styleK">کۆی گشتی</label>
+                                <asp:TextBox ID="unpaidTextBox" ReadOnly="true" TextMode="Number" CssClass="form-control form-control-lg" runat="server"></asp:TextBox>
+                            </div>
+                        </div>
+                </div>
             </div>
         </form>
     </div>
 
+    
+    <script>
+        function ChangeHeader() {
+            var grid = document.getElementById('<%= CustomersGridView.ClientID %>');
+            grid.rows[0].cells[1].innerText = 'ناو';
+            grid.rows[0].cells[2].innerText = 'ناوی چێشتخانە';
+            grid.rows[0].cells[3].innerText = 'شوێن';
+            grid.rows[0].cells[4].innerText = 'رەقەم موبایڵ';
+            grid.rows[0].cells[5].innerText = 'رەقەم چێشتخانە';
+            grid.rows[0].cells[6].innerText = 'چاڵاکە';
+            grid.rows[0].cells[7].innerText = 'قەرز';
+
+            return false;
+        };
+
+        function add() {
+            var table = document.getElementById("CustomersGridView");
+            var sumVal = 0;
+            for (var i = 1; i < table.rows.length; i++) {
+                sumVal = sumVal + parseInt(table.rows[i].cells[7].innerHTML);
+            }
+            console.log(sumVal);
+            document.getElementById("unpaidTextBox").value = sumVal;
+        }
+    </script>
 
     <script src="js/app.js"></script>
     <script src="js/vendor/jquery-2.2.4.min.js"></script>

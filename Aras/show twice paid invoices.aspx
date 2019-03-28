@@ -28,6 +28,8 @@
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     <script src="js/HamaScripts.js"></script>
     <script src="SearchInGrids.js"></script>
+   
+
 </head>
 <body id="body_newcus" onload="startTime(); ChangeHeader()">
     <div class="main">
@@ -87,9 +89,10 @@
 
         </div>
     </form>
+
     <script>
-		function ChangeHeader() {
-			var grid = document.getElementById('<%= GridView1.ClientID %>');
+        function ChangeHeader() {
+            var grid = document.getElementById('<%= GridView1.ClientID %>');
             grid.rows[0].cells[0].innerText = 'سايق';
             grid.rows[0].cells[1].innerText = 'مطعم';
             grid.rows[0].cells[2].innerText = 'رقم وه سل';
@@ -98,9 +101,10 @@
             grid.rows[0].cells[5].innerText = 'كات';
             grid.rows[0].cells[6].innerText = 'ره قه مى وه سل';
 
-			return false;
-		}
-	</script>
+            return false;
+        }
+    </script>
+
     <script src="js/app.js"></script>
     <script src="js/vendor/jquery-2.2.4.min.js"></script>
     <!-- bootstrap 4 js -->

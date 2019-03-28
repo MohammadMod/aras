@@ -58,7 +58,7 @@
    
 </head>
 
-<body id="body_newcus" onload="startTime()">
+<body id="body_newcus" onload="startTime(); ChangeHeader()">
     <div class="main">
         <nav class="navbar navbar-expand navbar-light bg-dark">
             <div class="container">
@@ -149,7 +149,25 @@
             </div>
     </form>
         </div>
-     <script src="js/app.js"></script>
+    
+    
+    <script>
+        function ChangeHeader() {
+            var grid = document.getElementById('<%= ViewUsersGridView.ClientID %>');
+            grid.rows[0].cells[1].innerText = 'ناو';
+            grid.rows[0].cells[2].innerText = 'کۆتا ناو';
+            grid.rows[0].cells[3].innerText = 'رەقەم موبایڵ';
+            grid.rows[0].cells[4].innerText = 'شوێن';
+            grid.rows[0].cells[5].innerText = 'ناوی تەواوی';
+            grid.rows[0].cells[6].innerText = 'وشەی نهێنی';
+            grid.rows[0].cells[7].innerText = 'ئای دی';
+            grid.rows[0].cells[8].innerText = 'ئەدمین';
+
+            return false;
+        }
+    </script>
+
+    <script src="js/app.js"></script>
     <script src="js/vendor/jquery-2.2.4.min.js"></script>
     <!-- bootstrap 4 js -->
     <script src="js/popper.min.js"></script>
