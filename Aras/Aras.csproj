@@ -200,6 +200,7 @@
     <Content Include="CustomerPayment.aspx" />
     <Content Include="Customers.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="Driver Amount.aspx" />
     <Content Include="Expenses.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\About.aspx" />
@@ -455,6 +456,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Driver Amount.aspx.cs">
+      <DependentUpon>Driver Amount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Driver Amount.aspx.designer.cs">
+      <DependentUpon>Driver Amount.aspx</DependentUpon>
     </Compile>
     <Compile Include="Expenses.aspx.cs">
       <DependentUpon>Expenses.aspx</DependentUpon>
