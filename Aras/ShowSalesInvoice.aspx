@@ -158,6 +158,8 @@ $(document).ready(function () {
                         <asp:ListItem>غير واصل</asp:ListItem>
                         <asp:ListItem>واصل</asp:ListItem>
                         
+                        <asp:ListItem>مغلق</asp:ListItem>
+                        
                     </asp:DropDownList>
                 </div>
 

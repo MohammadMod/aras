@@ -158,11 +158,23 @@ namespace Aras
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
 
-            if (DropDownList1.SelectedIndex==1)
-            {
+        
 
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("showInvoices_paid", conn);
+                SqlCommand cmd = new SqlCommand("showinvoices_statue", conn);
+                if (DropDownList1.SelectedIndex==0)
+                {
+                    cmd.Parameters.AddWithValue("statue","unpaid");
+                }
+                if (DropDownList1.SelectedIndex==1)
+                {
+                    cmd.Parameters.AddWithValue("statue", "paid");
+                }
+                if (DropDownList1.SelectedIndex==2)
+                {
+                    cmd.Parameters.AddWithValue("statue", "close");
+
+                }
                 cmd.CommandType = CommandType.StoredProcedure;
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
@@ -185,33 +197,7 @@ namespace Aras
                     ShowSalesInvoicesGridView.Rows[0].Cells[0].Text = "No Records Found";
                 }
 
-            }
-            else
-            {
-                conn.Open();
-                SqlCommand cmd = new SqlCommand("showInvoices", conn);
-                cmd.CommandType = CommandType.StoredProcedure;
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-                conn.Close();
-                if (ds.Tables[0].Rows.Count > 0)
-                {
-                    ShowSalesInvoicesGridView.DataSource = ds;
-                    ShowSalesInvoicesGridView.DataBind();
-                }
-                else
-                {
-                    ds.Tables[0].Rows.Add(ds.Tables[0].NewRow());
-                    ShowSalesInvoicesGridView.DataSource = ds;
-                    ShowSalesInvoicesGridView.DataBind();
-                    int columncount = ShowSalesInvoicesGridView.Rows[0].Cells.Count;
-                    ShowSalesInvoicesGridView.Rows[0].Cells.Clear();
-                    ShowSalesInvoicesGridView.Rows[0].Cells.Add(new TableCell());
-                    ShowSalesInvoicesGridView.Rows[0].Cells[0].ColumnSpan = columncount;
-                    ShowSalesInvoicesGridView.Rows[0].Cells[0].Text = "No Records Found";
-                }
-            }
+
             DropDownList2.SelectedIndex = 0;
         }
 
