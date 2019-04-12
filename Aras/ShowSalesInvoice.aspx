@@ -133,7 +133,7 @@ $(document).ready(function () {
 
                 <div class="col-6 col-sm-6 col-md-6 col-lg-6 my-1">
                     <div class="input-group">
-                        <asp:TextBox ID="SearchTextBox" placeholder="..گەران" CssClass="form-control form-control-lg styleK" runat="server" onkeyup="Search_Gridview(this, 'ShowSalesInvoicesGridView')" ></asp:TextBox>
+                        <asp:TextBox ID="SearchTextBox" placeholder="..گەران" CssClass="form-control form-control-lg styleK" runat="server" onkeyup="Search_Gridview(this, 'ShowSalesInvoicesGridView'),add()" ></asp:TextBox>
                         
                         <%--<div class="input-group-prepend">
 
@@ -218,9 +218,10 @@ $(document).ready(function () {
             for (var i = 1; i < table.rows.length; i++) {
                 sumVal = sumVal + parseInt(table.rows[i].cells[4].innerHTML);
             }
-            console.log(sumVal);
+            console.log(table.rows.length);
             document.getElementById("unpaidTextBox").value = sumVal;
         }
+        
     </script>
 
     <script src="js/app.js"></script>
