@@ -196,7 +196,12 @@
     background-color: #ec407a;
 }
 
-.app-icon-grelight{
+.app-icon-red-3{
+    background-color: #e65100;
+}
+
+
+.app-icon-grelight {
     background-color: #7F8C8D;
 }
 
@@ -210,6 +215,9 @@
 
 .app-icon-brown {
     background-color: #757575;
+}
+.app-icon-brown-1 {
+    background-color: #8d6e63;
 }
 
 .app-icon-bluelight {
@@ -327,6 +335,34 @@
     color: rgb(73, 73, 78);
     transform: scale(1.2);
 }
+
+
+.fa-money-check-alt {
+    font-size: 32px;
+    color: white;
+    transition: all .3s;
+    animation: moveInLeft-icon 1s ease-out;
+}
+
+.fa-money-check-alt:hover {
+    color: rgb(73, 73, 78);
+    transform: scale(1.2);
+}
+
+.fa-smile {
+    font-size: 32px;
+    color: white;
+    transition: all .3s;
+    animation: moveInLeft-icon 1s ease-out;
+}
+
+.fa-smile:hover {
+    color: rgb(73, 73, 78);
+    transform: scale(1.2);
+}
+
+
+
 
 
 .fa-surprise {

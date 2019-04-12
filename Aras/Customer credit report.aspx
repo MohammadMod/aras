@@ -75,7 +75,7 @@
         <hr />
     </section>
 
-    <div class="container">
+    <div class="container mt-2">
         <form id="form1" runat="server">
             <div class="border p-2">
                 <asp:GridView ID="GridView1" runat="server"

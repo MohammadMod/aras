@@ -90,20 +90,7 @@
 
             
                 
-                
-   <%--             <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3" id="usersShow" runat="server">
-                    <div class="case-wrapper" data-name="Item" data-link="List/Item">
-                        <a href="Users.aspx">
-                            <div class="app-icon app-icon-yellow" title="شوفێرەکان">
-                                <span class="fas fa-user" title="شوفێرەکان"></span>
-                            </div>
-                        </a>
-                        <div class="case-label ellipsis">
-                            <span class="case-label-text">شوفێرەکان </span>
-                        </div>
-                    </div>
-                </div> --%>
-                <%-- Users show --%>
+          
 
                   
                 <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3" id="registerUser" runat="server">
@@ -198,19 +185,6 @@
                 </div> 
 
 
-                
-<%--                <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3">
-                    <div class="case-wrapper" data-name="Item" data-link="List/Item">
-                        <a href="/NewInvoiceForSupplier" class="imgpayment">
-                            <div class="app-icon_img app-img app-icon-pink" title="وەسل بۆ کڕیار">
-                                <img src="Image/Invoice.png" title="وەسل بۆ کڕیار">
-                            </div>
-                        </a>
-                        <div class="case-label ellipsis">
-                            <span class="case-label-text">وەسل بۆ کڕیار</span>
-                        </div>
-                    </div>
-                </div> <%-- payment supplier --%>
 
 
                 <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3">
@@ -288,6 +262,20 @@
                 </div>
                 <%-- show Invoise Account --%>
                 
+                <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3">
+                    <div class="case-wrapper" data-name="Item" data-link="List/Item" >
+                        <a href="Clolsing Invoices.aspx">
+                        <div class="app-icon app-icon-red-3" title="پارە ناردن">
+                            <i class="fas fa-money-check-alt" title="پارە ناردن"></i>
+                        </div>
+                            </a>
+                        <div class="case-label ellipsis">
+                            <span class="case-label-text">پارە ناردن</span>
+                        </div>
+                    </div>
+                </div>
+                <%-- show Invoise Closing --%>
+                
 
                 <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3">
                     <div class="case-wrapper" data-name="Item" data-link="List/Item" title="راپۆرت">
@@ -301,7 +289,24 @@
                         </div>
                     </div>
                 </div> 
-                <%-- show salis invoise --%>
+                <%-- show report  --%>
+
+
+                <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3">
+                    <div class="case-wrapper" data-name="Item" data-link="List/Item" title="راپۆرت">
+                        <a href="/Customer credit report">
+                            <div class="app-icon app-icon-brown-1" title="راپۆرتی چیشتخانە">
+                                <i class="far fa-smile ani" title="راپۆرتی چیشتخانە"></i>
+                            </div>
+                        </a>
+                        <div class="case-label ellipsis">
+                            <span class="case-label-text">راپۆرتی چیشتخانە</span>
+                        </div>
+                    </div>
+                </div> 
+                <%-- show report Customers--%>
+
+                
 
                 <div class="col-lg-3 col-md-3 col-sm-4 col-4 text-center my-3">
                     <div class="case-wrapper" data-name="Item" data-link="List/Item" title="مەسروفات">
