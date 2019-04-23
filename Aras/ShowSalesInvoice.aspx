@@ -226,8 +226,10 @@ $(document).ready(function () {
               </table>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
+              <button type="button" class="btn btn-warning">print</button>
+              <button type="button" class="btn btn-primary">Edit </button>
+              <button type="button" class="btn btn-danger">Delete</button>
+
             </div>
           </div>
         </div>
