@@ -153,6 +153,7 @@
                                 <asp:CheckBox ID="cbDelete" runat="server" AutoPostBack="True" />
                             </ItemTemplate>
                         </asp:TemplateField>
+                        <asp:CommandField SelectText="Edit" ShowSelectButton="True" />
                     </Columns>
                 </asp:GridView>
             </div>

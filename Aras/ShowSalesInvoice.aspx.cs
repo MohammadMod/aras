@@ -143,10 +143,11 @@ namespace Aras
 
         protected void ShowSalesInvoicesGridView_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Application["status"] = "update";
+
             GridViewRow gridViewRow = ShowSalesInvoicesGridView.SelectedRow;
-            Application["InvoiceName"] = gridViewRow.Cells[2].Text;
-            Response.Redirect("Transfer.aspx");
+            Application["salesinvoiceid"] = gridViewRow.Cells[2].Text;
+            Response.Redirect("New Invoice.aspx");
+
         }
 
         protected void payment_entry_Click(object sender, EventArgs e)

@@ -183,6 +183,7 @@ $(document).ready(function () {
                                 <asp:CheckBox ID="cbDeleteHeader" runat="server" AutoPostBack="True" />
                             </HeaderTemplate>
                         </asp:TemplateField>
+                        <asp:CommandField SelectText="Edit" ShowSelectButton="True" />
                     </Columns>
            
                 </asp:GridView>

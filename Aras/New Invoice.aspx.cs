@@ -14,64 +14,131 @@ namespace Aras
     {
         Inserting_Data inD = new Inserting_Data();
         BindingData bd = new BindingData();
+        SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
+
         string username = "";
+        string edit = "";
+        bool check = false;
+
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            #region checkLogedIn
+            //if (Session["username"] != null)  // has user logged in?
+            //    ;
+            //else
+            //    throw new Exception();
+            //username = Session["username"].ToString();
+            #endregion
+
+
+
+            #region update
             try
             {
-                if (Session["username"] != null)  // has user logged in?
-                    ;
-                else
-                    throw new Exception();
-               username = Session["username"].ToString();
+                edit = Application["salesinvoiceid"].ToString();
 
 
+                SqlCommand cmd = new SqlCommand("showInvoices_for_update", conn);
+                conn.Open();
+
+
+                cmd.Parameters.AddWithValue("ID", Int64.Parse(edit));
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                SqlDataReader dr = cmd.ExecuteReader();
+                dr.Read();
+                if (dr.HasRows)
+                {
+
+                    SelectCustomerDropDownList.SelectedValue = dr[0].ToString();
+                    ChoseWareHouseDropDownList.SelectedValue = dr[1].ToString();
+
+                    KiloTextBox.Text = dr[2].ToString();
+                    CostOfKiloTextBox.Text = dr[3].ToString();
+
+                    TotallTextBox.Text = dr[4].ToString();
+                    DiscountTextBox.Text = dr[5].ToString();
+
+
+                    TotallAllTextBox.Text = dr[6].ToString();
+
+
+                }
+                dr.Close();
             }
-            catch
+            catch (Exception)
             {
-                Response.Redirect("Login.aspx");
+
+                check = true;
             }
+            if (check==false)
+            {
+                SubmitNewInvoiceButton.Enabled = false;
+                UpdateButton.Enabled = true;
+
+                SubmitNewInvoiceButton.Visible = false;
+                UpdateButton.Visible = true;
+            }
+
+            else
+            {
+                SubmitNewInvoiceButton.Enabled = true;
+                UpdateButton.Enabled = false;
+
+                SubmitNewInvoiceButton.Visible = true;
+                UpdateButton.Visible = false;
+            }
+            
+          
+
+
+            #endregion
+
+
+
+
             if (!IsPostBack)
             {
 
-        
+
                 try
                 {
-                       bd.wareHouseName(ChoseWareHouseDropDownList);
+                    bd.wareHouseName(ChoseWareHouseDropDownList);
                 }
                 catch (Exception)
                 {
 
                 }
 
-            #region Hama reding the customer names form the db to the dropdown list
-            try
-            {
-                    Label1.Visible = false;
-                if (!IsPostBack)
+                #region Hama reding the customer names form the db to the dropdown list
+                try
                 {
-                    DataTable subjects = new DataTable();
+                    Label1.Visible = false;
+                    if (!IsPostBack)
+                    {
+                        DataTable subjects = new DataTable();
 
-                    SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
-                    SqlDataAdapter adapter = new SqlDataAdapter("SELECT [name] FROM [Customer]", con);
-                    adapter.Fill(subjects);
+                        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
+                        SqlDataAdapter adapter = new SqlDataAdapter("SELECT [name] FROM [Customer]", con);
+                        adapter.Fill(subjects);
 
-                    con.Open();
-                    SelectCustomerDropDownList.DataSource = subjects;
-                    SelectCustomerDropDownList.DataTextField = "name";
-                    SelectCustomerDropDownList.DataValueField = "name";
-                    SelectCustomerDropDownList.DataBind();
-                    SelectCustomerDropDownList.Items.Insert(0, new ListItem("Select", "NA"));
+                        con.Open();
+                        SelectCustomerDropDownList.DataSource = subjects;
+                        SelectCustomerDropDownList.DataTextField = "name";
+                        SelectCustomerDropDownList.DataValueField = "name";
+                        SelectCustomerDropDownList.DataBind();
+                        SelectCustomerDropDownList.Items.Insert(0, new ListItem("Select", "NA"));
 
-                    con.Close();
+                        con.Close();
 
+                    }
                 }
-            }
-            catch (Exception)
-            {
+                catch (Exception)
+                {
 
-                throw;
-            }
+                    throw;
+                }
 
             }
             #endregion
@@ -82,21 +149,29 @@ namespace Aras
            
             try
             {
-                #region Hama this region is for inserting to the database
-                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
-                SqlCommand cmdd = new SqlCommand("show_warehouse_quantity", conn);
-                conn.Open();
-                cmdd.Parameters.AddWithValue("warehouse_name", ChoseWareHouseDropDownList.SelectedItem.Text);
-                cmdd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmdd.ExecuteNonQuery();
-                conn.Close();
+                if (edit=="")
+                {
+                    #region Hama this region is for inserting to the database
+                    SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
+                    SqlCommand cmdd = new SqlCommand("show_warehouse_quantity", conn);
+                    conn.Open();
+                    cmdd.Parameters.AddWithValue("warehouse_name", ChoseWareHouseDropDownList.SelectedItem.Text);
+                    cmdd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmdd.ExecuteNonQuery();
+                    conn.Close();
 
-                inD.InsertToNewInvoice(SeriesDropDownList, SelectCustomerDropDownList, float.Parse(KiloTextBox.Text), float.Parse(CostOfKiloTextBox.Text), DateTime.Now, float.Parse(DiscountTextBox.Text), ChoseWareHouseDropDownList,username);
-                #endregion
+                    inD.InsertToNewInvoice(SeriesDropDownList, SelectCustomerDropDownList, float.Parse(KiloTextBox.Text), float.Parse(CostOfKiloTextBox.Text), DateTime.Now, float.Parse(DiscountTextBox.Text), ChoseWareHouseDropDownList, username);
+                    #endregion
 
-                
-                Response.Redirect("/CustomerPayment.aspx");
 
+                    Response.Redirect("/CustomerPayment.aspx");
+                }
+
+                else
+                {
+                    Response.Write("<script language=javascript>alert('You are not in new invoice mode please update ');</script>");
+
+                }
 
                 #region Hama this region is for printing the incoice
 
@@ -113,13 +188,7 @@ namespace Aras
             catch (Exception)
             {
                 #region Hama force the user to select a customer and fill the form correctly
-                //Label1.Visible = true;
-                //Label1.Text = "Please fill the form correctly";
-                //KiloTextBox.Text = "";
-                //CostOfKiloTextBox.Text = "";
-                //DiscountTextBox.Text = "";
-                //TotallTextBox.Text = "";
-                //TotallAllTextBox.Text = "";
+              
                 throw;
                 #endregion
             }
@@ -135,7 +204,24 @@ namespace Aras
 
         protected void UpdateButton_Click(object sender, EventArgs e)
         {
+            if (edit != "")
+            {
+                //SqlCommand cmd = new SqlCommand("SpMyProcedure", conn);
+                //cmd.CommandType = CommandType.StoredProcedure;
+                //cmd.Parameters.AddWithValue("@Action", "Update");
+                //cmd.Parameters.AddWithValue("@Name", txtName.Text);
+                //cmd.Parameters.AddWithValue("@Age", txtAge.Text);
+                //cmd.Parameters.AddWithValue("@Country", txtCountry.Text);
+                //cmd.Parameters.AddWithValue("@Id", txtId.Text);
+                //conn.Open();
+                //cmd.ExecuteNonQuery();
+                //conn.Close();
+            }
+            else
+            {
+                Response.Write("<script language=javascript>alert('You are not in updating mode please make new invoice');</script>");
 
+            }
         }
 
       

@@ -13,6 +13,11 @@ namespace Aras
     public partial class NewSupplier : System.Web.UI.Page
     {
         Inserting_Data inD = new Inserting_Data();
+        SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
+
+        string edit = "";
+        string disable = "";
+        bool check = false;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -20,20 +25,62 @@ namespace Aras
 
                 try
                 {
+                  edit= Application["suppliereditid"].ToString();
 
-                    //SupplierFullNameTextBox.Text = Application["namee"].ToString();
-                    //NewSupplierDepitMoneyTextBox.Text = Application["debit"].ToString();
-                    //SupplierLocationTextBox.Text = Application["location"].ToString();
-                    //SupplierPhoneNumberTextBox.Text = Application["phone_number"].ToString();
 
-                
+                    SqlCommand cmd = new SqlCommand("updateshow_supplier", conn);
+                    conn.Open();
+                    cmd.Parameters.AddWithValue("id",Int64.Parse(edit));
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                            SqlDataReader dr = cmd.ExecuteReader();
+                            dr.Read();
+                    if (dr.HasRows)
+                    {
+                        SupplierFullNameTextBox.Text = dr[0].ToString();
+                        NewSupplierDepitMoneyTextBox.Text = dr[2].ToString();
+                        SupplierLocationTextBox.Text = dr[3].ToString();
+                        disable = dr[4].ToString();
+                        SupplierPhoneNumberTextBox.Text = dr[5].ToString();
+
+
+                    }
+                            dr.Close();
+
+                    if (disable=="")
+                    {
+                        DisableCheckBox.Checked = true;
+                    }
+                    else
+                    {
+                        DisableCheckBox.Checked = false;
+                    }
+
+                   
+
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
+                    check = true;
+                }
+
+                if (check == true)
+                {
+                    updateButton.Enabled = false;
+                    updateButton.Visible = false;
+
+                    CreateNewSupplierButton.Enabled = true;
+                    CreateNewSupplierButton.Visible = true;
 
                 }
-              
-               
+                else
+                {
+                    updateButton.Enabled = true;
+                    updateButton.Visible = true;
+
+                    CreateNewSupplierButton.Enabled = false;
+                    CreateNewSupplierButton.Visible = false;
+                }
 
 
 
@@ -42,10 +89,11 @@ namespace Aras
 
         protected void CreateNewSupplierButton_Click(object sender, EventArgs e)
         {
+           
             string myId="";
             try
             {
-               myId  = Application["id"].ToString();
+               myId  = Application["suppliereditid"].ToString();
             }
             catch (Exception)
             {
@@ -85,10 +133,17 @@ namespace Aras
         protected void updateButton_Click(object sender, EventArgs e)
         {
             int disable = 0;
-
-            try
+            if (check==true)
             {
-             
+                Response.Write("<script language=javascript>alert('you are not in updating mode ');</script>");
+
+
+            }
+            else
+            {
+                try
+                {
+
                     if (DisableCheckBox.Checked)
                     {
                         disable = 1;
@@ -99,23 +154,23 @@ namespace Aras
                     }
                     SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
 
-                    string id = Application["id"].ToString();
+                    string id = Application["suppliereditid"].ToString();
                     conn.Open();
-                    SqlCommand cmd = new SqlCommand("update supplier set name='" + SupplierFullNameTextBox.Text + "',	debit='" + Int64.Parse(NewSupplierDepitMoneyTextBox.Text) + "',location='" + SupplierLocationTextBox.Text + "',disable='" + disable + "',phone_number='" + SupplierPhoneNumberTextBox.Text + "'where id='" + int.Parse(Application["id"].ToString()) + "'", conn);
+                    SqlCommand cmd = new SqlCommand("update supplier set name='" + SupplierFullNameTextBox.Text + "',	debit='" + Int64.Parse(NewSupplierDepitMoneyTextBox.Text) + "',location='" + SupplierLocationTextBox.Text + "',disable='" + disable + "',phone_number='" + SupplierPhoneNumberTextBox.Text + "'where id='" + int.Parse(Application["suppliereditid"].ToString()) + "'", conn);
                     cmd.ExecuteNonQuery();
                     conn.Close();
-                
-             
-                
+
+                    Response.Redirect("Suppliers.aspx");
+
+
+                }
+                catch (Exception)
+                {
+                    Response.Write("<script language=javascript>alert('You are not in updating mode');</script>");
+                }
+
             }
-            catch (Exception)
-            {
-                Response.Write("<script language=javascript>alert('You are not in updating mode');</script>");
-            }
-            Application["namee"] = "";
-            Application["debit"] = "";
-            Application["location"] = "";
-            Application["phone_number"] = "";
+
         }
     }
 }
