@@ -200,6 +200,43 @@ $(document).ready(function () {
         </form>
     </div>
 
+
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sizedModalLg">view</button>
+
+      <div class="modal fade" id="sizedModalLg" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">View Items </h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body m-3">
+              <table class="table table-stript">
+                <thead>
+                  <th>dawd</th>
+                  <th>dawd</th>
+                  <th>dawd</th>
+                </thead>
+                <tbody>
+                  <td>dawd</td>
+                  <td>omar</td>
+                  <td>omar</td>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-warning">print</button>
+              <button type="button" class="btn btn-primary">Edit </button>
+              <button type="button" class="btn btn-danger">Delete</button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
     <script>
         function ChangeHeader() {
             var grid = document.getElementById('<%= ShowSalesInvoicesGridView.ClientID %>');
