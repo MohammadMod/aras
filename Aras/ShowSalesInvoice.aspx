@@ -190,7 +190,6 @@ $(document).ready(function () {
                                 <asp:CheckBox ID="CheckBox1" runat="server" AutoPostBack="True" OnCheckedChanged="CheckBox1_CheckedChanged" />
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:CommandField SelectText="Edit" ShowSelectButton="True"  />
 
                     </Columns>
            

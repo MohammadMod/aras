@@ -100,16 +100,25 @@
                 <div class="col-6 col-sm-6 col-md-6 col-lg-6 my-1 text-right">
 
                     <asp:Button ID="NewPushesButton" runat="server" CssClass="btn btn-primary btn-sm styleK" OnClick="NewPushesButton_Click"  Text="وەسلی نوێ" />
-                    
+                    <asp:Button ID="ViewButton" runat="server" CssClass="btn btn-primary btn-sm styleK"  Text="View" OnClick="ViewButton_Click" />
+
                     
 
                 </div>
             </div>
+                                            
 
             <div class="border p-3">
 
                 <asp:GridView ID="GridView1" CssClass="table table-stripet table-bordered table-hover table-responsive-md text-center"
-                    runat="server" AutoGenerateColumns="True" AllowPaging="True" AllowSorting="True">
+                    runat="server" AllowSorting="True">
+                    <Columns>
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <asp:CheckBox ID="CheckBox1" runat="server" AutoPostBack="True" OnCheckedChanged="CheckBox1_CheckedChanged" />
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                    </Columns>
                 </asp:GridView>
                 <hr />
 
@@ -128,12 +137,12 @@
     <script>
         function ChangeHeader() {
             var grid = document.getElementById('<%= GridView1.ClientID %>');
-            grid.rows[0].cells[0].innerText = 'رەقەم وەسڵ';
-            grid.rows[0].cells[1].innerText = 'کریار';
-            grid.rows[0].cells[2].innerText = 'کات';
-            grid.rows[0].cells[3].innerText = 'کیڵۆ';
-            grid.rows[0].cells[4].innerText = 'کۆی گشتی';
-            grid.rows[0].cells[5].innerText = 'جۆری پارە';
+            grid.rows[0].cells[1].innerText = 'رەقەم وەسڵ';
+            grid.rows[0].cells[2].innerText = 'کریار';
+            grid.rows[0].cells[3].innerText = 'کات';
+            grid.rows[0].cells[4].innerText = 'کیڵۆ';
+            grid.rows[0].cells[5].innerText = 'کۆی گشتی';
+            grid.rows[0].cells[6].innerText = 'جۆری پارە';
             //grid.rows[0].cells[6].innerText = 'بەکارهێنەر';
 
             return false;

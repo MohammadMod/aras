@@ -15,11 +15,11 @@ namespace Aras
         BindingData bd = new BindingData();
         SmartDelete Deletor;
         SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
-        
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-           
+
+
 
             #region Bind data to ShowSalesInvoice gv
             if (!IsPostBack)
@@ -36,7 +36,7 @@ namespace Aras
 
                     throw;
                 }
-                
+
             }
             #endregion
             // HAMA  please enter the name of table here, i dont have access to db
@@ -55,10 +55,10 @@ namespace Aras
         {
             try
             {
-                
+
                 ShowSalesInvoicesGridView.EditIndex = e.NewEditIndex;
                 bd.showSalesInvoice(ShowSalesInvoicesGridView);
-               
+
             }
             catch (Exception)
             {
@@ -129,10 +129,10 @@ namespace Aras
 
         protected void ShowSalesInvoicesGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            
+
             try
             {
-                
+
                 ShowSalesInvoicesGridView.PageIndex = e.NewPageIndex;
                 bd.showSalesInvoice(ShowSalesInvoicesGridView);
             }
@@ -143,9 +143,9 @@ namespace Aras
             }
         }
 
- 
 
-    
+
+
 
         protected void ShowSalesInvoicesGridView_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -171,7 +171,7 @@ namespace Aras
             if (dr.HasRows)
             {
 
-               
+
 
 
                 Label1.Text = dr[0].ToString();
@@ -186,7 +186,8 @@ namespace Aras
 
                 Label7.Text = dr[6].ToString();
 
-              
+
+
             }
             dr.Close();
         }
@@ -200,44 +201,44 @@ namespace Aras
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
 
-        
 
-                conn.Open();
-                SqlCommand cmd = new SqlCommand("showinvoices_statue", conn);
-                if (DropDownList1.SelectedIndex==0)
-                {
-                    cmd.Parameters.AddWithValue("statue","unpaid");
-                }
-                if (DropDownList1.SelectedIndex==1)
-                {
-                    cmd.Parameters.AddWithValue("statue", "paid");
-                }
-                if (DropDownList1.SelectedIndex==2)
-                {
-                    cmd.Parameters.AddWithValue("statue", "close");
 
-                }
-                cmd.CommandType = CommandType.StoredProcedure;
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-                conn.Close();
-                if (ds.Tables[0].Rows.Count > 0)
-                {
-                    ShowSalesInvoicesGridView.DataSource = ds;
-                    ShowSalesInvoicesGridView.DataBind();
-                }
-                else
-                {
-                    ds.Tables[0].Rows.Add(ds.Tables[0].NewRow());
-                    ShowSalesInvoicesGridView.DataSource = ds;
-                    ShowSalesInvoicesGridView.DataBind();
-                    int columncount = ShowSalesInvoicesGridView.Rows[0].Cells.Count;
-                    ShowSalesInvoicesGridView.Rows[0].Cells.Clear();
-                    ShowSalesInvoicesGridView.Rows[0].Cells.Add(new TableCell());
-                    ShowSalesInvoicesGridView.Rows[0].Cells[0].ColumnSpan = columncount;
-                    ShowSalesInvoicesGridView.Rows[0].Cells[0].Text = "No Records Found";
-                }
+            conn.Open();
+            SqlCommand cmd = new SqlCommand("showinvoices_statue", conn);
+            if (DropDownList1.SelectedIndex == 0)
+            {
+                cmd.Parameters.AddWithValue("statue", "unpaid");
+            }
+            if (DropDownList1.SelectedIndex == 1)
+            {
+                cmd.Parameters.AddWithValue("statue", "paid");
+            }
+            if (DropDownList1.SelectedIndex == 2)
+            {
+                cmd.Parameters.AddWithValue("statue", "close");
+
+            }
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            conn.Close();
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                ShowSalesInvoicesGridView.DataSource = ds;
+                ShowSalesInvoicesGridView.DataBind();
+            }
+            else
+            {
+                ds.Tables[0].Rows.Add(ds.Tables[0].NewRow());
+                ShowSalesInvoicesGridView.DataSource = ds;
+                ShowSalesInvoicesGridView.DataBind();
+                int columncount = ShowSalesInvoicesGridView.Rows[0].Cells.Count;
+                ShowSalesInvoicesGridView.Rows[0].Cells.Clear();
+                ShowSalesInvoicesGridView.Rows[0].Cells.Add(new TableCell());
+                ShowSalesInvoicesGridView.Rows[0].Cells[0].ColumnSpan = columncount;
+                ShowSalesInvoicesGridView.Rows[0].Cells[0].Text = "No Records Found";
+            }
 
 
             DropDownList2.SelectedIndex = 0;
@@ -253,7 +254,7 @@ namespace Aras
             //first paramenter: parameter name, second parameter: parameter value of object type
             //using this way you can add more parameters
             da.SelectCommand.Parameters.AddWithValue("customername", DropDownList2.SelectedItem.Text);
-            if (DropDownList1.SelectedIndex!=1)
+            if (DropDownList1.SelectedIndex != 1)
             {
                 da.SelectCommand.Parameters.AddWithValue("statue", "unpaid");
 
@@ -287,14 +288,39 @@ namespace Aras
         }
         protected void Edit_Click(object sender, EventArgs e)
         {
-            Application["salesinvoiceid"] = Label8.Text;
             Response.Redirect("New Invoice.aspx");
 
 
         }
         protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
         {
-            viewModal(1);
+
+            string str = string.Empty;
+            string strname = string.Empty;
+            foreach (GridViewRow gvrow in ShowSalesInvoicesGridView.Rows)
+            {
+                CheckBox chk = (CheckBox)gvrow.FindControl("CheckBox1");
+                if (chk != null & chk.Checked)
+                {
+                    str = gvrow.Cells[1].Text;
+
+                }
+            }
+            try
+            {
+                int sid = int.Parse(str);
+                Application["salesinvoiceid"] = str;
+                Label8.Text = Application["salesinvoiceid"].ToString();
+                viewModal(sid);
+
+            }
+            catch (Exception)
+            {
+
+              
+            }
+          
+
         }
     }
 }

@@ -54,5 +54,15 @@ namespace Aras
         {
 
         }
+
+        protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void ViewButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
