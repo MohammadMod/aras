@@ -14,6 +14,8 @@ namespace Aras
     {
         BindingData bd = new BindingData();
         SmartDelete Deletor;
+        SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             
@@ -141,13 +143,52 @@ namespace Aras
             }
         }
 
+ 
+
+    
+
         protected void ShowSalesInvoicesGridView_SelectedIndexChanged(object sender, EventArgs e)
         {
+
 
             GridViewRow gridViewRow = ShowSalesInvoicesGridView.SelectedRow;
             Application["salesinvoiceid"] = gridViewRow.Cells[2].Text;
             Response.Redirect("New Invoice.aspx");
 
+        }
+
+        public void viewModal(int id)
+        {
+            SqlCommand cmd = new SqlCommand("showInvoices_for_update", conn);
+            conn.Open();
+
+
+            cmd.Parameters.AddWithValue("ID", id);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+            SqlDataReader dr = cmd.ExecuteReader();
+            dr.Read();
+            if (dr.HasRows)
+            {
+
+               
+
+
+                Label1.Text = dr[0].ToString();
+
+                Label2.Text = dr[1].ToString();
+
+                Label3.Text = dr[2].ToString();
+                Label4.Text = dr[3].ToString();
+
+                Label5.Text = dr[4].ToString();
+                Label6.Text = dr[5].ToString();
+
+                Label7.Text = dr[6].ToString();
+
+              
+            }
+            dr.Close();
         }
 
         protected void payment_entry_Click(object sender, EventArgs e)
@@ -226,6 +267,34 @@ namespace Aras
             da.Fill(ds);
             ShowSalesInvoicesGridView.DataSource = ds;
             ShowSalesInvoicesGridView.DataBind();
+        }
+
+        protected void ViewModalButton_Click(object sender, EventArgs e)
+        {
+
+
+            //Session["lbl2"] = dr[1].ToString();
+            //Session["lbl3"] = dr[2].ToString();
+            //Session["lbl4"] = dr[3].ToString();
+            //Session["lbl5"] = dr[4].ToString();
+            //Session["lbl6"] = dr[5].ToString();
+            //Session["lbl7"] = dr[6].ToString();
+
+            ViewModalButton.Attributes.Add("onclick", "return false;");
+
+
+
+        }
+        protected void Edit_Click(object sender, EventArgs e)
+        {
+            Application["salesinvoiceid"] = Label8.Text;
+            Response.Redirect("New Invoice.aspx");
+
+
+        }
+        protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            viewModal(1);
         }
     }
 }

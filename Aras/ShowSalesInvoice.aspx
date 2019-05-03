@@ -129,6 +129,7 @@ $(document).ready(function () {
         
         <form id="form1" runat="server">
 
+         
             <div class="form-row ">
 
                 <div class="col-6 col-sm-6 col-md-6 col-lg-6 my-1">
@@ -145,9 +146,12 @@ $(document).ready(function () {
 
                 <div class="col-6 col-sm-6 col-md-6 col-lg-6 my-1 text-right">       
                     
+
+    <asp:Button ID="ViewModalButton" runat="server" Text="View"  class="btn btn-primary" data-toggle="modal" data-target="#sizedModalLg" OnClick="ViewModalButton_Click"/>
+     
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       
+                    
                     <asp:Button ID="NewInvoiceButton" runat="server" CssClass="btn btn-primary btn-sm styleK" Text="وەسلی نوێ" OnClick="NewInvoiceButton_Click" />   
-                    <asp:Button ID="payment_entry" runat="server" CssClass="btn btn-info btn-sm styleK" Text="پارە وەرگرتن" OnClick="payment_entry_Click" />   
-                    <asp:Button ID="DeleteButton" CssClass="btn btn-danger btn-sm styleK" runat="server" Text="رەشکردنەوە" />
                     
                 </div>
             </div>
@@ -182,8 +186,12 @@ $(document).ready(function () {
                             <HeaderTemplate>
                                 <asp:CheckBox ID="cbDeleteHeader" runat="server" AutoPostBack="True" />
                             </HeaderTemplate>
+                            <ItemTemplate>
+                                <asp:CheckBox ID="CheckBox1" runat="server" AutoPostBack="True" OnCheckedChanged="CheckBox1_CheckedChanged" />
+                            </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:CommandField SelectText="Edit" ShowSelectButton="True" />
+                        <asp:CommandField SelectText="Edit" ShowSelectButton="True"  />
+
                     </Columns>
            
                 </asp:GridView>
@@ -197,13 +205,15 @@ $(document).ready(function () {
                     </div>
                 </div>
             </div>
-        </form>
     </div>
 
 
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sizedModalLg">view</button>
+    <div>
+       
+    </div>
 
-      <div class="modal fade" id="sizedModalLg" tabindex="-1" role="dialog" aria-hidden="true">
+
+      <div class="modal fade" id="sizedModalLg" tabindex="-1" role="dialog" aria-hidden="true" runat="server">
         <div class="modal-dialog modal-lg" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -212,29 +222,38 @@ $(document).ready(function () {
                 <span aria-hidden="true">&times;</span>
             </button>
             </div>
-            <div class="modal-body m-3">
-              <table class="table table-stript">
-                <thead>
-                  <th>dawd</th>
-                  <th>dawd</th>
-                  <th>dawd</th>
-                </thead>
-                <tbody>
-                  <td>dawd</td>
-                  <td>omar</td>
-                  <td>omar</td>
-                </tbody>
-              </table>
+            <div class="modal-body m-3" runat="server">
+                <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+                <br />
+                <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+                <br />
+                <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
+                <br />
+                <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
+                <br />
+                <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label>
+                <br />
+                <asp:Label ID="Label6" runat="server" Text="Label"></asp:Label>
+                <br />
+                <asp:Label ID="Label7" runat="server" Text="Label"></asp:Label>
+                <br />
+                <asp:Label ID="Label8" runat="server" Text="Label"></asp:Label>
+
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-warning">print</button>
-              <button type="button" class="btn btn-primary">Edit </button>
-              <button type="button" class="btn btn-danger">Delete</button>
+
+                <asp:Button ID="PrintButton" class="btn btn-warning" runat="server" Text="Print" />
+                <asp:Button ID="Edit" runat="server" CssClass="btn btn-info btn-sm styleK" Text="Edit" OnClick="Edit_Click" />   
+                <asp:Button ID="DeleteButton" CssClass="btn btn-danger btn-sm styleK" runat="server" Text="رەشکردنەوە" />
+
+
+              
 
             </div>
           </div>
         </div>
       </div>
+            </form>
 
 
     <script>

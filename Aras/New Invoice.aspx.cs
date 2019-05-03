@@ -72,6 +72,9 @@ namespace Aras
 
                 check = true;
             }
+         
+        
+
             if (check==false)
             {
                 SubmitNewInvoiceButton.Enabled = false;
@@ -89,8 +92,8 @@ namespace Aras
                 SubmitNewInvoiceButton.Visible = true;
                 UpdateButton.Visible = false;
             }
-            
-          
+
+            conn.Close();
 
 
             #endregion
@@ -204,21 +207,31 @@ namespace Aras
 
         protected void UpdateButton_Click(object sender, EventArgs e)
         {
+            
+           
+
+            SqlCommand cmd = new SqlCommand("Update_salesinvoice", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("ID", Convert.ToInt32(Application["salesinvoiceid"]));
+            cmd.Parameters.AddWithValue("rate", float.Parse(KiloTextBox.Text));
+            cmd.Parameters.AddWithValue("amount", float.Parse(CostOfKiloTextBox.Text));
+            cmd.Parameters.AddWithValue("discount", float.Parse(DiscountTextBox.Text));
+            cmd.Parameters.AddWithValue("Customer", Convert.ToString(SelectCustomerDropDownList.SelectedItem.Text));
+            cmd.Parameters.AddWithValue("Totall", float.Parse(TotallTextBox.Text));
+            cmd.Parameters.AddWithValue("Totall_All", float.Parse(TotallAllTextBox.Text));
+            cmd.Parameters.AddWithValue("warehouse_ID",Convert.ToString(ChoseWareHouseDropDownList.SelectedItem.Text));
+
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            conn.Close();
+
             if (edit != "")
             {
-                //SqlCommand cmd = new SqlCommand("SpMyProcedure", conn);
-                //cmd.CommandType = CommandType.StoredProcedure;
-                //cmd.Parameters.AddWithValue("@Action", "Update");
-                //cmd.Parameters.AddWithValue("@Name", txtName.Text);
-                //cmd.Parameters.AddWithValue("@Age", txtAge.Text);
-                //cmd.Parameters.AddWithValue("@Country", txtCountry.Text);
-                //cmd.Parameters.AddWithValue("@Id", txtId.Text);
-                //conn.Open();
-                //cmd.ExecuteNonQuery();
-                //conn.Close();
+
             }
             else
             {
+
                 Response.Write("<script language=javascript>alert('You are not in updating mode please make new invoice');</script>");
 
             }
