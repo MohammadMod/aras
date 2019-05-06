@@ -136,7 +136,7 @@
    
 
         <div class="modal fade" id="sizedModalLg" tabindex="-1" role="dialog" aria-hidden="true" runat="server">
-            <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-dialog modal-md" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">بینئنی پسولەی کرین</h5>
@@ -146,28 +146,81 @@
                     </div>
                     <div class="modal-body m-3" runat="server">
                         <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-                                </div>
-                                <div class="col-md-4">ناوی سایەق</div>
 
+                            <div class="row border">
+                                <div class="col-8">
+                                    <asp:Label ID="Label8" runat="server" Text="Label"></asp:Label>
+                                    
+                                </div>
+                                <div class="col-4 styleK">
+                                    رەقەم وەسڵ
+                                </div>
                             </div>
 
-                            <hr />
-                            <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
-                            <br />
-                            <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
-                            <br />
-                            <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
-                            <br />
-                            <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label>
-                            <br />
-                            <asp:Label ID="Label6" runat="server" Text="Label"></asp:Label>
-                            <br />
-                            <asp:Label ID="Label7" runat="server" Text="Label"></asp:Label>
-                            <br />
-                            <asp:Label ID="Label8" runat="server" Text="Label"></asp:Label>
+                            <div class="row border">
+                                <div class="col-8">
+                                  <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+                                </div>
+                                <div class="col-4 styleK">
+                                     ناوی کریار
+                                </div>
+                            </div>
+
+                            
+
+                            <div class="row border">
+                                <div class="col-8">
+                                     <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
+                                </div>
+                                <div class="col-4 styleK">
+                                     کیلۆ 
+                                </div>
+                            </div>
+
+                            <div class="row border">
+                                <div class="col-8">
+                                     <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label>
+                                </div>
+                                <div class="col-4 styleK">
+                                     کیلۆ 
+                                </div>
+                            </div>
+
+                            <div class="row border">
+                                <div class="col-8">
+                                    <asp:Label ID="Label6" runat="server" Text="Label"></asp:Label>     
+                                </div>
+                                <div class="col-4 styleK">
+                                     کیلۆ 
+                                </div>
+                            </div>
+
+                            <div class="row border">
+                                <div class="col-8">
+                                    <asp:Label ID="Label7" runat="server" Text="Label"></asp:Label>
+                                </div>
+                                <div class="col-4 styleK">
+                                     کیلۆ 
+                                </div>
+                            </div>
+
+                            <div class="row border">
+                                <div class="col-8">
+                                    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>        
+                                </div>
+                                <div class="col-4 styleK">
+                                     کیلۆ 
+                                </div>
+                            </div>
+
+                            <div class="row border">
+                                <div class="col-8">
+                                    <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
+                                </div>
+                                <div class="col-4 styleK">
+                                      کات
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="modal-footer">
