@@ -55,13 +55,73 @@ namespace Aras
 
         }
 
+        public void viewModal(int id)
+        {
+            SqlCommand cmd = new SqlCommand("showPurchase_invoice_for_update", conn);
+            conn.Open();
+
+
+            cmd.Parameters.AddWithValue("ID", id);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+            SqlDataReader dr = cmd.ExecuteReader();
+            dr.Read();
+            if (dr.HasRows)
+            {
+
+                Label1.Text = dr[0].ToString();
+
+                Label2.Text = dr[1].ToString();
+
+                Label3.Text = dr[2].ToString();
+                Label4.Text = dr[3].ToString();
+
+                Label5.Text = dr[4].ToString();
+                Label6.Text = dr[5].ToString();
+
+                Label7.Text = dr[6].ToString();
+                Label7.Text = dr[7].ToString();
+
+
+            }
+            dr.Close();
+        }
         protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
         {
+            string str = string.Empty;
+            string strname = string.Empty;
+            foreach (GridViewRow gvrow in GridView1.Rows)
+            {
+                CheckBox chk = (CheckBox)gvrow.FindControl("CheckBox1");
+                if (chk != null & chk.Checked)
+                {
+                    str = gvrow.Cells[1].Text;
 
+                }
+            }
+            try
+            {
+                int pid = int.Parse(str);
+                Application["purchaseinvoiceid"] = str;
+                Label8.Text = Application["purchaseinvoiceid"].ToString();
+                viewModal(pid);
+
+            }
+            catch (Exception)
+            {
+
+
+            }
+        }
+
+        protected void editButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Purchase.aspx");
         }
 
         protected void ViewButton_Click(object sender, EventArgs e)
         {
+            ViewButton.Attributes.Add("onclick", "return false;");
 
         }
     }

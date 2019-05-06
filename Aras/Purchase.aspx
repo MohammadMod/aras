@@ -41,7 +41,7 @@
                             <a class="nav-link dropdown-toggle text-white-50" href="#" id="userDropdown" data-toggle="dropdown">
                                 <img src="image/avatar.jpeg" class="avatar img-fluid rounded-circle mr-1" alt="Chris Wood">
                                 <span class="text-white-50">
-                                      <%--<asp:Label ID="label2"  runat="server"  text=""></asp:Label>--%>
+                            <%--<asp:Label ID="label2"  runat="server"  text=""></asp:Label>--%>
                                 </span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right " aria-labelledby="userDropdown">
@@ -153,7 +153,7 @@
                             <asp:Button ID="PurchaseButton" class="btn btn-primary btn-block styleK" runat="server" Text="درووست کردن" OnClick="PurchaseButton_Click" />
                         </div>
                     </div>  
-                
+                <asp:Button ID="updateButton" runat="server" OnClick="updateButton_Click" Text="Update" />
                 </form>
             </div>
         </div>
@@ -174,5 +174,6 @@
     <!-- others plugins -->
     <script src="js/plugins.js"></script>
     <script src="js/scripts.js"></script>
+    
 </body>
 </html>
