@@ -179,19 +179,19 @@
 
                             <div class="row border">
                                 <div class="col-8">
-                                     <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label>
+                                    <asp:Label ID="Label6" runat="server" Text="Label"></asp:Label>     
                                 </div>
                                 <div class="col-4 styleK">
-                                     کیلۆ 
+                                    پارەی یەك کیڵۆ
                                 </div>
                             </div>
 
                             <div class="row border">
                                 <div class="col-8">
-                                    <asp:Label ID="Label6" runat="server" Text="Label"></asp:Label>     
+                                     <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label>
                                 </div>
                                 <div class="col-4 styleK">
-                                     کیلۆ 
+                                     کۆی گشتی 
                                 </div>
                             </div>
 
@@ -200,7 +200,7 @@
                                     <asp:Label ID="Label7" runat="server" Text="Label"></asp:Label>
                                 </div>
                                 <div class="col-4 styleK">
-                                     کیلۆ 
+                                     مەخزەن 
                                 </div>
                             </div>
 
@@ -209,7 +209,7 @@
                                     <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>        
                                 </div>
                                 <div class="col-4 styleK">
-                                     کیلۆ 
+                                     سایەق 
                                 </div>
                             </div>
 
@@ -225,8 +225,8 @@
                     </div>
                     <div class="modal-footer">
 
-                        <asp:Button ID="PrintButton" class="btn btn-warning" runat="server" Text="Print" />
-                        <asp:Button ID="Edit" runat="server" CssClass="btn btn-info btn-sm styleK" Text="Edit" OnClick="editButton_Click" />
+                        <asp:Button ID="PrintButton" class="btn btn-warning btn-sm" runat="server" Text="Print" />
+                        <asp:Button ID="Edit" runat="server" CssClass="btn btn-info btn-sm styleK" Text="دەستکاری کردن" OnClick="editButton_Click" />
                         <asp:Button ID="DeleteButton" CssClass="btn btn-danger btn-sm styleK" runat="server" Text="رەشکردنەوە" />
 
                     </div>
@@ -253,7 +253,7 @@
             var table = document.getElementById("GridView1");
             var sumVal = 0;
             for (var i = 1; i < table.rows.length; i++) {
-                sumVal = sumVal + parseInt(table.rows[i].cells[4].innerHTML);
+                sumVal = sumVal + parseInt(table.rows[i].cells[5].innerHTML);
             }
             console.log(sumVal);
             document.getElementById("unpaidTextBox").value = sumVal;
