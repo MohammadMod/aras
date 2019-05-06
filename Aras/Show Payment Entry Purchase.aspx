@@ -80,9 +80,9 @@
       <hr/>
     </section>
     
+    <form id="form1" runat="server">
 
-    <div class="container">
-        <form id="form1" runat="server">
+        <div class="container">
             <div class="form-row ">
 
                 <div class="col-6 col-sm-6 col-md-6 col-lg-6 my-1">
@@ -99,14 +99,14 @@
 
                 <div class="col-6 col-sm-6 col-md-6 col-lg-6 my-1 text-right">
 
-                    <asp:Button ID="NewPushesButton" runat="server" CssClass="btn btn-primary btn-sm styleK" OnClick="NewPushesButton_Click"  Text="وەسلی نوێ" />
-                    <asp:Button ID="ViewButton" runat="server" CssClass="btn btn-primary btn-sm styleK"  Text="View" OnClick="ViewButton_Click" />
+                    <asp:Button ID="NewPushesButton" runat="server" CssClass="btn btn-primary btn-sm styleK" OnClick="NewPushesButton_Click" Text="وەسلی نوێ" />
+                    <asp:Button ID="ViewButton" runat="server" CssClass="btn btn-primary btn-sm styleK" data-toggle="modal" data-target="#sizedModalLg" Text="View" OnClick="ViewButton_Click" />
 
-                    
+
 
                 </div>
             </div>
-                                            
+
 
             <div class="border p-3">
 
@@ -123,17 +123,66 @@
                 <hr />
 
                 <div class="row">
-                        <div class="col-6">
-                            <div class="form-group">
-                                <label for="unpaidTextBox" class="col-form-label styleK">کۆی گشتی</label>
-                                <asp:TextBox ID="unpaidTextBox" ReadOnly="true" TextMode="Number" CssClass="form-control form-control-lg" runat="server"></asp:TextBox>
-                            </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="unpaidTextBox" class="col-form-label styleK">کۆی گشتی</label>
+                            <asp:TextBox ID="unpaidTextBox" ReadOnly="true" TextMode="Number" CssClass="form-control form-control-lg" runat="server"></asp:TextBox>
                         </div>
+                    </div>
                 </div>
             </div>
-        </form>
-    </div>
+        </div>
+
    
+
+        <div class="modal fade" id="sizedModalLg" tabindex="-1" role="dialog" aria-hidden="true" runat="server">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">بینئنی پسولەی کرین</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body m-3" runat="server">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+                                </div>
+                                <div class="col-md-4">ناوی سایەق</div>
+
+                            </div>
+
+                            <hr />
+                            <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+                            <br />
+                            <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
+                            <br />
+                            <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
+                            <br />
+                            <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label>
+                            <br />
+                            <asp:Label ID="Label6" runat="server" Text="Label"></asp:Label>
+                            <br />
+                            <asp:Label ID="Label7" runat="server" Text="Label"></asp:Label>
+                            <br />
+                            <asp:Label ID="Label8" runat="server" Text="Label"></asp:Label>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+
+                        <asp:Button ID="PrintButton" class="btn btn-warning" runat="server" Text="Print" />
+                        <asp:Button ID="Edit" runat="server" CssClass="btn btn-info btn-sm styleK" Text="Edit" />
+                        <asp:Button ID="DeleteButton" CssClass="btn btn-danger btn-sm styleK" runat="server" Text="رەشکردنەوە" />
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </form>
+
     <script>
         function ChangeHeader() {
             var grid = document.getElementById('<%= GridView1.ClientID %>');

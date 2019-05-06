@@ -125,17 +125,18 @@ $(document).ready(function () {
       <hr/>
     </section>
 
+        <form id="form1" runat="server">
+
     <div class="container">
         
-        <form id="form1" runat="server">
 
          
             <div class="form-row ">
 
                 <div class="col-6 col-sm-6 col-md-6 col-lg-6 my-1">
                     <div class="input-group">
-                        <asp:TextBox ID="SearchTextBox" placeholder="..گەران" CssClass="form-control form-control-lg styleK" runat="server" onkeyup="Search_Gridview(this, 'ShowSalesInvoicesGridView'),add()" ></asp:TextBox>
-                        
+                        <asp:TextBox ID="SearchTextBox" placeholder="..گەران" CssClass="form-control form-control-lg styleK" runat="server" onkeyup="Search_Gridview(this, 'ShowSalesInvoicesGridView'),add()"></asp:TextBox>
+
                         <%--<div class="input-group-prepend">
 
                                 
@@ -144,15 +145,14 @@ $(document).ready(function () {
                     </div>
                 </div>
 
-                <div class="col-6 col-sm-6 col-md-6 col-lg-6 my-1 text-right">       
-                    
+                <div class="col-6 col-sm-6 col-md-6 col-lg-6 my-1 text-right">
 
-    <asp:Button ID="ViewModalButton" runat="server" Text="View"  class="btn btn-primary" data-toggle="modal" data-target="#sizedModalLg" OnClick="ViewModalButton_Click"/>
-     
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       
+
+                    <asp:Button ID="ViewModalButton" runat="server" Text="View" class="btn btn-primary" data-toggle="modal" data-target="#sizedModalLg" OnClick="ViewModalButton_Click" />
+  
                     
-                    <asp:Button ID="NewInvoiceButton" runat="server" CssClass="btn btn-primary btn-sm styleK" Text="وەسلی نوێ" OnClick="NewInvoiceButton_Click" />   
-                    
+                    <asp:Button ID="NewInvoiceButton" runat="server" CssClass="btn btn-primary btn-sm styleK" Text="وەسلی نوێ" OnClick="NewInvoiceButton_Click" />
+
                 </div>
             </div>
             <hr />
@@ -207,46 +207,48 @@ $(document).ready(function () {
     </div>
 
 
-    <div>
-       
-    </div>
-
+ 
 
       <div class="modal fade" id="sizedModalLg" tabindex="-1" role="dialog" aria-hidden="true" runat="server">
         <div class="modal-dialog modal-lg" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title">View Items </h5>
+              <h5 class="modal-title">بینئنی پسولەی فرۆشتن</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
             </div>
             <div class="modal-body m-3" runat="server">
-                <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-                <br />
-                <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
-                <br />
-                <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
-                <br />
-                <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
-                <br />
-                <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label>
-                <br />
-                <asp:Label ID="Label6" runat="server" Text="Label"></asp:Label>
-                <br />
-                <asp:Label ID="Label7" runat="server" Text="Label"></asp:Label>
-                <br />
-                <asp:Label ID="Label8" runat="server" Text="Label"></asp:Label>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+                        </div>
+                        <div class="col-md-4">ناوی سایەق</div>
 
+                    </div>
+
+                    <hr/>
+                    <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+                    <br />
+                    <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
+                    <br />
+                    <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
+                    <br />
+                    <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label>
+                    <br />
+                    <asp:Label ID="Label6" runat="server" Text="Label"></asp:Label>
+                    <br />
+                    <asp:Label ID="Label7" runat="server" Text="Label"></asp:Label>
+                    <br />
+                    <asp:Label ID="Label8" runat="server" Text="Label"></asp:Label>
+                </div>
             </div>
             <div class="modal-footer">
 
                 <asp:Button ID="PrintButton" class="btn btn-warning" runat="server" Text="Print" />
                 <asp:Button ID="Edit" runat="server" CssClass="btn btn-info btn-sm styleK" Text="Edit" OnClick="Edit_Click" />   
                 <asp:Button ID="DeleteButton" CssClass="btn btn-danger btn-sm styleK" runat="server" Text="رەشکردنەوە" />
-
-
-              
 
             </div>
           </div>
