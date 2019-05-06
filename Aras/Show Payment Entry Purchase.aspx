@@ -173,7 +173,7 @@
                     <div class="modal-footer">
 
                         <asp:Button ID="PrintButton" class="btn btn-warning" runat="server" Text="Print" />
-                        <asp:Button ID="Edit" runat="server" CssClass="btn btn-info btn-sm styleK" Text="Edit" />
+                        <asp:Button ID="Edit" runat="server" CssClass="btn btn-info btn-sm styleK" Text="Edit" OnClick="editButton_Click" />
                         <asp:Button ID="DeleteButton" CssClass="btn btn-danger btn-sm styleK" runat="server" Text="رەشکردنەوە" />
 
                     </div>
