@@ -21,11 +21,14 @@ namespace Aras
         bool check = false;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+
+            
             #region update
             try
             {
                 edit = Application["purchaseinvoiceid"].ToString();
-
 
                 SqlCommand cmd = new SqlCommand("showPurchase_invoice_for_update", conn);
                 conn.Open();
@@ -88,14 +91,12 @@ namespace Aras
             dateTimeTextBox.Enabled = false;
             dateTimeTextBox.Text = DateTime.Now.ToString();
 
-            if (!IsPostBack)
-            {
+          
                 bd.SupplierName(ViewSupplierDropDownList);
                 bd.wareHouseName(WareHouseSelectDropDownList);
             }
 
-            //string Name = Application["Name"].ToString();
-            //Response.Write("Welcome: " + Name);
+       
 
             #endregion
 
@@ -106,34 +107,36 @@ namespace Aras
         protected void PurchaseButton_Click(object sender, EventArgs e)
         {
             inD.InsertPurchase(ViewSupplierDropDownList, dateTimeTextBox.Text, float.Parse(KiloTextBox.Text), float.Parse(CostTextBox.Text),WareHouseSelectDropDownList);
+
+            Application["purchaseinvoiceid"] = "";
             Response.Redirect("Show Payment Entry Purchase.aspx");
         }
 
         protected void updateButton_Click(object sender, EventArgs e)
         {
+
+            string supplier= ViewSupplierDropDownList.SelectedItem.Value.ToString();
+            string wareHouse = WareHouseSelectDropDownList.SelectedItem.Value.ToString();
+            float total_amount = float.Parse(TotallAllTextBox.Text);
+
             SqlCommand cmd = new SqlCommand("Update_purchase_invoice_up", conn);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("ID", Convert.ToInt32(Application["purchaseinvoiceid"]));
-            cmd.Parameters.AddWithValue("Supplier_ID", Convert.ToString(ViewSupplierDropDownList.SelectedItem.Text));
-            cmd.Parameters.AddWithValue("rate", int.Parse(KiloTextBox.Text));
-            cmd.Parameters.AddWithValue("totall_amount", int.Parse(TotallAllTextBox.Text));
-            cmd.Parameters.AddWithValue("amount", int.Parse(CostTextBox.Text));
-            cmd.Parameters.AddWithValue("warehouse_ID", Convert.ToString(WareHouseSelectDropDownList.SelectedItem.Text));
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@ID", SqlDbType.Int).Value = int.Parse(Application["purchaseinvoiceid"].ToString());
+            cmd.Parameters.Add("@Supplier_ID", SqlDbType.NVarChar).Value = supplier;
+                cmd.Parameters.Add("@rate", SqlDbType.Float).Value = float.Parse(KiloTextBox.Text);
+            cmd.Parameters.Add("@totall_amount", SqlDbType.Float).Value = float.Parse(KiloTextBox.Text) * float.Parse(CostTextBox.Text);
+                cmd.Parameters.Add("@amount", SqlDbType.Float).Value = float.Parse(CostTextBox.Text);
+            cmd.Parameters.Add("@warehouse_ID", SqlDbType.NVarChar).Value = wareHouse;
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                conn.Close();
+
+                Application["purchaseinvoiceid"] = "";
+                Response.Redirect("Show Payment Entry Purchase.aspx");
+
+        
            
-            conn.Open();
-            cmd.ExecuteNonQuery();
-            conn.Close();
-
-            if (edit != "")
-            {
-
-            }
-            else
-            {
-
-                Response.Write("<script language=javascript>alert('You are not in updating mode please make new invoice');</script>");
-
-            }
         }
     }
 }

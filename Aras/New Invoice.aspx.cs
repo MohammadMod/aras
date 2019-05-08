@@ -22,87 +22,89 @@ namespace Aras
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            #region checkLogedIn
-            //if (Session["username"] != null)  // has user logged in?
-            //    ;
-            //else
-            //    throw new Exception();
-            //username = Session["username"].ToString();
-            #endregion
-
-
-
-            #region update
-            try
-            {
-                edit = Application["salesinvoiceid"].ToString();
-
-
-                SqlCommand cmd = new SqlCommand("showInvoices_for_update", conn);
-                conn.Open();
-
-
-                cmd.Parameters.AddWithValue("ID", Int64.Parse(edit));
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
-
-                SqlDataReader dr = cmd.ExecuteReader();
-                dr.Read();
-                if (dr.HasRows)
-                {
-
-                    SelectCustomerDropDownList.SelectedValue = dr[0].ToString();
-                    ChoseWareHouseDropDownList.SelectedValue = dr[1].ToString();
-
-                    KiloTextBox.Text = dr[2].ToString();
-                    CostOfKiloTextBox.Text = dr[3].ToString();
-
-                    TotallTextBox.Text = dr[4].ToString();
-                    DiscountTextBox.Text = dr[5].ToString();
-
-
-                    TotallAllTextBox.Text = dr[6].ToString();
-
-
-                }
-                dr.Close();
-            }
-            catch (Exception)
-            {
-
-                check = true;
-            }
-         
-        
-
-            if (check==false)
-            {
-                SubmitNewInvoiceButton.Enabled = false;
-                UpdateButton.Enabled = true;
-
-                SubmitNewInvoiceButton.Visible = false;
-                UpdateButton.Visible = true;
-            }
-
-            else
-            {
-                SubmitNewInvoiceButton.Enabled = true;
-                UpdateButton.Enabled = false;
-
-                SubmitNewInvoiceButton.Visible = true;
-                UpdateButton.Visible = false;
-            }
-
-            conn.Close();
-
-
-            #endregion
-
-
-
-
             if (!IsPostBack)
             {
+
+
+                #region checkLogedIn
+                //if (Session["username"] != null)  // has user logged in?
+                //    ;
+                //else
+                //    throw new Exception();
+                //username = Session["username"].ToString();
+                #endregion
+
+
+
+                #region update
+                try
+                {
+                    edit = Application["salesinvoiceid"].ToString();
+
+
+                    SqlCommand cmd = new SqlCommand("showInvoices_for_update", conn);
+                    conn.Open();
+
+
+                    cmd.Parameters.AddWithValue("ID", Int64.Parse(edit));
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                    SqlDataReader dr = cmd.ExecuteReader();
+                    dr.Read();
+                    if (dr.HasRows)
+                    {
+
+                        SelectCustomerDropDownList.SelectedValue = dr[0].ToString();
+                        ChoseWareHouseDropDownList.SelectedValue = dr[1].ToString();
+
+                        KiloTextBox.Text = dr[2].ToString();
+                        CostOfKiloTextBox.Text = dr[3].ToString();
+
+                        TotallTextBox.Text = dr[4].ToString();
+                        DiscountTextBox.Text = dr[5].ToString();
+
+
+                        TotallAllTextBox.Text = dr[6].ToString();
+
+
+                    }
+                    dr.Close();
+                }
+                catch (Exception)
+                {
+
+                    check = true;
+                }
+
+
+
+                if (check == false)
+                {
+                    SubmitNewInvoiceButton.Enabled = false;
+                    UpdateButton.Enabled = true;
+
+                    SubmitNewInvoiceButton.Visible = false;
+                    UpdateButton.Visible = true;
+                }
+
+                else
+                {
+                    SubmitNewInvoiceButton.Enabled = true;
+                    UpdateButton.Enabled = false;
+
+                    SubmitNewInvoiceButton.Visible = true;
+                    UpdateButton.Visible = false;
+                }
+
+                conn.Close();
+
+
+                #endregion
+
+
+
+
+
 
 
                 try
@@ -207,37 +209,45 @@ namespace Aras
 
         protected void UpdateButton_Click(object sender, EventArgs e)
         {
+            string customer = SelectCustomerDropDownList.SelectedItem.Value.ToString();
+            string warehouse = ChoseWareHouseDropDownList.SelectedItem.Value.ToString();
+
+            float rate = float.Parse(KiloTextBox.Text);
+            float amount = float.Parse(CostOfKiloTextBox.Text);
+            float discount = float.Parse(DiscountTextBox.Text);
             
-           
+
+            TextBox totaltext = this.Page.FindControl("TotallTextBox") as TextBox;
+            TextBox totalAll = this.Page.FindControl("TotallAllTextBox") as TextBox;
+
+            float total = float.Parse(totaltext.Text);
+            float total_all = float.Parse(totalAll.Text);
+
+            int id = int.Parse(Application["salesinvoiceid"].ToString());
+
+            //Response.Write("Costumer=" + customer + "" + "warehouse=" + warehouse + "" + "rate=" + rate + "" + "amount=" + amount + "" + "discount=" + discount + "" + "total=" + total + "" + "total_All=" + TotallAllTextBox + "" + "ID=" + id + "");
 
             SqlCommand cmd = new SqlCommand("Update_salesinvoice", conn);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("ID", Convert.ToInt32(Application["salesinvoiceid"]));
-            cmd.Parameters.AddWithValue("rate", float.Parse(KiloTextBox.Text));
-            cmd.Parameters.AddWithValue("amount", float.Parse(CostOfKiloTextBox.Text));
-            cmd.Parameters.AddWithValue("discount", float.Parse(DiscountTextBox.Text));
-            cmd.Parameters.AddWithValue("Customer", Convert.ToString(SelectCustomerDropDownList.SelectedItem.Text));
-            cmd.Parameters.AddWithValue("Totall", float.Parse(TotallTextBox.Text));
-            cmd.Parameters.AddWithValue("Totall_All", float.Parse(TotallAllTextBox.Text));
-            cmd.Parameters.AddWithValue("warehouse_ID",Convert.ToString(ChoseWareHouseDropDownList.SelectedItem.Text));
+
 
             conn.Open();
+            cmd.Parameters.Add("@ID", SqlDbType.Int).Value = id;
+            cmd.Parameters.Add("@rate", SqlDbType.Float).Value = rate;
+            cmd.Parameters.Add("@amount", SqlDbType.Float).Value = amount;
+            cmd.Parameters.Add("@discount", SqlDbType.Float).Value = discount;
+            cmd.Parameters.Add("@Customer", SqlDbType.NVarChar).Value = customer;
+            cmd.Parameters.Add("@Totall", SqlDbType.Float).Value = rate*amount;
+            cmd.Parameters.Add("@Totall_All", SqlDbType.Float).Value = rate * amount - discount;
+            cmd.Parameters.Add("@warehouse_ID", SqlDbType.NVarChar).Value = warehouse;
             cmd.ExecuteNonQuery();
             conn.Close();
 
-            if (edit != "")
-            {
+            Response.Redirect("ShowSalesInvoice.aspx");
 
-            }
-            else
-            {
-
-                Response.Write("<script language=javascript>alert('You are not in updating mode please make new invoice');</script>");
-
-            }
         }
 
-      
+
         protected void ChoseWareHouseDropDownList_SelectedIndexChanged2(object sender, EventArgs e)
         {
             //show QTY
