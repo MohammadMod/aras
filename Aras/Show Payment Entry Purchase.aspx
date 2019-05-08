@@ -136,7 +136,7 @@
    
 
         <div class="modal fade" id="sizedModalLg" tabindex="-1" role="dialog" aria-hidden="true" runat="server">
-            <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-dialog modal-md" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">بینئنی پسولەی کرین</h5>
@@ -146,34 +146,87 @@
                     </div>
                     <div class="modal-body m-3" runat="server">
                         <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-                                </div>
-                                <div class="col-md-4">ناوی سایەق</div>
 
+                            <div class="row border">
+                                <div class="col-8">
+                                    <asp:Label ID="Label8" runat="server" Text="Label"></asp:Label>
+                                    
+                                </div>
+                                <div class="col-4 styleK">
+                                    رەقەم وەسڵ
+                                </div>
                             </div>
 
-                            <hr />
-                            <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
-                            <br />
-                            <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
-                            <br />
-                            <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
-                            <br />
-                            <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label>
-                            <br />
-                            <asp:Label ID="Label6" runat="server" Text="Label"></asp:Label>
-                            <br />
-                            <asp:Label ID="Label7" runat="server" Text="Label"></asp:Label>
-                            <br />
-                            <asp:Label ID="Label8" runat="server" Text="Label"></asp:Label>
+                            <div class="row border">
+                                <div class="col-8">
+                                  <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+                                </div>
+                                <div class="col-4 styleK">
+                                     ناوی کریار
+                                </div>
+                            </div>
+
+                            
+
+                            <div class="row border">
+                                <div class="col-8">
+                                     <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
+                                </div>
+                                <div class="col-4 styleK">
+                                     کیلۆ 
+                                </div>
+                            </div>
+
+                            <div class="row border">
+                                <div class="col-8">
+                                    <asp:Label ID="Label6" runat="server" Text="Label"></asp:Label>     
+                                </div>
+                                <div class="col-4 styleK">
+                                    پارەی یەك کیڵۆ
+                                </div>
+                            </div>
+
+                            <div class="row border">
+                                <div class="col-8">
+                                     <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label>
+                                </div>
+                                <div class="col-4 styleK">
+                                     کۆی گشتی 
+                                </div>
+                            </div>
+
+                            <div class="row border">
+                                <div class="col-8">
+                                    <asp:Label ID="Label7" runat="server" Text="Label"></asp:Label>
+                                </div>
+                                <div class="col-4 styleK">
+                                     مەخزەن 
+                                </div>
+                            </div>
+
+                            <div class="row border">
+                                <div class="col-8">
+                                    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>        
+                                </div>
+                                <div class="col-4 styleK">
+                                     سایەق 
+                                </div>
+                            </div>
+
+                            <div class="row border">
+                                <div class="col-8">
+                                    <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
+                                </div>
+                                <div class="col-4 styleK">
+                                      کات
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="modal-footer">
 
-                        <asp:Button ID="PrintButton" class="btn btn-warning" runat="server" Text="Print" />
-                        <asp:Button ID="Edit" runat="server" CssClass="btn btn-info btn-sm styleK" Text="Edit" OnClick="editButton_Click" />
+                        <asp:Button ID="PrintButton" class="btn btn-warning btn-sm" runat="server" Text="Print" />
+                        <asp:Button ID="Edit" runat="server" CssClass="btn btn-info btn-sm styleK" Text="دەستکاری کردن" OnClick="editButton_Click" />
                         <asp:Button ID="DeleteButton" CssClass="btn btn-danger btn-sm styleK" runat="server" Text="رەشکردنەوە" />
 
                     </div>
@@ -200,7 +253,7 @@
             var table = document.getElementById("GridView1");
             var sumVal = 0;
             for (var i = 1; i < table.rows.length; i++) {
-                sumVal = sumVal + parseInt(table.rows[i].cells[4].innerHTML);
+                sumVal = sumVal + parseInt(table.rows[i].cells[5].innerHTML);
             }
             console.log(sumVal);
             document.getElementById("unpaidTextBox").value = sumVal;
