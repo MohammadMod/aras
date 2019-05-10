@@ -24,7 +24,7 @@
 
     <link href="css/styleee.css" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" />
-    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="js/vendor/modernizr-2.l8.3.min.js"></script>
     <script src="js/HamaScripts.js"></script>
     <script src="SearchInGrids.js"></script>
 

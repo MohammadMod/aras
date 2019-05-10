@@ -13,6 +13,8 @@ namespace Aras
 {
     public partial class Users : System.Web.UI.Page
     {
+        SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
+        string checkAdmin = "";
         BindingData bd = new BindingData();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -132,20 +134,82 @@ namespace Aras
 
         protected void ViewUsersGridView_SelectedIndexChanged(object sender, EventArgs e)
         {
-            GridViewRow row = ViewUsersGridView.SelectedRow;
-            Application["username"] = row.Cells[5].Text.ToString();
-            Application["fullname"] = row.Cells[1].Text.ToString();
-            Application["location"]= row.Cells[4].Text.ToString();
-            Application["password"]= row.Cells[6].Text.ToString();
-            Application["phone"]= row.Cells[3].Text.ToString();
-            Application["id"] = row.Cells[7].Text.ToString();
+          
 
 
-            Response.Redirect("RegisterUsers.aspx");
         }
 
-        protected void EditButton_Click(object sender, EventArgs e)
+        protected void Edit_Click(object sender, EventArgs e)
         {
+            Response.Redirect("RegisterUsers.aspx");
+
+        }
+        public void viewModal(int id)
+        {
+            SqlCommand cmd = new SqlCommand("show_User_update", conn);
+            conn.Open();
+
+
+            cmd.Parameters.AddWithValue("ID", id);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+            SqlDataReader dr = cmd.ExecuteReader();
+            dr.Read();
+            if (dr.HasRows)
+            {
+
+
+
+
+                Label1.Text = dr[0].ToString();
+
+                Label2.Text = dr[1].ToString();
+
+                Label3.Text = dr[2].ToString();
+                Label4.Text = dr[3].ToString();
+
+                Label5.Text = dr[4].ToString();
+                Label6.Text = dr[5].ToString();
+
+                Label7.Text = dr[6].ToString();
+
+                checkAdmin = dr[6].ToString();
+
+            }
+            dr.Close();
+        }
+
+        protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            string str = string.Empty;
+            string strname = string.Empty;
+            foreach (GridViewRow gvrow in ViewUsersGridView.Rows)
+            {
+                CheckBox chk = (CheckBox)gvrow.FindControl("CheckBox1");
+                if (chk != null & chk.Checked)
+                {
+                    str = gvrow.Cells[7].Text;
+
+                }
+            }
+            try
+            {
+                int sid = int.Parse(str);
+                Application["userid"] = str;
+                Label8.Text = Application["userid"].ToString();
+                viewModal(sid);
+
+            }
+            catch (Exception)
+            {
+
+
+            }
+        }
+
+        protected void ViewButton_Click(object sender, EventArgs e)
+        {
+            ViewButton.Attributes.Add("onclick", "return false;");
 
         }
     }

@@ -12,8 +12,13 @@ namespace Aras
 {
     public partial class RegisterUsers : System.Web.UI.Page
     {
+        SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
+
         Inserting_Data inD = new Inserting_Data();
-        UserValidator validator; 
+        UserValidator validator;
+        string edit = "";
+        bool check = false;
+        string checkAdmin = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -21,19 +26,77 @@ namespace Aras
                 //if (!Permit.isAllowed(Permessions.OnlyAdmin))
                 //    Response.Redirect("Login.aspx");
                 //updating
-                updateButton.Attributes["Onclick"] = "return confirm('Do you really want to save?')";
+                //updateButton.Attributes["Onclick"] = "return confirm('Do you really want to save?')";
+                #region update
                 try
                 {
-                    UserNameTextBox.Text = Application["username"].ToString();
-                    FullNameTextBox.Text = Application["fullname"].ToString();
-                    LocationTextBox.Text = Application["location"].ToString();
-                    PasswordTextBox.Text = Application["password"].ToString();
-                    PhoneTextBox.Text = Application["phone"].ToString();
+                    edit = Application["userid"].ToString();
+
+
+                    SqlCommand cmd = new SqlCommand("show_User_update", conn);
+                    conn.Open();
+
+
+                    cmd.Parameters.AddWithValue("ID", Int64.Parse(edit));
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                    SqlDataReader dr = cmd.ExecuteReader();
+                    dr.Read();
+                    if (dr.HasRows)
+                    {
+
+                        FullNameTextBox.Text = dr[0].ToString();
+
+                        PhoneTextBox.Text = dr[2].ToString();
+                        LocationTextBox.Text = dr[3].ToString();
+
+                        UserNameTextBox.Text = dr[4].ToString();
+                        PasswordTextBox.Text = dr[5].ToString();
+
+                        checkAdmin = dr[6].ToString();
+
+                        if (checkAdmin=="True")
+                        {
+                            AdminCheckBox.Checked = true;
+                        }
+                        else
+                        {
+                            AdminCheckBox.Checked = false;
+                        }
+
+                    }
+                    dr.Close();
                 }
                 catch (Exception)
                 {
 
+                    check = true;
                 }
+
+
+
+                if (check == false)
+                {
+                    Button2.Enabled = false;
+                    updateButton.Enabled = true;
+
+                    Button2.Visible = false;
+                    updateButton.Visible = true;
+                }
+
+                else
+                {
+                    Button2.Enabled = true;
+                    updateButton.Enabled = false;
+
+                    Button2.Visible = true;
+                    updateButton.Visible = false;
+                }
+
+                conn.Close();
+
+
+                #endregion
             }
             validator = new UserValidator();
         }
@@ -42,19 +105,9 @@ namespace Aras
         {
             
 
-            string myId = "";
-            try
-            {
-                myId = Application["id"].ToString();
-            }
-            catch (Exception)
-            {
+          
+            
 
-
-            }
-
-            if (myId == "")
-            {
                 #region Hama RegisterUsers
                 try
                 {
@@ -82,19 +135,11 @@ namespace Aras
                 }
                 finally
                 {
-                    Application["id"] = "";
-                    Application["username"] = "";
-                    Application["fullname"] = "";
-                    Application["location"] = "";
-                    Application["password"] = "";
-                    Application["phone"] = "";
+                    Application["userid"] = "";
                 }
-            }
+            
 
-            else
-            {
-                Response.Write("<script language=javascript>alert('You are not in creating mode please update');</script>");
-            }
+           
 
 
 
@@ -161,43 +206,35 @@ namespace Aras
         protected void updateButton_Click(object sender, EventArgs e)
         {
             Page.Validate();
-            if (Page.IsValid)
-            {
-                //Update the database
-                int isAdmin = 0;
+            string isAdmin = "";
 
-                if (AdminCheckBox.Checked)
-                {
-                    isAdmin = 1;
-                }
-                else
-                {
-                    isAdmin = 0;
-                }
-                try
-                {
-                    string myId = Application["id"].ToString();
-                    SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
-                    conn.Open();
-                    SqlCommand cmd = new SqlCommand("update regester_table set name='" + FullNameTextBox.Text + "',last_name='" + "last_name" + "',phone_number='" + PhoneTextBox.Text + "',location='" + LocationTextBox.Text + "',complite_name='" + UserNameTextBox.Text + "',pin_cod='" + PasswordTextBox.Text + "',Admin='" + isAdmin + "'where id='" + int.Parse(myId) + "'", conn);
-                    cmd.ExecuteNonQuery();
-                    conn.Close();
-                    Response.Redirect("Users.aspx");
-                }
-                catch (Exception)
-                {
-                    Response.Write("<script language=javascript>alert('You are not in updating mode');</script>");
-                }
-                finally
-                {
-                    Application["id"] = "";
-                    Application["username"] = "";
-                    Application["fullname"] = "";
-                    Application["location"] = "";
-                    Application["password"] = "";
-                    Application["phone"] = "";
-                }
+            if (AdminCheckBox.Checked)
+            {
+                isAdmin = "1";
             }
+            else
+            {
+                isAdmin = "0";
+            }
+            try
+            {
+
+                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("update regester_table set name='" + FullNameTextBox.Text + "',last_name='" + "last_name" + "',phone_number='" + PhoneTextBox.Text + "',location='" + LocationTextBox.Text + "',complite_name='" + UserNameTextBox.Text + "',pin_cod='" + PasswordTextBox.Text + "',Admin='" + isAdmin + "'where id='" + int.Parse(Application["userid"].ToString()) + "'", conn);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                Response.Redirect("Users.aspx");
+            }
+            catch (Exception)
+            {
+                Response.Write("<script language=javascript>alert('You are not in updating mode');</script>");
+            }
+            finally
+            {
+                Application["userid"] = "";
+            }
+            
          
 
         }
