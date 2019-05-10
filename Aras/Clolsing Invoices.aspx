@@ -28,6 +28,14 @@
     <script src="js/HamaScripts.js"></script>
     <script src="SearchInGrids.js"></script>
 
+    <style>
+        .pt-4{
+            padding-top:2rem !important;
+        }
+        .btn-primary{
+            border-radius:4px !important;
+        }
+    </style>
 </head>
 <body id="body_newcus" onload="startTime(); ChangeHeader()">
     <div class="main">
@@ -48,7 +56,7 @@
                             <div class="dropdown-menu dropdown-menu-right " aria-labelledby="userDropdown">
 
                                 <a class="dropdown-item text-right" href="#">
-                                    <i class="align-middle mr-1 " data-feather="user"></i>زانیاری زیاتر</a>
+                                <i class="align-middle mr-1 " data-feather="user"></i>زانیاری زیاتر</a>
                                 <a class="dropdown-item text-right " href="#"><i class="align-middle mr-1" data-feather="pie-chart"></i>Analytics</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item text-right" href="#">چوونە دەرەوە</a>
@@ -76,19 +84,23 @@
         <hr />
     </section>
 
-    <div class="container">
+    <form id="form1" runat="server">
+        <div class="container">
 
-        <form id="form1" runat="server">
             <div class="form-row pb-2">
                 <div class="col-6 col-sm-6 col-md-6 col-lg-6 my-1">
                     <label for="DropDownList1" class="col-form-label styleK">شوفێر</label>
                     <asp:DropDownList ID="DropDownList1" CssClass="form-control " Style="padding-top: 0; padding-bottom: 0; font-size: 16px;" runat="server" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
                     </asp:DropDownList>
                 </div>
+
+                <div class="col-6 col-sm-6 col-md-6 col-lg-6 my-1 text-right pt-4">
+                    <asp:Button ID="ViewButton" runat="server" CssClass="btn btn-primary btn-sm styleK" data-toggle="modal" data-target="#sizedModalLg" Text="بینین" />
+                </div>
             </div>
-            
+
             <div class="border p-2">
-                <asp:GridView ID="GridView1" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" 
+                <asp:GridView ID="GridView1" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged"
                     CssClass="table table-stripet table-bordered table-hover table-responsive-md text-center">
                     <Columns>
                         <asp:CommandField SelectText="Close !" ShowSelectButton="True" />
@@ -99,8 +111,54 @@
                     </PagerTemplate>
                 </asp:GridView>
             </div>
-        </form>
-    </div>
+        </div>
+
+         <%-- Modal --%>
+        <div class="modal fade" id="sizedModalLg" tabindex="-1" role="dialog" aria-hidden="true" runat="server">
+            <div class="modal-dialog modal-md" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">بینینی زانیاری فرۆشیار </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body m-3" runat="server">
+                        <div class="container-fluid">
+
+                            <div class="row border">
+                                <div class="col-8">
+                                    <asp:Label ID="Label8" runat="server" Text="Label"></asp:Label>
+
+                                </div>
+                                <div class="col-4 styleK">
+                                    رەقەم وەسڵ
+                                </div>
+                            </div>
+
+
+                            <div class="row border">
+                                <div class="col-8">
+                                    <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
+                                </div>
+                                <div class="col-4 styleK">
+                                    کات
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+
+                        <asp:Button ID="PrintButton" class="btn btn-warning btn-sm" runat="server" Text="Print" />
+                        <asp:Button ID="Edit" runat="server" CssClass="btn btn-info btn-sm styleK" Text="دەستکاری کردن" />
+                        <asp:Button ID="Button1" CssClass="btn btn-danger btn-sm styleK" runat="server" Text="رەشکردنەوە" />
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%-- End Modal --%>
+    </form>
     
 
     <script src="js/app.js"></script>

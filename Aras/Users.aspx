@@ -106,49 +106,95 @@
     </section>
 
 
-
-    <div class="container">      
-
     <form id="form1" runat="server">
+        <div class="container">
+
             <div class="form-row ">
 
                 <div class="col-6 col-sm-6 col-md-6 col-lg-6 my-1">
                     <div class="input-group">
-                        <asp:TextBox ID="SearchTextBox" placeholder="..گەران" CssClass="form-control form-control-lg styleK" runat="server" onkeyup="Search_Gridview(this, 'ViewUsersGridView')" ></asp:TextBox>
+                        <asp:TextBox ID="SearchTextBox" placeholder="..گەران" CssClass="form-control form-control-lg styleK" runat="server" onkeyup="Search_Gridview(this, 'ViewUsersGridView')"></asp:TextBox>
                         <div class="input-group-prepend">
-                            <asp:Button ID="SearchButton"  CssClass="input-group-text styleK" Text="گەران" runat="server" />
+                            <asp:Button ID="SearchButton" CssClass="input-group-text styleK" Text="گەران" runat="server" />
 
                         </div>
                     </div>
                 </div>
 
 
-                <div class="col-6 col-sm-6 col-md-6 col-lg-6 my-1 text-right">       
-                    
+                <div class="col-6 col-sm-6 col-md-6 col-lg-6 my-1 text-right">
 
-                        <asp:Button ID="CreateButton" CssClass="btn btn-success btn-sm styleK" Text="دروستکردن" runat="server" OnClick="CreateButton_Click"/>
 
-                        <asp:Button ID="EditButton" CssClass="btn btn-warning btn-sm styleK" runat="server" Text="دەستکاری کردن" OnClick="EditButton_Click" />
-                        <asp:Button ID="DeleteButton" CssClass="btn btn-danger btn-sm styleK"  runat="server" Text="رەشکردنەوە" />
+                    <asp:Button ID="CreateButton" CssClass="btn btn-success btn-sm styleK" Text="دروستکردن" runat="server" OnClick="CreateButton_Click" />
+                    <asp:Button ID="ViewButton" runat="server" CssClass="btn btn-primary btn-sm styleK" data-toggle="modal" data-target="#sizedModalLg" Text="بینین" />
+
+                    <asp:Button ID="EditButton" CssClass="btn btn-warning btn-sm styleK" runat="server" Text="دەستکاری کردن" OnClick="EditButton_Click" />
+                    <asp:Button ID="DeleteButton" CssClass="btn btn-danger btn-sm styleK" runat="server" Text="رەشکردنەوە" />
 
                 </div>
             </div>
 
-        
+
             <div class="border p-3">
                 <asp:GridView ID="ViewUsersGridView" runat="server" OnRowCancelingEdit="ViewUsersGridView_RowCancelingEdit"
                     OnRowEditing="ViewUsersGridView_RowEditing" OnRowUpdating="ViewUsersGridView_RowUpdating" AllowPaging="True"
                     AllowSorting="True" OnPageIndexChanging="ViewUsersGridView_PageIndexChanging" OnSorted="ViewUsersGridView_Sorted"
                     OnSorting="ViewUsersGridView_Sorting" PageSize="15"
-                    CssClass="table table-stripet table-bordered table-hover table-responsive-md text-center " OnSelectedIndexChanged="ViewUsersGridView_SelectedIndexChanged" Height="452px" Width="1073px">
+                    CssClass="table table-stripet table-bordered table-hover table-responsive-md text-center " OnSelectedIndexChanged="ViewUsersGridView_SelectedIndexChanged">
                     <Columns>
                         <asp:CommandField SelectText="Edit" ShowSelectButton="True" />
                     </Columns>
                 </asp:GridView>
 
             </div>
-    </form>
         </div>
+
+        <%-- Modal --%>
+        <div class="modal fade" id="sizedModalLg" tabindex="-1" role="dialog" aria-hidden="true" runat="server">
+            <div class="modal-dialog modal-md" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">بینینی زانیاری فرۆشیار </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body m-3" runat="server">
+                        <div class="container-fluid">
+
+                            <div class="row border">
+                                <div class="col-8">
+                                    <asp:Label ID="Label8" runat="server" Text="Label"></asp:Label>
+
+                                </div>
+                                <div class="col-4 styleK">
+                                    رەقەم وەسڵ
+                                </div>
+                            </div>
+
+
+                            <div class="row border">
+                                <div class="col-8">
+                                    <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
+                                </div>
+                                <div class="col-4 styleK">
+                                    کات
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+
+                        <asp:Button ID="PrintButton" class="btn btn-warning btn-sm" runat="server" Text="Print" />
+                        <asp:Button ID="Edit" runat="server" CssClass="btn btn-info btn-sm styleK" Text="دەستکاری کردن" />
+                        <asp:Button ID="Button1" CssClass="btn btn-danger btn-sm styleK" runat="server" Text="رەشکردنەوە" />
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%-- End Modal --%>
+    </form>
     
     
     <script>

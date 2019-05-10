@@ -85,11 +85,78 @@
     <form id="form1" runat="server">
         <div class="container">
 
+             <div class="form-row ">
+
+                <div class="col-6 col-sm-6 col-md-6 col-lg-6 my-1">
+
+                    <%--<div class="input-group">
+                        <asp:TextBox ID="SearchTextBox" CssClass="form-control form-control-lg styleK" placeholder="..گەران" runat="server"></asp:TextBox>
+
+                        <div class="input-group-prepend">
+
+                            <asp:Button ID="SearchButton" CssClass="input-group-text styleK" runat="server" Text="گەران" />
+                        </div>
+                    </div>--%>
+                </div>
+
+
+                <div class="col-6 col-sm-6 col-md-6 col-lg-6 my-1 text-right">
+                    <asp:Button ID="ViewButton" runat="server" CssClass="btn btn-primary btn-sm styleK" data-toggle="modal" data-target="#sizedModalLg" Text="بینین" />
+                </div>
+            </div>
+
             <div class="border p-3">
                 <asp:GridView ID="GridView1" runat="server" CssClass="table table-stripet table-bordered table-hover table-responsive-md table-responsive-lg text-center">
                 </asp:GridView>
             </div>
         </div>
+
+       
+         <%-- Modal --%>
+        <div class="modal fade" id="sizedModalLg" tabindex="-1" role="dialog" aria-hidden="true" runat="server">
+            <div class="modal-dialog modal-md" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">بینینی زانیاری فرۆشیار </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body m-3" runat="server">
+                        <div class="container-fluid">
+
+                            <div class="row border">
+                                <div class="col-8">
+                                    <asp:Label ID="Label8" runat="server" Text="Label"></asp:Label>
+
+                                </div>
+                                <div class="col-4 styleK">
+                                    رەقەم وەسڵ
+                                </div>
+                            </div>
+
+
+                            <div class="row border">
+                                <div class="col-8">
+                                    <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
+                                </div>
+                                <div class="col-4 styleK">
+                                    کات
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+
+                        <asp:Button ID="PrintButton" class="btn btn-warning btn-sm" runat="server" Text="Print" />
+                        <asp:Button ID="Edit" runat="server" CssClass="btn btn-info btn-sm styleK" Text="دەستکاری کردن" />
+                        <asp:Button ID="Button1" CssClass="btn btn-danger btn-sm styleK" runat="server" Text="رەشکردنەوە" />
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%-- End Modal --%>
     </form>
 
     <script src="js/app.js"></script>

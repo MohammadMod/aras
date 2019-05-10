@@ -94,23 +94,23 @@
     </div>
     
     <section class="py-3">
-      <div class="container">
-        <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-6 col-6">
-                <div id="txt"></div>
-          </div>
-          <div class="col-lg-6 col-md-6 col-sm-6 col-6 text-right">
-            <h4 class="styleK">کریار</h4>
-          </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-6">
+                    <div id="txt"></div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-6 text-right">
+                    <h4 class="styleK">کریار</h4>
+                </div>
+            </div>
         </div>
-      </div>
-      <hr/>
-       </section>
+        <hr />
+    </section>
 
+    <form id="form1" runat="server">
 
-    <div class="container">      
-        <form id="form1" runat="server">
-            
+        <div class="container">
+
             <div class="form-row ">
 
                 <div class="col-6 col-sm-6 col-md-6 col-lg-6 my-1">
@@ -128,6 +128,8 @@
 
                     <asp:Button ID="CreateButton" CssClass="btn btn-success btn-sm styleK" runat="server" OnClick="CreateButton_Click" Text="دروستکردن" />
 
+                    <asp:Button ID="ViewButton" runat="server" CssClass="btn btn-primary btn-sm styleK" data-toggle="modal" data-target="#sizedModalLg" Text="بینین" />
+
                     <asp:Button ID="EditButton" CssClass="btn btn-warning btn-sm styleK" runat="server" Text="دەستکاری کردن" />
 
                     <asp:Button ID="DeleteButton" CssClass="btn btn-danger btn-sm styleK" runat="server" Text="رەشکردنەوە" />
@@ -137,12 +139,12 @@
             </div>
 
 
-            
+
             <div class="border p-3">
                 <asp:GridView ID="ViewSuppliersGridView" runat="server"
-                    OnRowEditing="ViewSuppliersGridView_RowEditing" OnRowUpdating="ViewSuppliersGridView_RowUpdating" 
+                    OnRowEditing="ViewSuppliersGridView_RowEditing" OnRowUpdating="ViewSuppliersGridView_RowUpdating"
                     OnPageIndexChanging="ViewSuppliersGridView_PageIndexChanging" OnRowCancelingEdit="ViewSuppliersGridView_RowCancelingEdit"
-                    AllowPaging="True" PageSize="500" AllowSorting="True" OnSorting="ViewSuppliersGridView_Sorting" 
+                    AllowPaging="True" PageSize="500" AllowSorting="True" OnSorting="ViewSuppliersGridView_Sorting"
                     CssClass="table table-stripet table-bordered table-hover table-responsive-md text-center " ShowHeaderWhenEmpty="True" OnSelectedIndexChanged="ViewSuppliersGridView_SelectedIndexChanged">
                     <Columns>
                         <asp:TemplateField>
@@ -157,9 +159,54 @@
                     </Columns>
                 </asp:GridView>
             </div>
-        </form>
-    </div>
-    
+        </div>
+        <%-- Modal --%>
+        <div class="modal fade" id="sizedModalLg" tabindex="-1" role="dialog" aria-hidden="true" runat="server">
+            <div class="modal-dialog modal-md" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">بینینی زانیاری فرۆشیار </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body m-3" runat="server">
+                        <div class="container-fluid">
+
+                            <div class="row border">
+                                <div class="col-8">
+                                    <asp:Label ID="Label8" runat="server" Text="Label"></asp:Label>
+
+                                </div>
+                                <div class="col-4 styleK">
+                                    رەقەم وەسڵ
+                                </div>
+                            </div>
+
+
+                            <div class="row border">
+                                <div class="col-8">
+                                    <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
+                                </div>
+                                <div class="col-4 styleK">
+                                    کات
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+
+                        <asp:Button ID="PrintButton" class="btn btn-warning btn-sm" runat="server" Text="Print" />
+                        <asp:Button ID="Edit" runat="server" CssClass="btn btn-info btn-sm styleK" Text="دەستکاری کردن" />
+                        <asp:Button ID="Button1" CssClass="btn btn-danger btn-sm styleK" runat="server" Text="رەشکردنەوە" />
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%-- End Modal --%>
+    </form>
+
     
     <script>
         function ChangeHeader() {
