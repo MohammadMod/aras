@@ -218,78 +218,78 @@ $(document).ready(function () {
                 <span aria-hidden="true">&times;</span>
             </button>
             </div>
-              <div class="modal-body m-3" runat="server">
+              <div class="modal-body m-3" id="bodymodal" runat="server">
                   <div class="container-fluid text-center">
 
-                      <div class="row border">
-                          <div class="col-8">
+                      <div class="row ">
+                          <div class="col-8 border">
                               <asp:Label ID="Label8" runat="server" Text="Label"></asp:Label>
                           </div>
-                          <div class="col-4 styleK">
+                          <div class="col-4 styleK border">
                               رەقەم وەسڵ
                           </div>
                       </div>
 
-                      <div class="row border">
+                      <div class="row ">
 
-                          <div class="col-8  ">
+                          <div class="col-8 border">
                               <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
                           </div>
-                          <div class="col-4 styleK ">
+                          <div class="col-4 styleK border">
                               ناوی جیشتخانە
                           </div>
                       </div>
-                      <div class="row border">
-                          <div class="col-8">
+                      <div class="row ">
+                          <div class="col-8 border">
                               <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
                           </div>
-                          <div class="col-4 styleK">
+                          <div class="col-4 styleK border">
                               مەخزەن
                           </div>
                       </div>
-                      <div class="row border">
-                          <div class="col-8">
+                      <div class="row ">
+                          <div class="col-8 border">
                               <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
                           </div>
-                          <div class="col-4 styleK">
+                          <div class="col-4 styleK border">
                               کیلۆ
                           </div>
                       </div>
 
 
-                      <div class="row border">
-                          <div class="col-8">
+                      <div class="row ">
+                          <div class="col-8 border">
                               <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
                           </div>
-                          <div class="col-4 styleK">
+                          <div class="col-4 styleK border">
                               پارەی یەک کیڵۆ
                           </div>
                       </div>
 
 
-                      <div class="row border">
-                          <div class="col-8">
+                      <div class="row ">
+                          <div class="col-8 border">
                               <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label>
                           </div>
-                          <div class="col-4 styleK">
+                          <div class="col-4 styleK border">
                               گشتی
                           </div>
                       </div>
 
-                      <div class="row border">
-                          <div class="col-8">
+                      <div class="row ">
+                          <div class="col-8 border">
                               <asp:Label ID="Label6" runat="server" Text="Label"></asp:Label>
                           </div>
-                          <div class="col-4 styleK">
+                          <div class="col-4 styleK border">
                               داشکان
                           </div>
                       </div>
 
-                      <div class="row border">
-                          <div class="col-8">
+                      <div class="row ">
+                          <div class="col-8 border">
                               <asp:Label ID="Label7" runat="server" Text="Label"></asp:Label>
                           </div>
-                          <div class="col-4 styleK">
+                          <div class="col-4 styleK border">
                               کۆی گشتی
                           </div>
                       </div>
@@ -300,7 +300,7 @@ $(document).ready(function () {
               </div>
             <div class="modal-footer">
 
-                <asp:Button ID="PrintButton" class="btn btn-warning" runat="server" Text="Print" />
+                <button class="btn btn-warning btn-sm styleK" runat="server" onclick="testt('bodymodal')">پرینت</button>
                 <asp:Button ID="Edit" runat="server" CssClass="btn btn-info btn-sm styleK" Text="دەستکاری کردن" OnClick="Edit_Click" />   
                 <asp:Button ID="DeleteButton" CssClass="btn btn-danger btn-sm styleK" runat="server" Text="رەشکردنەوە" />
 
@@ -312,6 +312,12 @@ $(document).ready(function () {
 
 
     <script>
+        function testt(el) {
+            var restorepage = document.getElementById(el).innerHTML;
+            document.body.innerHTML = restorepage;
+            window.print();
+            document.body.innerHTML = restore;
+        }
         function ChangeHeader() {
             var grid = document.getElementById('<%= ShowSalesInvoicesGridView.ClientID %>');
             //grid.rows[0].cells[0].innerText = 'سايق';
@@ -324,6 +330,9 @@ $(document).ready(function () {
 
             return false;
         };
+        $("#PrintButton").click(function () {
+            $("#sizedModalLg").print();
+        });
         function add() {
             var table = document.getElementById("ShowSalesInvoicesGridView");
             var sumVal = 0;
