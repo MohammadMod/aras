@@ -26,7 +26,7 @@ namespace Aras
                 //if (!Permit.isAllowed(Permessions.OnlyAdmin))
                 //    Response.Redirect("Login.aspx");
                 //updating
-                //updateButton.Attributes["Onclick"] = "return confirm('Do you really want to save?')";
+                updateButton.Attributes["Onclick"] = "return confirm('Do you really want to save?')";
                 #region update
                 try
                 {

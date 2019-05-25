@@ -139,6 +139,50 @@ namespace Aras
                     con.Close();
                     GridView1.DataBind();
 
+                    //////////////////////////////////////
+                    try
+                    {
+                        TextBox tbb = this.Page.FindControl("totallAllForInvoicesTextBox") as TextBox;
+                        string myDataa = tbb.Text;
+
+
+                        string bil_no = row.Cells[1].Text.ToString();
+                        string total_amount = row.Cells[4].Text.ToString();
+
+                        float paray_draw = float.Parse(PayToSupplierTextBox.Text);
+                        float total_la_wasl = float.Parse(total_amount);
+
+                        float outstanding_amount = total_la_wasl - paray_draw;
+
+                        string payment_entry_id;
+
+                        //show payment entry id
+                        SqlCommand cmdddd = new SqlCommand("show_payment_entry_for_purchase_ID", con);
+                        con.Open();
+                        cmdddd.Parameters.AddWithValue("@Supplier", SelectSupplierDropDownList.SelectedItem.Text);
+                        cmdddd.CommandType = System.Data.CommandType.StoredProcedure;
+                        payment_entry_id = cmdddd.ExecuteScalar().ToString();
+                        cmdddd.ExecuteNonQuery();
+                        con.Close();
+
+                        SqlCommand cmdd = new SqlCommand("INSERT_payment_entry_refrence_Purchase", con);
+                        con.Open();
+
+                        cmdd.Parameters.AddWithValue("refrence_name", "purchase invoice");
+                        cmdd.Parameters.AddWithValue("bill_no", bil_no);
+                        cmdd.Parameters.AddWithValue("totall_amount", float.Parse(total_amount));
+                        cmdd.Parameters.AddWithValue("allocated_amount", float.Parse(PayToSupplierTextBox.Text));
+                        cmdd.Parameters.AddWithValue("outstanding_amount", outstanding_amount);
+                        cmdd.Parameters.AddWithValue("Pyment_entry_ID", payment_entry_id);
+
+                        cmdd.CommandType = System.Data.CommandType.StoredProcedure;
+                        cmdd.ExecuteNonQuery();
+                        con.Close();
+                    }
+                    catch (Exception)
+                    {
+                        Response.Write("<script language=javascript>alert('Error in inserting to payment entry refrence ');</script>");
+                    }
 
                 }
                 catch (Exception)

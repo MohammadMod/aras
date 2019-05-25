@@ -15,7 +15,7 @@ namespace Aras
         BindingData bd = new BindingData();
         SmartDelete Deletor;
         SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
-
+        string checkedRow = "";
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -317,10 +317,74 @@ namespace Aras
             catch (Exception)
             {
 
-              
+
             }
-          
+            finally
+            {
+                checkedRow = Application["salesinvoiceid"].ToString();
+            }
+
 
         }
-    }
+        protected void Delete_Click(object sender, EventArgs e)
+        {
+            string id = Application["salesinvoiceid"].ToString();
+            bool hasPayment = false;
+            try
+            {
+                DataSet ds = new DataSet("TimeRanges");
+
+                SqlCommand sqlComm = new SqlCommand("Show_ID_payment_for_delete_invocie", conn);
+                sqlComm.Parameters.AddWithValue("@Slaes_invoice_ID", int.Parse(id));
+
+                sqlComm.CommandType = CommandType.StoredProcedure;
+
+                SqlDataAdapter da = new SqlDataAdapter();
+                da.SelectCommand = sqlComm;
+
+                da.Fill(ds);
+
+
+
+                if (ds.Tables[0].Rows.Count != 0)
+                {
+                    for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                    {
+
+                        int Contract_id = Convert.ToInt32(ds.Tables[0].Rows[i]["Pyment_entry_ID"]);
+
+                        SqlCommand cmd1 = new SqlCommand("delete_Payment_entry", conn);
+                        conn.Open();
+                        cmd1.Parameters.AddWithValue("@Payment_entry_ID", Contract_id);
+                        cmd1.CommandType = System.Data.CommandType.StoredProcedure;
+                        cmd1.ExecuteNonQuery();
+                        conn.Close();
+                        hasPayment = true;
+
+                    }
+                }
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+
+
+
+
+
+            SqlCommand cmd = new SqlCommand("delete_Sales_invoice", conn);
+            conn.Open();
+            cmd.Parameters.AddWithValue("@Sales_invoce_ID", int.Parse(id));
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.ExecuteNonQuery();
+            conn.Close();
+
+            Response.Redirect("ShowSalesInvoice.aspx");
+        }
+    } 
 }
+
+

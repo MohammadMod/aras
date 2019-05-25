@@ -41,7 +41,7 @@ namespace Aras
                 {
                     edit = Application["salesinvoiceid"].ToString();
 
-
+                    Application["salesinvoiceid"] = "";
                     SqlCommand cmd = new SqlCommand("showInvoices_for_update", conn);
                     conn.Open();
 

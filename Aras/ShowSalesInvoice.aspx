@@ -302,7 +302,7 @@ $(document).ready(function () {
 
                 <asp:Button ID="PrintButton" class="btn btn-warning" runat="server" Text="Print" />
                 <asp:Button ID="Edit" runat="server" CssClass="btn btn-info btn-sm styleK" Text="دەستکاری کردن" OnClick="Edit_Click" />   
-                <asp:Button ID="DeleteButton" CssClass="btn btn-danger btn-sm styleK" runat="server" Text="رەشکردنەوە" />
+                <asp:Button ID="Delete" CssClass="btn btn-danger btn-sm styleK" runat="server" Text="رەشکردنەوە" OnClick="Delete_Click" />
 
             </div>
           </div>
