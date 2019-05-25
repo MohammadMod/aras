@@ -223,6 +223,7 @@
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Inserting Data.html" />
     <Content Include="js\bootstrap-datetimepicker.js" />
+    <Content Include="js\tables.js" />
     <Content Include="NewInvoiceForSupplier.aspx" />
     <Content Include="Print.aspx" />
     <Content Include="Report.aspx" />
