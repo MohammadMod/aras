@@ -136,7 +136,7 @@
 
                     <div class="col-lg-6 mt-0">
                         <div class="form-group">
-                            <label for="totalAllTextBox" class="col-form-label styleK">کۆی گشتی پارەی وەسڵ</label>
+                            <label for="totalAllTextBox" class="col-form-label styleK">کۆی گشتی پارەی 
                             <asp:TextBox ID="totalAllTextBox" CssClass="form-control form-control-lg" runat="server"></asp:TextBox>
                         </div>
                     </div>
@@ -151,7 +151,7 @@
                     </div>
 
                     <div class="container">
-                        <asp:GridView ID="GridView1" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged"
+                        <asp:GridView ID="GridView1" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged1"
                             CssClass="table table-stripet table-bordered table-hover table-responsive-md text-center">
                             <Columns>
                                 <asp:CommandField HeaderText="Select" SelectText="Pay" ShowSelectButton="True" />
@@ -166,7 +166,7 @@
 
                     <div class="offset-lg-6 offset-md-6 col-lg-6 col-md-6 mt-0 text-right">
                         <div class="form-group">
-                            <label for="totallAllForInvoicesTextBox" class="col-form-label styleK">کۆی گشتیeK">کۆی گشتی</label>
+                            <label for="totallAllForInvoicesTextBox" class="col-form-label styleK">کۆی گشتیeK">کۆی گشتیeK">کۆی گشتی</label>
                             <asp:TextBox ID="totallAllForInvoicesTextBox" ReadOnly="true" CssClass="form-control form-control-lg" runat="server"></asp:TextBox>
                         </div>
                     </div>

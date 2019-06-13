@@ -15,6 +15,9 @@ namespace Aras
         BindingData bd = new BindingData();
         SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
         string payment_entry_id;
+        static string bil_no = "";
+        static string total_amount = "";
+        public string moneyInAcc;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -25,12 +28,9 @@ namespace Aras
             if (!IsPostBack)
             {
                 bd.SupplierName(SelectSupplierDropDownList);
-
-               
             }
 
         }
-        public string moneyInAcc;
         protected void SelectSupplierDropDownList_SelectedIndexChanged(object sender, EventArgs e)
         {
             //Purchase_invoies_have_no_payment_entry
@@ -94,124 +94,131 @@ namespace Aras
 
         protected void SubmitButton_Click(object sender, EventArgs e)
         {
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
+
             float para = float.Parse(PayToSupplierTextBox.Text);
             if (CheckBox1.Checked)
             {
-                SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
 
-                SqlCommand cmdd = new SqlCommand("Update_Supplier_Debit", con);
+                SqlCommand cmdd1 = new SqlCommand("Update_Supplier_Debit", con);
                 con.Open();
 
 
-                cmdd.Parameters.AddWithValue("Supplier_ID", SelectSupplierDropDownList.SelectedIndex);
-                cmdd.Parameters.AddWithValue("para", -para);
+                cmdd1.Parameters.AddWithValue("Supplier_ID", SelectSupplierDropDownList.SelectedIndex);
+                cmdd1.Parameters.AddWithValue("para", para);
 
-                cmdd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmdd.ExecuteNonQuery();
+                cmdd1.CommandType = System.Data.CommandType.StoredProcedure;
+                cmdd1.ExecuteNonQuery();
                 con.Close();
                 GridView1.DataBind();
 
 
                 Response.Redirect("/SupplierPaymentaspx.aspx");
             }
-            else
+            try
             {
-                try
-                {
-                    //insert remained
-                    string dataa = Request.Form[PayPlusInAccountTextBox.UniqueID];
-                    string supplierBalance = Request.Form[MoneyInAccountTextBox.UniqueID];
+                #region Inserting
 
-                    SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
-                    SqlCommand cmd = new SqlCommand("INSERT_payment_entry_for_Purchase", con);
-                    con.Open();
-                    cmd.Parameters.AddWithValue("Supplier_ID", SelectSupplierDropDownList.SelectedIndex);
-                    cmd.Parameters.AddWithValue("Posting_date", DateTime.Now);
-                    cmd.Parameters.AddWithValue("Different_amount", float.Parse(dataa));
-                    cmd.Parameters.AddWithValue("paray_draw", float.Parse(PayToSupplierTextBox.Text));
-                    cmd.Parameters.AddWithValue("party_balanceas", MoneyInAccountTextBox.Text);
-                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                    GridView1.DataBind();
+                string dataa = Request.Form[PayPlusInAccountTextBox.UniqueID];
+                string supplierBalance = Request.Form[MoneyInAccountTextBox.UniqueID];
+
+                SqlCommand cmd = new SqlCommand("INSERT_payment_entry_for_Purchase", con);
+                con.Open();
+                cmd.Parameters.AddWithValue("Supplier_ID", SelectSupplierDropDownList.SelectedIndex);
+                cmd.Parameters.AddWithValue("Posting_date", DateTime.Now);
+                cmd.Parameters.AddWithValue("Different_amount", float.Parse(dataa));
+                cmd.Parameters.AddWithValue("paray_draw", float.Parse(PayToSupplierTextBox.Text));
+                cmd.Parameters.AddWithValue("party_balanceas", MoneyInAccountTextBox.Text);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.ExecuteNonQuery();
+                con.Close();
+                GridView1.DataBind();
 
 
-                    GridViewRow row = GridView1.SelectedRow;
-                    string data = Request.Form[PayPlusInAccountTextBox.UniqueID];
 
-                    SqlCommand cmddd = new SqlCommand("Update_purchase_invoce_for_pay", con);
-                    con.Open();
-                    cmddd.Parameters.AddWithValue("purchase_invoce_ID", int.Parse(row.Cells[1].Text));
-                    cmddd.Parameters.AddWithValue("Supplier", SelectSupplierDropDownList.SelectedIndex);
-                    cmddd.Parameters.AddWithValue("para", float.Parse(PayToSupplierTextBox.Text));
-                    cmddd.CommandType = System.Data.CommandType.StoredProcedure;
-                    cmddd.ExecuteNonQuery();
-                    con.Close();
-                    GridView1.DataBind();
+                string data = Request.Form[PayPlusInAccountTextBox.UniqueID];
 
-                    //////////////////////////////////////
-                    try
-                    {
-                        TextBox tbb = this.Page.FindControl("totallAllForInvoicesTextBox") as TextBox;
-                        string myDataa = tbb.Text;
+                SqlCommand cmddd = new SqlCommand("Update_purchase_invoce_for_pay", con);
+                con.Open();
+                cmddd.Parameters.AddWithValue("purchase_invoce_ID", 1005);
+                cmddd.Parameters.AddWithValue("Supplier", SelectSupplierDropDownList.SelectedItem.Text);
+                cmddd.Parameters.AddWithValue("para", float.Parse(PayToSupplierTextBox.Text));
+                cmddd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmddd.ExecuteNonQuery();
+                con.Close();
+                GridView1.DataBind();
 
 
-                        string bil_no = row.Cells[1].Text.ToString();
-                        string total_amount = row.Cells[4].Text.ToString();
-
-                        float paray_draw = float.Parse(PayToSupplierTextBox.Text);
-                        float total_la_wasl = float.Parse(total_amount);
-
-                        float outstanding_amount = total_la_wasl - paray_draw;
+                TextBox tbb = this.Page.FindControl("totallAllForInvoicesTextBox") as TextBox;
+                string myDataa = tbb.Text;
 
 
-                        //show payment entry id
-                        SqlCommand cmdddd = new SqlCommand("show_payment_entry_for_purchase_ID", con);
-                        con.Open();
-                        cmdddd.Parameters.AddWithValue("@Supplier", SelectSupplierDropDownList.SelectedItem.Text);
-                        cmdddd.CommandType = System.Data.CommandType.StoredProcedure;
-                        payment_entry_id = cmdddd.ExecuteScalar().ToString();
-                        cmdddd.ExecuteNonQuery();
-                        con.Close();
 
-                        SqlCommand cmdd = new SqlCommand("INSERT_payment_entry_refrence_Purchase", con);
-                        con.Open();
+                float paray_draw = float.Parse(PayToSupplierTextBox.Text);
+                float total_la_wasl = float.Parse(total_amount);
 
-                        cmdd.Parameters.AddWithValue("refrence_name", "purchase invoice");
-                        cmdd.Parameters.AddWithValue("bill_no", bil_no);
-                        cmdd.Parameters.AddWithValue("totall_amount", float.Parse(total_amount));
-                        cmdd.Parameters.AddWithValue("allocated_amount", float.Parse(PayToSupplierTextBox.Text));
-                        cmdd.Parameters.AddWithValue("outstanding_amount", outstanding_amount);
-                        cmdd.Parameters.AddWithValue("Pyment_entry_ID", payment_entry_id);
+                float outstanding_amount = total_la_wasl - paray_draw;
 
-                        cmdd.CommandType = System.Data.CommandType.StoredProcedure;
-                        cmdd.ExecuteNonQuery();
-                        con.Close();
-                    }
-                    catch (Exception)
-                    {
-                        Response.Write("<script language=javascript>alert('Error in inserting to payment entry refrence ');</script>");
-                    }
 
-                }
-                catch (Exception)
-                {
-                    Response.Write("<script language=javascript>alert('An Error occurred or may invalid data entered, please try again ');</script>");
-                }
+                //show payment entry id
+                SqlCommand cmdddd = new SqlCommand("show_payment_entry_for_purchase_ID", con);
+                con.Open();
+                cmdddd.Parameters.AddWithValue("@Supplier", SelectSupplierDropDownList.SelectedItem.Text);
+                cmdddd.CommandType = System.Data.CommandType.StoredProcedure;
+                payment_entry_id = cmdddd.ExecuteScalar().ToString();
+                cmdddd.ExecuteNonQuery();
+                con.Close();
 
-                finally
-                {
-                    Response.Redirect("Show Payment Entry Purchase.aspx");
-                }
+                Response.Write(payment_entry_id);
+
+
+                SqlCommand cmdd = new SqlCommand("INSERT_payment_entry_refrence_Purchase", con);
+                con.Open();
+
+                cmdd.Parameters.AddWithValue("refrence_name", "purchase invoice");
+                cmdd.Parameters.AddWithValue("bill_no", bil_no);
+                cmdd.Parameters.AddWithValue("totall_amount", float.Parse(total_amount));
+                cmdd.Parameters.AddWithValue("paray_draw", outstanding_amount);
+                cmdd.Parameters.AddWithValue("payment_entry_for_purchase_ID", payment_entry_id);
+
+                cmdd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmdd.ExecuteNonQuery();
+                con.Close();
+
+
+
+
+
+                SqlCommand cmdd2 = new SqlCommand("INSERT_purchase_invoce_advance_pyment", con);
+                con.Open();
+
+                cmdd2.Parameters.AddWithValue("@Pyment_enrty_ID", payment_entry_id);
+                cmdd2.Parameters.AddWithValue("@Purchase_invoice_ID", bil_no);
+                cmdd2.Parameters.AddWithValue("@remark", "Note");
+                cmdd2.Parameters.AddWithValue("@advance_amount", float.Parse(PayToSupplierTextBox.Text));
+                cmdd2.Parameters.AddWithValue("@User_name", "user name");
+
+                cmdd2.CommandType = System.Data.CommandType.StoredProcedure;
+                cmdd2.ExecuteNonQuery();
+                con.Close();
+
+                Response.Redirect("Show Payment Entry Purchase.aspx");
+
+                #endregion
+            }
+            catch (Exception)
+            {
+                throw;
             }
            
+
+
+
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            GridViewRow gridViewRow = GridView1.SelectedRow;
-            string totalAmount = gridViewRow.Cells[6].Text.ToString();
-            totalAllTextBox.Text = totalAmount;
+           
 
         }
 
@@ -238,6 +245,17 @@ namespace Aras
                Response.Write("<script language=javascript>alert('An Error occurred or may invalid data entered, please try again ');</script>");
             }
            
+        }
+
+        protected void GridView1_SelectedIndexChanged1(object sender, EventArgs e)
+        {
+            GridViewRow gridViewRow = GridView1.SelectedRow;
+
+            string totalAmount = gridViewRow.Cells[6].Text.ToString();
+            totalAllTextBox.Text = totalAmount;
+            bil_no = gridViewRow.Cells[1].Text.ToString();
+            total_amount = gridViewRow.Cells[6].Text.ToString();
+
         }
     }
 }
