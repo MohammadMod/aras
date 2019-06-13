@@ -14,6 +14,7 @@ namespace Aras
     {
         BindingData bd = new BindingData();
         SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
+        string payment_entry_id;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -38,7 +39,16 @@ namespace Aras
                 try
                 {
                     //pishandani waslakani unpaid
-                   
+
+                    SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
+                    SqlCommand cmdaa = new SqlCommand("Purchase_invoies_have_no_payment_entry", conn);
+                    SqlDataAdapter da = new SqlDataAdapter(cmdaa);
+                    da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    da.SelectCommand.Parameters.AddWithValue("@supplier", SelectSupplierDropDownList.SelectedItem.Text);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+                    GridView1.DataSource = ds;
+                    GridView1.DataBind();
                 }
                 catch (Exception)
                 {
@@ -154,7 +164,6 @@ namespace Aras
 
                         float outstanding_amount = total_la_wasl - paray_draw;
 
-                        string payment_entry_id;
 
                         //show payment entry id
                         SqlCommand cmdddd = new SqlCommand("show_payment_entry_for_purchase_ID", con);
@@ -201,7 +210,7 @@ namespace Aras
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
             GridViewRow gridViewRow = GridView1.SelectedRow;
-            string totalAmount = gridViewRow.Cells[4].Text.ToString();
+            string totalAmount = gridViewRow.Cells[6].Text.ToString();
             totalAllTextBox.Text = totalAmount;
 
         }
