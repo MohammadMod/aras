@@ -121,6 +121,33 @@ namespace Aras
 
         protected void ViewButton_Click(object sender, EventArgs e)
         {
+            int pid = int.Parse(Application["purchaseinvoiceid"].ToString());
+
+            SqlCommand cmd1 = new SqlCommand("show_purchase_invoce_twaice", conn);
+            conn.Open();
+            cmd1.Parameters.AddWithValue("@Purchase_invoice_ID", pid);
+            cmd1.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter da = new SqlDataAdapter(cmd1);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            conn.Close();
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                InModalGridView.DataSource = ds;
+                InModalGridView.DataBind();
+            }
+            else
+            {
+                ds.Tables[0].Rows.Add(ds.Tables[0].NewRow());
+                InModalGridView.DataSource = ds;
+                InModalGridView.DataBind();
+                int columncount = InModalGridView.Rows[0].Cells.Count;
+                InModalGridView.Rows[0].Cells.Clear();
+                InModalGridView.Rows[0].Cells.Add(new TableCell());
+                InModalGridView.Rows[0].Cells[0].ColumnSpan = columncount;
+                InModalGridView.Rows[0].Cells[0].Text = "No Records Found";
+            }
+            conn.Close();
             ViewButton.Attributes.Add("onclick", "return false;");
 
         }

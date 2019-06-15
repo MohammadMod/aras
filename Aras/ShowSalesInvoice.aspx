@@ -294,7 +294,7 @@ $(document).ready(function () {
                           </div>
                       </div>
 
-                      
+                      <asp:GridView ID="InModalGridView" runat="server"></asp:GridView>
                   </div>
 
               </div>

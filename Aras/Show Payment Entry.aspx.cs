@@ -68,6 +68,7 @@ namespace Aras
 
         protected void ViewButton_Click(object sender, EventArgs e)
         {
+           
             ViewButton.Attributes.Add("onclick", "return false;");
 
         }

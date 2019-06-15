@@ -190,6 +190,8 @@ namespace Aras
 
             }
             dr.Close();
+
+ 
         }
 
         protected void payment_entry_Click(object sender, EventArgs e)
@@ -272,14 +274,33 @@ namespace Aras
 
         protected void ViewModalButton_Click(object sender, EventArgs e)
         {
+            int sid = int.Parse(Application["salesinvoiceid"].ToString());
 
-
-            //Session["lbl2"] = dr[1].ToString();
-            //Session["lbl3"] = dr[2].ToString();
-            //Session["lbl4"] = dr[3].ToString();
-            //Session["lbl5"] = dr[4].ToString();
-            //Session["lbl6"] = dr[5].ToString();
-            //Session["lbl7"] = dr[6].ToString();
+            SqlCommand cmd1 = new SqlCommand("show_sales_invoce_twaice", conn);
+            conn.Open();
+            cmd1.Parameters.AddWithValue("@sales_invoice_ID", sid);
+            cmd1.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter da = new SqlDataAdapter(cmd1);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            conn.Close();
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                InModalGridView.DataSource = ds;
+                InModalGridView.DataBind();
+            }
+            else
+            {
+                ds.Tables[0].Rows.Add(ds.Tables[0].NewRow());
+                InModalGridView.DataSource = ds;
+                InModalGridView.DataBind();
+                int columncount = InModalGridView.Rows[0].Cells.Count;
+                InModalGridView.Rows[0].Cells.Clear();
+                InModalGridView.Rows[0].Cells.Add(new TableCell());
+                InModalGridView.Rows[0].Cells[0].ColumnSpan = columncount;
+                InModalGridView.Rows[0].Cells[0].Text = "No Records Found";
+            }
+            conn.Close();
 
             ViewModalButton.Attributes.Add("onclick", "return false;");
 

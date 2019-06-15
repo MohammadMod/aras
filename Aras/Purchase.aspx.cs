@@ -87,6 +87,7 @@ namespace Aras
             #endregion
 
             #region Hama Region
+
             TotallAllTextBox.Enabled = false;
             dateTimeTextBox.Enabled = false;
             dateTimeTextBox.Text = DateTime.Now.ToString();
