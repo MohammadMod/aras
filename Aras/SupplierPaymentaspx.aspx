@@ -122,8 +122,8 @@
                             OnTextChanged="PayToSupplierTextBox_TextChanged" onkeyup="calculateSupplier()"></asp:TextBox>
                     </div>
                 </div>
-                <div runat="server" id="hideDive">
-
+               
+                 <div runat="server" id="hideDive">
                     <div class="col-lg-6 mt-0">
                         <div class="form-group">
                             <label for="PayPlusInAccountTextBox" class="col-form-label styleK">پارەی وەسڵ</label>
@@ -136,7 +136,7 @@
 
                     <div class="col-lg-6 mt-0">
                         <div class="form-group">
-                            <label for="totalAllTextBox" class="col-form-label styleK">کۆی گشتی پارەی وەسڵ</label>
+                            <label for="totalAllTextBox" class="col-form-label styleK">کۆی گشتی پارەی 
                             <asp:TextBox ID="totalAllTextBox" CssClass="form-control form-control-lg" runat="server"></asp:TextBox>
                         </div>
                     </div>
@@ -145,24 +145,20 @@
 
                     <div class="col-lg-6 mt-0">
                         <div class="form-group">
-                            <label for="searchTextBox" class="col-form-label styleK">گەران</label>
+                            <label for="searchTextBox" class="col-form-laگ
                             <asp:TextBox ID="searchTextBox" CssClass="form-control form-control-lg" runat="server" onkeyup="Search_Gridview(this, 'GridView1')"></asp:TextBox>
                         </div>
                     </div>
 
                     <div class="container">
-                        <asp:GridView ID="GridView1" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AutoGenerateColumns="true"
-                            CssClass="table table-stripet table-bordered table-hover table-responsive-md text-center" AllowPaging="True" AllowSorting="True" DataSourceID="purchaseinvoicehasnopaymententry">
+                        <asp:GridView ID="GridView1" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged1"
+                            CssClass="table table-stripet table-bordered table-hover table-responsive-md text-center">
                             <Columns>
-                                <asp:CommandField SelectText="واسل كردن" ShowSelectButton="True" />
+                                <asp:CommandField HeaderText="Select" SelectText="Pay" ShowSelectButton="True" />
                             </Columns>
                         </asp:GridView>
 
-                            <asp:SqlDataSource ID="purchaseinvoicehasnopaymententry" runat="server" ConnectionString="<%$ ConnectionStrings:con %>" SelectCommand="Purchase_invoies_have_no_payment_entry" SelectCommandType="StoredProcedure">
-                                <SelectParameters>
-                                    <asp:ControlParameter ControlID="SelectSupplierDropDownList" Name="supplier" PropertyName="SelectedIndex" Type="Int32" />
-                                </SelectParameters>
-                            </asp:SqlDataSource>
+            
                         <br />
                         
                         
@@ -170,7 +166,7 @@
 
                     <div class="offset-lg-6 offset-md-6 col-lg-6 col-md-6 mt-0 text-right">
                         <div class="form-group">
-                            <label for="totallAllForInvoicesTextBox" class="col-form-label styleK">کۆی گشتی</label>
+                            <label for="totallAllForInvoicesTextBox" class="col-form-label styleK">کۆی گشتیeK">کۆی گشتیeK">کۆی گشتی</label>
                             <asp:TextBox ID="totallAllForInvoicesTextBox" ReadOnly="true" CssClass="form-control form-control-lg" runat="server"></asp:TextBox>
                         </div>
                     </div>

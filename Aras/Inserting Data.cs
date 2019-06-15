@@ -30,7 +30,6 @@ namespace Aras
 
                 cmd.Parameters.AddWithValue("posting_date", date);
                 cmd.Parameters.AddWithValue("discount", discount);
-                cmd.Parameters.AddWithValue("sales_invoice_advance_payment_ID", DBNull.Value);
 
                 cmd.Parameters.AddWithValue("satute", "unpaid");
 

@@ -66,7 +66,8 @@
             </div>
         </nav>
     </div>
-    
+                            
+
     <section class="py-3">
       <div class="container">
         <div class="row">
@@ -100,15 +101,28 @@
                 <div class="col-6 col-sm-6 col-md-6 col-lg-6 my-1 text-right">
 
 
-                    <asp:Button ID="ViewButton" runat="server" CssClass="btn btn-primary btn-sm styleK" data-toggle="modal" data-target="#sizedModalLg" Text="بینین" />
+                    <asp:Button ID="ViewButton" runat="server" CssClass="btn btn-primary btn-sm styleK" data-toggle="modal" data-target="#sizedModalLg" Text="بینین" OnClick="ViewButton_Click" />
 
 
                 </div>
             </div>
 
             <div class="border p-3">
+                <br />
+                <br />
                 <asp:GridView ID="GridView1" CssClass="table table-stripet table-bordered table-hover table-responsive-md text-center"
-                    runat="server" AutoGenerateColumns="true" AllowSorting="True">
+                    runat="server" AllowSorting="True" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+                     <Columns>
+                        <asp:TemplateField>
+                            <HeaderTemplate>
+                                <asp:CheckBox ID="cbDeleteHeader" runat="server" AutoPostBack="True" />
+                            </HeaderTemplate>
+                            <ItemTemplate>
+                                <asp:CheckBox ID="CheckBox1" runat="server" AutoPostBack="True" OnCheckedChanged="CheckBox1_CheckedChanged" />
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
+                    </Columns>
                 </asp:GridView>
             </div>
         </div>
@@ -147,18 +161,97 @@
                             </div>
                         </div>
                     </div>
+
+                     <div class="modal-body m-3" runat="server">
+                  <div class="container-fluid text-center">
+
+                      <div class="row border">
+                          <div class="col-8">
+                              <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+                          </div>
+                          <div class="col-4 styleK">
+                              رەقەم وەسڵ
+                          </div>
+                      </div>
+
+                      <div class="row border">
+
+                          <div class="col-8  ">
+                              <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+                          </div>
+                          <div class="col-4 styleK ">
+                              ناوی جیشتخانە
+                          </div>
+                      </div>
+                      <div class="row border">
+                          <div class="col-8">
+                              <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
+                          </div>
+                          <div class="col-4 styleK">
+                              مەخزەن
+                          </div>
+                      </div>
+                      <div class="row border">
+                          <div class="col-8">
+                              <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label>
+                          </div>
+                          <div class="col-4 styleK">
+                              کیلۆ
+                          </div>
+                      </div>
+
+
+                      <div class="row border">
+                          <div class="col-8">
+                              <asp:Label ID="Label6" runat="server" Text="Label"></asp:Label>
+                          </div>
+                          <div class="col-4 styleK">
+                              پارەی یەک کیڵۆ
+                          </div>
+                      </div>
+
+
+                      <div class="row border">
+                          <div class="col-8">
+                              <asp:Label ID="Label7" runat="server" Text="Label"></asp:Label>
+                          </div>
+                          <div class="col-4 styleK">
+                              گشتی
+                          </div>
+                      </div>
+
+                      <div class="row border">
+                          <div class="col-8">
+                              <asp:Label ID="Label9" runat="server" Text="Label"></asp:Label>
+                          </div>
+                          <div class="col-4 styleK">
+                              داشکان
+                          </div>
+                      </div>
+
+                      <div class="row border">
+                          <div class="col-8">
+                              <asp:Label ID="Label10" runat="server" Text="Label"></asp:Label>
+                          </div>
+                          <div class="col-4 styleK">
+                              کۆی گشتی
+                          </div>
+                      </div>
+
+                      
+                  </div>
+
+              </div>
                     <div class="modal-footer">
 
                         <asp:Button ID="PrintButton" class="btn btn-warning btn-sm" runat="server" Text="Print" />
-                        <asp:Button ID="Edit" runat="server" CssClass="btn btn-info btn-sm styleK" Text="دەستکاری کردن" />
-                        <asp:Button ID="Button1" CssClass="btn btn-danger btn-sm styleK" runat="server" Text="رەشکردنەوە" />
-
+<%--                        <asp:Button ID="EditButton" runat="server" CssClass="btn btn-info btn-sm styleK" Text="دەستکاری کردن" OnClick="EditButton_Click" />--%>
+                        <asp:Button ID="Button1" CssClass="btn btn-danger btn-sm styleK" runat="server" Text="رەشکردنەوە" OnClick="Button1_Click" />
                     </div>
                 </div>
             </div>
         </div>
         <%-- End Modal --%>
-    </form>
 
 
     <script src="js/app.js"></script>
@@ -175,5 +268,8 @@
     <script src="js/plugins.js"></script>
     <script src="js/scripts.js"></script>
    
-</body>
+    </form>
+
+
+    </body>
 </html>

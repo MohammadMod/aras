@@ -170,7 +170,7 @@
 
                     <div class="col-md-3 col-sm-3 col-lg-3 mb-3">
                         <asp:Button ID="SubmitButton" CssClass="btn btn-success btn-block" runat="server" Text="پارە وەرگرتن" OnClick="SubmitButton_Click" />
-
+                        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />
                     </div>
 
                    
@@ -193,5 +193,6 @@
     <!-- others plugins -->
     <script src="js/plugins.js"></script>
     <script src="js/scripts.js"></script>
+    
 </body>
 </html>
