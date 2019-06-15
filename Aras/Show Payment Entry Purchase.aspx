@@ -162,7 +162,7 @@
                                   <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
                                 </div>
                                 <div class="col-4 styleK">
-                                     ناوی کریار
+                                     ناوی کرار
                                 </div>
                             </div>
 

@@ -151,9 +151,10 @@
                     <div class="col-lg-3 col-md-6 col-sm-6  mt-0">
                         <div class="form-group">
                             <asp:Button ID="PurchaseButton" class="btn btn-primary btn-block styleK" runat="server" Text="درووست کردن" OnClick="PurchaseButton_Click" />
+                            <asp:Button ID="updateButton" class="btn btn-primary btn-block styleK"  runat="server" OnClick="updateButton_Click" Text="نوێکردن" />
                         </div>
                     </div>  
-                <asp:Button ID="updateButton" runat="server" OnClick="updateButton_Click" Text="Update" />
+                    
                 </form>
             </div>
         </div>
