@@ -13,7 +13,7 @@ namespace Aras
     public partial class Show_Payment_Entry_Purchase : System.Web.UI.Page
     {
         SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
-
+        public static int purchaseIid;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -85,6 +85,8 @@ namespace Aras
 
             }
             dr.Close();
+
+           
         }
         protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
         {
@@ -96,12 +98,12 @@ namespace Aras
                 if (chk != null & chk.Checked)
                 {
                     str = gvrow.Cells[1].Text;
-
                 }
             }
             try
             {
                 int pid = int.Parse(str);
+                purchaseIid = pid;
                 Application["purchaseinvoiceid"] = str;
                 Label8.Text = Application["purchaseinvoiceid"].ToString();
                 viewModal(pid);
@@ -112,6 +114,8 @@ namespace Aras
 
 
             }
+
+           
         }
 
         protected void editButton_Click(object sender, EventArgs e)
@@ -121,11 +125,11 @@ namespace Aras
 
         protected void ViewButton_Click(object sender, EventArgs e)
         {
-            int pid = int.Parse(Application["purchaseinvoiceid"].ToString());
+            int pid = purchaseIid;
 
             SqlCommand cmd1 = new SqlCommand("show_purchase_invoce_twaice", conn);
             conn.Open();
-            cmd1.Parameters.AddWithValue("@Purchase_invoice_ID", pid);
+            cmd1.Parameters.AddWithValue("@Purchase_invoice_ID", purchaseIid);
             cmd1.CommandType = CommandType.StoredProcedure;
             SqlDataAdapter da = new SqlDataAdapter(cmd1);
             DataSet ds = new DataSet();
@@ -148,6 +152,7 @@ namespace Aras
                 InModalGridView.Rows[0].Cells[0].Text = "No Records Found";
             }
             conn.Close();
+
             ViewButton.Attributes.Add("onclick", "return false;");
 
         }

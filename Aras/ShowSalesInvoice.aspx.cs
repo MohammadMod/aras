@@ -16,6 +16,8 @@ namespace Aras
         SmartDelete Deletor;
         SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
         string checkedRow = "";
+        public static int salesid ;
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -28,8 +30,6 @@ namespace Aras
                 {
                     bd.showSalesInvoice(ShowSalesInvoicesGridView);
                     bd.CustomerDropDown(DropDownList2);
-
-
                 }
                 catch (Exception)
                 {
@@ -157,6 +157,8 @@ namespace Aras
 
         }
 
+
+
         public void viewModal(int id)
         {
             SqlCommand cmd = new SqlCommand("showInvoices_for_update", conn);
@@ -175,7 +177,6 @@ namespace Aras
 
 
                 Label1.Text = dr[0].ToString();
-
                 Label2.Text = dr[1].ToString();
 
                 Label3.Text = dr[2].ToString();
@@ -190,8 +191,39 @@ namespace Aras
 
             }
             dr.Close();
+            conn.Close();
 
- 
+            int sid = int.Parse(Application["salesinvoiceid"].ToString());
+
+
+            SqlCommand cmd1 = new SqlCommand("show_sales_invoce_twaice", conn);
+            conn.Open();
+            cmd1.Parameters.AddWithValue("@sales_invoice_ID", sid);
+            cmd1.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter da = new SqlDataAdapter(cmd1);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            conn.Close();
+
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                InModalGridView.DataSource = ds;
+                InModalGridView.DataBind();
+
+            }
+            else
+            {
+                ds.Tables[0].Rows.Add(ds.Tables[0].NewRow());
+                InModalGridView.DataSource = ds;
+                InModalGridView.DataBind();
+                int columncount = InModalGridView.Rows[0].Cells.Count;
+                InModalGridView.Rows[0].Cells.Clear();
+                InModalGridView.Rows[0].Cells.Add(new TableCell());
+                InModalGridView.Rows[0].Cells[0].ColumnSpan = columncount;
+                InModalGridView.Rows[0].Cells[0].Text = "No Records Found";
+            }
+            conn.Close();
+
         }
 
         protected void payment_entry_Click(object sender, EventArgs e)
@@ -272,35 +304,14 @@ namespace Aras
             ShowSalesInvoicesGridView.DataBind();
         }
 
+
+
+
         protected void ViewModalButton_Click(object sender, EventArgs e)
         {
             int sid = int.Parse(Application["salesinvoiceid"].ToString());
 
-            SqlCommand cmd1 = new SqlCommand("show_sales_invoce_twaice", conn);
-            conn.Open();
-            cmd1.Parameters.AddWithValue("@sales_invoice_ID", sid);
-            cmd1.CommandType = CommandType.StoredProcedure;
-            SqlDataAdapter da = new SqlDataAdapter(cmd1);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            conn.Close();
-            if (ds.Tables[0].Rows.Count > 0)
-            {
-                InModalGridView.DataSource = ds;
-                InModalGridView.DataBind();
-            }
-            else
-            {
-                ds.Tables[0].Rows.Add(ds.Tables[0].NewRow());
-                InModalGridView.DataSource = ds;
-                InModalGridView.DataBind();
-                int columncount = InModalGridView.Rows[0].Cells.Count;
-                InModalGridView.Rows[0].Cells.Clear();
-                InModalGridView.Rows[0].Cells.Add(new TableCell());
-                InModalGridView.Rows[0].Cells[0].ColumnSpan = columncount;
-                InModalGridView.Rows[0].Cells[0].Text = "No Records Found";
-            }
-            conn.Close();
+            viewModal(sid);
 
             ViewModalButton.Attributes.Add("onclick", "return false;");
 
@@ -331,8 +342,9 @@ namespace Aras
             {
                 int sid = int.Parse(str);
                 Application["salesinvoiceid"] = str;
+                Session["sid"] = str;
                 Label8.Text = Application["salesinvoiceid"].ToString();
-                viewModal(sid);
+                //viewModal(sid);
 
             }
             catch (Exception)
@@ -344,7 +356,7 @@ namespace Aras
             {
                 checkedRow = Application["salesinvoiceid"].ToString();
             }
-
+           
 
         }
         protected void Delete_Click(object sender, EventArgs e)

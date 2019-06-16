@@ -100,7 +100,16 @@
                 <div class="col-6 col-sm-6 col-md-6 col-lg-6 my-1 text-right">
 
                     <asp:Button ID="NewPushesButton" runat="server" CssClass="btn btn-primary btn-sm styleK" OnClick="NewPushesButton_Click" Text="وەسلی نوێ" />
-                    <asp:Button ID="ViewButton" runat="server" CssClass="btn btn-primary btn-sm styleK" data-toggle="modal" data-target="#sizedModalLg" Text="View" OnClick="ViewButton_Click" />
+
+                    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+                        <asp:UpdatePanel ID="up1" runat="server">
+                            <ContentTemplate>
+                                       <asp:Button ID="ViewButton" runat="server" CssClass="btn btn-primary btn-sm styleK" data-toggle="modal" data-target="#sizedModalLg" Text="View" OnClick="ViewButton_Click" />
+                                <br />
+                                <br />
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
+
 
 
 
@@ -115,7 +124,14 @@
                     <Columns>
                         <asp:TemplateField>
                             <ItemTemplate>
+
+
+
                                 <asp:CheckBox ID="CheckBox1" runat="server" AutoPostBack="True" OnCheckedChanged="CheckBox1_CheckedChanged" />
+                                
+                                
+
+
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
