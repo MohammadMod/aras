@@ -147,8 +147,14 @@ $(document).ready(function () {
 
                 <div class="col-6 col-sm-6 col-md-6 col-lg-6 my-1 text-right">
 
-
+                    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+                        <asp:UpdatePanel ID="up1" runat="server">
+                            <ContentTemplate>
                     <asp:Button ID="ViewModalButton" runat="server" Text="View" class="btn btn-primary" data-toggle="modal" data-target="#sizedModalLg" OnClick="ViewModalButton_Click" />
+                                
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
+
   
                     
                     <asp:Button ID="NewInvoiceButton" runat="server" CssClass="btn btn-primary btn-sm styleK" Text="وەسلی نوێ" OnClick="NewInvoiceButton_Click" />
@@ -293,8 +299,13 @@ $(document).ready(function () {
                               کۆی گشتی
                           </div>
                       </div>
+                      <br />
+<%--                      <asp:GridView ID="InModalGridView" runat="server"></asp:GridView>--%>
+                              <asp:Panel ID="Panel1" runat="server">
 
-                      <asp:GridView ID="InModalGridView" runat="server"></asp:GridView>
+                                          </asp:Panel>
+
+
                   </div>
 
               </div>

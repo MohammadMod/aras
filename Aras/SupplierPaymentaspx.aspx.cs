@@ -140,7 +140,7 @@ namespace Aras
 
                 SqlCommand cmddd = new SqlCommand("Update_purchase_invoce_for_pay", con);
                 con.Open();
-                cmddd.Parameters.AddWithValue("purchase_invoce_ID", 1005);
+                cmddd.Parameters.AddWithValue("purchase_invoce_ID", bil_no);
                 cmddd.Parameters.AddWithValue("Supplier", SelectSupplierDropDownList.SelectedItem.Text);
                 cmddd.Parameters.AddWithValue("para", float.Parse(PayToSupplierTextBox.Text));
                 cmddd.CommandType = System.Data.CommandType.StoredProcedure;
@@ -194,7 +194,7 @@ namespace Aras
 
                 cmdd2.Parameters.AddWithValue("@Pyment_enrty_ID", payment_entry_id);
                 cmdd2.Parameters.AddWithValue("@Purchase_invoice_ID", bil_no);
-                cmdd2.Parameters.AddWithValue("@remark", "Note");
+                cmdd2.Parameters.AddWithValue("@remark", DateTime.Now);
                 cmdd2.Parameters.AddWithValue("@advance_amount", float.Parse(PayToSupplierTextBox.Text));
                 cmdd2.Parameters.AddWithValue("@User_name", "user name");
 

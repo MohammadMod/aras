@@ -13,7 +13,6 @@ namespace Aras
     public partial class Show_Payment_Entry_Purchase : System.Web.UI.Page
     {
         SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["con"].ToString());
-        public static int purchaseIid;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -86,50 +85,16 @@ namespace Aras
             }
             dr.Close();
 
-           
-        }
-        protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            string str = string.Empty;
-            string strname = string.Empty;
-            foreach (GridViewRow gvrow in GridView1.Rows)
-            {
-                CheckBox chk = (CheckBox)gvrow.FindControl("CheckBox1");
-                if (chk != null & chk.Checked)
-                {
-                    str = gvrow.Cells[1].Text;
-                }
-            }
-            try
-            {
-                int pid = int.Parse(str);
-                purchaseIid = pid;
-                Application["purchaseinvoiceid"] = str;
-                Label8.Text = Application["purchaseinvoiceid"].ToString();
-                viewModal(pid);
+            conn.Close();
+            GridView InModalGridView = new GridView();
 
-            }
-            catch (Exception)
-            {
+            InModalGridView.AutoGenerateColumns = true;
 
-
-            }
-
-           
-        }
-
-        protected void editButton_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Purchase.aspx");
-        }
-
-        protected void ViewButton_Click(object sender, EventArgs e)
-        {
-            int pid = purchaseIid;
+            int pid = int.Parse(Application["purchaseinvoiceid"].ToString());
 
             SqlCommand cmd1 = new SqlCommand("show_purchase_invoce_twaice", conn);
             conn.Open();
-            cmd1.Parameters.AddWithValue("@Purchase_invoice_ID", purchaseIid);
+            cmd1.Parameters.AddWithValue("@Purchase_invoice_ID", pid);
             cmd1.CommandType = CommandType.StoredProcedure;
             SqlDataAdapter da = new SqlDataAdapter(cmd1);
             DataSet ds = new DataSet();
@@ -152,6 +117,53 @@ namespace Aras
                 InModalGridView.Rows[0].Cells[0].Text = "No Records Found";
             }
             conn.Close();
+
+
+
+            Panel1.Controls.Add(InModalGridView);
+
+        }
+        protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            string str = string.Empty;
+            string strname = string.Empty;
+            foreach (GridViewRow gvrow in GridView1.Rows)
+            {
+                CheckBox chk = (CheckBox)gvrow.FindControl("CheckBox1");
+                if (chk != null & chk.Checked)
+                {
+                    str = gvrow.Cells[1].Text;
+                }
+            }
+            try
+            {
+                int pid = int.Parse(str);
+                Application["purchaseinvoiceid"] = str;
+                Label8.Text = Application["purchaseinvoiceid"].ToString();
+                viewModal(pid);
+
+            }
+            catch (Exception)
+            {
+
+
+            }
+
+           
+        }
+
+        protected void editButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Purchase.aspx");
+        }
+
+        protected void ViewButton_Click(object sender, EventArgs e)
+        {
+            int pid = int.Parse(Application["purchaseinvoiceid"].ToString());
+
+
+            viewModal(pid);
+
 
             ViewButton.Attributes.Add("onclick", "return false;");
 

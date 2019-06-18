@@ -193,6 +193,10 @@ namespace Aras
             dr.Close();
             conn.Close();
 
+            GridView InModalGridView = new GridView();
+
+            InModalGridView.AutoGenerateColumns = true;
+
             int sid = int.Parse(Application["salesinvoiceid"].ToString());
 
 
@@ -207,6 +211,9 @@ namespace Aras
 
             if (ds.Tables[0].Rows.Count > 0)
             {
+                InModalGridView.DataSource = null;
+                InModalGridView.DataBind();
+                
                 InModalGridView.DataSource = ds;
                 InModalGridView.DataBind();
 
@@ -223,6 +230,9 @@ namespace Aras
                 InModalGridView.Rows[0].Cells[0].Text = "No Records Found";
             }
             conn.Close();
+          
+            Panel1.Controls.Add(InModalGridView);
+
 
         }
 
@@ -344,7 +354,7 @@ namespace Aras
                 Application["salesinvoiceid"] = str;
                 Session["sid"] = str;
                 Label8.Text = Application["salesinvoiceid"].ToString();
-                //viewModal(sid);
+                viewModal(sid);
 
             }
             catch (Exception)
